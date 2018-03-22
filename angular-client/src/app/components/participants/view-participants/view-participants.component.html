@@ -14,7 +14,7 @@
 <mat-card *ngFor="let participant of ((profiles| search:'name':query) | orderBy: sortProperty: reverse)">
 <div *ngIf="editingParticipant != participant">
   <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
+    <div mat-card-avatar class="avatar">{{participant.name[0]}}</div>
     <mat-card-title><b>Name: {{participant.name}}</b></mat-card-title>
     <mat-card-subtitle>Username: {{participant.username}}</mat-card-subtitle>
   </mat-card-header>
