@@ -130,7 +130,22 @@ const routes: Routes = [
   },
   {
     path: 'resources',
-    component: ResourcesComponent
+    component: ResourcesComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'view-resources',
+        pathMatch: 'full'
+      },
+      {
+        path: 'add-resource',
+        component: AddResourceComponent
+      },
+      {
+        path: 'view-resources',
+        component: ViewResourcesComponent
+      }
+    ]
   },
   {
     path: 'participant-profile/:_id',

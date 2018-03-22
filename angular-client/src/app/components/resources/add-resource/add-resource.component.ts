@@ -58,6 +58,7 @@ export class AddResourceComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       this.form.reset({});
+      this.router.navigateByUrl('/resources');
     });
   }
 
@@ -72,7 +73,6 @@ export class AddResourceComponent implements OnInit {
           this.alertModal('Could not add new resource.');
         } else {
           this.alertModal('New resource successfully added.');
-          this.router.navigateByUrl('/resources');
         }
       });
   }
