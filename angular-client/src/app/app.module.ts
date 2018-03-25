@@ -118,11 +118,22 @@ const routes: Routes = [
   },
   {
     path: 'participants',
-    component: ParticipantsComponent
-  },
-  {
-    path: 'new-participant',
-    component: AddParticipantComponent
+    component: ParticipantsComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'view-participants',
+        pathMatch: 'full'
+      },
+      {
+        path: 'add-participant',
+        component: AddParticipantComponent
+      },
+      {
+        path: 'view-participants',
+        component: ViewParticipantsComponent
+      }
+    ]
   },
   {
     path: 'login',

@@ -1,8 +1,11 @@
-<mat-tab-group (selectedTabChange)="changeTab()">
-        <mat-tab label="Participants">
-          <app-view-participants [hasTabChanged]="hasTabChanged"></app-view-participants>
-        </mat-tab>
-        <mat-tab label="Add Participant">
-          <app-add-participant></app-add-participant>
-        </mat-tab>
-</mat-tab-group>
+<nav mat-tab-nav-bar>
+  <a mat-tab-link
+      *ngFor="let link of navLinks"
+      [routerLink]="link.path"
+      routerLinkActive #rla="routerLinkActive"
+      [active]="rla.isActive">
+    {{link.label}}
+  </a>
+</nav>
+
+<router-outlet></router-outlet>

@@ -83,7 +83,8 @@ export class AddParticipantComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      this.form.reset({});
+      this.router.navigateByUrl('/participants');
     });
 
   }
