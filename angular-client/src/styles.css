@@ -1,25 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+
 body { 
     font-family: Open, Arial, sans-serif;
-    margin: 0;
-  }
+}
 
 .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
   border-color: rgb(64, 48, 117);
 }
 
 button.mat-raised-button.reverseBtn{
-  width: 8em;
+  width: 8rem;
 }
 
 div.sortNSearchToolbar{
-  margin-top: 2.5em;
+  margin-top: 2.5rem;
 }
 
 mat-form-field.searchBox{
-  padding-left: 0.5em;
+  padding-left: 0.5rem;
 }
 
 .mat-radio-button.mat-accent .mat-radio-inner-circle {
@@ -29,7 +40,3 @@ mat-form-field.searchBox{
 .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
   background-color:rgba(167, 36, 243, 0.219);
 }
-
-/* .mat-button-ripple {
-  background-color:rgba(193, 89, 253, 0.062);
-}  */
