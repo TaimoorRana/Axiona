@@ -5,12 +5,18 @@
 
 .avatar {
   background-color: purple; /* TODO */
-  line-height: 2.5;
+  line-height: 4rem;
+  font-size: 2rem;
   text-align: center;
   color: white;
 }
 
-a{
+.mat-card-avatar {
+  height: 4rem;
+  width: 4rem;
+}
+
+a {
   text-decoration: none;
   color: black;
 }
