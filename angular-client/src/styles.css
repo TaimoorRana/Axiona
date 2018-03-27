@@ -14,7 +14,12 @@ html {
 
 
 body { 
-    font-family: Open, Arial, sans-serif;
+    font-family: 'Open', sans-serif;
+    line-height: 1.7;
+}
+
+p {
+  font-size: 1.6em;
 }
 
 .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
