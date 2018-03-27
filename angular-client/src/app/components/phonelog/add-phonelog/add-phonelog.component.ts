@@ -15,7 +15,6 @@ import { AfterContentInit } from '@angular/core/src/metadata/lifecycle_hooks';
 })
 export class AddPhonelogComponent implements OnInit {
 
-  @Output() loggedPhonecall = new EventEmitter();
   phonelog: FormGroup;
   callertype = [
     'Trans person',
@@ -72,7 +71,7 @@ export class AddPhonelogComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       this.phonelog.reset();
-      this.loggedPhonecall.emit();
+      this.router.navigateByUrl('/dashboard/phonelog');
     });
 
   }

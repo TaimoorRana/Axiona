@@ -85,7 +85,22 @@ const routes: Routes = [
       },
       {
         path: 'phonelog',
-        component: PhonelogComponent
+        component: PhonelogComponent,
+        children: [
+          {
+            path: '',
+            redirectTo: 'view-phonelog',
+            pathMatch: 'full'
+          },
+          {
+            path: 'add-phonelog',
+            component: AddPhonelogComponent
+          },
+          {
+            path: 'view-phonelog',
+            component: ViewPhonelogComponent
+          }
+        ]
       },
       {
         path: 'users',
