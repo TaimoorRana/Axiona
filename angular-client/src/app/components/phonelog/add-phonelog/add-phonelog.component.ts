@@ -7,6 +7,7 @@ import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { Phonelog } from '../../../classes/phonelog';
 import { PhonelogService } from '../../../services/phonelog.service';
 import { AfterContentInit } from '@angular/core/src/metadata/lifecycle_hooks';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-add-phonelog',
@@ -63,16 +64,13 @@ export class AddPhonelogComponent implements OnInit {
    * @param {any} message
    * @memberof AddPhonelogComponent
    */
-  alertModal(message): void {
+  alertModal(message): Observable<any> {
     const dialogRef = this.dialog.open(AlertModalComponent, {
       width: '250px',
       data: { message: message }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      this.phonelog.reset();
-      this.router.navigateByUrl('/dashboard/phonelog');
-    });
+    return dialogRef.afterClosed();
 
   }
 
@@ -88,9 +86,14 @@ export class AddPhonelogComponent implements OnInit {
     this.phonelogService.save(formModel)
       .subscribe(data => {
         if (data.hasOwnProperty('errmsg')) {
-          this.alertModal('Could not add new phonelog entry.');
+          this.alertModal('Could not add new phonelog entry.').subscribe( () => {
+            console.log(data);
+          });
         } else {
-          this.alertModal('Phonelog entry successfully added.');
+          this.alertModal('Phonelog entry successfully added.').subscribe( () => {
+            this.phonelog.reset();
+            this.router.navigateByUrl('/dashboard/phonelog');
+          });
         }
       });
   }
