@@ -13,8 +13,6 @@ Developed by:
 - Anna Rogozin
 - Liuai Hatter
 - Wahab Ahmed
-- Francis Bouchard
-- James Talarico
 
 Domain Model:
 -------------
