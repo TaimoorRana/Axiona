@@ -16,7 +16,7 @@ mat-toolbar-row a.nav-link {
 .main {
     /* flex-grow: 4; */
     flex: 1 80%;
-    margin: 1em;
+    margin: 1rem;
 }
 
 mat-icon {

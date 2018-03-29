@@ -5,7 +5,7 @@
       <p>Participant: {{casefile.participant.name}} - Last update: {{casefile.updatedAt | date: 'short'}}</p>
     </div>
   </div>
-  <div *ngIf="!recentlyUpdatedCasefiles">No recent activity</div>
+  <p *ngIf="!recentlyUpdatedCasefiles">No recent activity</p>
 </mat-card>
 
 <mat-card>
@@ -15,5 +15,5 @@
           <p>Caller: {{phonelog.name}} - Last update: {{phonelog.updatedAt | date: 'short'}}</p>
         </div>
       </div>
-      <div *ngIf="!recentlyUpdatedPhonelog">No recent activity</div>
+      <p *ngIf="!recentlyUpdatedPhonelog">No recent activity</p>
 </mat-card>
