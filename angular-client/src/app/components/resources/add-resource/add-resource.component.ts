@@ -67,7 +67,7 @@ export class AddResourceComponent implements OnInit {
   submit() {
     this.resourceService.save(this.form.value['kind'].toLowerCase(), this.form.value)
       .subscribe(data => {
-        if (data.hasOwnProperty('errmsg')) {
+        if (data.hasOwnProperty('errors')) {
           this.alertModal('Could not add new resource.').subscribe( () => {
             console.log(data);
           });

@@ -96,7 +96,7 @@ export class AddParticipantComponent implements OnInit {
   onSubmit() {
     this.participantService.save(this.form.value)
       .subscribe(data => {
-        if (data.hasOwnProperty('errmsg')) {
+        if (data.hasOwnProperty('errors')) {
           this.alertModal('Could not add new participant.').subscribe( () => {
             console.log(data);
           });
