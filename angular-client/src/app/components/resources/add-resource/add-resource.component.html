@@ -1,6 +1,6 @@
 <div>
 <mat-card>
-  <form class="form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+  <form class="form" [formGroup]="form" #f="ngForm" (ngSubmit)="submit()" novalidate>
     <mat-select placeholder="Resource Type" formControlName="kind">
         <mat-option *ngFor="let type of resourceTypes" [value]="type">{{type}}</mat-option>
     </mat-select>

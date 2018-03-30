@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,ViewChild, OnInit } from '@angular/core';
 import { ResourceService } from '../../../services/resource.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { AlertModalComponent } from '../../modals/alert-modal/alert-modal.component';
@@ -11,8 +11,10 @@ import { Router } from '@angular/router';
   templateUrl: './add-resource.component.html',
   styleUrls: ['./add-resource.component.css']
 })
+
 export class AddResourceComponent implements OnInit {
   
+  @ViewChild('f') myNgForm;
   resourceTypes = [ 'Housing', 'Medical' ];
   form: FormGroup;
   phoneregex = /^(\d){3}(-|\.|\s|\()?(\d){3}(-|\.|\s|\()?(\d){4}$/m;
@@ -44,6 +46,10 @@ export class AddResourceComponent implements OnInit {
     });
   }
 
+  reset(){
+  this.myNgForm.resetForm();
+}
+
   /**
    * Alert user of response success or fail.
    *
@@ -72,6 +78,7 @@ export class AddResourceComponent implements OnInit {
           this.alertModal('Could not add new resource.');
         } else {
           this.alertModal('New resource successfully added.');
+          this.myNgForm.resetForm();
           this.router.navigateByUrl('/resources');
         }
       });
