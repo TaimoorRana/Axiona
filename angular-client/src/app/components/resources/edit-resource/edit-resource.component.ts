@@ -15,6 +15,7 @@ export class EditResourceComponent implements OnInit, OnChanges {
   @Output() cancel = new EventEmitter();
   resourceForm: FormGroup;
   phoneregex = /^(\d){3}(-|\.|\s|\()?(\d){3}(-|\.|\s|\()?(\d){4}$/m;
+  emailregex=/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
   constructor(
     private form: FormBuilder,
@@ -47,7 +48,7 @@ export class EditResourceComponent implements OnInit, OnChanges {
       kind: [''],
       name: ['', Validators.required],
       term: [''],
-      email: [''],
+      email: ['',Validators.pattern(this.emailregex)],
       phone: ['', Validators.pattern(this.phoneregex)],
       location: [''],
       notes: [''],

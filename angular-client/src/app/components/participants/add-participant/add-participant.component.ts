@@ -17,6 +17,7 @@ export class AddParticipantComponent implements OnInit {
   form: FormGroup;
   socialmedia: FormGroup;
   phoneregex = /^(\d){3}(-|\.|\s|\()?(\d){3}(-|\.|\s|\()?(\d){4}$/m;
+  emailregex=/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
   isAlreadyAParticipantEmail = false;
 
@@ -44,7 +45,7 @@ export class AddParticipantComponent implements OnInit {
       telephone: ['', Validators.pattern(this.phoneregex)],
       service: [''],
       username: [''],
-      email: [''],
+      email: ['',Validators.pattern(this.emailregex)],
       address: ['']
     });
   }

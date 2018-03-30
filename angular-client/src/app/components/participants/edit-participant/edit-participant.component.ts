@@ -14,6 +14,7 @@ export class EditParticipantComponent implements OnInit {
   @Output() cancel = new EventEmitter();
   participantForm: FormGroup;
   phoneregex = /^(\+)?(\d){0,2}(-|.|\s|\()?(\d){3}(-|.|\s|\()?(\d){3}(-|.|\s|\()?(\d){4}$/m;
+  emailregex=/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
   constructor(
     private form: FormBuilder,
@@ -33,7 +34,7 @@ export class EditParticipantComponent implements OnInit {
     this.participantForm = this.form.group({
       name: this.participant.name || '',
       pronouns: this.participant.pronouns || '',
-      email: this.participant.email || '',
+      email: [this.participant.email || '',Validators.pattern(this.emailregex)],
       telephone: [this.participant.telephone || '', Validators.pattern(this.phoneregex)],
       address: this.participant.address || '',
       socialMediaPlatform: this.participant.socialmedia.service || '',
