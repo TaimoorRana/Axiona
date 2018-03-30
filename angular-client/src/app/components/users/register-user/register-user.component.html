@@ -3,7 +3,7 @@
     <mat-card-title>
       Register a User
     </mat-card-title>
-    <form id="registrationForm" name="registrationForm" (ngSubmit)="signUp()" *ngIf="!loading">
+    <form id="registrationForm" name="registrationForm" (ngSubmit)="signUp()" *ngIf="!loading" #userForm="ngForm">
       <mat-card-content>
 
         <div class="form-group">
@@ -20,7 +20,7 @@
 
         <div class="form-group">
           <mat-form-field fxFlex="100">
-            <input name="rEmail" matInput type="email" placeholder="Email" class="form-control" id="rEmail" [(ngModel)]="user.email" #rEmail="ngModel" required>
+            <input name="rEmail" matInput type="email" placeholder="Email" class="form-control" id="rEmail" [(ngModel)]="user.email" #rEmail="ngModel" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
           </mat-form-field>
         </div>
 
@@ -48,7 +48,7 @@
           </mat-form-field>
         </div>
 
-        <button mat-raised-button [disabled]="(!user.name || user.password !== user.confirmPassword) || !user.email || !user.password || (user.password.lenght < 4)"
+        <button mat-raised-button [disabled]="(!user.name || user.password !== user.confirmPassword) || !user.email || !user.password || (user.password.lenght < 4 ||!userForm.valid)"
           color="primary" type="submit">Submit</button>
       </mat-card-content>
     </form>
