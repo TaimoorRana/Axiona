@@ -4,13 +4,13 @@
       <mat-card-title>
         Login
       </mat-card-title>
-      <form id="loginForm" name="loginForm" (ngSubmit)="login()" *ngIf="!loading">
+      <form id="loginForm" name="loginForm" (ngSubmit)="login()" *ngIf="!loading" #loginForm="ngForm">
         <mat-card-content>
 
           <div class="form-group">
             <mat-form-field fxFlex="100">
               <label for="email">Email</label>
-              <input name="email" matInput type="email" class="form-control" id="email" [(ngModel)]="user.email" #email="ngModel" required>
+              <input name="email" matInput type="email" class="form-control" id="email" [(ngModel)]="user.email" #email="ngModel" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
             </mat-form-field>
           </div>
 
@@ -22,7 +22,7 @@
             </mat-form-field>
           </div>
 
-          <button mat-raised-button color="primary" [disabled]="!user.email || !user.password" type="submit">Submit</button>
+          <button mat-raised-button color="primary" [disabled]="!loginForm.valid" type="submit">Submit</button>
         </mat-card-content>
       </form>
       <mat-spinner *ngIf="loading"></mat-spinner>
