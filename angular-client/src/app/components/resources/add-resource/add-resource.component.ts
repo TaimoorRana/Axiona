@@ -46,10 +46,6 @@ export class AddResourceComponent implements OnInit {
     });
   }
 
-  reset(){
-  this.myNgForm.resetForm();
-}
-
   /**
    * Alert user of response success or fail.
    *

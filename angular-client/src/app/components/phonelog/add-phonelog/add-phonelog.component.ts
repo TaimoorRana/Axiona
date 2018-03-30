@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
 import { AuthenticationService } from '../../../services/authentication.service';
 import { AlertModalComponent } from '../../modals/alert-modal/alert-modal.component';
@@ -15,6 +15,7 @@ import { AfterContentInit } from '@angular/core/src/metadata/lifecycle_hooks';
 })
 export class AddPhonelogComponent implements OnInit {
 
+  @ViewChild('f') myNgForm;
   @Output() loggedPhonecall = new EventEmitter();
   phonelog: FormGroup;
   callertype = [
@@ -92,6 +93,7 @@ export class AddPhonelogComponent implements OnInit {
           this.alertModal('Could not add new phonelog entry.');
         } else {
           this.alertModal('Phonelog entry successfully added.');
+          this.myNgForm.resetForm();
         }
       });
   }
