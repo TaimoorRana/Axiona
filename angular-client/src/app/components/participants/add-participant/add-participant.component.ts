@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject,ViewChild } from '@angular/core';
 import { ParticipantService } from '../../../services/participant.service';
 import { Participant } from '../../../classes/participant';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
@@ -13,7 +13,7 @@ import { FormGroup, FormControl, Validators, ValidatorFn, FormBuilder, Validatio
   styleUrls: ['./add-participant.component.css']
 })
 export class AddParticipantComponent implements OnInit {
-
+  @ViewChild('f') myNgForm;
   form: FormGroup;
   socialmedia: FormGroup;
   phoneregex = /^(\d){3}(-|\.|\s|\()?(\d){3}(-|\.|\s|\()?(\d){4}$/m;
@@ -101,6 +101,7 @@ export class AddParticipantComponent implements OnInit {
           this.alertModal('Could not add new participant.');
         } else {
           this.alertModal('New participant successfully added.');
+          this.myNgForm.resetForm();
         }
       });
   }
