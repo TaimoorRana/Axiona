@@ -11,6 +11,7 @@ import { AuthenticationService } from '../../services/authentication.service';
 export class ParticipantsComponent implements OnInit {
 
   hasTabChanged = true;
+  currentTab = 0;
 
   constructor(private participantService: ParticipantService, public authService: AuthenticationService, public router: Router) { }
 
@@ -22,6 +23,10 @@ export class ParticipantsComponent implements OnInit {
 
   changeTab() {
     this.hasTabChanged = !this.hasTabChanged;
+  }
+
+  viewParticipantsTab() {
+    this.currentTab = 0;
   }
 
 }

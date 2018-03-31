@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject,ViewChild } from '@angular/core';
+import { Component, OnInit, Inject,ViewChild,Output,EventEmitter } from '@angular/core';
 import { ParticipantService } from '../../../services/participant.service';
 import { Participant } from '../../../classes/participant';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
@@ -14,6 +14,7 @@ import { FormGroup, FormControl, Validators, ValidatorFn, FormBuilder, Validatio
 })
 export class AddParticipantComponent implements OnInit {
   @ViewChild('f') myNgForm;
+  @Output() addedParticipant = new EventEmitter();
   form: FormGroup;
   socialmedia: FormGroup;
   phoneregex = /^(\d){3}(-|\.|\s|\()?(\d){3}(-|\.|\s|\()?(\d){4}$/m;
@@ -85,6 +86,8 @@ export class AddParticipantComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      this.form.reset();
+      this.addedParticipant.emit();
     });
 
   }
