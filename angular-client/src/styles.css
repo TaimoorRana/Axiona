@@ -8,6 +8,16 @@
   padding: 0;
 }
 
+:root {
+  --pending: #fff176;
+  --success: #1de9b6;
+  --warning: #f50057;
+  --primary: #7e57c2;
+  --accent: #ff4081;
+}
+
+
+
 html {
   font-size: 62.5%;
 }
@@ -20,6 +30,22 @@ body {
 
 div, p {
  font-size: 1.6rem; 
+}
+
+.pending-font {
+  color: var(--pending);
+}
+
+.pending {
+  background-color: var(--pending);
+}
+
+.success-font {
+  color: var(--success);
+}
+
+.success {
+  color: var(--success);
 }
 
 .text-field-name {
