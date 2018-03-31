@@ -17,6 +17,10 @@ export class DocumentsComponent implements OnInit {
   ngOnInit() {
   }
 
+  getDocumentURL(documentID): String {
+    // TODO return this.participant._id+"/"+documentID;
+    return '';
+  }
   /**
  * Delete a document of a participant
  *
