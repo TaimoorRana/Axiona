@@ -10,21 +10,26 @@
     <input matInput placeholder="Search" [(ngModel)]="query">
   </mat-form-field>
 </div>
+
 <div *ngFor="let user of ((users | search:'name,role':query) | orderBy: sortProperty: reverse)">
-  <mat-card class="example-card">
-    <mat-card-header>
-      <mat-card-title>
-        <b>Name: {{user.name}}</b>
-      </mat-card-title>
-    </mat-card-header>
+  <mat-card class="user-card">
     <mat-card-content>
-      <div *ngIf="user.email && user.email !== ''"><b> Email: </b> {{user.email}} <br></div>
-      <div *ngIf="user.role && user.role !== ''"><b> Role: </b> {{user.role}}</div>
-      <div *ngIf="user.pronouns && user.pronouns !== ''"><b> Pronouns: </b> {{user.pronouns}}</div>
+      <div class="info">
+        <div class="user-name primary-font">Name: {{user.name}}</div>
+        <div *ngIf="user.email && user.email !== ''">
+          <b>Email: </b> {{user.email}}
+        </div>
+        <div *ngIf="user.role && user.role !== ''">
+          <b>Role: </b> {{user.role}}</div>
+        <div *ngIf="user.pronouns && user.pronouns !== ''">
+          <b>Pronouns: </b> {{user.pronouns}}</div>
+      </div>
+      <div class="actions">
+        <button mat-button matSuffix mat-icon-button (click)="delete(user._id)">
+          <mat-icon matSuffix color="warn">delete</mat-icon>
+        </button>
+      </div>
     </mat-card-content>
-    <mat-card-actions>
-      <button mat-raised-button (click)="delete(user._id)">Delete User</button>
-    </mat-card-actions>
   </mat-card>
   <br>
 </div>
