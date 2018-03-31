@@ -1,8 +1,8 @@
 <h1 mat-dialog-title>Create a Note</h1>
 <mat-dialog-content>
-  <form>
+  <form #noteForm="ngForm">
     <mat-form-field>
-      <textarea matInput placeholder="Your note" name="text" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5"
+      <textarea matInput required placeholder="Your note" name="text" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5"
         [(ngModel)]="note.text"></textarea>
     </mat-form-field>
     <div class="fileupload">
@@ -12,6 +12,6 @@
   </form>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-raised-button color="primary" (click)="submit()">Submit</button>
+  <button [disabled]="!noteForm.valid" mat-raised-button color="primary" (click)="submit()">Submit</button>
   <button mat-raised-button (click)="cancel()">Cancel</button>
 </mat-dialog-actions>
