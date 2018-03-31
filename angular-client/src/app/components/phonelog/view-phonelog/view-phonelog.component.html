@@ -57,9 +57,13 @@
 
             </mat-card-content>
             <mat-card-actions>
+                <button mat-raised-button (click)="resolve(log)">
+                    <mat-icon class="success-font">check_circle</mat-icon>
+                    Resolve
+                </button>
                 <button mat-raised-button (click)="edit(log)">Edit</button>
                 <button mat-raised-button (click)="delete(log)">Delete</button>
-                <button mat-raised-button (click)="resolve(log)">Resolve</button>
+                
 
             </mat-card-actions>
         </div>

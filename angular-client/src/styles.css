@@ -45,7 +45,7 @@ div, p {
 }
 
 .success {
-  color: var(--success);
+  background-color: var(--success);
 }
 
 .warning-font {
