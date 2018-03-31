@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../../services/authentication.service';
 import { Router } from '@angular/router';
 import { User } from '../../../classes/user';
+import { Observable } from 'rxjs/Observable';
+import { MatDialog } from '@angular/material';
+import { AlertModalComponent } from '../../modals/alert-modal/alert-modal.component';
 
 @Component({
   selector: 'app-register-user',
@@ -23,6 +26,7 @@ export class RegisterUserComponent implements OnInit {
   msg = '';
 
   constructor(
+    public dialog: MatDialog,
     private authenticationService: AuthenticationService,
     private router: Router
   ) { }
@@ -37,15 +41,19 @@ export class RegisterUserComponent implements OnInit {
    */
   public signUp() {
     this.loading = true;
-    this.msg = '';
     this.error = false;
     this.authenticationService.signUp(this.user).subscribe(data => {
       this.loading = false;
 
       if (!data.error) {
-        this.msg = data.msg;
+        this.alertModal('New user successfully created.').subscribe(() => {
+          this.router.navigateByUrl('/dashboard/users');
+        });
       } else {
-        this.authenticationService.loggedIn = false;
+        this.alertModal('Could not add new user.').subscribe(() => {
+          console.log(data);
+        });
+
         this.loading = false;
         this.error = true;
         this.msg = '';
@@ -61,6 +69,22 @@ export class RegisterUserComponent implements OnInit {
         }
       }
     });
-
   }
+
+  /**
+   * Alert user of response success or fail.
+   * 
+   * @param {any} message 
+   * @returns {Observable<any>} 
+   * @memberof RegisterUserComponent
+   */
+  alertModal(message): Observable<any> {
+    const dialogRef = this.dialog.open(AlertModalComponent, {
+      width: '250px',
+      data: { message: message }
+    });
+
+    return dialogRef.afterClosed();
+  }
+
 }
