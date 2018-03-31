@@ -9,6 +9,7 @@ mat-card {
 
 .items {
     display: inline-flex;
+    align-items: center;
 }
 
 .items div {
