@@ -28,7 +28,6 @@ export class TrashbinComponent implements OnInit {
       if (result) {
         this.trashService.deletePermanently(itemModel, itemID)
           .subscribe(data => {
-            console.log(data);
             this.loadTrashRecords();
           });
       }
@@ -40,7 +39,6 @@ export class TrashbinComponent implements OnInit {
       if (result) {
         this.trashService.restore(itemModel, itemID)
           .subscribe(data => {
-            console.log(data);
             this.loadTrashRecords();
           });
       }

@@ -1,6 +1,5 @@
 mat-card {
     width: 66%;
-    margin: 1em;
 }
 
 .container {
@@ -18,5 +17,5 @@ mat-card {
 }
 
 .items div p {
-    margin-right: 1em;
+    margin-right: 1rem;
 }
