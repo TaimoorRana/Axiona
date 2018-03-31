@@ -1,8 +1,8 @@
 <h1 mat-dialog-title>Add a Document</h1>
 <mat-dialog-content>
-  <form>
+  <form #documentForm="ngForm">
     <mat-form-field>
-      <textarea matInput placeholder="Document Type" name="text" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5"
+      <textarea required matInput placeholder="Document Type" name="text" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5"
         [(ngModel)]="document.type"></textarea>
     </mat-form-field>
     <div class="fileupload">
@@ -12,6 +12,6 @@
   </form>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-raised-button color="primary" (click)="submit()">Submit</button>
+  <button [disabled]="!documentForm.valid" mat-raised-button color="primary" (click)="submit()">Submit</button>
   <button mat-raised-button (click)="cancel()">Close</button>
 </mat-dialog-actions>
