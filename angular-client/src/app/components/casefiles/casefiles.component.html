@@ -49,10 +49,10 @@
         
         <!-- Resource Headers -->
         <div class="resource headerResources" *ngIf="casefile.contactedResources[0]">
-          <span class="name primary">Name</span>
-          <span class="contacted primary">Contacted</span>
-          <span class="datePicker primary datePicker">Date</span>
-          <span class="caseNotes primary">Comment</span>
+          <span class="name primary-font">Name</span>
+          <span class="contacted primary-font">Contacted</span>
+          <span class="datePicker primary-font datePicker">Date</span>
+          <span class="caseNotes primary-font">Comment</span>
         </div>
 
         <!-- Resource Information -->
@@ -93,10 +93,10 @@
 
         <!-- Resource Headers -->
         <div class="resource headerResources" *ngIf="casefile.contactedResources[0]">
-          <span class="name primary">Name</span>
-          <span class="contacted primary">Contacted</span>
-          <span class="datePicker primary datePicker">Date</span>
-          <span class="caseNotes primary">Comment</span>
+          <span class="name primary-font">Name</span>
+          <span class="contacted primary-font">Contacted</span>
+          <span class="datePicker primary-font datePicker">Date</span>
+          <span class="caseNotes primary-font">Comment</span>
         </div>
 
         <!-- Resource information as form -->
@@ -111,7 +111,7 @@
                 <mat-slide-toggle #contactToggle 
                   [checked]="caseResource.value.dateContacted != null" 
                   formControlName="isContacted" 
-                  color="accent" 
+                  color="primary" 
                   class="contacted"
                   (change)="updateCaseResourceDate(contactToggle._checked, resourceIndex)">
                 </mat-slide-toggle>
@@ -200,7 +200,7 @@
             </div>
 
             <button mat-icon-button  color="primary" type="submit" (click)="saveCaseSelectedResource(casefile)" [disabled]="casefileFormSelectedResource.invalid"><mat-icon matSuffix>save</mat-icon></button>
-            <button mat-icon-button  color="warning" type="button" (click)="removeCaseSelectedResource(casefile)"><mat-icon matSuffix>delete_forever</mat-icon></button>
+            <button mat-icon-button  color="warn" type="button" (click)="removeCaseSelectedResource(casefile)"><mat-icon matSuffix>delete_forever</mat-icon></button>
 
           </form>
         </div>
