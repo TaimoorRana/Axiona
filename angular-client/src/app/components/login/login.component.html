@@ -25,12 +25,16 @@
           <button mat-raised-button color="primary" [disabled]="!user.email || !user.password" type="submit">Submit</button>
         </mat-card-content>
       </form>
-      <mat-spinner *ngIf="loading"></mat-spinner>
-      <div *ngIf="error">
-        <i class="fa fa-exclamation" aria-hidden="true"></i>
-        <mat-icon>error</mat-icon>
+
+      <div class="loginLoading">
+        <mat-spinner *ngIf="loading" color="primary" class="loginSpinner"></mat-spinner>
+      </div>
+
+      <div *ngIf="error" class="loginError">
+        <mat-icon class="warning-font">error</mat-icon>
         <h4>{{msg}}</h4>
       </div>
+
     </mat-card>
   </div>
 </div>

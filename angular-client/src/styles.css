@@ -48,6 +48,30 @@ div, p {
   color: var(--success);
 }
 
+.warning-font {
+  color: var(--warning);
+}
+
+.warning {
+  background-color: var(--warning);
+}
+
+.primary-font {
+  color: var(--primary);
+}
+
+.primary {
+  background-color: var(--primary);
+}
+
+.accent-font {
+  color: var(--accent);
+}
+
+.accent {
+  background-color: var(--accent);
+}
+
 .text-field-name {
   font-size: 1.6rem;
   font-weight: 500;

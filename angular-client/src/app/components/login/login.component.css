@@ -1,3 +1,19 @@
 .loginCard {
     width: 66%;
 }
+
+.loginLoading {
+    text-align: center;
+}
+
+.loginSpinner {
+    display: inline-block;
+}
+
+.loginError {
+    display: flex;
+}
+
+.loginError .mat-icon {
+    margin-right: 1rem;
+}
