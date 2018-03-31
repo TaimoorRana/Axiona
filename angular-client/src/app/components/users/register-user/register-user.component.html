@@ -1,5 +1,5 @@
 <div fxLayout="row wrap" fxLayoutAlign="space-around center" fxFlex="100">
-  <mat-card fxFlex="50">
+  <mat-card fxFlex="80" class="register-card">
     <mat-card-title>
       Register a User
     </mat-card-title>
@@ -7,9 +7,9 @@
       <mat-card-content>
 
         <div class="form-group">
-            <mat-form-field fxFlex="100">
-                <input name="rName"  matInput required placeholder="Name" class="form-control" [(ngModel)]="user.name">
-              </mat-form-field>
+          <mat-form-field fxFlex="100">
+            <input name="rName" matInput required placeholder="Name" class="form-control" [(ngModel)]="user.name">
+          </mat-form-field>
         </div>
 
         <div class="form-group">
@@ -20,21 +20,22 @@
 
         <div class="form-group">
           <mat-form-field fxFlex="100">
-            <input name="rEmail" matInput type="email" placeholder="Email" class="form-control" id="rEmail" [(ngModel)]="user.email" #rEmail="ngModel" required>
+            <input name="rEmail" matInput type="email" placeholder="Email" class="form-control" id="rEmail" [(ngModel)]="user.email"
+              #rEmail="ngModel" required>
           </mat-form-field>
         </div>
 
         <div class="form-group">
           <mat-form-field fxFlex="100">
-            <input matInput name="rPassword" type="password" placeholder="Password" class="form-control" id="rPassword" [(ngModel)]="user.password" #rPassword="ngModel"
-              required pattern="^\w{4,12}">
+            <input matInput name="rPassword" type="password" placeholder="Password" class="form-control" id="rPassword" [(ngModel)]="user.password"
+              #rPassword="ngModel" required pattern="^\w{4,12}">
           </mat-form-field>
         </div>
 
         <div class="form-group" fxLayout="row wrap">
           <mat-form-field fxFlex="100">
-            <input matInput name="rConfirmPassword" type="password" placeholder="Confirm Password" class="form-control" id="rConfirmPassword" [(ngModel)]="user.confirmPassword"
-              #rConfirmPassword="ngModel" required pattern="^\w{4,12}" />
+            <input matInput name="rConfirmPassword" type="password" placeholder="Confirm Password" class="form-control" id="rConfirmPassword"
+              [(ngModel)]="user.confirmPassword" #rConfirmPassword="ngModel" required pattern="^\w{4,12}" />
           </mat-form-field>
           <div fxFlex="100" style="color:red;" *ngIf="user.password !== user.confirmPassword && user.confirmPassword">Passwords do not match</div>
         </div>
@@ -52,14 +53,18 @@
           color="primary" type="submit">Submit</button>
       </mat-card-content>
     </form>
-    <mat-spinner *ngIf="loading"></mat-spinner>
-    <div *ngIf="error">
-      <i class="fa fa-exclamation" aria-hidden="true"></i>
-      <mat-icon>error</mat-icon>
+
+    <div class="loading">
+      <mat-spinner *ngIf="loading" color="primary" class="spinner"></mat-spinner>
+    </div>
+
+    <div *ngIf="error" class="loginError">
+      <mat-icon class="warning-font">error</mat-icon>
       <h4>{{msg}}</h4>
     </div>
     <div *ngIf="!error && msg">
       <h4>{{msg}}</h4>
     </div>
+
   </mat-card>
 </div>

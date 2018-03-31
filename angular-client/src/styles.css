@@ -90,9 +90,6 @@ div, p {
   border-color: rgb(64, 48, 117);
 }
 
-button.mat-raised-button.reverseBtn{
-  width: 8rem;
-}
 
 div.sortNSearchToolbar{
   margin-top: 2.5rem;
