@@ -1,10 +1,10 @@
-<h2>Active Case Files!</h2>
+<h2 class="heading">Active Case Files</h2>
   <mat-accordion *ngIf="activeCases.length > 0">
     <mat-expansion-panel *ngFor="let casefile of (activeCases | orderBy: sortProperty: reverse)">
 
       <!-- Panel Header -->
       <mat-expansion-panel-header>
-        <mat-panel-title>
+        <mat-panel-title class="title">
           {{casefile.participant.name}}
           <div *ngIf="casefile.urgency == 'Urgent'">
             <mat-icon color="warn">assignment_late</mat-icon>
@@ -16,10 +16,11 @@
       </mat-expansion-panel-header>
 
       <!-- Casefile Information -->
-      <p>Priority: {{casefile.urgency}}</p>
-      <p>Created by: {{casefile.createdBy.name}}</p>
-      <p>Last updated by: {{casefile.updatedBy.name}}</p>
-      <button mat-button (click)="viewParticipant(casefile.participant._id)">View Participant</button>
+      <p><b>Priority:</b> {{casefile.urgency}}</p>
+      <p><b>Created by:</b> {{casefile.createdBy.name}}</p>
+      <p><b>Last updated by:</b> {{casefile.updatedBy.name}}</p>
+
+      <button mat-raised-button color="primary" class="viewBtn" (click)="viewParticipant(casefile.participant._id)">View Profile</button>
 
     </mat-expansion-panel>
   </mat-accordion>
