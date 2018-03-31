@@ -1,4 +1,4 @@
-import { Component,ViewChild, OnInit } from '@angular/core';
+import { Component,ViewChild, OnInit,Output,EventEmitter } from '@angular/core';
 import { ResourceService } from '../../../services/resource.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { AlertModalComponent } from '../../modals/alert-modal/alert-modal.component';
@@ -16,6 +16,7 @@ export class AddResourceComponent implements OnInit {
   
   @ViewChild('f') myNgForm;
   resourceTypes = [ 'Housing', 'Medical' ];
+  @Output() addedResource = new EventEmitter();
   form: FormGroup;
   phoneregex = /^(\d){3}(-|\.|\s|\()?(\d){3}(-|\.|\s|\()?(\d){4}$/m;
   emailregex=/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -60,7 +61,8 @@ export class AddResourceComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.form.reset({});
+      this.form.reset();
+      this.addedResource.emit();
     });
   }
 

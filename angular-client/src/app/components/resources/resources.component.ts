@@ -11,6 +11,7 @@ import { AuthenticationService } from '../../services/authentication.service';
 export class ResourcesComponent implements OnInit {
 
   hasTabChanged = true;
+  currentTab = 0;
 
   constructor(private resourceService: ResourceService, public authService: AuthenticationService, public router: Router) { }
 
@@ -22,6 +23,10 @@ export class ResourcesComponent implements OnInit {
 
   changeTab() {
     this.hasTabChanged = !this.hasTabChanged;
+  }
+
+  viewResourcesTab() {
+    this.currentTab = 0;
   }
 
 }
