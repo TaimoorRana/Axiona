@@ -6,53 +6,45 @@
     <mat-card *ngFor="let log of ((logs | search:'urgent':query) | orderBy: sortProperty: reverse)">
         <div *ngIf="editingLog != log">
             <mat-card-content>
-                <div *ngIf="log.name && log.name !== '' ">
-                    <b> Name: </b> {{log.name}}
-                    <br>
+                <div class="caller">
+                    <div *ngIf="log.name && log.name !== '' " class="primary-font caller-name">
+                        {{log.name}}
+                    </div>
+                    <div *ngIf="log.pronouns && log.pronouns !== '' " class="caller-pronouns">
+                        ( {{log.pronouns}} )
+                    </div>
                 </div>
-                <div *ngIf="log.pronouns && log.pronouns !== '' ">
-                    <b> Pronoun: </b> {{log.pronouns}}
-                    <br>
+                <div *ngIf="log.callertype && log.callertype !== '' " class="caller-type">
+                    <div class="label">Type of caller:</div>{{log.callertype}}
                 </div>
-                <div *ngIf="log.callertype && log.callertype !== '' ">
-                    <b> Type of caller: </b> {{log.callertype}}
-                    <br>
+                <div *ngIf="log.phonenumber !== '' " class="caller-phone">
+                    <div class="label">Phone number:</div>{{log.phonenumber}}
                 </div>
-                <div *ngIf="log.phonenumber !== '' ">
-                    <b> Phone number: </b> {{log.phonenumber}}
-                    <br>
+                <div *ngIf="log.date && log.date !== '' " class="caller-date">
+                    <div class="label">Date of the call:</div>{{log.date| date : format : timezone}}
                 </div>
-                <div *ngIf="log.subject && log.subject !== '' ">
-                    <b> Subject: </b> {{log.subject}}
-                    <br>
+                <div class="caller-heading">
+                    <div *ngIf="log.subject && log.subject !== '' " class="caller-subject">
+                        <div class="label">Subject:</div>{{log.subject}}
+                    </div>
+                    <div *ngIf="log.urgent && log.urgent == true " class="urgency warning-font">
+                        Urgent
+                        <mat-icon color="warn">assignment_late</mat-icon>
+                    </div>
                 </div>
-                <div *ngIf="log.urgent && log.urgent == true ">
-                    <b> Urgent: </b>Yes
-                    <br>
+                <div *ngIf="log.message && log.message !== '' " class="message">
+                    <div class="label">Message:</div>
+                    <div class="call-text">{{log.message}}</div>
                 </div>
-                <div *ngIf="log.urgent && log.urgent == false ">
-                    <b> Urgent: </b> No
-                    <br>
+                <div *ngIf="log.notes[0] && log.notes[0] !== '' " class="note">
+                    <div class="label">Note regarding the call:</div>
+                    <div class="call-text">{{log.notes[0]}}</div>
                 </div>
-                <div *ngIf="log.date && log.date !== '' ">
-                    <b> Date of the call: </b> {{log.date| date : format : timezone}}
-                    <br>
+                <div *ngIf="log.language && log.language !== '' " class="caller-language">
+                    <div class="label">Language:</div>{{log.language}}
                 </div>
-                <div *ngIf="log.language && log.language !== '' ">
-                    <b> Language: </b>{{log.language}}
-                    <br>
-                </div>
-                <div *ngIf="log.message && log.message !== '' ">
-                    <b> Message: </b> {{log.message}}
-                    <br>
-                </div>
-                <div *ngIf="log.notes[0] && log.notes[0] !== '' ">
-                    <b> Note regarding the call: </b> {{log.notes[0]}}
-                    <br>
-                </div>
-                <div>
-                    <b> Call logged by: </b> {{log.user.name}}
-                    <br>
+                <div class="logger">
+                    <div class="label">Call logged by:</div> {{log.user.name}}
                 </div>
 
             </mat-card-content>
