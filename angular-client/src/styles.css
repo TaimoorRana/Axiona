@@ -11,21 +11,20 @@
 :root {
   --pending: #fff176;
   --success: #1de9b6;
-  --warning: #f50057;
+  --warning: #ff4081;
+  --accent: #64b5f6;
   --primary: #7e57c2;
-  --accent: #ff4081;
+  --light: #fafafa;
 }
-
-
 
 html {
   font-size: 62.5%;
 }
 
-
 body { 
     font-family: 'Open', sans-serif;
     line-height: 1.7;
+    background-color: var(--light);
 }
 
 div, p {
@@ -62,6 +61,14 @@ div, p {
 
 .primary {
   background-color: var(--primary);
+}
+
+.light-font {
+  color: var(--light);
+}
+
+.light {
+  background-color: var(--light);
 }
 
 .accent-font {

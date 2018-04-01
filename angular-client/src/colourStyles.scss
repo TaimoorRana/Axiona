@@ -3,7 +3,7 @@
 
 $primary: mat-palette($mat-deep-purple, 400, 100, 900);
 $accent: mat-palette($mat-blue, 300);
-$warn:    mat-palette($mat-pink, A200);
+$warn:  mat-palette($mat-pink, A200);
 $theme: mat-light-theme($primary, $accent, $warn);
 
 @include angular-material-theme($theme);
