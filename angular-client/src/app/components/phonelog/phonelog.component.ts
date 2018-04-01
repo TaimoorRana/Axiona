@@ -9,8 +9,16 @@ import { AuthenticationService } from '../../services/authentication.service';
 })
 export class PhonelogComponent implements OnInit {
 
-  isViewActive = true;
-  currentTab = 0;
+  navLinks = [
+    {
+      label: 'View Phone Log',
+      path: './view-phonelog'
+    },
+    {
+      label: 'Log a phone call',
+      path: './add-phonelog'
+    }
+  ];
 
   constructor(
     public authService: AuthenticationService,
@@ -20,14 +28,6 @@ export class PhonelogComponent implements OnInit {
     if (!this.authService.loggedIn) {
     this.router.navigateByUrl('login');
     }
-  }
-
-  changeTab() {
-    this.isViewActive = !this.isViewActive;
-  }
-
-  viewLogsTab() {
-    this.currentTab = 0;
   }
 
 }

@@ -5,6 +5,7 @@ import { AlertModalComponent } from '../../modals/alert-modal/alert-modal.compon
 import { Housing } from '../../../classes/housing';
 import { FormGroup, FormControl, Validators, ValidatorFn, FormBuilder, ValidationErrors } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-add-resource',
@@ -50,15 +51,13 @@ export class AddResourceComponent implements OnInit {
    * @param {any} message
    * @memberof AddResourceComponent
    */
-  alertModal(message): void {
+  alertModal(message): Observable<any> {
     const dialogRef = this.dialog.open(AlertModalComponent, {
       width: '250px',
       data: { message: message }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      this.form.reset({});
-    });
+    return dialogRef.afterClosed();
   }
 
   /**
@@ -68,11 +67,13 @@ export class AddResourceComponent implements OnInit {
   submit() {
     this.resourceService.save(this.form.value['kind'].toLowerCase(), this.form.value)
       .subscribe(data => {
-        if (data.hasOwnProperty('errmsg')) {
-          this.alertModal('Could not add new resource.');
+        if (data.hasOwnProperty('errors')) {
+          this.alertModal('Could not add new resource.').subscribe();
         } else {
-          this.alertModal('New resource successfully added.');
-          this.router.navigateByUrl('/resources');
+          this.alertModal('New resource successfully added.').subscribe( () => {
+            this.form.reset({});
+            this.router.navigateByUrl('/resources');
+          });
         }
       });
   }
