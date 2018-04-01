@@ -31,52 +31,58 @@ div, p {
  font-size: 1.6rem; 
 }
 
+.heading {
+  font-size: 2.4rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
 .pending-font {
-  color: var(--pending);
+  color: var(--pending) !important;
 }
 
 .pending {
-  background-color: var(--pending);
+  background-color: var(--pending) !important;
 }
 
 .success-font {
-  color: var(--success);
+  color: var(--success) !important;
 }
 
 .success {
-  background-color: var(--success);
+  background-color: var(--success) !important;
 }
 
 .warning-font {
-  color: var(--warning);
+  color: var(--warning) !important;
 }
 
 .warning {
-  background-color: var(--warning);
+  background-color: var(--warning) !important;
 }
 
 .primary-font {
-  color: var(--primary);
+  color: var(--primary) !important;
 }
 
 .primary {
-  background-color: var(--primary);
+  background-color: var(--primary) !important;
 }
 
 .light-font {
-  color: var(--light);
+  color: var(--light) !important;
 }
 
 .light {
-  background-color: var(--light);
+  background-color: var(--light) !important;
 }
 
 .accent-font {
-  color: var(--accent);
+  color: var(--accent) !important;
 }
 
 .accent {
-  background-color: var(--accent);
+  background-color: var(--accent) !important;
 }
 
 .white-container {
@@ -108,17 +114,4 @@ div.sortNSearchToolbar{
 
 mat-form-field.searchBox{
   padding-left: 0.5rem;
-}
-
-.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
-  border-color: var(--primary);
-}
-
-
-.mat-radio-button.mat-accent .mat-radio-inner-circle {
-  background-color: rgb(	136, 45, 96);
-}
-
-.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
-  background-color:rgba(167, 36, 243, 0.219);
 }

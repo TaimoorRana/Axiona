@@ -45,10 +45,10 @@
               <p *ngIf="item.documents.date">{{item.documents.date | date}}</p>
             </div>
             <button mat-icon-button color="primary" (click)="restore(item.model, item._id)">
-              <mat-icon matSuffix>unarchive</mat-icon>
+              <mat-icon>unarchive</mat-icon>
             </button>
             <button mat-icon-button color="warn" (click)="delete(item.model, item._id)">
-              <mat-icon matSuffix>delete_forever</mat-icon>
+              <mat-icon>delete_forever</mat-icon>
             </button>
           </div>
         </div>

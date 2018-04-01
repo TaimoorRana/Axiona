@@ -1,0 +1,12 @@
+.active-phonecalls,
+.past-phonecalls {
+    margin: 2rem;
+}
+
+.active-phonecalls mat-card {
+    margin: 2rem 0;
+}
+
+.phonecall-actions {
+    margin: 0;
+}

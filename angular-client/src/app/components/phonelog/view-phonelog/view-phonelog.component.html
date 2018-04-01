@@ -1,5 +1,5 @@
-<mat-card>
-    <mat-card-title>Pending Phone Calls</mat-card-title>
+<div class="active-phonecalls">
+    <h2 class="heading">Pending Phone Calls</h2>
     <div *ngIf="(!logs) || (logs.length === 0)">
         Everything up to date!
     </div>
@@ -56,24 +56,26 @@
                 </div>
 
             </mat-card-content>
-            <mat-card-actions>
-                <button mat-raised-button (click)="resolve(log)">
-                    <mat-icon class="success-font">check_circle</mat-icon>
+            <mat-card-actions class="phonecall-actions">
+                <button mat-raised-button (click)="resolve(log)" color="primary">
+                    <mat-icon>check_circle</mat-icon>
                     Resolve
                 </button>
-                <button mat-raised-button (click)="edit(log)">Edit</button>
-                <button mat-raised-button (click)="delete(log)">Delete</button>
-                
-
+                <button mat-icon-button (click)="edit(log)" color="primary">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button color="warn" (click)="delete(log)">
+                    <mat-icon>delete_forever</mat-icon>
+                </button>
             </mat-card-actions>
         </div>
         <div *ngIf="editingLog == log">
             <app-edit-phonelog [log]="editingLog" (cancel)="cancel()"></app-edit-phonelog>
         </div>
     </mat-card>
-</mat-card>
-<mat-card>
-    <mat-card-title>Completed Phone Calls</mat-card-title>
+</div>
+<div class="past-phonecalls">
+    <h2 class="heading">Completed Phone Calls</h2>
     <div *ngIf="(!history) || (history.length === 0)">
         Nothing to show
     </div>
@@ -140,4 +142,4 @@
             <button mat-raised-button (click)="delete(log)">Delete</button>
         </mat-card-actions>
     </mat-card>
-</mat-card>
+</div>
