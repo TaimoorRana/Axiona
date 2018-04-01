@@ -37,6 +37,12 @@ div, p {
   margin-bottom: 1rem;
 }
 
+.naming {
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--primary);
+}
+
 .pending-font {
   color: var(--pending) !important;
 }
