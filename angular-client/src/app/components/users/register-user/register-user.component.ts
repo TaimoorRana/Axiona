@@ -50,9 +50,7 @@ export class RegisterUserComponent implements OnInit {
           this.router.navigateByUrl('/dashboard/users');
         });
       } else {
-        this.alertModal('Could not add new user.').subscribe(() => {
-          console.log(data);
-        });
+        this.alertModal('Could not add new user.').subscribe();
 
         this.loading = false;
         this.error = true;
