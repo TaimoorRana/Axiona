@@ -58,3 +58,16 @@
     font-weight: 200;
 }
 
+.history-container {
+    display: flex;
+}
+
+.history-content {
+    flex: 1;
+}
+
+.history-action {
+    display: flex;
+    align-items: flex-end;
+}
+
