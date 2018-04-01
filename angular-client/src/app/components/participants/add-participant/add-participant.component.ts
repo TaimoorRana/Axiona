@@ -6,6 +6,7 @@ import { AlertModalComponent } from '../../modals/alert-modal/alert-modal.compon
 import { AuthenticationService } from '../../../services/authentication.service';
 import { RouterModule, Router } from '@angular/router';
 import { FormGroup, FormControl, Validators, ValidatorFn, FormBuilder, ValidationErrors } from '@angular/forms';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-add-participant',
@@ -76,15 +77,13 @@ export class AddParticipantComponent implements OnInit {
    * @param {any} message
    * @memberof AddParticipantComponent
    */
-  alertModal(message): void {
+  alertModal(message): Observable<any> {
     const dialogRef = this.dialog.open(AlertModalComponent, {
       width: '250px',
       data: { message: message }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
+    return dialogRef.afterClosed();
 
   }
 
@@ -97,10 +96,13 @@ export class AddParticipantComponent implements OnInit {
   onSubmit() {
     this.participantService.save(this.form.value)
       .subscribe(data => {
-        if (data.hasOwnProperty('errmsg')) {
-          this.alertModal('Could not add new participant.');
+        if (data.hasOwnProperty('errors')) {
+          this.alertModal('Could not add new participant.').subscribe();
         } else {
-          this.alertModal('New participant successfully added.');
+          this.alertModal('New participant successfully added.').subscribe( () => {
+            this.form.reset({});
+            this.router.navigateByUrl('/participants');
+          });
         }
       });
   }

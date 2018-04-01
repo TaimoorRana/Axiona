@@ -1,10 +1,13 @@
 <div class="white-container">
-  <mat-tab-group (selectedTabChange)="changeTab()" [(selectedIndex)]="currentTab">
-    <mat-tab label="View Phonelog">
-      <app-view-phonelog [reloadPhonelogs]="isViewActive"></app-view-phonelog>
-    </mat-tab>
-    <mat-tab label="Log a phone call">
-      <app-add-phonelog (loggedPhonecall)="viewLogsTab()"></app-add-phonelog>
-    </mat-tab>
-  </mat-tab-group>
+    <nav mat-tab-nav-bar>
+      <a mat-tab-link
+          *ngFor="let link of navLinks"
+          [routerLink]="link.path"
+          routerLinkActive #rla="routerLinkActive"
+          [active]="rla.isActive">
+        {{link.label}}
+      </a>
+    </nav>
+
+  <router-outlet></router-outlet>
 </div>

@@ -48,11 +48,7 @@ export class TrashbinComponent implements OnInit {
   loadTrashRecords(): void {
     this.trashService.getAll()
       .subscribe(data => {
-        if (data[0]) {
-          this.items = data;
-        } else {
-          this.items = null;
-        }
+        this.items = data;
       });
   }
 

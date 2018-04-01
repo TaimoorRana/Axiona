@@ -1,10 +1,13 @@
 <div class="white-container containment">
-  <mat-tab-group (selectedTabChange)="changeTab()">
-    <mat-tab label="Resources">
-      <app-view-resources [hasTabChanged]="hasTabChanged"></app-view-resources>
-    </mat-tab>
-    <mat-tab label="Add Resource">
-      <app-add-resource></app-add-resource>
-    </mat-tab>
-  </mat-tab-group>
+    <nav mat-tab-nav-bar>
+      <a mat-tab-link
+        *ngFor="let link of navLinks"
+        [routerLink]="link.path"
+        routerLinkActive #rla="routerLinkActive"
+        [active]="rla.isActive">
+        {{link.label}}
+      </a>
+    </nav> 
+
+  <router-outlet></router-outlet>
 </div>

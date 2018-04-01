@@ -1,42 +1,63 @@
-<div class="sortNSearchToolbar">
-<mat-form-field>
-  <mat-select placeholder="Sort by" [(value)]="sortProperty">
-    <mat-option value="name">Name</mat-option>
-    <mat-option value="updatedAt">Updated</mat-option>
-  </mat-select>
-</mat-form-field>
-<button mat-raised-button (click)="reverse=!reverse" class="reverseBtn">{{reverse? 'Descending': 'Ascending'}}</button>
-<mat-form-field class="searchBox">
-    <input matInput  placeholder="Search" [(ngModel)]="query">
-</mat-form-field>
-</div>
-
-<mat-card *ngFor="let participant of ((profiles| search:'name':query) | orderBy: sortProperty: reverse)">
-<div *ngIf="editingParticipant != participant">
-  <mat-card-header>
-    <div mat-card-avatar class="avatar primary">{{participant.name[0]}}</div>
-    <mat-card-title><b>Name: {{participant.name}}</b></mat-card-title>
-    <mat-card-subtitle>Username: {{participant.username}}</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-   <div *ngIf="participant.pronouns !== undefined && participant.pronouns !== ''"><b> Pronouns: </b> {{participant.pronouns}} <br></div>
-   <div *ngIf="participant.email !== ''"><b> Email: </b> {{participant.email}} <br></div>
-   <div *ngIf="participant.telephone !== '' "><b> Phone number: </b> {{participant.telephone}} <br></div>
-   <div *ngIf="participant.socialmedia !== undefined"><b> Social media: </b> {{participant.socialmedia.service}}  {{participant.socialmedia.username}}<br></div>
-   <div *ngIf="participant.address !== '' "><b> Address: </b> {{participant.address}}<br></div>
-   <div *ngIf="participant.socialworkers"><b> Social workers assigned: </b> 
-    <span *ngFor="let worker of participant.socialworkers; let isLast=last">
-      {{worker.name}}{{isLast ? '': ', '}}
-    </span><br>
+<div class="tab-content">
+  <div class="sortNSearchToolbar">
+    <mat-form-field>
+      <mat-select placeholder="Sort by" [(value)]="sortProperty">
+        <mat-option value="name">Name</mat-option>
+        <mat-option value="updatedAt">Updated</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-raised-button (click)="reverse=!reverse" class="reverseBtn">{{reverse? 'Descending': 'Ascending'}}</button>
+    <mat-form-field class="searchBox">
+      <input matInput placeholder="Search" [(ngModel)]="query">
+    </mat-form-field>
   </div>
-  </mat-card-content>
-  <mat-card-actions>
-      <button mat-raised-button (click)="view(participant._id)">View</button>
-      <button mat-raised-button (click)="edit(participant._id, participant)">Edit</button>
-  </mat-card-actions>
-</div>
 
-<div *ngIf="editingParticipant == participant">
-    <app-edit-participant [participant]="editingParticipant" (cancel)="cancel()"></app-edit-participant>
+  <mat-card *ngFor="let participant of ((profiles| search:'name':query) | orderBy: sortProperty: reverse)">
+    <div *ngIf="editingParticipant != participant">
+      <mat-card-header>
+        <div mat-card-avatar class="avatar primary">{{participant.name[0]}}</div>
+        <mat-card-title>
+          <b>Name: {{participant.name}}</b>
+        </mat-card-title>
+        <mat-card-subtitle>Username: {{participant.username}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div *ngIf="participant.pronouns !== undefined && participant.pronouns !== ''">
+          <b> Pronouns: </b> {{participant.pronouns}}
+          <br>
+        </div>
+        <div *ngIf="participant.email !== ''">
+          <b> Email: </b> {{participant.email}}
+          <br>
+        </div>
+        <div *ngIf="participant.telephone !== '' ">
+          <b> Phone number: </b> {{participant.telephone}}
+          <br>
+        </div>
+        <div *ngIf="participant.socialmedia !== undefined">
+          <b> Social media: </b> {{participant.socialmedia.service}} {{participant.socialmedia.username}}
+          <br>
+        </div>
+        <div *ngIf="participant.address !== '' ">
+          <b> Address: </b> {{participant.address}}
+          <br>
+        </div>
+        <div *ngIf="participant.socialworkers">
+          <b> Social workers assigned: </b>
+          <span *ngFor="let worker of participant.socialworkers; let isLast=last">
+            {{worker.name}}{{isLast ? '': ', '}}
+          </span>
+          <br>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button (click)="view(participant._id)">View</button>
+        <button mat-raised-button (click)="edit(participant._id, participant)">Edit</button>
+      </mat-card-actions>
+    </div>
+
+    <div *ngIf="editingParticipant == participant">
+      <app-edit-participant [participant]="editingParticipant" (cancel)="cancel()"></app-edit-participant>
+    </div>
+  </mat-card>
 </div>
-</mat-card>

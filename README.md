@@ -1,8 +1,8 @@
-![https://travis-ci.org/adriannadiaz/SocialWorker](https://travis-ci.org/adriannadiaz/SocialWorker.svg?branch=master) 
+![https://travis-ci.org/adriannadiaz/Axiona](https://travis-ci.org/adriannadiaz/Axiona.svg?branch=master) 
 
 
 
-SocialWorker
+Axiona
 ============
 
 A free, open-source application for keeping notes, tracking casefiles and logging phonecalls for frontline social workers.
