@@ -13,9 +13,9 @@
       </mat-panel-description>
     </mat-expansion-panel-header>
     <h4>Note:</h4>
-    {{note.text}}
+    <img src={{getImageURL(note.attachment)}}>
     <h4>Attachments:</h4>
-    <p>{{note.attachment}}</p>
+    <p><a href={{getImageURL(note.attachment)}} target="_blank">{{note.attachment}}</a></p>
     <button id="deleteNoteBtn" mat-raised-button (click)="deleteNote(note._id)">Delete Note</button>
   </mat-expansion-panel>
 </mat-accordion>

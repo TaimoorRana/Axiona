@@ -55,8 +55,6 @@ import { TaskService } from './services/task.service';
 import { OrderByPipe } from './pipes/orderBy.pipe';
 import { SearchPipe } from './pipes/search.pipe';
 
-import { PdfViewerModule } from 'ng2-pdf-viewer';
-
 const routes: Routes = [
   {
     path: '',
@@ -186,7 +184,6 @@ const routes: Routes = [
     MaterialsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
-    PdfViewerModule
   ],
   entryComponents: [
     AlertModalComponent,

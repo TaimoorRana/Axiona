@@ -17,6 +17,10 @@ export class NotesComponent implements OnInit {
   ngOnInit() {
   }
 
+  getImageURL(image_file_name): String {
+    return 'http://localhost:3000/' + this.participant._id + '/' + image_file_name;
+  }
+
 /**
  * Deletes selected note
  *
