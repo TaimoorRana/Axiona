@@ -73,6 +73,10 @@ app.use(function(req, res, next) {
   next();
 });
 
+//Allow documents folder to be accessible 
+//Usage http://localhost:3000/userIDhash/full_filename_with.extension
+app.use(express.static('documents'));
+
 //all urls with /api must be authenticated
 app.use('/api', passportConfig.isAuthenticated);
 

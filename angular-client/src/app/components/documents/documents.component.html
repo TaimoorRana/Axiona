@@ -17,7 +17,8 @@
       <!-- <mat-grid-tile> -->
       <!-- <img [src]="doc"> -->
       <h5>Hola</h5>
-      <pdf-viewer src="https://patentimages.storage.googleapis.com/b8/ca/ea/a46e214ae80252/US6276176.pdf"></pdf-viewer>
+      <p>{{doc}}</p>
+      <pdf-viewer [src]=getDocumentURL(doc)></pdf-viewer>
       <!-- </mat-grid-tile> -->
     </mat-grid-list>
     <br>
