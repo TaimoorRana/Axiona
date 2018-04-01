@@ -1,8 +1,10 @@
-<mat-tab-group (selectedTabChange)="changeTab()">
-        <mat-tab label="Participants">
-          <app-view-participants [hasTabChanged]="hasTabChanged"></app-view-participants>
-        </mat-tab>
-        <mat-tab label="Add Participant">
-          <app-add-participant></app-add-participant>
-        </mat-tab>
-</mat-tab-group>
+<div class="white-container containment">
+  <mat-tab-group (selectedTabChange)="changeTab()">
+    <mat-tab label="Participants">
+      <app-view-participants [hasTabChanged]="hasTabChanged"></app-view-participants>
+    </mat-tab>
+    <mat-tab label="Add Participant">
+      <app-add-participant></app-add-participant>
+    </mat-tab>
+  </mat-tab-group>
+</div>
