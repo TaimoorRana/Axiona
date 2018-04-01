@@ -1,1 +1,5 @@
-@import '../participants/participant-profile/participant-profile.component.css'
+@import '../participants/participant-profile/participant-profile.component.css';
+
+pdf-viewer {
+    width: 400px;
+}

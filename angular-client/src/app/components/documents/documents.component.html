@@ -14,12 +14,13 @@
     </mat-expansion-panel-header>
     <h4>Attachments:</h4>
     <mat-grid-list cols="2" *ngFor="let doc of document.attachment">
-      <!-- <mat-grid-tile> -->
-      <!-- <img [src]="doc"> -->
-      <h5>Hola</h5>
-      <p>{{doc}}</p>
-      <pdf-viewer [src]=getDocumentURL(doc)></pdf-viewer>
-      <!-- </mat-grid-tile> -->
+      <a href={{getDocumentURL(doc)}} target="_blank">{{doc}}</a>
+        <pdf-viewer [src]=getDocumentURL(doc)
+                  [show-all]="false"
+                  [autoresize]="true"
+                  [external-link-target]="'blank'"
+                  [fit-to-page]="false">
+        </pdf-viewer>
     </mat-grid-list>
     <br>
     <button mat-raised-button (click)="deleteDocument(document._id)">Delete Document</button>
