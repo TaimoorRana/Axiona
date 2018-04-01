@@ -13,7 +13,7 @@ export class EditParticipantComponent implements OnInit {
   @Input() participant: Participant;
   @Output() cancel = new EventEmitter();
   participantForm: FormGroup;
-  phoneregex = /^(\+)?(\d){0,2}(-|.|\s|\()?(\d){3}(-|.|\s|\()?(\d){3}(-|.|\s|\()?(\d){4}$/m;
+  phoneregex = /^\(?\d{3}\)?[- ]?\d{3}[- ]?\d{4}$/ 
   emailregex=/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
   constructor(

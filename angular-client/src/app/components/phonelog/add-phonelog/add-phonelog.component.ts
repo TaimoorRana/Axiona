@@ -24,7 +24,7 @@ export class AddPhonelogComponent implements OnInit {
     'Social worker',
     'Other person',
   ];
-  phoneregex = /^(\+)?(\d){0,2}(-|.|\s|\()?(\d){3}(-|.|\s|\()?(\d){3}(-|.|\s|\()?(\d){4}$/m;
+  phoneregex = /^\(?\d{3}\)?[- ]?\d{3}[- ]?\d{4}$/ 
 
   constructor(
     private phonelogService: PhonelogService,
