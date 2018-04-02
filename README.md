@@ -1,11 +1,18 @@
-![https://travis-ci.org/adriannadiaz/SocialWorker](https://travis-ci.org/adriannadiaz/SocialWorker.svg?branch=master) 
+![https://travis-ci.org/adriannadiaz/Axiona](https://travis-ci.org/adriannadiaz/Axiona.svg?branch=master) 
 
 
 
-SocialWorker
+Axiona
 ============
 
-A free, open-source application for keeping notes, tracking casefiles and logging phonecalls for frontline social workers.
+A free, open-source application to strengthen the workflow process of social workers in our local community.
+
+Capabilities:
+-------------
+- Handle casefiles
+- Log phonecalls
+- Manage participants' records
+
 
 Developed by:
 -------------
@@ -13,8 +20,6 @@ Developed by:
 - Anna Rogozin
 - Liuai Hatter
 - Wahab Ahmed
-- Francis Bouchard
-- James Talarico
 
 Domain Model:
 -------------

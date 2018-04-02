@@ -55,7 +55,6 @@ import { TaskService } from './services/task.service';
 import { OrderByPipe } from './pipes/orderBy.pipe';
 import { SearchPipe } from './pipes/search.pipe';
 
-
 const routes: Routes = [
   {
     path: '',
@@ -85,7 +84,22 @@ const routes: Routes = [
       },
       {
         path: 'phonelog',
-        component: PhonelogComponent
+        component: PhonelogComponent,
+        children: [
+          {
+            path: '',
+            redirectTo: 'view-phonelog',
+            pathMatch: 'full'
+          },
+          {
+            path: 'add-phonelog',
+            component: AddPhonelogComponent
+          },
+          {
+            path: 'view-phonelog',
+            component: ViewPhonelogComponent
+          }
+        ]
       },
       {
         path: 'users',
@@ -118,11 +132,22 @@ const routes: Routes = [
   },
   {
     path: 'participants',
-    component: ParticipantsComponent
-  },
-  {
-    path: 'new-participant',
-    component: AddParticipantComponent
+    component: ParticipantsComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'view-participants',
+        pathMatch: 'full'
+      },
+      {
+        path: 'add-participant',
+        component: AddParticipantComponent
+      },
+      {
+        path: 'view-participants',
+        component: ViewParticipantsComponent
+      }
+    ]
   },
   {
     path: 'login',
@@ -130,7 +155,22 @@ const routes: Routes = [
   },
   {
     path: 'resources',
-    component: ResourcesComponent
+    component: ResourcesComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'view-resources',
+        pathMatch: 'full'
+      },
+      {
+        path: 'add-resource',
+        component: AddResourceComponent
+      },
+      {
+        path: 'view-resources',
+        component: ViewResourcesComponent
+      }
+    ]
   },
   {
     path: 'participant-profile/:_id',
@@ -184,7 +224,7 @@ const routes: Routes = [
     FormsModule,
     MaterialsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
   ],
   entryComponents: [
     AlertModalComponent,

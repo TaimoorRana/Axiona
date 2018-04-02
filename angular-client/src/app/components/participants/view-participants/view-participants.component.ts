@@ -11,7 +11,6 @@ import { Participant } from '../../../classes/participant';
 })
 
 export class ViewParticipantsComponent implements OnInit {
-  @Input() hasTabChanged: boolean;
   editingParticipant: Participant;
 
   public profiles;

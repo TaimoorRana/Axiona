@@ -2,16 +2,17 @@
 <mat-dialog-content>
   <form #documentForm="ngForm">
     <mat-form-field>
-      <textarea required matInput placeholder="Document Type" name="text" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5"
+      <textarea matInput placeholder="Document description" name="text" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5"
         [(ngModel)]="document.type"></textarea>
     </mat-form-field>
     <div class="fileupload">
       <h4>Upload Document</h4>
-      <input type="file" #upload (change)="handleFileInput(upload.files)">
+      <input type="file" #upload (change)="handleFileInput(upload.files)" accept="application/pdf" [disabled]="isLoading">
+      <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
     </div>
   </form>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button [disabled]="!documentForm.valid" mat-raised-button color="primary" (click)="submit()">Submit</button>
+  <button mat-raised-button color="primary" (click)="submit()" [disabled]="!file || isLoading">Submit</button>
   <button mat-raised-button (click)="cancel()">Close</button>
 </mat-dialog-actions>

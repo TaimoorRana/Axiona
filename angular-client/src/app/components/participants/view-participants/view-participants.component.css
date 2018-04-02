@@ -17,3 +17,7 @@ a{
 mat-card {
   margin-left: 1em;
 }
+
+.tab-content {
+  margin: 1.5em;
+}

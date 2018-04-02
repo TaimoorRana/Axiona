@@ -1,10 +1,11 @@
-import { Component,ViewChild, OnInit,Output,EventEmitter } from '@angular/core';
+import { Component, ViewChild, OnInit, Output, EventEmitter } from '@angular/core';
 import { ResourceService } from '../../../services/resource.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { AlertModalComponent } from '../../modals/alert-modal/alert-modal.component';
 import { Housing } from '../../../classes/housing';
 import { FormGroup, FormControl, Validators, ValidatorFn, FormBuilder, ValidationErrors } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-add-resource',
@@ -13,13 +14,13 @@ import { Router } from '@angular/router';
 })
 
 export class AddResourceComponent implements OnInit {
-  
+
   @ViewChild('f') myNgForm;
   resourceTypes = [ 'Housing', 'Medical' ];
   @Output() addedResource = new EventEmitter();
   form: FormGroup;
   phoneregex = /^(?:\+?1[-. ]?)?(\(([0-9]{3})\)|([0-9]{3}))[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-  emailregex=/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  emailregex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
 
   constructor(private fb: FormBuilder, private resourceService: ResourceService, public dialog: MatDialog, private router: Router
@@ -35,7 +36,7 @@ export class AddResourceComponent implements OnInit {
     this.form = this.fb.group({
       kind: this.resourceTypes[0],
       name: ['', Validators.required],
-      email: ['',Validators.pattern(this.emailregex)],
+      email: ['', Validators.pattern(this.emailregex)],
       telephone: ['', Validators.pattern(this.phoneregex)],
       location: [''],
       notes: [''],
@@ -54,16 +55,13 @@ export class AddResourceComponent implements OnInit {
    * @param {any} message
    * @memberof AddResourceComponent
    */
-  alertModal(message): void {
+  alertModal(message): Observable<any> {
     const dialogRef = this.dialog.open(AlertModalComponent, {
       width: '250px',
       data: { message: message }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      this.form.reset();
-      this.addedResource.emit();
-    });
+    return dialogRef.afterClosed();
   }
 
   /**
@@ -73,12 +71,13 @@ export class AddResourceComponent implements OnInit {
   submit() {
     this.resourceService.save(this.form.value['kind'].toLowerCase(), this.form.value)
       .subscribe(data => {
-        if (data.hasOwnProperty('errmsg')) {
-          this.alertModal('Could not add new resource.');
+        if (data.hasOwnProperty('errors')) {
+          this.alertModal('Could not add new resource.').subscribe();
         } else {
-          this.alertModal('New resource successfully added.');
-          this.myNgForm.resetForm();
-          this.router.navigateByUrl('/resources');
+          this.alertModal('New resource successfully added.').subscribe( () => {
+            this.myNgForm.resetForm();
+            this.router.navigateByUrl('/resources');
+          });
         }
       });
   }

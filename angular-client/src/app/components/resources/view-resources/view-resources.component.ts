@@ -11,7 +11,6 @@ import { Medical } from '../../../classes/medical';
 })
 export class ViewResourcesComponent implements OnInit {
 
-  @Input() hasTabChanged: boolean;
   resources: Object;
   editingResource = Resource;
   public sortProperty = 'name';
@@ -62,20 +61,6 @@ export class ViewResourcesComponent implements OnInit {
   cancel() {
     this.edit('', null);
     this.loadAllResources();
-  }
-
-  /**
-   * Reload resources after navigating between tabs
-   *
-   * @returns {boolean}
-   * @memberof ViewResourcesComponent
-   */
-  checkResources(): boolean {
-    if (this.hasTabChanged) {
-      this.loadAllResources();
-      this.hasTabChanged = !this.hasTabChanged;
-    }
-    return true;
   }
 
 }

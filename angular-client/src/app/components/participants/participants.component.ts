@@ -10,8 +10,16 @@ import { AuthenticationService } from '../../services/authentication.service';
 })
 export class ParticipantsComponent implements OnInit {
 
-  hasTabChanged = true;
-  currentTab = 0;
+  navLinks = [
+    {
+      label: 'Participants',
+      path: './view-participants'
+    },
+    {
+      label: 'Add Participant',
+      path: './add-participant'
+    }
+  ];
 
   constructor(private participantService: ParticipantService, public authService: AuthenticationService, public router: Router) { }
 
@@ -19,14 +27,6 @@ export class ParticipantsComponent implements OnInit {
     if (!this.authService.loggedIn) {
       this.router.navigateByUrl('login');
     }
-  }
-
-  changeTab() {
-    this.hasTabChanged = !this.hasTabChanged;
-  }
-
-  viewParticipantsTab() {
-    this.currentTab = 0;
   }
 
 }
