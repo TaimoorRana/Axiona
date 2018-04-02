@@ -2,6 +2,10 @@
    font-size: 2rem;
 }
 
+.nav-home {
+    margin-right: 1rem;
+}
+
 .mat-toolbar a.nav-link {
     color: white;
     text-decoration: none;

@@ -3,17 +3,27 @@
     <a class="nav-link" routerLink="dashboard">
       <button mat-button class="nav-logo">Axiona</button>
     </a>
+    <a class="nav-link" routerLink="dashboard">
+      <button mat-button>
+        <mat-icon class="nav-home">home</mat-icon>
+        Dashboard
+      </button>
+    </a>
     <a class="nav-link" routerLink="participants">
-      <button mat-button>Participants</button>
+      <button mat-button>
+        Participants
+      </button>
     </a>
     <a class="nav-link" routerLink="resources">
       <button mat-button>Resources</button>
     </a>
-    <a class="nav-link" (click)="addPhonelog()">
-      <button mat-button>Phone Log</button>
-    </a>
   </span>
   <span class="example-fill-remaining-space"></span>
+  <span>
+    <button mat-icon-button (click)="addPhonelog()">
+      <mat-icon>phone</mat-icon>
+    </button>
+  </span>
   <span *ngIf="this.authenticationService.loggedIn">
     <button mat-button (click)="logout()">Logout</button>
   </span>
