@@ -31,6 +31,20 @@ export class AddPhonelogComponent implements OnInit {
     'they/them',
     'he/him'
   ];
+  subjects = [
+    'Housing',
+    'Medical',
+    'Legal',
+    'Accompaniment',
+    'Financial',
+    'Name Change',
+    'Food Security',
+    'Job Finding',
+    'Immigration',
+    'Victims of Violence',
+    'Sexual Health',
+    'Information '
+  ];
   phoneregex = /^(?:\+?1[-. ]?)?(\(([0-9]{3})\)|([0-9]{3}))[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
 
   constructor(
@@ -60,7 +74,7 @@ export class AddPhonelogComponent implements OnInit {
       user: '',
       urgent: false,
       phonenumber: ['', Validators.pattern(this.phoneregex)],
-      subject: '',
+      subject: this.subjects[0],
       message: '',
       notes: '',
       callertype: this.callertype[0],
