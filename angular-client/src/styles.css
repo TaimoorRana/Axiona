@@ -24,7 +24,6 @@ html {
 body { 
     font-family: 'Open', sans-serif;
     line-height: 1.7;
-    background-color: var(--light);
 }
 
 div, p {
