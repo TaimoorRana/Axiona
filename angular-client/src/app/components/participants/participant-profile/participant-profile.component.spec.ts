@@ -68,7 +68,7 @@ describe('ParticipantProfileComponent', () => {
 
   it('should refresh notes displayed when one gets deleted', fakeAsync(() => {
     const compiled = fixture.debugElement.nativeElement;
-    const deleteButton = compiled.querySelector('#deleteNoteBtn');
+    const deleteButton = compiled.querySelector('button.deleteNoteBtn');
     deleteButton.click();
     tick();
     fixture.detectChanges();
