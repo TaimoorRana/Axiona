@@ -25,6 +25,12 @@ export class AddPhonelogComponent implements OnInit {
     'Social worker',
     'Other person',
   ];
+  pronouns = [
+    'undisclosed',
+    'she/her',
+    'they/them',
+    'he/him'
+  ];
   phoneregex = /^(?:\+?1[-. ]?)?(\(([0-9]{3})\)|([0-9]{3}))[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
 
   constructor(
@@ -50,8 +56,8 @@ export class AddPhonelogComponent implements OnInit {
   createForm() {
     this.phonelog = this.form.group({
       name: ['', Validators.required],
-      pronouns: '',
-      user: '', // TODO: ask anna how to get user info (id and name) at this moment
+      pronouns: this.pronouns[0],
+      user: '',
       urgent: false,
       phonenumber: ['', Validators.pattern(this.phoneregex)],
       subject: '',

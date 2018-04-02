@@ -8,8 +8,15 @@
       <input matInput placeholder="Name of caller" name="name" formControlName="name">
     </mat-form-field>
 
-    <mat-form-field class="pronouns">
+    <!-- <mat-form-field class="pronouns">
       <input matInput placeholder="Pronouns" name="pronouns" formControlName="pronouns">
+    </mat-form-field> -->
+    <mat-form-field class="pronouns">
+      <mat-select placeholder="Pronoun" name="pronouns" formControlName="pronouns">
+        <mat-option *ngFor="let pronoun of pronouns" [value]="pronoun">
+          {{pronoun}}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
   </div>
 
