@@ -51,12 +51,6 @@ export class ViewParticipantsComponent implements OnInit {
     }
   }
 
-  ngOnChanges() {
-    if (this.hasTabChanged) {
-      this.loadParticipants();
-    }
-  }
-
   /**
    * Load one participant by ID
    *

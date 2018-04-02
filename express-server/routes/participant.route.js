@@ -173,17 +173,85 @@ router.delete('/:pid/worker/:workerId', (req, res) => {
  * Add a document to participant
  */
 router.post('/:pid/doc', (req, res) => {
+
     let document = new Document({
         type: req.query.type,
         date: req.query.date,
         attachment: req.query.attachment
     });
-    fs.exists(path.join(__dirname, "../documents", req.params.pid, document.id), exists => {
-        if (!exists) {
-            fs.mkdir(path.join(__dirname, "../documents", req.params.pid, document.id), err => {
+
+    // Check if documents/participantUUID exists
+    fs.exists(path.join(__dirname, "../documents", req.params.pid), pDirExists => {
+        if (!pDirExists) {
+            // Make directory documents/participantUUID
+            fs.mkdir(path.join(__dirname, "../documents", req.params.pid), err => {
                 if (err) {
-                    res.status(500).send(err)
+                    res.status(500).send(err);
                 } else {
+                    // Make directory documents/participantUUID/documentUUID
+                    fs.mkdir(path.join(__dirname, "../documents", req.params.pid, document.id), err => {
+                        if (err) {
+                            res.status(500).send(err);
+                        } else {
+                            // Store file
+                            req.files.attachment.mv(path.join(__dirname, "../documents", req.params.pid, document.id, req.query.attachment), err => {
+                                if (err) {
+                                    res.status(500).send(err);
+                                } else {
+                                    Participant.findById(req.params.pid).then(participant => {
+                                        if (!participant.documents) {
+                                            participant.documents = [];
+                                        }
+                                        participant.documents.push(document);
+
+                                        participant.save().then(data => {
+                                            res.send(data);
+                                        }, err => {
+                                            res.send(err);
+                                        })
+                                    }, err => {
+                                        res.send(err);
+                                    })
+                                }
+                            })
+                        }
+                    });
+                }
+            });
+        } else {
+            // Check if documents/participantUUID/documentUUID exists
+            fs.exists(path.join(__dirname, "../documents", req.params.pid, document.id), dDirExists => {
+                if (!dDirExists) {
+                    // Make directory documents/participantUUID/documentUUID
+                    fs.mkdir(path.join(__dirname, "../documents", req.params.pid, document.id), err => {
+                        if (err) {
+                            res.status(500).send(err);
+                        } else {
+                            // Store file
+                            req.files.attachment.mv(path.join(__dirname, "../documents", req.params.pid, document.id, req.query.attachment), err => {
+                                if (err) {
+                                    res.status(500).send(err);
+                                } else {
+                                    Participant.findById(req.params.pid).then(participant => {
+                                        if (!participant.documents) {
+                                            participant.documents = [];
+                                        }
+                                        participant.documents.push(document);
+
+                                        participant.save().then(data => {
+                                            res.send(data);
+                                        }, err => {
+                                            res.send(err);
+                                        })
+                                    }, err => {
+                                        res.send(err);
+                                    })
+                                }
+                            })
+                        }
+                    });
+                } else {
+                    // Store file
                     req.files.attachment.mv(path.join(__dirname, "../documents", req.params.pid, document.id, req.query.attachment), err => {
                         if (err) {
                             res.status(500).send(err);
@@ -206,29 +274,10 @@ router.post('/:pid/doc', (req, res) => {
                     })
                 }
             })
-        } else {
-            req.files.attachment.mv(path.join(__dirname, "../documents", req.params.pid, document.id, req.query.attachment), err => {
-                if (err) {
-                    res.status(500).send(err);
-                } else {
-                    Participant.findById(req.params.pid).then(participant => {
-                        if (!participant.documents) {
-                            participant.documents = [];
-                        }
-                        participant.documents.push(document);
 
-                        participant.save().then(data => {
-                            res.send(data);
-                        }, err => {
-                            res.send(err);
-                        })
-                    }, err => {
-                        res.send(err);
-                    })
-                }
-            })
         }
-    })
+    });
+
 });
 
 /**
@@ -252,60 +301,124 @@ router.post('/:pid/note', (req, res) => {
     let note = new Note({
         text: req.query.text,
         date: req.query.date,
-        attachment: req.files.attachment.name
+        attachment: (req.files) ? req.files.attachment.name : null
     });
 
-    fs.exists(path.join(__dirname, "../notes", req.params.pid, note.id), exists => {
-        if (!exists) {
-            fs.mkdir(path.join(__dirname, "../notes", req.params.pid, note.id), err => {
-                if (err) {
-                    res.status(500).send(err)
-                } else {
-                    req.files.attachment.mv(path.join(__dirname, "../notes", req.params.pid, note.id, req.query.attachment), err => {
-                        if (err) {
-                            res.status(500).send(err);
-                        } else {
-                            Participant.findById(req.params.pid).then(participant => {
-                                if (!participant.notes) {
-                                    participant.notes = [];
-                                }
-                                participant.notes.push(note);
+    if (req.files) {
+        // Check if notes/participantUUID exists
+        fs.exists(path.join(__dirname, "../notes", req.params.pid), pDirExists => {
+            if (!pDirExists) {
+                // Make directory notes/participantUUID
+                fs.mkdir(path.join(__dirname, "../notes", req.params.pid), err => {
+                    if (err) {
+                        res.status(500).send(err);
+                    } else {
+                        // Make directory notes/participantUUID/documentUUID
+                        fs.mkdir(path.join(__dirname, "../notes", req.params.pid, note.id), err => {
+                            if (err) {
+                                res.status(500).send(err);
+                            } else {
+                                // Store file
+                                req.files.attachment.mv(path.join(__dirname, "../notes", req.params.pid, note.id, req.query.attachment), err => {
+                                    if (err) {
+                                        res.status(500).send(err);
+                                    } else {
+                                        Participant.findById(req.params.pid).then(participant => {
+                                            if (!participant.notes) {
+                                                participant.notes = [];
+                                            }
+                                            participant.notes.push(note);
 
-                                participant.save().then(data => {
-                                    res.send(data);
+                                            participant.save().then(data => {
+                                                res.send(data);
+                                            }, err => {
+                                                res.send(err);
+                                            })
+                                        }, err => {
+                                            res.send(err);
+                                        })
+                                    }
+                                })
+                            }
+                        });
+                    }
+                });
+            } else {
+                // Check if notes/participantUUID/documentUUID exists
+                fs.exists(path.join(__dirname, "../notes", req.params.pid, note.id), dDirExists => {
+                    if (!dDirExists) {
+                        // Make directory notes/participantUUID/documentUUID
+                        fs.mkdir(path.join(__dirname, "../notes", req.params.pid, note.id), err => {
+                            if (err) {
+                                res.status(500).send(err);
+                            } else {
+                                // Store file
+                                req.files.attachment.mv(path.join(__dirname, "../notes", req.params.pid, note.id, req.query.attachment), err => {
+                                    if (err) {
+                                        res.status(500).send(err);
+                                    } else {
+                                        Participant.findById(req.params.pid).then(participant => {
+                                            if (!participant.notes) {
+                                                participant.notes = [];
+                                            }
+                                            participant.notes.push(note);
+
+                                            participant.save().then(data => {
+                                                res.send(data);
+                                            }, err => {
+                                                res.send(err);
+                                            })
+                                        }, err => {
+                                            res.send(err);
+                                        })
+                                    }
+                                })
+                            }
+                        });
+                    } else {
+                        // Store file
+                        req.files.attachment.mv(path.join(__dirname, "../notes", req.params.pid, note.id, req.query.attachment), err => {
+                            if (err) {
+                                res.status(500).send(err);
+                            } else {
+                                Participant.findById(req.params.pid).then(participant => {
+                                    if (!participant.notes) {
+                                        participant.notes = [];
+                                    }
+                                    participant.notes.push(note);
+
+                                    participant.save().then(data => {
+                                        res.send(data);
+                                    }, err => {
+                                        res.send(err);
+                                    })
                                 }, err => {
                                     res.send(err);
                                 })
-                            }, err => {
-                                res.send(err);
-                            })
-                        }
-                    })
-                }
-            })
-        } else {
-            req.files.attachment.mv(path.join(__dirname, "../notes", req.params.pid, note.id, req.query.attachment), err => {
-                if (err) {
-                    res.status(500).send(err);
-                } else {
-                    Participant.findById(req.params.pid).then(participant => {
-                        if (!participant.notes) {
-                            participant.notes = [];
-                        }
-                        participant.notes.push(note);
-
-                        participant.save().then(data => {
-                            res.send(data);
-                        }, err => {
-                            res.send(err);
+                            }
                         })
-                    }, err => {
-                        res.send(err);
-                    })
-                }
+                    }
+                })
+
+            }
+        });
+    } else {
+        Participant.findById(req.params.pid).then(participant => {
+            if (!participant.notes) {
+                participant.notes = [];
+            }
+            participant.notes.push(note);
+
+            participant.save().then(data => {
+                res.send(data);
+            }, err => {
+                res.send(err);
             })
-        }
-    })
+        }, err => {
+            res.send(err);
+        })
+    }
+
 });
 
 /**
