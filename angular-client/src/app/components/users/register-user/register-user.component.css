@@ -1,0 +1,19 @@
+.register-card {
+    margin: 2rem;
+}
+
+.loading {
+    text-align: center;
+}
+
+.spinner {
+    display: inline-block;
+}
+
+.loginError {
+    display: flex;
+}
+
+.loginError .mat-icon {
+    margin-right: 1rem;
+}

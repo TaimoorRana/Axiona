@@ -1,21 +1,21 @@
 button{
-    margin-top: 18px;
-}
-
-form {
-    width: 60%;
+    margin-top: 3rem;
 }
 
 mat-form-field {
-    margin-right: 1em;
+    margin-right: 1rem;
 }
 
-.notes {
+.phonecall-card {
+    margin: 2rem;
+}
+
+.message {
     width: 100%;
 }
 
 .pronouns {
-    width: 100px;
+    width: 10rem;
 }
 
 

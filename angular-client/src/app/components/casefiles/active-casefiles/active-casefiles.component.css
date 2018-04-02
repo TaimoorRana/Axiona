@@ -1,4 +1,12 @@
 mat-icon {
-    font-size: 1.2em;
-    margin-left: 5px;
+    font-size: 2rem;
+    margin-left: 0.5rem;
+}
+
+.title {
+    width: 10%;
+}
+
+.viewBtn {
+    margin: 1rem;
 }

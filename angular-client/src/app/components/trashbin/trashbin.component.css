@@ -1,8 +1,3 @@
-mat-card {
-    width: 66%;
-    margin: 1em;
-}
-
 .container {
     display: flex;
     flex-direction: column;
@@ -10,6 +5,7 @@ mat-card {
 
 .items {
     display: inline-flex;
+    align-items: center;
 }
 
 .items div {
@@ -18,5 +14,5 @@ mat-card {
 }
 
 .items div p {
-    margin-right: 1em;
+    margin-right: 1rem;
 }

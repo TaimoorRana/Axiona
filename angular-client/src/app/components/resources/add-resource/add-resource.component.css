@@ -1,8 +1,27 @@
 mat-form-field {
-    width: 60%;
+    display: block;
 }
 
 mat-select {
-    width: 20%;
+    width: 15rem;
+}
+
+.container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.resource-card {
+    margin: 2rem;
+    width: 66%;
+}
+
+.resource-type {
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+.label {
+    margin-right: 2rem;
 }

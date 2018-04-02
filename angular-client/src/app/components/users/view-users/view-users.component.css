@@ -1,4 +1,16 @@
-.example-card {
-    margin: 1em;
-    width: 400px;
-  }
+.user-card {
+    margin: 1rem;
+    width: 40rem;
+}
+
+.user-card mat-card-content {
+  display: flex;
+}
+
+.user-name {
+  text-transform: capitalize;
+}
+
+.info {
+  flex: 1;
+}

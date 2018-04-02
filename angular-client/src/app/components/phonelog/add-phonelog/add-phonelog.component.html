@@ -1,4 +1,7 @@
-<mat-card>
+<mat-card class="phonecall-card">
+  <mat-card-title>
+    Phone Call
+  </mat-card-title>
   <form [formGroup]="phonelog">
 
     <div class="caller-name">
@@ -29,16 +32,16 @@
       </mat-form-field>
 
       <mat-slide-toggle name="urgent" formControlName="urgent" [checked]="urgent">
-          Urgent
+        Urgent
       </mat-slide-toggle>
     </div>
 
-    <mat-form-field class="notes">
-      <textarea matInput placeholder="Message" matTextareaAutosize matAutosizeMinRows="5" name="notes" formControlName="notes"></textarea>
-      <mat-hint align="start"><strong>Their message, when to call, extension number...</strong></mat-hint>
+    <mat-form-field class="message">
+      <textarea matInput placeholder="Message" matTextareaAutosize matAutosizeMinRows="5" name="message" formControlName="message"></textarea>
+      <mat-hint align="start">Their message, when to call, extension number...</mat-hint>
     </mat-form-field>
 
-    <button mat-raised-button type="submit" [disabled]="phonelog.invalid" (click)="submit()">Log this call</button>
+    <button mat-raised-button type="submit" color="primary" [disabled]="phonelog.invalid" (click)="submit()">Log this call</button>
   </form>
 
 </mat-card>

@@ -44,10 +44,7 @@ export class TasksComponent implements OnInit {
   }
 
   deleteTask(taskID: String) {
-    this.taskService.delete(taskID)
-      .subscribe(data => {
-        console.log(data);
-      });
+    this.taskService.delete(taskID).subscribe();
   }
 
 }

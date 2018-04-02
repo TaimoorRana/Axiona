@@ -1,5 +1,18 @@
 @import '../participants/participant-profile/participant-profile.component.css';
 
+.container {
+    margin: 2rem 0;
+}
+
+.info {
+    display: flex;
+    margin: 1rem 0;
+}
+
+.label {
+    margin-right: 1rem;
+}
+
 /* Casefile description and notes */
 .caseNotes {
     width: 36%;
@@ -82,7 +95,7 @@ mat-slide-toggle {
 
 mat-icon {
     align-self: center;
-    font-size: 1.25em;
+    font-size: 2rem;
 }
 
 

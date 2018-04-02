@@ -1,9 +1,19 @@
-.mat-card {
-    max-width: 450px;
+.loginCard {
     width: 66%;
-    margin: 1em;
 }
 
-a {
-    color: blueviolet;
+.loginLoading {
+    text-align: center;
+}
+
+.loginSpinner {
+    display: inline-block;
+}
+
+.loginError {
+    display: flex;
+}
+
+.loginError .mat-icon {
+    margin-right: 1rem;
 }

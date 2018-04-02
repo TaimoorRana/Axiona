@@ -53,6 +53,7 @@ export class AddPhonelogComponent implements OnInit {
       urgent: false,
       phonenumber: ['', Validators.pattern(this.phoneregex)],
       subject: '',
+      message: '',
       notes: '',
       callertype: this.callertype[0],
     });
