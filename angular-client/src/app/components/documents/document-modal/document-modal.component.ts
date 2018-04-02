@@ -40,11 +40,13 @@ export class DocumentModalComponent implements OnInit {
    * @memberof DocumentComponent
    */
   submit() {
+    if (this.file) {
     this.participantService.saveDocument(this.file, this.document, this.participant.id)
       .subscribe(data => {
         this.dialogRef.close();
       });
     console.log(this.document);
+    }
   }
 
   /**
