@@ -14,8 +14,8 @@
         </mat-panel-description>
       </mat-expansion-panel-header>
       <h4>Attachments:</h4>
-      <mat-grid-list cols="2" *ngFor="let doc of document.attachment">
-        <img [src]="doc">
+      <mat-grid-list cols="1" *ngFor="let doc of document.attachment">
+        <a href={{getDocumentURL(document._id,doc)}} target="_blank">{{doc}}</a>
       </mat-grid-list>
       <br>
       <button mat-icon-button (click)="deleteDocument(document._id)">

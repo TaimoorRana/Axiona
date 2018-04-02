@@ -18,6 +18,7 @@ export class NoteModalComponent implements OnInit {
     attachment: null
   };
   file: FormData;
+  isLoading = false;
 
   constructor(
     private participantService: ParticipantService,
@@ -38,9 +39,11 @@ export class NoteModalComponent implements OnInit {
    * @memberof NoteComponent
    */
   submit(): void {
+    this.isLoading = true;
     this.participantService.saveNote(this.file, this.note, this.participant.id)
       .subscribe(data => {
         this.dialogRef.close();
+        this.isLoading = false;
       });
   }
 

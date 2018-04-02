@@ -55,7 +55,6 @@ import { TaskService } from './services/task.service';
 import { OrderByPipe } from './pipes/orderBy.pipe';
 import { SearchPipe } from './pipes/search.pipe';
 
-
 const routes: Routes = [
   {
     path: '',
@@ -225,7 +224,7 @@ const routes: Routes = [
     FormsModule,
     MaterialsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
   ],
   entryComponents: [
     AlertModalComponent,

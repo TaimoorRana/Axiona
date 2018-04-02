@@ -3,9 +3,14 @@ img {
 }
 
 .fileupload {
-    margin-bottom: 1em;
+    margin-bottom: 2rem;
 }
 
-.fileupload input {
+.fileupload-input {
     font-size: 2rem;
 }
+
+mat-progress-bar {
+    margin: 2rem 0;
+}
+

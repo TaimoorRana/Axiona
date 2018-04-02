@@ -17,6 +17,9 @@ export class DocumentsComponent implements OnInit {
   ngOnInit() {
   }
 
+  getDocumentURL(document_id, document_file_name): String {
+    return 'http://localhost:3000/' + this.participant._id + '/' + document_id + '/' + document_file_name;
+  }
   /**
  * Delete a document of a participant
  *
