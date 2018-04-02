@@ -19,7 +19,7 @@ export class PhonelogModalComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  isComplete(){
+  isComplete() {
     this.close();
   }
 
