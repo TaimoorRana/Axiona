@@ -1,6 +1,6 @@
 <mat-card>
         <mat-card-title>Trash Bin</mat-card-title>
-        <p *ngIf="!items || items.length < 1">Nothing in the trash bin!</p>
+        <p *ngIf="!items || items.length < 1">Nothing in the trash bin</p>
         <div class="container">
           <div class="items" *ngFor="let item of (items | orderBy: 'updatedAt')" [ngSwitch]="item.model">
             <div *ngSwitchCase="'Participant'">
@@ -12,7 +12,6 @@
                 <p><b>{{item.model}}:</b></p>
                 <p>{{item.name}}</p>
                 <p>{{item.email}}</p>
-                <p *ngIf="item.role">{{item.role}}</p>
               </div>
             <div *ngSwitchCase="'Resource'">
               <p><b>{{item.model}}:</b></p>
@@ -22,8 +21,7 @@
             <div *ngSwitchCase="'Casefile'">
               <p><b>{{item.model}}:</b></p>
               <p>{{item.type}}</p>
-              <p *ngIf="item.status">{{item.status}}</p>
-              <p *ngIf="item.participant">{{item.participant}}</p>
+              <!-- <p *ngIf="item.participant.name">{{item.participant}}</p> TODO: populate name -->
               <p *ngIf="item.date">{{item.date | date}}</p>
             </div>
             <div *ngSwitchCase="'Phonelog'">
@@ -36,23 +34,21 @@
             </div>
             <div *ngSwitchCase="'Note'">
               <p><b>{{item.model}}:</b></p>
-              <p>{{item.participant}}</p>
-              <p *ngIf="item.notes.date">{{item.notes.date | date}}</p>
-              <p *ngIf="item.notes.attachment">{{item.notes.attachment}}</p>
+              <!-- <p>{{item.participant.name}}</p> TODO: populate name-->
               <p *ngIf="item.notes.text">{{item.notes.text | slice:0:20}}</p>
+              <p *ngIf="item.notes.date">{{item.notes.date | date}}</p>
             </div>
             <div *ngSwitchCase="'Document'">
               <p><b>{{item.model}}:</b></p>
-              <p>{{item.participant}}</p>
+              <!-- <p>{{item.participant.name}}</p> TODO: populate name -->
               <p *ngIf="item.documents.type">{{item.documents.type}}</p>
               <p *ngIf="item.documents.date">{{item.documents.date | date}}</p>
-              <p *ngIf="item.documents.attachment">{{item.documents.attachment}}</p>
             </div>
             <button mat-icon-button color="primary" (click)="restore(item.model, item._id)">
-              <mat-icon matSuffix>unarchive</mat-icon>
+              <mat-icon>unarchive</mat-icon>
             </button>
-            <button mat-icon-button color="primary" (click)="delete(item.model, item._id)">
-              <mat-icon matSuffix>delete_forever</mat-icon>
+            <button mat-icon-button color="warn" (click)="delete(item.model, item._id)">
+              <mat-icon>delete_forever</mat-icon>
             </button>
           </div>
         </div>

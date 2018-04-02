@@ -14,3 +14,11 @@
 .social-media {
     margin-bottom: 1em;
 }
+
+.actions {
+    display: flex;
+}
+
+.buttons {
+    flex: 1;
+}

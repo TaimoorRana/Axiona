@@ -1,0 +1,72 @@
+.active-phonecalls,
+.past-phonecalls {
+    margin: 2rem;
+}
+
+.active-phonecalls mat-card {
+    margin: 2rem 0;
+}
+
+.phonecall-actions {
+    margin: 0;
+}
+
+.caller,
+.caller-type,
+.caller-phone,
+.caller-date,
+.caller-heading,
+.caller-subject,
+.urgency,
+.logger {
+    display: flex;
+}
+
+.label {
+    font-weight: 600;
+    margin-right: 1rem;
+}
+
+.caller {
+    align-items: center;
+}
+
+.caller-name {
+    text-transform: capitalize;
+}
+
+.caller-pronouns {
+    font-weight: 100;
+    margin-left: 1rem;
+}
+
+.urgency {
+    margin-left: 1rem;
+}
+
+.urgency mat-icon {
+    font-size: 1.6rem;
+}
+
+.call-text {
+    padding: 1rem;
+}
+
+.logger .label,
+.logger {
+    font-weight: 200;
+}
+
+.history-container {
+    display: flex;
+}
+
+.history-content {
+    flex: 1;
+}
+
+.history-action {
+    display: flex;
+    align-items: flex-end;
+}
+

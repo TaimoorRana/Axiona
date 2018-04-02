@@ -3,4 +3,26 @@ mat-form-field {
     display: block;
 }
 
+.caller-name {
+    display: flex;
+}
+
+.caller-name mat-form-field {
+    margin-right: 2rem;
+}
+
+.pronouns {
+    width: 10rem;
+}
+
+.message-header {
+    display: flex;
+    align-items: baseline;
+}
+
+.message {
+    width: 100%;
+    margin-bottom: 3rem;
+}
+
 

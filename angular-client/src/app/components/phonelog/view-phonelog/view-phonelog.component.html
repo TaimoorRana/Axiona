@@ -1,139 +1,163 @@
-<mat-card>
-    <mat-card-title>Pending Phone Calls</mat-card-title>
+<div class="active-phonecalls">
+
+    <!-- Active phone calls -->
+    <h2 class="heading">Pending Phone Calls</h2>
     <div *ngIf="(!logs) || (logs.length === 0)">
         Everything up to date!
     </div>
     <mat-card *ngFor="let log of ((logs | search:'urgent':query) | orderBy: sortProperty: reverse)">
         <div *ngIf="editingLog != log">
             <mat-card-content>
-                <div *ngIf="log.name && log.name !== '' ">
-                    <b> Name: </b> {{log.name}}
-                    <br>
+                <div class="caller">
+                    <div *ngIf="log.name && log.name !== '' " class="naming caller-name">
+                        {{log.name}}
+                    </div>
+                    <div *ngIf="log.pronouns && log.pronouns !== '' " class="caller-pronouns">
+                        ( {{log.pronouns}} )
+                    </div>
                 </div>
-                <div *ngIf="log.pronouns && log.pronouns !== '' ">
-                    <b> Pronoun: </b> {{log.pronouns}}
-                    <br>
+                <div *ngIf="log.callertype && log.callertype !== '' " class="caller-type">
+                    <div class="label">Type of caller:</div>{{log.callertype}}
                 </div>
-                <div *ngIf="log.callertype && log.callertype !== '' ">
-                    <b> Type of caller: </b> {{log.callertype}}
-                    <br>
+                <div *ngIf="log.phonenumber !== '' " class="caller-phone">
+                    <div class="label">Phone number:</div>{{log.phonenumber}}
                 </div>
-                <div *ngIf="log.phonenumber !== '' ">
-                    <b> Phone number: </b> {{log.phonenumber}}
-                    <br>
+                <div *ngIf="log.date && log.date !== '' " class="caller-date">
+                    <div class="label">Date of the call:</div>{{log.date| date : format : timezone}}
                 </div>
-                <div *ngIf="log.subject && log.subject !== '' ">
-                    <b> Subject: </b> {{log.subject}}
-                    <br>
+                <div class="caller-heading">
+                    <div *ngIf="log.subject && log.subject !== '' " class="caller-subject">
+                        <div class="label">Subject:</div>{{log.subject}}
+                    </div>
+                    <div *ngIf="log.urgent && log.urgent == true " class="urgency warning-font">
+                        Urgent
+                        <mat-icon color="warn">assignment_late</mat-icon>
+                    </div>
                 </div>
-                <div *ngIf="log.urgent && log.urgent == true ">
-                    <b> Urgent: </b>Yes
-                    <br>
+                <div *ngIf="log.message && log.message !== '' " class="message">
+                    <div class="label">Message:</div>
+                    <div class="call-text">{{log.message}}</div>
                 </div>
-                <div *ngIf="log.urgent && log.urgent == false ">
-                    <b> Urgent: </b> No
-                    <br>
+                <div *ngIf="log.notes[0] && log.notes[0] !== '' " class="note">
+                    <div class="label">Note regarding the call:</div>
+                    <div class="call-text">{{log.notes[0]}}</div>
                 </div>
-                <div *ngIf="log.date && log.date !== '' ">
-                    <b> Date of the call: </b> {{log.date| date : format : timezone}}
-                    <br>
+                <div *ngIf="log.language && log.language !== '' " class="caller-language">
+                    <div class="label">Language:</div>{{log.language}}
                 </div>
-                <div *ngIf="log.language && log.language !== '' ">
-                    <b> Language: </b>{{log.language}}
-                    <br>
-                </div>
-                <div *ngIf="log.message && log.message !== '' ">
-                    <b> Message: </b> {{log.message}}
-                    <br>
-                </div>
-                <div *ngIf="log.notes[0] && log.notes[0] !== '' ">
-                    <b> Note regarding the call: </b> {{log.notes[0]}}
-                    <br>
-                </div>
-                <div>
-                    <b> Call logged by: </b> {{log.user.name}}
-                    <br>
+                <div class="logger">
+                    <div class="label">Call logged by:</div> {{log.user.name}}
                 </div>
 
             </mat-card-content>
-            <mat-card-actions>
-                <button mat-raised-button (click)="edit(log)">Edit</button>
-                <button mat-raised-button (click)="delete(log)">Delete</button>
-                <button mat-raised-button (click)="resolve(log)">Resolve</button>
-
+            <mat-card-actions class="phonecall-actions">
+                <button mat-raised-button (click)="resolve(log)" color="primary">
+                    <mat-icon>check_circle</mat-icon>
+                    Resolve
+                </button>
+                <button mat-icon-button (click)="edit(log)" color="primary">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button color="warn" (click)="delete(log)">
+                    <mat-icon>delete_forever</mat-icon>
+                </button>
             </mat-card-actions>
         </div>
         <div *ngIf="editingLog == log">
             <app-edit-phonelog [log]="editingLog" (cancel)="cancel()"></app-edit-phonelog>
         </div>
     </mat-card>
-</mat-card>
-<mat-card>
-    <mat-card-title>Completed Phone Calls</mat-card-title>
+</div>
+
+<!-- History -->
+<div class="past-phonecalls">
+    <h2 class="heading">Completed Phone Calls</h2>
     <div *ngIf="(!history) || (history.length === 0)">
         Nothing to show
     </div>
-    <mat-card *ngFor="let log of ((history | search:'urgent':query) | orderBy: sortProperty: reverse)">
-        <mat-card-content>
-            <div *ngIf="log.name && log.name !== ''">
-                <b> Name: </b> {{log.name}}
-                <br>
+
+    <mat-accordion *ngIf="history && history.length > 0">
+        <mat-expansion-panel *ngFor="let log of ((history | search:'urgent':query) | orderBy: sortProperty: reverse)">
+
+            <!-- Panel Header -->
+            <mat-expansion-panel-header>
+                <mat-panel-title class="title">
+                    {{log.name}}
+                </mat-panel-title>
+                <mat-panel-description>
+                    Date of call: {{log.date| date : format : timezone}}
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+
+
+            <div class="history-container">
+                <div class="history-content">
+                    <div *ngIf="log.name && log.name !== ''">
+                        <b> Name: </b> {{log.name}}
+                        <br>
+                    </div>
+                    <div *ngIf="log.pronouns && log.pronouns !== '' ">
+                        <b> Pronoun: </b> {{log.pronouns}}
+                        <br>
+                    </div>
+                    <div *ngIf="log.callertype && log.callertype !== '' ">
+                        <b> Type of caller: </b> {{log.callertype}}
+                        <br>
+                    </div>
+                    <div *ngIf="log.phonenumber && log.phonenumber !== '' ">
+                        <b> Phone number: </b> {{log.phonenumber}}
+                        <br>
+                    </div>
+                    <div *ngIf="log.subject && log.subject !== '' ">
+                        <b> Subject: </b> {{log.subject}}
+                        <br>
+                    </div>
+                    <div *ngIf="log.urgent && log.urgent == true ">
+                        <b> Urgent: </b>Yes
+                        <br>
+                    </div>
+                    <div *ngIf="log.urgent && log.urgent == false ">
+                        <b> Urgent: </b> No
+                        <br>
+                    </div>
+                    <div *ngIf="log.date && log.date !== '' ">
+                        <b> Date of the call: </b> {{log.date| date : format : timezone}}
+                        <br>
+                    </div>
+                    <div *ngIf="log.language && log.language !== '' ">
+                        <b> Language: </b>{{log.language}}
+                        <br>
+                    </div>
+                    <div *ngIf="log.message && log.message !== '' ">
+                        <b> Message: </b> {{log.message}}
+                        <br>
+                    </div>
+                    <div *ngIf="log.notes[0] && log.notes[0] !=='' ">
+                        <b> Note regarding the call: </b> {{log.notes[0]}}
+                        <br>
+                    </div>
+                    <div>
+                        <b> Call logged by: </b> {{log.user.name}}
+                        <br>
+                    </div>
+                    <div>
+                        <b> Called back by: </b> {{log.resolvedBy.name}}
+                        <br>
+                    </div>
+                    <div>
+                        <b> Date called back: </b> {{log.dateResolved | date : format : timezone}}
+                        <br>
+                    </div>
+                </div>
+
+                <div class="history-action">
+                    <button mat-icon-button (click)="delete(log)">
+                            <mat-icon color="warn">delete</mat-icon>    
+                    </button>
+                </div>
             </div>
-            <div *ngIf="log.pronouns && log.pronouns !== '' ">
-                <b> Pronoun: </b> {{log.pronouns}}
-                <br>
-            </div>
-            <div *ngIf="log.callertype && log.callertype !== '' ">
-                <b> Type of caller: </b> {{log.callertype}}
-                <br>
-            </div>
-            <div *ngIf="log.phonenumber && log.phonenumber !== '' ">
-                <b> Phone number: </b> {{log.phonenumber}}
-                <br>
-            </div>
-            <div *ngIf="log.subject && log.subject !== '' ">
-                <b> Subject: </b> {{log.subject}}
-                <br>
-            </div>
-            <div *ngIf="log.urgent && log.urgent == true ">
-                <b> Urgent: </b>Yes
-                <br>
-            </div>
-            <div *ngIf="log.urgent && log.urgent == false ">
-                <b> Urgent: </b> No
-                <br>
-            </div>
-            <div *ngIf="log.date && log.date !== '' ">
-                <b> Date of the call: </b> {{log.date| date : format : timezone}}
-                <br>
-            </div>
-            <div *ngIf="log.language && log.language !== '' ">
-                <b> Language: </b>{{log.language}}
-                <br>
-            </div>
-            <div *ngIf="log.message && log.message !== '' ">
-                <b> Message: </b> {{log.message}}
-                <br>
-            </div>
-            <div *ngIf="log.notes[0] && log.notes[0] !=='' ">
-                <b> Note regarding the call: </b> {{log.notes[0]}}
-                <br>
-            </div>
-            <div>
-                <b> Call logged by: </b> {{log.user.name}}
-                <br>
-            </div>
-            <div>
-                <b> Called back by: </b> {{log.resolvedBy.name}}
-                <br>
-            </div>
-            <div>
-                <b> Date called back: </b> {{log.dateResolved | date : format : timezone}}
-                <br>
-            </div>
-        </mat-card-content>
-        <mat-card-actions>
-            <button mat-raised-button (click)="delete(log)">Delete</button>
-        </mat-card-actions>
-    </mat-card>
-</mat-card>
+
+        </mat-expansion-panel>
+
+    </mat-accordion>
+</div>

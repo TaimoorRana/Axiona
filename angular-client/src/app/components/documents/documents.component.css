@@ -1,5 +1,5 @@
 @import '../participants/participant-profile/participant-profile.component.css';
 
-pdf-viewer {
-    width: 400px;
+.container {
+    margin: 2rem 0;
 }

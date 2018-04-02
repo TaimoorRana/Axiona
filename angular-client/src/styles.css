@@ -1,35 +1,122 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-body { 
-    font-family: Open, Arial, sans-serif;
-    margin: 0;
-  }
-
-.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
-  border-color: rgb(64, 48, 117);
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
 }
 
-button.mat-raised-button.reverseBtn{
-  width: 8em;
+:root {
+  --pending: #fff176;
+  --success: #1de9b6;
+  --warning: #ff4081;
+  --accent: #64b5f6;
+  --primary: #7e57c2;
+  --light: #f3e5f5;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body { 
+    font-family: 'Open', sans-serif;
+    line-height: 1.7;
+}
+
+div, p {
+ font-size: 1.6rem; 
+}
+
+.heading {
+  font-size: 2.4rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.naming {
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--primary);
+}
+
+.pending-font {
+  color: var(--pending) !important;
+}
+
+.pending {
+  background-color: var(--pending) !important;
+}
+
+.success-font {
+  color: var(--success) !important;
+}
+
+.success {
+  background-color: var(--success) !important;
+}
+
+.warning-font {
+  color: var(--warning) !important;
+}
+
+.warning {
+  background-color: var(--warning) !important;
+}
+
+.primary-font {
+  color: var(--primary) !important;
+}
+
+.primary {
+  background-color: var(--primary) !important;
+}
+
+.light-font {
+  color: var(--light) !important;
+}
+
+.light {
+  background-color: var(--light) !important;
+}
+
+.accent-font {
+  color: var(--accent) !important;
+}
+
+.accent {
+  background-color: var(--accent) !important;
+}
+
+.white-container {
+  background-color: white;
+  padding: 2rem;
+}
+
+.containment {
+  margin: 2rem;
+}
+
+.text-field-name {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.text-field-value {
+  font-size: 1.6rem;
+  font-weight: 200;
+}
+
+.text-content {
+  font-size: 1.6rem;
 }
 
 div.sortNSearchToolbar{
-  margin-top: 2.5em;
+  margin-top: 2.5rem;
 }
 
 mat-form-field.searchBox{
-  padding-left: 0.5em;
+  padding-left: 0.5rem;
 }
-
-.mat-radio-button.mat-accent .mat-radio-inner-circle {
-  background-color: rgb(	136, 45, 96);
-}
-
-.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
-  background-color:rgba(167, 36, 243, 0.219);
-}
-
-/* .mat-button-ripple {
-  background-color:rgba(193, 89, 253, 0.062);
-}  */

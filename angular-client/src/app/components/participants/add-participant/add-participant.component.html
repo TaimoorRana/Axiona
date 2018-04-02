@@ -1,10 +1,11 @@
+<div class="container">
 <mat-card>
   <form [formGroup]="form"  #f="ngForm" (ngSubmit)="onSubmit() && form.reset()" novalidate>
 
-    <mat-form-field>
+    <mat-form-field class="name-input">
       <input placeholder="Name" matInput formControlName="name">
       <mat-hint align="start">
-        <strong>Do not use participant's legal name</strong>
+        Do not use participant's legal name
       </mat-hint>
     </mat-form-field>
 
@@ -29,14 +30,15 @@
     <mat-form-field>
       <input  matInput (keyup.enter)="onKey('email', email.value)" (blur)="onKey('email', email.value)" #email placeholder="Email address" formControlName="email">
     </mat-form-field>
-    <!-- TODO: use mat-error -->
+
     <div *ngIf="isAlreadyAParticipantEmail" style="color:red">This is already associated to a participant!</div>
     <mat-form-field>
       <input matInput placeholder="Physical Address" formControlName="address">
       <mat-hint align="start">
-        <strong>This is strictly optional.</strong>
+        This is strictly optional
       </mat-hint>
     </mat-form-field>
-    <button mat-raised-button type="submit" [disabled]="form.invalid">Submit</button>
+    <button mat-raised-button type="submit" color="primary" [disabled]="form.invalid">Submit</button>
   </form>
 </mat-card>
+</div>

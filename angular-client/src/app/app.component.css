@@ -1,13 +1,18 @@
 .nav-logo {
-   font-size: 1.2em;
+   font-size: 2rem;
 }
 
 .mat-toolbar a.nav-link {
     color: white;
     text-decoration: none;
 }
+
 .example-fill-remaining-space {
     /* This fills the remaining space, by using flexbox. 
        Every toolbar row uses a flexbox row layout. */
     flex: 1 1 auto;
-  }
+}
+
+.mat-toolbar {
+    margin-bottom: 2rem;
+}

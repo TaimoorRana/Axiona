@@ -9,13 +9,13 @@
         <div *ngIf="!tasks">
             You've completed all your tasks!
         </div>
-        <form [formGroup]="form" #f="ngForm" (ngSubmit)="saveTask()">
+        <form [formGroup]="form"  #f="ngForm" (ngSubmit)="saveTask()" class="addTask">
             <mat-form-field>
                 <input matInput type="text" placeholder="Add task" formControlName="description"/>
-                <button [disabled]="form.invalid" mat-button matSuffix mat-icon-button aria-label="Add">
-                    <mat-icon color="primary">add_circle_outline</mat-icon>
-                </button>
             </mat-form-field>
+            <button [disabled]="form.invalid" type="submit" mat-button matSuffix mat-icon-button aria-label="Add">
+                <mat-icon color="primary" class="addIcon">add_box</mat-icon>
+            </button>
         </form>
     </mat-card-content>
 </mat-card>

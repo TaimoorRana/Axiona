@@ -5,28 +5,22 @@ mat-toolbar-row a.nav-link {
 
 .container {
     display: flex;
+    padding: 0 2rem;
 }
 
 .toolbar {
-    /* flex-grow: 1; */
     flex: 1 20%;
-    margin: 1em;
+    margin-right: 2rem;
 }
 
 .main {
-    /* flex-grow: 4; */
     flex: 1 80%;
-    margin: 1em;
 }
 
 mat-icon {
-    padding: 0 15px;
-}
-
-.example-spacer {
-    flex: 1 1 auto;
+    padding: 0 1.5rem;
 }
 
 button.mat-button {
-    padding: 0 10px 0 0;
+    padding: 0 1rem 0 0;
 }

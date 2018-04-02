@@ -69,6 +69,7 @@ export class ViewPhonelogComponent implements OnInit, OnChanges {
     this.phonelogService.getByResolved()
       .subscribe(data => {
         this.history = data;
+        console.log(data);
       });
   }
 
