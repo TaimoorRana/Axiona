@@ -38,12 +38,10 @@ export class NoteModalComponent implements OnInit {
    * @memberof NoteComponent
    */
   submit(): void {
-    if (this.file) {
     this.participantService.saveNote(this.file, this.note, this.participant.id)
       .subscribe(data => {
         this.dialogRef.close();
       });
-    }
   }
 
   /**
