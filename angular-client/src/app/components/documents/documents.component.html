@@ -15,9 +15,7 @@
       </mat-expansion-panel-header>
       <h4>Attachments:</h4>
       <mat-grid-list cols="2" *ngFor="let doc of document.attachment">
-        <!-- <mat-grid-tile> -->
         <img [src]="doc">
-        <!-- </mat-grid-tile> -->
       </mat-grid-list>
       <br>
       <button mat-icon-button (click)="deleteDocument(document._id)">

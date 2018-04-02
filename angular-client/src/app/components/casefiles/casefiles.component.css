@@ -4,6 +4,15 @@
     margin: 2rem 0;
 }
 
+.info {
+    display: flex;
+    margin: 1rem 0;
+}
+
+.label {
+    margin-right: 1rem;
+}
+
 /* Casefile description and notes */
 .caseNotes {
     width: 36%;
