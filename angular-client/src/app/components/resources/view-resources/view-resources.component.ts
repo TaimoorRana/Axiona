@@ -23,12 +23,6 @@ export class ViewResourcesComponent implements OnInit {
     this.loadAllResources();
   }
 
-  ngOnChanges() {
-    if (this.hasTabChanged) {
-      this.loadAllResources();
-    }
-  }
-
   /**
    * Load all resources
    *
