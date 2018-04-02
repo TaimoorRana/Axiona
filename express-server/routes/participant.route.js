@@ -8,20 +8,6 @@ const fs = require('fs');
 const path = require('path');
 const User = require('../models/User');
 
-fs.exists(path.join(__dirname, "../notes"), exists => {
-    if (!exists) {
-        fs.mkdir(path.join(__dirname, "../notes"), err => {
-            console.log(err)
-        })
-    }
-})
-fs.exists(path.join(__dirname, "../documents"), exists => {
-    if (!exists) {
-        fs.mkdir(path.join(__dirname, "../documents"), err => {
-            console.log(err)
-        })
-    }
-})
 /**
  * Get all participants
  */
@@ -196,7 +182,7 @@ router.post('/:pid/doc', (req, res) => {
                 if (err) {
                     res.status(500).send(err)
                 } else {
-                    req.files.attachment.mv(path.join(__dirname, "../documents", req.params.pid, req.query.attachment), err => {
+                    req.files.attachment.mv(path.join(__dirname, "../documents", req.params.pid, document.id ,req.query.attachment), err => {
                         if (err) {
                             res.status(500).send(err);
                         } else {
@@ -219,7 +205,7 @@ router.post('/:pid/doc', (req, res) => {
                 }
             })
         } else {
-            req.files.attachment.mv(path.join(__dirname, "../documents", req.params.pid, req.query.attachment), err => {
+            req.files.attachment.mv(path.join(__dirname, "../documents", req.params.pid, document.id, req.query.attachment), err => {
                 if (err) {
                     res.status(500).send(err);
                 } else {
@@ -273,7 +259,7 @@ router.post('/:pid/note', (req, res) => {
                 if (err) {
                     res.status(500).send(err)
                 } else {
-                    req.files.attachment.mv(path.join(__dirname, "../notes", req.params.pid, req.query.attachment), err => {
+                    req.files.attachment.mv(path.join(__dirname, "../notes", req.params.pid, note.id, req.query.attachment), err => {
                         if (err) {
                             res.status(500).send(err);
                         } else {
@@ -296,7 +282,7 @@ router.post('/:pid/note', (req, res) => {
                 }
             })
         } else {
-            req.files.attachment.mv(path.join(__dirname, "../notes", req.params.pid, req.query.attachment), err => {
+            req.files.attachment.mv(path.join(__dirname, "../notes", req.params.pid, note.id, req.query.attachment), err => {
                 if (err) {
                     res.status(500).send(err);
                 } else {
