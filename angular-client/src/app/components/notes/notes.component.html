@@ -4,7 +4,7 @@
     No notes to display.
   </mat-card>
   <mat-accordion *ngIf="orderedNotes.length > 0">
-    <mat-expansion-panel *ngFor="let note of orderedNotes">
+    <mat-expansion-panel *ngFor="let note of orderedNotes" class="note-panel">
       <mat-expansion-panel-header>
         <mat-panel-title>
           {{note.date | date: 'fullDate'}}
@@ -14,19 +14,27 @@
         </mat-panel-description>
       </mat-expansion-panel-header>
 
-      <div class="text">
-        <h4>Note:</h4>
-        {{note.text}}
-      </div>
-      <img src={{getImageURL(note._id,note.attachment)}}>
-      <div class="attachment">
-        <h4>Attachment:</h4>
-        <p><a href={{getImageURL(note._id,note.attachment)}} target="_blank">{{note.attachment}}</a></p>
-      </div>
+      <div class="note-container">
+        <div class="note-content">
+          <div class="text">
+            <h4>Note:</h4>
+            {{note.text}}
+          </div>
+          <div class="attachment" *ngIf="note.attachment">
+            <div class="attachment-link">
+              <h4>Attachment:</h4>
+              <p>
+                <a href={{getImageURL(note._id,note.attachment)}} target="_blank">{{note.attachment}}</a>
+              </p>
+              <img src={{getImageURL(note._id,note.attachment)}}>
+            </div>
+          </div>
+        </div>
 
-      <button id="deleteNoteBtn" mat-icon-button (click)="deleteNote(note._id)">
-        <mat-icon color="warn">delete</mat-icon>
-      </button>
+        <button class="deleteNoteBtn" mat-icon-button (click)="deleteNote(note._id)">
+          <mat-icon color="warn">delete</mat-icon>
+        </button>
+      </div>
     </mat-expansion-panel>
   </mat-accordion>
 </div>
