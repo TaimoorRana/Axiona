@@ -1,4 +1,8 @@
-<h2 class="heading">Active Case Files</h2>
+<mat-card>
+  <mat-card-title>Active Case Files</mat-card-title>
+  <div *ngIf="activeCases.length==0">
+    No active case files to display
+  </div>
   <mat-accordion *ngIf="activeCases.length > 0">
     <mat-expansion-panel *ngFor="let casefile of (activeCases | orderBy: sortProperty: reverse)">
 
@@ -24,3 +28,4 @@
 
     </mat-expansion-panel>
   </mat-accordion>
+</mat-card>
