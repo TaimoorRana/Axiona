@@ -1,6 +1,6 @@
 <h1 mat-dialog-title>Create a Note</h1>
 <mat-dialog-content>
-  <form>
+  <form #noteForm="ngForm">
     <mat-form-field>
       <textarea matInput placeholder="Note description" name="text" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5"
         [(ngModel)]="note.text"></textarea>

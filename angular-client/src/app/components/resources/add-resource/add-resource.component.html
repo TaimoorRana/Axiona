@@ -1,6 +1,6 @@
 <div class="container">
 <mat-card class="resource-card">
-  <form class="form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+  <form class="form" [formGroup]="form" #f="ngForm" (ngSubmit)="submit()" novalidate>
 
     <div class="resource-type">
       <div class="label primary-font">

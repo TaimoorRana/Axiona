@@ -6,7 +6,10 @@
                 {{task.description}}
             </mat-list-option>
         </mat-selection-list>
-        <form [formGroup]="form" (ngSubmit)="saveTask()" class="addTask">
+        <div *ngIf="!tasks">
+            You've completed all your tasks!
+        </div>
+        <form [formGroup]="form"  #f="ngForm" (ngSubmit)="saveTask()" class="addTask">
             <mat-form-field>
                 <input matInput type="text" placeholder="Add task" formControlName="description"/>
             </mat-form-field>

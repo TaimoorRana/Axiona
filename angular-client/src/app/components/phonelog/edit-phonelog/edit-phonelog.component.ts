@@ -21,7 +21,8 @@ export class EditPhonelogComponent implements OnInit {
     'social worker',
     'other person',
   ];
-  phoneregex = /^(\+)?(\d){0,2}(-|.|\s|\()?(\d){3}(-|.|\s|\()?(\d){3}(-|.|\s|\()?(\d){4}$/m;
+  phoneregex = /^(?:\+?1[-. ]?)?(\(([0-9]{3})\)|([0-9]{3}))[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+
   constructor(private form: FormBuilder,
     private phonelogService: PhonelogService) { this.date = new Date(); }
 

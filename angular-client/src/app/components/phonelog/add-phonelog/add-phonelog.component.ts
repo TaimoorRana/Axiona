@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
 import { AuthenticationService } from '../../../services/authentication.service';
 import { AlertModalComponent } from '../../modals/alert-modal/alert-modal.component';
@@ -16,6 +16,8 @@ import { Observable } from 'rxjs/Observable';
 })
 export class AddPhonelogComponent implements OnInit {
 
+  @ViewChild('f') myNgForm;
+  @Output() loggedPhonecall = new EventEmitter();
   phonelog: FormGroup;
   callertype = [
     'Trans person',
@@ -23,7 +25,7 @@ export class AddPhonelogComponent implements OnInit {
     'Social worker',
     'Other person',
   ];
-  phoneregex = /^(\+)?(\d){0,2}(-|.|\s|\()?(\d){3}(-|.|\s|\()?(\d){3}(-|.|\s|\()?(\d){4}$/m;
+  phoneregex = /^(?:\+?1[-. ]?)?(\(([0-9]{3})\)|([0-9]{3}))[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
 
   constructor(
     private phonelogService: PhonelogService,
@@ -90,7 +92,7 @@ export class AddPhonelogComponent implements OnInit {
           this.alertModal('Could not add new phonelog entry.').subscribe();
         } else {
           this.alertModal('Phonelog entry successfully added.').subscribe( () => {
-            this.phonelog.reset();
+            this.myNgForm.resetForm();
             this.router.navigateByUrl('/dashboard/phonelog');
           });
         }

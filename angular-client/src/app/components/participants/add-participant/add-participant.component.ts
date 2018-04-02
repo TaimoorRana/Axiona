@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild, Output, EventEmitter } from '@angular/core';
 import { ParticipantService } from '../../../services/participant.service';
 import { Participant } from '../../../classes/participant';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
@@ -14,10 +14,12 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./add-participant.component.css']
 })
 export class AddParticipantComponent implements OnInit {
-
+  @ViewChild('f') myNgForm;
+  @Output() addedParticipant = new EventEmitter();
   form: FormGroup;
   socialmedia: FormGroup;
-  phoneregex = /^(\d){3}(-|\.|\s|\()?(\d){3}(-|\.|\s|\()?(\d){4}$/m;
+  phoneregex = /^(?:\+?1[-. ]?)?(\(([0-9]{3})\)|([0-9]{3}))[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+  emailregex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   isAlreadyAParticipantEmail = false;
 
@@ -45,7 +47,7 @@ export class AddParticipantComponent implements OnInit {
       telephone: ['', Validators.pattern(this.phoneregex)],
       service: [''],
       username: [''],
-      email: [''],
+      email: ['', Validators.pattern(this.emailregex)],
       address: ['']
     });
   }
@@ -64,7 +66,7 @@ export class AddParticipantComponent implements OnInit {
     if (value.length > 0) {
       this.participantService.search(query)
         .subscribe(data => {
-          if (attribute === 'email'){
+          if (attribute === 'email') {
             that.isAlreadyAParticipantEmail = (data === true) ? true : false;
           }
         });
@@ -100,7 +102,7 @@ export class AddParticipantComponent implements OnInit {
           this.alertModal('Could not add new participant.').subscribe();
         } else {
           this.alertModal('New participant successfully added.').subscribe( () => {
-            this.form.reset({});
+            this.myNgForm.resetForm();
             this.router.navigateByUrl('/participants');
           });
         }

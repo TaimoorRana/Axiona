@@ -1,6 +1,6 @@
 <div class="container">
 <mat-card>
-  <form [formGroup]="form" (ngSubmit)="onSubmit() && form.reset()" novalidate>
+  <form [formGroup]="form"  #f="ngForm" (ngSubmit)="onSubmit() && form.reset()" novalidate>
 
     <mat-form-field class="name-input">
       <input placeholder="Name" matInput formControlName="name">

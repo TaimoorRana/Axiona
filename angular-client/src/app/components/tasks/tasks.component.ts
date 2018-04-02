@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { TaskService } from '../../services/task.service';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
@@ -8,7 +8,7 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
   styleUrls: ['./tasks.component.css']
 })
 export class TasksComponent implements OnInit {
-
+  @ViewChild('f') myNgForm;
   form: FormGroup;
   tasks: Object[];
 
@@ -39,6 +39,7 @@ export class TasksComponent implements OnInit {
         this.form.reset({
           description: ''
         });
+        this.myNgForm.resetForm();
         this.loadTasks();
       });
   }

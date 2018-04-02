@@ -21,6 +21,7 @@ export class ResourcesComponent implements OnInit {
     }
   ];
 
+
   constructor(private resourceService: ResourceService, public authService: AuthenticationService, public router: Router) { }
 
   ngOnInit() {

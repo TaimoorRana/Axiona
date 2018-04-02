@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit, Output, EventEmitter } from '@angular/core';
 import { ResourceService } from '../../../services/resource.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { AlertModalComponent } from '../../modals/alert-modal/alert-modal.component';
@@ -12,11 +12,15 @@ import { Observable } from 'rxjs/Observable';
   templateUrl: './add-resource.component.html',
   styleUrls: ['./add-resource.component.css']
 })
+
 export class AddResourceComponent implements OnInit {
-  
+
+  @ViewChild('f') myNgForm;
   resourceTypes = [ 'Housing', 'Medical' ];
+  @Output() addedResource = new EventEmitter();
   form: FormGroup;
-  phoneregex = /^(\d){3}(-|\.|\s|\()?(\d){3}(-|\.|\s|\()?(\d){4}$/m;
+  phoneregex = /^(?:\+?1[-. ]?)?(\(([0-9]{3})\)|([0-9]{3}))[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+  emailregex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
 
   constructor(private fb: FormBuilder, private resourceService: ResourceService, public dialog: MatDialog, private router: Router
@@ -32,7 +36,7 @@ export class AddResourceComponent implements OnInit {
     this.form = this.fb.group({
       kind: this.resourceTypes[0],
       name: ['', Validators.required],
-      email: [''],
+      email: ['', Validators.pattern(this.emailregex)],
       telephone: ['', Validators.pattern(this.phoneregex)],
       location: [''],
       notes: [''],
@@ -71,7 +75,7 @@ export class AddResourceComponent implements OnInit {
           this.alertModal('Could not add new resource.').subscribe();
         } else {
           this.alertModal('New resource successfully added.').subscribe( () => {
-            this.form.reset({});
+            this.myNgForm.resetForm();
             this.router.navigateByUrl('/resources');
           });
         }
