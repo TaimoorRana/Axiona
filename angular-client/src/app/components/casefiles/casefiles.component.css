@@ -1,5 +1,9 @@
 @import '../participants/participant-profile/participant-profile.component.css';
 
+.container {
+    margin: 2rem 0;
+}
+
 /* Casefile description and notes */
 .caseNotes {
     width: 36%;

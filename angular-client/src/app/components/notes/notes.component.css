@@ -1,1 +1,10 @@
-@import '../participants/participant-profile/participant-profile.component.css'
+@import '../participants/participant-profile/participant-profile.component.css';
+
+.container {
+    margin: 2rem 0;
+}
+
+.text,
+.attachment {
+    margin: 1rem 0;
+}
