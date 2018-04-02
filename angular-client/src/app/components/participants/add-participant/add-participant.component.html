@@ -2,7 +2,7 @@
 <mat-card>
   <form [formGroup]="form" (ngSubmit)="onSubmit() && form.reset()" novalidate>
 
-    <mat-form-field>
+    <mat-form-field class="name-input">
       <input placeholder="Name" matInput formControlName="name">
       <mat-hint align="start">
         Do not use participant's legal name
