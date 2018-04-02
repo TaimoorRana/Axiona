@@ -1,1 +1,5 @@
-@import '../participants/participant-profile/participant-profile.component.css'
+@import '../participants/participant-profile/participant-profile.component.css';
+img {
+    max-width: 400px;
+    max-height: 600px;
+}

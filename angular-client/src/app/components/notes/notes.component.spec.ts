@@ -36,6 +36,10 @@ describe('NotesComponent', () => {
         updatedAt : '2018-02-22T23:02:09.105Z'
     }];
 
+    const fakeParticipant = {
+      _id: '6tyuihhyvtybnuijh11' };
+
+    component.participant = fakeParticipant;
     component.orderedNotes = expectedNote;
 
     fixture.detectChanges();

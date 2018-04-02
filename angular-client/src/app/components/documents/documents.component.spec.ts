@@ -39,7 +39,10 @@ describe('DocumentsComponent', () => {
           updatedAt : '2018-02-21T19:24:03.316Z'
       }
   ];
+  const fakeParticipant = {
+    _id: '6tyuihhyvtybnuijh11' };
 
+  component.participant = fakeParticipant;
   component.orderedDocuments = expectedDocuments;
 
     fixture.detectChanges();

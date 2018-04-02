@@ -2,16 +2,17 @@
 <mat-dialog-content>
   <form>
     <mat-form-field>
-      <textarea matInput placeholder="Your note" name="text" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5"
+      <textarea matInput placeholder="Note description" name="text" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5"
         [(ngModel)]="note.text"></textarea>
     </mat-form-field>
     <div class="fileupload">
       <h4>Upload File</h4>
-      <input type="file" #upload (change)="handleFileInput(upload.files)">
+      <input type="file" class="fileupoad-input" #upload (change)="handleFileInput(upload.files)" accept="image/*" [disabled]="isLoading">
+      <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
     </div>
   </form>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-raised-button color="primary" (click)="submit()">Submit</button>
+  <button mat-raised-button color="primary" (click)="submit()" [disabled]="(!file && note.text.length==0) || isLoading">Submit</button>
   <button mat-raised-button (click)="cancel()">Cancel</button>
 </mat-dialog-actions>

@@ -8,25 +8,11 @@ const fs = require('fs');
 const path = require('path');
 const User = require('../models/User');
 
-fs.exists(path.join(__dirname, "../notes"), exists => {
-    if (!exists) {
-        fs.mkdir(path.join(__dirname, "../notes"), err => {
-            console.log(err)
-        })
-    }
-})
-fs.exists(path.join(__dirname, "../documents"), exists => {
-    if (!exists) {
-        fs.mkdir(path.join(__dirname, "../documents"), err => {
-            console.log(err)
-        })
-    }
-})
 /**
  * Get all participants
  */
 router.get('/', (req, res) => {
-    Participant.find({deleted: { $ne: true }}).populate("socialworkers")
+    Participant.find({ deleted: { $ne: true } }).populate("socialworkers")
         .then(data => {
             res.send(data);
         }, err => {
@@ -54,8 +40,10 @@ router.get('/worker', (req, res) => {
     if (!req.user || !req.user._id) {
         return res.status(401).send({ err: "No user ID provided. User must be logged in." })
     }
-    Participant.find({ deleted: { $ne: true }, 
-        socialworkers: new ObjectId(req.user._id)})
+    Participant.find({
+        deleted: { $ne: true },
+        socialworkers: new ObjectId(req.user._id)
+    })
         .populate("socialworkers").then(data => {
             res.send(data);
         }, err => {
@@ -87,7 +75,7 @@ router.post('/', (req, res) => {
         pronouns: req.body.pronouns,
         telephone: req.body.telephone,
         address: req.body.address,
-        username:"",
+        username: "",
         socialmedia: {
             service: req.body.service,
             username: req.body.username
@@ -95,9 +83,9 @@ router.post('/', (req, res) => {
         socialworkers: [req.user._id] // add creator's ID by default
     });
     participant.save().then(data => {
-        let id=data._id.toString();
-        data.username=data.name+"_"+id.slice(id.length-4,id.length);
-        data.username=data.username.replace(/\s/g, '')
+        let id = data._id.toString();
+        data.username = data.name + "_" + id.slice(id.length - 4, id.length);
+        data.username = data.username.replace(/\s/g, '')
         data.save();
         res.send(data);
     }, err => {
@@ -134,9 +122,9 @@ router.put('/:pid', (req, res) => {
         participant.documents = req.body.documents || participant.documents;
 
         participant.save().then(data => {
-            let id=data._id.toString();
-            data.username=data.name+"_"+id.slice(id.length-4,id.length);
-            data.username=data.username.replace(/\s/g, '')
+            let id = data._id.toString();
+            data.username = data.name + "_" + id.slice(id.length - 4, id.length);
+            data.username = data.username.replace(/\s/g, '')
             data.save();
             res.send(data);
         }, err => {
@@ -190,13 +178,13 @@ router.post('/:pid/doc', (req, res) => {
         date: req.query.date,
         attachment: req.query.attachment
     });
-    fs.exists(path.join(__dirname, "../documents", req.params.pid), exists => {
+    fs.exists(path.join(__dirname, "../documents", req.params.pid, document.id), exists => {
         if (!exists) {
-            fs.mkdir(path.join(__dirname, "../documents", req.params.pid), err => {
+            fs.mkdir(path.join(__dirname, "../documents", req.params.pid, document.id), err => {
                 if (err) {
                     res.status(500).send(err)
                 } else {
-                    req.files.attachment.mv(path.join(__dirname, "../documents", req.params.pid, req.query.attachment), err => {
+                    req.files.attachment.mv(path.join(__dirname, "../documents", req.params.pid, document.id, req.query.attachment), err => {
                         if (err) {
                             res.status(500).send(err);
                         } else {
@@ -219,7 +207,7 @@ router.post('/:pid/doc', (req, res) => {
                 }
             })
         } else {
-            req.files.attachment.mv(path.join(__dirname, "../documents", req.params.pid, req.query.attachment), err => {
+            req.files.attachment.mv(path.join(__dirname, "../documents", req.params.pid, document.id, req.query.attachment), err => {
                 if (err) {
                     res.status(500).send(err);
                 } else {
@@ -247,7 +235,7 @@ router.post('/:pid/doc', (req, res) => {
  * Delete a participant's document by the document ID
  */
 router.delete('/:pid/doc/:docId', (req, res) => {
-    Participant.updateOne({ _id: req.params.pid, documents: { $elemMatch: {_id: req.params.docId} } },
+    Participant.updateOne({ _id: req.params.pid, documents: { $elemMatch: { _id: req.params.docId } } },
         { $set: { 'documents.$.deleted': true } }
     ).then(data => {
         res.send(data);
@@ -267,13 +255,13 @@ router.post('/:pid/note', (req, res) => {
         attachment: req.files.attachment.name
     });
 
-    fs.exists(path.join(__dirname, "../notes", req.params.pid), exists => {
+    fs.exists(path.join(__dirname, "../notes", req.params.pid, note.id), exists => {
         if (!exists) {
-            fs.mkdir(path.join(__dirname, "../notes", req.params.pid), err => {
+            fs.mkdir(path.join(__dirname, "../notes", req.params.pid, note.id), err => {
                 if (err) {
                     res.status(500).send(err)
                 } else {
-                    req.files.attachment.mv(path.join(__dirname, "../notes", req.params.pid, req.query.attachment), err => {
+                    req.files.attachment.mv(path.join(__dirname, "../notes", req.params.pid, note.id, req.query.attachment), err => {
                         if (err) {
                             res.status(500).send(err);
                         } else {
@@ -296,7 +284,7 @@ router.post('/:pid/note', (req, res) => {
                 }
             })
         } else {
-            req.files.attachment.mv(path.join(__dirname, "../notes", req.params.pid, req.query.attachment), err => {
+            req.files.attachment.mv(path.join(__dirname, "../notes", req.params.pid, note.id, req.query.attachment), err => {
                 if (err) {
                     res.status(500).send(err);
                 } else {
@@ -324,7 +312,7 @@ router.post('/:pid/note', (req, res) => {
  * Delete a participant's note by the note ID
  */
 router.delete('/:pid/note/:noteId', (req, res) => {
-    Participant.updateOne({ _id: req.params.pid, notes: { $elemMatch: {_id: req.params.noteId} } },
+    Participant.updateOne({ _id: req.params.pid, notes: { $elemMatch: { _id: req.params.noteId } } },
         { $set: { 'notes.$.deleted': true } }
     ).then(data => {
         res.send(data);

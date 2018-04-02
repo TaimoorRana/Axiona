@@ -38,9 +38,9 @@ describe('AppComponent', () => {
     expect(compiled).toBeTruthy();
   });
 
-  it(`should have as title 'SocialWorker'`, () => {
+  it(`should have as title 'Axiona'`, () => {
     const compiled = fixture.debugElement.componentInstance;
-    expect(compiled.title).toEqual('SocialWorker');
+    expect(compiled.title).toEqual('Axiona');
   });
 
 });
