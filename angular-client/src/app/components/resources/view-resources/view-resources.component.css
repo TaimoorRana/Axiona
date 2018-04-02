@@ -3,7 +3,7 @@
 }
 
 .resource-card {
-    display: flex;
+    display: block;
     margin: 1rem 0;
 }
 
