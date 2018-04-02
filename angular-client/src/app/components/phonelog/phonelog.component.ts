@@ -16,7 +16,7 @@ export class PhonelogComponent implements OnInit {
     },
     {
       label: 'Log a phone call',
-      path: './add-phonelog'
+      path: './phonelog-tab'
     }
   ];
 

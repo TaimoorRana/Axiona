@@ -93,7 +93,7 @@ export class AddPhonelogComponent implements OnInit {
         } else {
           this.alertModal('Phonelog entry successfully added.').subscribe( () => {
             this.myNgForm.resetForm();
-            this.router.navigateByUrl('/dashboard/phonelog');
+            this.loggedPhonecall.emit();
           });
         }
       });
