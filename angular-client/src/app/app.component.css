@@ -2,7 +2,8 @@
    font-size: 2rem;
 }
 
-.nav-home {
+.nav-home,
+.nav-phonelog {
     margin-right: 1rem;
 }
 
@@ -11,9 +12,7 @@
     text-decoration: none;
 }
 
-.example-fill-remaining-space {
-    /* This fills the remaining space, by using flexbox. 
-       Every toolbar row uses a flexbox row layout. */
+.fill-remaining-space {
     flex: 1 1 auto;
 }
 

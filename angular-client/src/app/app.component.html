@@ -18,13 +18,11 @@
       <button mat-button>Resources</button>
     </a>
   </span>
-  <span class="example-fill-remaining-space"></span>
-  <span>
-    <button mat-icon-button (click)="addPhonelog()">
+  <span class="fill-remaining-space"></span>
+  <span *ngIf="this.authenticationService.loggedIn">
+    <button mat-icon-button class="nav-phonelog" (click)="addPhonelog()">
       <mat-icon>phone</mat-icon>
     </button>
-  </span>
-  <span *ngIf="this.authenticationService.loggedIn">
     <button mat-button (click)="logout()">Logout</button>
   </span>
 </mat-toolbar>
