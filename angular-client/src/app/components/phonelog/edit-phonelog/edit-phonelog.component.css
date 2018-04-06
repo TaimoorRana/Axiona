@@ -1,13 +1,16 @@
 mat-form-field {
     width: 40%;
-    display: block;
+    display: inline-block;
 }
 
 .caller-name {
     display: flex;
 }
 
-.caller-name mat-form-field {
+.caller-name mat-form-field,
+.caller-type,
+.call-phone,
+.call-subject {
     margin-right: 2rem;
 }
 
