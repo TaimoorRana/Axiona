@@ -24,6 +24,7 @@ export class RegisterUserComponent implements OnInit {
   };
   form: FormGroup;
   emailregex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  passwordregex = /^\w{4,12}/;
 
   loading = false;
   error = false;
@@ -42,11 +43,11 @@ export class RegisterUserComponent implements OnInit {
     this.form = this.fb.group({
       name: ['', Validators.required],
       pronouns: [''],
-      email: ['', Validators.pattern(this.emailregex)],
-      password: [''],
-      confirmPassword: [''],
+      email: ['', Validators.compose([Validators.required, Validators.pattern(this.emailregex)])],
+      password: ['', Validators.compose([Validators.required, Validators.pattern(this.passwordregex)])],
+      confirmPassword: ['', Validators.required],
       role: 'user'
-    });
+    }, {validator: this.passwordsMatch});
   }
 
   ngOnInit() {
@@ -101,6 +102,15 @@ export class RegisterUserComponent implements OnInit {
     });
 
     return dialogRef.afterClosed();
+  }
+
+  passwordsMatch(formGroup: FormGroup) {
+    let confirmPasswordInput = formGroup.controls['confirmPassword'];
+    if (formGroup.controls['password'].value !== confirmPasswordInput.value) {
+      return confirmPasswordInput.setErrors({notEquivalent: true});
+    } else {
+      return confirmPasswordInput.setErrors(null);
+    }
   }
 
 }
