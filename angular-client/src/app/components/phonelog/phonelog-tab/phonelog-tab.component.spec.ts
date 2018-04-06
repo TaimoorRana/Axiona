@@ -11,7 +11,7 @@ import { PhonelogService } from '../../../services/phonelog.service';
 import { MockPhonelogService } from '../../../services/mocks/MockPhonelogService';
 import { Router } from '@angular/router';
 
-fdescribe('PhonelogTabComponent', () => {
+describe('PhonelogTabComponent', () => {
   let component: PhonelogTabComponent;
   let fixture: ComponentFixture<PhonelogTabComponent>;
 
