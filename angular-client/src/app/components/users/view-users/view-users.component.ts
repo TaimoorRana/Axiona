@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../services/user.service';
 import { AuthenticationService } from '../../../services/authentication.service';
 import { Router } from '@angular/router';
+import { User } from '../../../classes/user';
 
 @Component({
   selector: 'app-view-users',
@@ -10,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class ViewUsersComponent implements OnInit {
 
+  editingUser = User;
   public users;
   public sortProperty = 'name';
   public reverse = false;
@@ -29,6 +31,10 @@ export class ViewUsersComponent implements OnInit {
     this.userService.getAll().subscribe(data => {
       this.users = data;
     });
+  }
+
+  edit(id, user) {
+    this.editingUser = user;
   }
 
   delete(id) {
