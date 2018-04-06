@@ -76,7 +76,6 @@ export class AddPhonelogComponent implements OnInit {
       phonenumber: ['', Validators.pattern(this.phoneregex)],
       subject: this.subjects[0],
       message: '',
-      notes: '',
       callertype: this.callertype[0],
     });
   }

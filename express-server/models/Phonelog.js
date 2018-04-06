@@ -12,7 +12,6 @@ const phonelogSchema = new Schema({
     phonenumber: String,
     subject: String,
     language:String,
-    notes: [String],
     message:String,
     callertype: String,
     date: { type: Date, default: Date.now },
