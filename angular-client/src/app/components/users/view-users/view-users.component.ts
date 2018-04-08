@@ -33,7 +33,7 @@ export class ViewUsersComponent implements OnInit {
     });
   }
 
-  edit(id, user) {
+  edit(user) {
     this.editingUser = user;
   }
 
