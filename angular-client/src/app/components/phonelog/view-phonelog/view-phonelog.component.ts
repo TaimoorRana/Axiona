@@ -52,12 +52,10 @@ export class ViewPhonelogComponent implements OnInit, OnChanges {
    * @memberof ViewPhonelogComponent
    */
   loadLogs() {
-    if (this.authService.role === 'admin') {
-      this.phonelogService.getActive()
-        .subscribe(data => {
-          this.logs = data;
-        });
-    }
+    this.phonelogService.getActive()
+      .subscribe(data => {
+        this.logs = data;
+      });
   }
 
   /**
