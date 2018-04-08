@@ -29,7 +29,7 @@
             <ng-container *ngSwitchCase="'Medical'">
               <p *ngIf="resource.without_cost  && resource.without_cost !== ''">Free: {{resource.without_cost}}</p>
               <p *ngIf="resource.waitlist_time && resource.waitlist_time !== ''">Approximate Waitlist: {{resource.waitlist_time}}</p>
-              <p *ngIf="resource.schedule_availability && resource.schedule_availability !== ''">Schedule: {{resource.schedule_availability[0]}}</p>
+              <p *ngIf="resource.schedule_availability && resource.schedule_availability !== ''">Schedule: {{resource.schedule_availability}}</p>
             </ng-container>
           </div>
           <p *ngIf="resource.notes && resource.notes !== ''"> Notes: {{resource.notes}}</p>
