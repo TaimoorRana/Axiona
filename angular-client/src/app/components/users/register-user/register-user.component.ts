@@ -6,6 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import { MatDialog } from '@angular/material';
 import { AlertModalComponent } from '../../modals/alert-modal/alert-modal.component';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { PasswordValidator } from '../../../validators/password-validator';
 
 @Component({
   selector: 'app-register-user',
@@ -47,7 +48,7 @@ export class RegisterUserComponent implements OnInit {
       password: ['', Validators.compose([Validators.required, Validators.pattern(this.passwordregex)])],
       confirmPassword: ['', Validators.required],
       role: 'user'
-    }, {validator: this.passwordsMatch});
+    }, {validator: PasswordValidator.passwordsMatch});
   }
 
   ngOnInit() {
@@ -102,15 +103,6 @@ export class RegisterUserComponent implements OnInit {
     });
 
     return dialogRef.afterClosed();
-  }
-
-  passwordsMatch(formGroup: FormGroup) {
-    let confirmPasswordInput = formGroup.controls['confirmPassword'];
-    if (formGroup.controls['password'].value !== confirmPasswordInput.value) {
-      return confirmPasswordInput.setErrors({notEquivalent: true});
-    } else {
-      return confirmPasswordInput.setErrors(null);
-    }
   }
 
 }
