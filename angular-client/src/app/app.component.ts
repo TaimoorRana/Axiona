@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from './services/authentication.service';
 import { RouterModule, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
-
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -13,11 +13,18 @@ export class AppComponent implements OnInit {
   title = 'Axiona';
   constructor(
     private authenticationService: AuthenticationService,
-    private router: Router
+    private router: Router,
+    private translate: TranslateService
   ) {
+    translate.addLangs(['en', 'fr']);
+    translate.setDefaultLang('en');
   }
   public heartbeat = false;
   public loggedIn = false;
+
+  switchLanguage(language: string) {
+    this.translate.use(language);
+}
   ngOnInit() {
     this.authenticationService.heartbeat().subscribe(data => {
       if (!data.loggedIn) {
