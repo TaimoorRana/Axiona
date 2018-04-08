@@ -1,6 +1,7 @@
 .user-card {
-    margin: 1rem;
-    width: 40rem;
+  display: block;
+  margin: 1rem;
+  width: 40rem;
 }
 
 .user-card mat-card-content {

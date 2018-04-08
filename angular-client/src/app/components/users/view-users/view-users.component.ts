@@ -37,4 +37,9 @@ export class ViewUsersComponent implements OnInit {
     this.editingUser = user;
   }
 
+  cancel() {
+    this.edit(null);
+    this.loadUsers();
+  }
+
 }

@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+}
+
+.form {
+    width: 90%;
+}
+
+.form-container {
+    flex: 1;
+}
+
+mat-form-field {
+    display: block;
+}

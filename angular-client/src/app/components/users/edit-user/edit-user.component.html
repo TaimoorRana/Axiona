@@ -28,13 +28,15 @@
         <input matInput type="password" placeholder="Confirm Password" formControlName="confirmPassword" />
       </mat-form-field>
 
-      <button mat-raised-button color="primary" (click)="update()" [disabled]="userForm.invalid">Update</button>
-      <button mat-raised-button (click)="cancelEdit()">Cancel</button>
+      <div class="edit-actions">
+        <button mat-raised-button color="primary" (click)="update()" [disabled]="userForm.invalid">Update</button>
+        <button mat-raised-button (click)="cancelEdit()">Cancel</button>
+      </div>
 
     </form>
   </div>
 
-  <div class="edit-actions">
+  <div>
     <button mat-icon-button (click)="delete()">
       <mat-icon color="warn">delete</mat-icon>
     </button>
