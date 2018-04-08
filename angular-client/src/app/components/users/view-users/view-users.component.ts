@@ -37,12 +37,4 @@ export class ViewUsersComponent implements OnInit {
     this.editingUser = user;
   }
 
-  delete(id) {
-    this.userService.delete(id)
-      .subscribe(data => {
-        console.log('Deleted: ' + data);
-        this.loadUsers();
-      });
-  }
-
 }

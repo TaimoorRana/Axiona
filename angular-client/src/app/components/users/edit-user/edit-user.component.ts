@@ -23,17 +23,35 @@ export class EditUserComponent implements OnInit {
   ngOnInit() {
   }
 
+  ngOnChanges() {
+    this.userForm.patchValue({
+      name: this.user.name,
+      pronouns: this.user.pronouns,
+      email: this.user.email,
+      password: "",
+      confirmPassword: "",
+      role: this.user.role
+    });
+  }
+
   createForm() {
     this.userForm = this.fb.group({
       name: ['', Validators.required],
       pronouns: [''],
       email: ['', Validators.compose([Validators.required, Validators.pattern(this.emailregex)])],
-      password: ['', Validators.compose([Validators.required, Validators.pattern(this.passwordregex)])],
-      confirmPassword: ['', Validators.required],
+      password: ['', Validators.pattern(this.passwordregex)],
+      confirmPassword: [''],
       role: 'user'
     }, {validator: PasswordValidator.passwordsMatch});
   }
 
+
+  delete() {
+    this.userService.delete(this.user._id)
+      .subscribe(data => {
+        this.cancelEdit();
+      });
+  }
 
   cancelEdit() {
     this.cancel.emit();
