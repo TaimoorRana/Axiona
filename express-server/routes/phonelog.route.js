@@ -17,13 +17,27 @@ router.get('/', (req, res) => {
         })
 });
 
-
+/**
+ * Get all active phonelogs
+ */
 router.get('/active', (req, res) => {
     Phonelog.find({ "resolved": { "$in": ["false", false] }, "deleted": { "$in": ["false", false] } })
         .populate('user')
         .populate('resolvedBy')
         .then(data => {
             res.send(data);
+        }, err => {
+            res.send(err);
+        })
+});
+
+/**
+ * Get number of urgent phonelogs
+ */
+router.get('/urgent', (req, res) => {
+    Phonelog.count({ "urgent": { "$in": ["true", true] }})
+        .then(count => {
+            res.send(count);
         }, err => {
             res.send(err);
         })

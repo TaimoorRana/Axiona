@@ -168,4 +168,14 @@ export class PhonelogService {
     };
   }
 
+/** Reports-related calls */
+
+ reportUrgent(): Observable<Object> {
+  return this.http.get(`${this.url}/urgent`)
+    .pipe(
+      tap(participants => this.log('fecthed urgent logs')),
+      catchError(this.handleError<Object>('reportUrgent()'))
+    );
+}
+
 }
