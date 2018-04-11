@@ -1,7 +1,11 @@
+import { EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
 export class MockPhonelogService {
+
+    phoneLogged = new EventEmitter();
+
     testPhonelog = {
         '_id': '5a8a1edbf8bc217df1f5228b',
         'notes': [
