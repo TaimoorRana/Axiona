@@ -37,7 +37,7 @@ router.get('/active', (req, res) => {
 router.get('/urgent', (req, res) => {
     Phonelog.count({ "urgent": { "$in": ["true", true] }})
         .then(count => {
-            res.send(count);
+            res.send({count: count});
         }, err => {
             res.send(err);
         })
