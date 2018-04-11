@@ -4,6 +4,7 @@ import { MessageService } from './message.service';
 import { Observable } from 'rxjs/Observable';
 import { tap, catchError } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
+import { User } from '../classes/user';
 
 @Injectable()
 export class UserService {
@@ -27,6 +28,29 @@ export class UserService {
       );
   }
 
+  /**
+   * Update a user by ID
+   * 
+   * @param {String} id 
+   * @param {User} userData 
+   * @returns {Observable<Object>} 
+   * @memberof UserService
+   */
+  update(id: String, userData: User): Observable<Object> {
+    return this.http.put(`${this.url}/${id}`, userData)
+      .pipe(
+        tap(users => this.log('user updated')),
+        catchError(this.handleError<Object>('update(id: String, userData: User)'))
+      );
+  }
+
+  /**
+   * Delete a user by ID
+   * 
+   * @param {String} id 
+   * @returns {Observable<Object>} 
+   * @memberof UserService
+   */
   delete(id: String): Observable<Object> {
     return this.http.delete(`${this.url}/${id}`)
       .pipe(
