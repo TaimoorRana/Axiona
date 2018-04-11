@@ -12,6 +12,7 @@ import { PhonelogModalComponent } from '../app/components/phonelog/phonelog-moda
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+
   public title = 'Axiona';
   public heartbeat = false;
   public loggedIn = false;

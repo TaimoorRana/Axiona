@@ -113,6 +113,7 @@ export class AddPhonelogComponent implements OnInit {
           this.alertModal('Phonelog entry successfully added.').subscribe( () => {
             this.myNgForm.resetForm();
             this.loggedPhonecall.emit();
+            this.phonelogService.emitPhoneLogging();
           });
         }
       });
