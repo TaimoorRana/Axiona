@@ -1,0 +1,100 @@
+{
+    "ActiveCaseFile": {
+        "TranslationSections": "Hello World"
+    },
+     "CaseModal": {
+        "TranslationSections": ""
+    },
+      "CaseFiles": {
+        "TranslationSections": ""
+    },
+      "Activity": {
+        "TranslationSections": ""
+    },
+      "DashBoard": {
+        "TranslationSections": ""
+    },
+      "DocumentModal": {
+        "TranslationSections": ""
+    },
+      "Documents": {
+        "TranslationSections": ""
+    },
+      "Login": {
+        "TranslationSections": ""
+    },
+      "messages": {
+        "TranslationSections": ""
+    },
+      "AlertModal": {
+        "TranslationSections": ""
+    },
+      "ConfirmModal": {
+        "TranslationSections": ""
+    },
+      "Notes": {
+        "TranslationSections": ""
+    },
+      "NoteModal": {
+        "TranslationSections": ""
+    },
+      "Participants": {
+        "TranslationSections": ""
+    },
+      "AddParticipant": {
+        "TranslationSections": ""
+    },
+      "EditParticipant": {
+        "TranslationSections": ""
+    },
+      "ParticipantProfile": {
+        "TranslationSections": ""
+    },
+      "ViewParticipants": {
+        "TranslationSections": ""
+    },
+      "PhoneLog": {
+        "TranslationSections": ""
+    },
+      "AddPhoneLog": {
+        "TranslationSections": ""
+    },
+      "EditPhoneLog": {
+        "TranslationSections": ""
+    },
+      "ViewPhoneLog": {
+        "TranslationSections": ""
+    },
+      "Reports": {
+        "TranslationSections": ""
+    },"Resources": {
+        "TranslationSections": ""
+    },
+      "AddResource": {
+        "TranslationSections": ""
+    },
+      "EditResource": {
+        "TranslationSections": ""
+    },
+      "ViewResource": {
+        "TranslationSections": ""
+    },
+      "Tasks": {
+        "TranslationSections": ""
+    },
+      "TrashBin": {
+        "TranslationSections": ""
+    },
+      "AssignUsersModal": {
+        "TranslationSections": ""
+    },
+      "RegisterUser": {
+        "TranslationSections": ""
+    },
+      "ViewUsers": {
+        "TranslationSections": ""
+    },
+      "Users": {
+        "TranslationSections": ""
+    }
+}
