@@ -45,6 +45,12 @@ export class EditUserComponent implements OnInit {
     }, {validator: PasswordValidator.passwordsMatch});
   }
 
+  update() {
+    this.userService.update(this.user._id, this.userForm.value)
+      .subscribe(data => {
+        this.cancelEdit();
+      });
+  }
 
   delete() {
     this.userService.delete(this.user._id)
