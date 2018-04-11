@@ -2,7 +2,7 @@
   <div fxLayout="row wrap" fxLayoutAlign="space-around center" fxFlex="100">
     <mat-card class="loginCard" fxFlex="50">
       <mat-card-title>
-        Login
+        {{"Login.Login"|translate}}
       </mat-card-title>
       <form id="loginForm" name="loginForm" (ngSubmit)="login()" *ngIf="!loading" #loginForm="ngForm">
         <mat-card-content>
