@@ -13,3 +13,8 @@
 mat-form-field {
     display: block;
 }
+
+.updateErr {
+    display: flex;
+    margin-bottom: 1rem;
+}

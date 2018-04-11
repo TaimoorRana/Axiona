@@ -28,6 +28,11 @@
         <input matInput type="password" placeholder="Confirm Password" formControlName="confirmPassword" />
       </mat-form-field>
 
+      <div *ngIf="errorMsg" class="updateErr">
+        <mat-icon class="warning-font">error</mat-icon>
+        <h4>{{errorMsg}}</h4>
+      </div>
+
       <div class="edit-actions">
         <button mat-raised-button color="primary" (click)="update()" [disabled]="userForm.invalid">Update</button>
         <button mat-raised-button (click)="cancelEdit()">Cancel</button>

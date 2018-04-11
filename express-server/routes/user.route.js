@@ -123,10 +123,10 @@ router.get('/all', (req, res) => {
  */
 router.put('/:id', (req, res) => {
   User.findById(req.params.id).then(user => {
-    user.name = req.body.name || user.name;
-    user.pronouns = req.body.pronouns || user.pronouns;
+    user.name = req.body.name;
+    user.pronouns = req.body.pronouns;
+    user.role = req.body.role;
     user.password = req.body.password || user.password;
-    user.role = req.body.role || user.role;
 
     if (req.body.email != user.email) {
       User.count({ email: req.body.email }, (err, emailCount) => {

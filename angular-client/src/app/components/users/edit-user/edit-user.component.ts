@@ -15,6 +15,7 @@ export class EditUserComponent implements OnInit {
   userForm: FormGroup;
   emailregex=/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   passwordregex = /^\w{4,12}/;
+  errorMsg = null;
   
   constructor(private fb: FormBuilder, private userService: UserService) {
     this.createForm();
@@ -28,8 +29,8 @@ export class EditUserComponent implements OnInit {
       name: this.user.name,
       pronouns: this.user.pronouns,
       email: this.user.email,
-      password: "",
-      confirmPassword: "",
+      password: '',
+      confirmPassword: '',
       role: this.user.role
     });
   }
@@ -47,8 +48,12 @@ export class EditUserComponent implements OnInit {
 
   update() {
     this.userService.update(this.user._id, this.userForm.value)
-      .subscribe(data => {
-        this.cancelEdit();
+      .subscribe( (data: any) => {
+        if (data.error) {
+          this.errorMsg = data.error.msg;
+        } else {
+          this.cancelEdit();
+        }
       });
   }
 
