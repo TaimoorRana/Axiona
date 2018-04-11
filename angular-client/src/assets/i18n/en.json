@@ -143,42 +143,138 @@
         "TranslationSections": ""
     },
       "AddPhoneLog": {
-        "TranslationSections": ""
+        "Name": "Name of caller",
+        "Pronouns": "Pronouns",
+        "Type":"Type of caller",
+        "Phone": "Phone number",
+        "Reason": "Reason for call",
+        "Urgent": "Urgent",
+        "Message": "Message",
+        "Hint": "Their message, when to call, extension number...",
+        "Log": "Log this call"
     },
       "EditPhoneLog": {
-        "TranslationSections": ""
+        "Name": "Name",
+        "Pronouns": "Pronouns",
+        "Type":"Type of caller",
+        "Phone": "Phone number",
+        "Language": "Language",
+        "Reason": "Reason for call",
+        "Urgent": "Urgent",
+        "Message": "Message",
+        "Hint": "Their message, when to call, extension number...",
+        "Update": "Message",
+        "Cancel": "Message"
     },
       "ViewPhoneLog": {
-        "TranslationSections": ""
+        "Pending": "Pending Phone Calls",
+        "Everything": "Everything up to date!",
+        "Type":"Type of caller:",
+        "Phone": "Phone number:",
+        "Date": "Date of the call:",
+        "Subject": "Subject",
+        "Urgent": "Urgent",
+        "Message": "Message:",
+        "Note": "Note regarding the call:",
+        "Language":"Language:",
+        "LoggedBy":"Call logged by:",
+        "Resolve":"Resolve",
+        "Edit":"edit",
+        "Completed":"Completed Phone Calls",
+        "Nothing":"Nothing to show",
+        "Name": "Name",
+        "Pronouns": "Pronouns",
+        "CalledBy": "Called back by:",
+        "DateCalledBack":"Date called back:"
     },
       "Reports": {
-        "TranslationSections": ""
+        "Reports": "Reports",
+        "Nothing": "Nothing to show"
     },"Resources": {
-        "TranslationSections": ""
     },
       "AddResource": {
-        "TranslationSections": ""
+        "Type": "Type",
+        "Rtype": "Resource Type",
+        "Name": "Name",
+        "Email": "Email",
+        "Telephone": "Telephone",
+        "Location": "Location",
+        "Notes": "Notes",
+        "Housing": "Housing",
+        "Term": "Term",
+        "Gender": "Gender",
+        "Constraints": "Constraints",
+        "Medical": "Medical",
+        "Cost": "Cost",
+        "Waitlist": "Waitlist Time",
+        "Schedule": "Schedule",
+        "Submit": "Submit"
     },
       "EditResource": {
-        "TranslationSections": ""
+        "Name": "Name",
+        "Email": "Email",
+        "Telephone": "Telephone",
+        "Term": "Term",
+        "Location": "Location",
+        "Notes": "Notes",
+        "Housing": "Housing",
+        "Gender": "Gender",
+        "Constraints": "Constraints",
+        "Medical": "Medical",
+        "Cost": "Cost",
+        "Waitlist": "Waitlist Time",
+        "Schedule": "Schedule",
+        "Update": "Update",
+        "Cancel": "Cancel"
     },
       "ViewResource": {
-        "TranslationSections": ""
+        "Location": "Location",
+        "Telephone": "Telephone",
+        "Email": "Email",
+        "Term": "Term",
+        "Gender": "Gender",
+        "Constraints": "Constraints",
+        "Free": "Free",
+        "Approx":"Approximate Waitlist:",
+        "Schedule": "Schedule",
+        "Notes": "Notes"
     },
       "Tasks": {
-        "TranslationSections": ""
+        "Tasks": "Tasks",
+        "Completed":"Completed",
+        "Add":"Add task"
     },
       "TrashBin": {
-        "TranslationSections": ""
+        "TrashBin": "Trash Bin",
+        "Nothing": "Nothing in the trash bin"
     },
       "AssignUsersModal": {
-        "TranslationSections": ""
+        "Edit": "Edit Assigned Social Workers",
+        "Remove":"Remove",
+        "AddSW":"Add Social Worker",
+        "Add":"Add",
+        "Ok":"Ok"
     },
       "RegisterUser": {
-        "TranslationSections": ""
+        "Regiser": "Register a User",
+        "Name": "Name",
+        "Pronouns": "Pronouns",
+        "Email": "Email",
+        "Password": "Password",
+        "Confirm": "Confirm password",
+        "Fail": "Passwords do not match",
+        "Admin": "Administrator",
+        "Regular": "Regular User",
+        "Submit":"Submit"
+
     },
       "ViewUsers": {
-        "TranslationSections": ""
+        "Sort": "Sort by",
+        "Name": "Name",
+        "Updated": "Updated",
+        "Email": "Email",
+        "Role": "Role:",
+        "Pronouns": "Pronouns"
     },
       "Users": {
         "TranslationSections": ""
