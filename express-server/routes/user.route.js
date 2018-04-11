@@ -122,28 +122,36 @@ router.get('/all', (req, res) => {
  * Update user by ID
  */
 router.put('/:id', (req, res) => {
-  // if (req.body.email)
-  // User.findOne({ email: req.body.email }, (err, existingUser) => {
-  //   if (err) { return next(err); }
-  //   if (existingUser) {
-  //     return res.status(400).send({ msg: 'Account with that email address already exists.' });
-  //   }
-  // });
   User.findById(req.params.id).then(user => {
-      user.name = req.body.name || user.name;
-      user.pronouns = req.body.pronouns || user.pronouns;
-      user.email = req.body.email || user.email;
-      user.password = req.body.password || user.password;
-      user.role = req.body.role || user.role;
-      
-      user.save().then(data => {
-          res.send(data);
-      }, err => {
-          res.send(err);
-      })
+    user.name = req.body.name || user.name;
+    user.pronouns = req.body.pronouns || user.pronouns;
+    user.password = req.body.password || user.password;
+    user.role = req.body.role || user.role;
+
+    if (req.body.email != user.email) {
+      User.count({ email: req.body.email }, (err, emailCount) => {
+        if (err) { return next(err); }
+        if (emailCount > 0) {
+          return res.status(400).send({ msg: 'Account with that email address already exists.' });
+        } else {
+          user.email = req.body.email;
+          saveUser(user, res);
+        }
+      });
+    } else {
+      saveUser(user, res);
+    }
   }, err => {
       res.send(err);
   })
 });
+
+function saveUser (user, res) {
+  user.save().then(data => {
+    res.send(data);
+  }, err => {
+    res.send(err);
+  });
+}
 
 module.exports = router;
