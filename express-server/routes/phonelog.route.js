@@ -31,17 +31,6 @@ router.get('/active', (req, res) => {
         })
 });
 
-/**
- * Get number of urgent phonelogs
- */
-router.get('/urgent', (req, res) => {
-    Phonelog.count({ "urgent": { "$in": ["true", true] }})
-        .then(count => {
-            res.send({"count": count});
-        }, err => {
-            res.send(err);
-        })
-});
 
 /**
  * Get recently updated phone logs

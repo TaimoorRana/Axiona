@@ -29,6 +29,8 @@ const resource = require('./routes/resource.route');
 const housing = require('./routes/resources/housing.route');
 const medical = require('./routes/resources/medical.route');
 
+const reportsPhonelog = require('./routes/reports/phonelog.route');
+
 const MongoStore = mongo(session);
 
 // Load environment variables from .env file
@@ -101,6 +103,7 @@ app.use('/api/resource', resource);
 app.use('/api/resource/housing', housing);
 app.use('/api/resource/medical', medical);
 
+app.use('/api/reports/phonelog', reportsPhonelog);
 
 // Server public folder
 app.use(express.static(path.join(__dirname, 'public')));

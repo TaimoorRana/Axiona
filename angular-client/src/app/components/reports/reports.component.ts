@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PhonelogService } from '../../services/phonelog.service';
+import { ReportPhonelogService } from '../../services/reports-phonelog.service';
 
 @Component({
   selector: 'app-reports',
@@ -9,7 +9,7 @@ import { PhonelogService } from '../../services/phonelog.service';
 export class ReportsComponent implements OnInit {
   public urgency;
 
-  constructor(private phonelogService: PhonelogService) { }
+  constructor(private reportPhonelogService: ReportPhonelogService) { }
 
   ngOnInit() {
     this.generateUrgentReport();
@@ -17,7 +17,7 @@ export class ReportsComponent implements OnInit {
 
   generateUrgentReport() {
     this.urgency = new Map();
-    this.phonelogService.reportUrgent().subscribe(x => {
+    this.reportPhonelogService.reportUrgent().subscribe(x => {
       this.urgency.set('urgencyYES', x['count']);
       console.log(this.urgency.get('urgencyYES'));
     });
