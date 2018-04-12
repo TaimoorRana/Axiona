@@ -1,11 +1,12 @@
 {
     "ActiveCaseFile": {
         "Active": "Active Case Files",
-        "Not Active":  "No active case files to display",
+        "NotActive":  "No active case files to display",
         "Last": "Last update:",
         "Priority": "Priority:",
         "Created": "Created by:",
-        "LastUpdated": "Last updated by:"
+        "LastUpdated": "Last updated by:",
+        "ViewProfile":"View Profile"
     },
      "CaseModal": {
         "New": "New Case",
@@ -20,6 +21,7 @@
         "NoCases":"No cases to display.",
         "Status":"Status:",
         "Urgency":"Urgency:",
+        "Resources":"Resources:",
         "Type":"Type:",
         "Notes":"Notes:",
         "Name":"Name:",

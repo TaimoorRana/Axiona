@@ -1,19 +1,19 @@
 <mat-card>
-  <mat-card-title>Recent Case File Activity</mat-card-title>
+  <mat-card-title>{{"Activity.Recent"|translate}}</mat-card-title>
   <div *ngIf="recentlyUpdatedCasefiles">
     <div *ngFor="let casefile of recentlyUpdatedCasefiles">
-      <p><b>Participant:</b> {{casefile.participant.name}} - Last update: {{casefile.updatedAt | date: 'short'}}</p>
+      <p><b>{{"Activity.Participant"|translate}}</b> {{casefile.participant.name}} - {{"Activity.Last"|translate}} {{casefile.updatedAt | date: 'short'}}</p>
     </div>
   </div>
-  <p *ngIf="!recentlyUpdatedCasefiles">No recent activity</p>
+  <p *ngIf="!recentlyUpdatedCasefiles">{{"Activity.NoRecent"|translate}}</p>
 </mat-card>
 
 <mat-card>
-  <mat-card-title>Recent Phone Log Activity</mat-card-title>
+  <mat-card-title>{{"Activity.RecentPhone"|translate}}</mat-card-title>
   <div *ngIf="recentlyUpdatedPhonelog">
     <div *ngFor="let phonelog of recentlyUpdatedPhonelog">
-      <p><b>Caller:</b> {{phonelog.name}} - Last update: {{phonelog.updatedAt | date: 'short'}}</p>
+      <p><b>Caller:</b> {{phonelog.name}} - {{"Activity.Last"|translate}} {{phonelog.updatedAt | date: 'short'}}</p>
     </div>
   </div>
-  <p *ngIf="!recentlyUpdatedPhonelog">No recent activity</p>
+  <p *ngIf="!recentlyUpdatedPhonelog">{{"Activity.NoRecent"|translate}}</p>
 </mat-card>

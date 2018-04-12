@@ -1,8 +1,8 @@
 <div class="white-container container">
-  <h3 class="history-header">Cases</h3>
+  <h3 class="history-header">{{"CaseFiles.Cases"|translate}}</h3>
 
   <mat-card *ngIf="orderedCases.length == 0">
-    No cases to display.
+   {{"CaseFiles.NoCases"|translate}}
   </mat-card>
 
   <mat-accordion *ngIf="orderedCases.length > 0">
@@ -15,14 +15,14 @@
           {{casefile.date | date: 'fullDate'}}
         </mat-panel-title>
         <mat-panel-description>
-          Status: {{casefile.status | slice:0:100}}
+          {{"CaseFiles.Status"|translate}} {{casefile.status | slice:0:100}}
         </mat-panel-description>
       </mat-expansion-panel-header>
 
       <!-- Casefile Information -->
-      <h4 class="info"><div class="label">Urgency:</div>{{casefile.urgency}}</h4>
-      <h4 class="info"><div class="label">Type:</div>{{casefile.type}}</h4>
-      <h4 *ngIf="casefile.notes[0] || (casefile.status == 'In progress')">Notes:</h4>
+      <h4 class="info"><div class="label">{{"CaseFiles.Urgency"|translate}}</div>{{casefile.urgency}}</h4>
+      <h4 class="info"><div class="label">{{"CaseFiles.Type"|translate}}</div>{{casefile.type}}</h4>
+      <h4 *ngIf="casefile.notes[0] || (casefile.status == 'In progress')">{{"CaseFiles.Notes"|translate}}</h4>
 
       <!-- Casefile completed: note as text -->
       <p *ngIf="casefile.notes[0] && (casefile.status == 'Completed')">{{casefile.notes[0]}}</p>
@@ -39,25 +39,25 @@
       </div>
 
       <!-- Casefile resources to contact -->
-      <h4>Resources:</h4>
+      <h4>{{"CaseFiles.Resources"|translate}}</h4>
 
       <!-- Casefile completed: resources as text -->
       <div *ngIf="casefile.status == 'Completed'">
 
         <!-- Resource Headers -->
         <div class="resource headerResources" *ngIf="casefile.contactedResources[0]">
-          <span class="name primary-font">Name</span>
-          <span class="contacted primary-font">Contacted</span>
-          <span class="datePicker primary-font datePicker">Date</span>
-          <span class="caseNotes primary-font">Comment</span>
+          <span class="name primary-font">{{"CaseFiles.Name"|translate}}</span>
+          <span class="contacted primary-font">{{"CaseFiles.Contacted"|translate}}</span>
+          <span class="datePicker primary-font datePicker">{{"CaseFiles.Date"|translate}}</span>
+          <span class="caseNotes primary-font">{{"CaseFiles.Comment"|translate}}</span>
         </div>
 
         <!-- Resource Information -->
         <div class="resource" *ngFor="let caseResource of casefile.contactedResources; let resourceIndex = index">
           <p class="name" *ngIf="caseResource.resource">{{caseResource.resource.name}}</p>
           <div class="contacted">
-            <p *ngIf="caseResource.dateContacted != null">Yes</p>
-            <p *ngIf="caseResource.dateContacted == null">No</p>
+            <p *ngIf="caseResource.dateContacted != null">{{"CaseFiles.Yes"|translate}}</p>
+            <p *ngIf="caseResource.dateContacted == null">{{"CaseFiles.No"|translate}}</p>
           </div>
           <div class="datePicker" *ngIf="caseResource.dateContacted != null">
             <p>{{caseResource.dateContacted | date:'M/d/yyyy'}}</p>
@@ -74,13 +74,13 @@
         </div>
 
         <!-- Selected Resource -->
-        <h4>Selected Resource:</h4>
+        <h4>{{"CaseFiles.SelectedResource"|translate}}</h4>
         <div *ngIf="!casefile.selectedResource" class="selectedResource">
-          <p>Nothing selected</p>
+          <p>{{"CaseFiles.Nothing"|translate}}</p>
         </div>
         <div *ngIf="casefile.selectedResource" class="selectedResource">
           <p>{{casefile.selectedResource.resource.name}}</p>
-          <p *ngIf="casefile.selectedResource.startDate">Date: {{casefile.selectedResource.startDate | date:'M/d/yyyy'}}</p>
+          <p *ngIf="casefile.selectedResource.startDate">{{"CaseFiles.Date"|translate}} {{casefile.selectedResource.startDate | date:'M/d/yyyy'}}</p>
           <p *ngIf="casefile.selectedResource.endDate">- {{casefile.selectedResource.endDate | date:'M/d/yyyy'}}</p>
         </div>
       </div>
@@ -90,10 +90,10 @@
 
         <!-- Resource Headers -->
         <div class="resource headerResources" *ngIf="casefile.contactedResources[0]">
-          <span class="name primary-font">Name</span>
-          <span class="contacted primary-font">Contacted</span>
-          <span class="datePicker primary-font datePicker">Date</span>
-          <span class="caseNotes primary-font">Comment</span>
+          <span class="name primary-font">{{"CaseFiles.Name"|translate}}</span>
+          <span class="contacted primary-font">{{"CaseFiles.Contacted"|translate}}</span>
+          <span class="datePicker primary-font datePicker">{{"CaseFiles.Date"|translate}}</span>
+          <span class="caseNotes primary-font">{{"CaseFiles.Comment"|translate}}</span>
         </div>
 
         <!-- Resource information as form -->
@@ -143,7 +143,7 @@
         <!-- End of resource form -->
 
         <!-- Selected Resource -->
-        <h4>Selected Resource:</h4>
+        <h4>{{"CaseFiles.SelectedResource"|translate}</h4>
 
         <div *ngIf="casefile.status == 'In progress' && casefile==editedCasefile && (!casefile.selectedResource || isEditingSelectedResource)">
           <form class="selectedResource" [formGroup]="casefileFormSelectedResource">

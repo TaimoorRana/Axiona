@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Add a Document</h1>
+<h1 mat-dialog-title>{{"DocumentModal.AddDocument"|translate}}</h1>
 <mat-dialog-content>
   <form #documentForm="ngForm">
     <mat-form-field>
@@ -6,13 +6,13 @@
         [(ngModel)]="document.type"></textarea>
     </mat-form-field>
     <div class="fileupload">
-      <h4>Upload Document</h4>
+      <h4>{{"DocumentModal.Upload"|translate}}</h4>
       <input type="file" #upload (change)="handleFileInput(upload.files)" accept="application/pdf" [disabled]="isLoading">
       <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
     </div>
   </form>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-raised-button color="primary" (click)="submit()" [disabled]="!file || isLoading">Submit</button>
-  <button mat-raised-button (click)="cancel()">Close</button>
+  <button mat-raised-button color="primary" (click)="submit()" [disabled]="!file || isLoading">{{"DocumentModal.Submit"|translate}}</button>
+  <button mat-raised-button (click)="cancel()">{{"DocumentModal.Close"|translate}}</button>
 </mat-dialog-actions>

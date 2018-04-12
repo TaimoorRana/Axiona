@@ -1,7 +1,7 @@
 <div class="white-container container">
-  <h3 class="history-header">Documents</h3>
+  <h3 class="history-header">{{"Documents.Documents"|translate}}</h3>
   <mat-card *ngIf="orderedDocuments.length == 0">
-    No documents to display.
+    {{"Documents.NoDocs"|translate}}
   </mat-card>
   <mat-accordion *ngIf="orderedDocuments.length > 0">
     <mat-expansion-panel *ngFor="let document of orderedDocuments">
@@ -13,7 +13,7 @@
           {{document.type}}
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <h4>Attachments:</h4>
+      <h4>{{"Documents.Attachments"|translate}}</h4>
       <mat-grid-list cols="1" *ngFor="let doc of document.attachment">
         <a href={{getDocumentURL(document._id,doc)}} target="_blank">{{doc}}</a>
       </mat-grid-list>

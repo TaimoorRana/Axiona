@@ -1,5 +1,5 @@
 <mat-card *ngIf="messageService.messages.length">
-  <h5>Messages:</h5>
+  <h5>{{"Messages.Messages"|translate}}</h5>
   <p *ngFor="let message of messageService.messages">{{message}}</p>
-  <button mat-button (click)="messageService.clear()">Clear</button>
+  <button mat-button (click)="messageService.clear()">{{"Messages.Clear"|translate}}</button>
 </mat-card>
