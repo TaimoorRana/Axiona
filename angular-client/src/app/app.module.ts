@@ -1,6 +1,6 @@
 import { platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule  } from '@angular/core';
+import { NgModule, ErrorHandler  } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { Http, HttpModule } from '@angular/http';
@@ -54,6 +54,9 @@ import { TaskService } from './services/task.service';
 
 import { OrderByPipe } from './pipes/orderBy.pipe';
 import { SearchPipe } from './pipes/search.pipe';
+import { ErrorsModalComponent } from './components/modals/errors-modal/errors-modal.component';
+
+import { ErrorsHandler } from './errors/errors-handler';
 
 const routes: Routes = [
   {
@@ -215,7 +218,8 @@ const routes: Routes = [
     ViewResourcesComponent,
     ViewUsersComponent,
     OrderByPipe,
-    SearchPipe
+    SearchPipe,
+    ErrorsModalComponent
   ],
   imports: [
     BrowserModule,
@@ -243,7 +247,11 @@ const routes: Routes = [
     AuthenticationService,
     PhonelogService,
     TaskService,
-    TrashService
+    TrashService,
+    {
+      provide: ErrorHandler,
+      useClass: ErrorsHandler,
+    }
   ],
   bootstrap: [AppComponent]
 })

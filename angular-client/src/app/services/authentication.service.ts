@@ -9,6 +9,7 @@ import { User } from '../classes/user';
 
 @Injectable()
 export class AuthenticationService {
+
   public loggedIn: boolean;
   public role: String;
   public profile: any;
@@ -16,7 +17,6 @@ export class AuthenticationService {
   constructor(
     private http: HttpClient,
     private messageService: MessageService
-
   ) {
 
   }
