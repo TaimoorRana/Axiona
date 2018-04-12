@@ -16,8 +16,8 @@ export class TrashService {
 
   /**
    * Get all records in trash
-   * 
-   * @returns {Observable<Object>} 
+   *
+   * @returns {Observable<Object>}
    * @memberof TrashService
    */
   getAll(): Observable<Object[]> {
@@ -30,10 +30,10 @@ export class TrashService {
 
   /**
    * Permanently delete the record with the given ID
-   * 
-   * @param {String} model 
-   * @param {String} recordID 
-   * @returns {Observable<Object>} 
+   *
+   * @param {String} model
+   * @param {String} recordID
+   * @returns {Observable<Object>}
    * @memberof TrashService
    */
   deletePermanently(model: String, recordID: String): Observable<Object> {
@@ -46,10 +46,10 @@ export class TrashService {
 
   /**
    * Restore the given deleted record from the trash bin
-   * 
-   * @param {String} model 
-   * @param {String} recordID 
-   * @returns {Observable<Object>} 
+   *
+   * @param {String} model
+   * @param {String} recordID
+   * @returns {Observable<Object>}
    * @memberof TrashService
    */
   restore(model: String, recordID: String): Observable<Object> {
@@ -63,12 +63,12 @@ export class TrashService {
   /**
    * Capture errors from the service, then log them,
    * and let the app keep running with a returned Observable
-   * 
+   *
    * @private
-   * @template T 
-   * @param {string} [operation='operation'] 
-   * @param {T} [result] 
-   * @returns 
+   * @template T
+   * @param {string} [operation='operation']
+   * @param {T} [result]
+   * @returns
    * @memberof UserService
    */
   private handleError<T>(operation = 'operation', result?: T) {
@@ -80,9 +80,9 @@ export class TrashService {
 
   /**
    * Log messages by sending them to message service
-   * 
+   *
    * @private
-   * @param {String} message 
+   * @param {String} message
    * @memberof UserService
    */
   private log(message: String) {
