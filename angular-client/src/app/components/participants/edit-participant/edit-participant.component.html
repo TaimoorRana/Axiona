@@ -6,38 +6,38 @@
   </div>
 
   <mat-form-field>
-    <input matInput required placeholder="Name" name="name" formControlName="name">
+    <input matInput required placeholder="{{'AddParticipant.Name'|translate}}" name="name" formControlName="name">
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="Pronouns" name="pronouns" formControlName="pronouns">
+    <input matInput placeholder="{{'AddParticipant.Pronouns'|translate}}" name="pronouns" formControlName="pronouns">
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="Email" name="email" formControlName="email">
+    <input matInput placeholder="{{'AddParticipant.EmailAddress'|translate}}" name="email" formControlName="email">
   </mat-form-field>
 
   <mat-form-field>
     <span matPrefix>+1 &nbsp;</span>
-    <input type="tel" matInput placeholder="Telephone" name="telephone" formControlName="telephone">
+    <input type="tel" matInput placeholder="{{'AddParticipant.Telephone'|translate}}" name="telephone" formControlName="telephone">
   </mat-form-field>
 
   <mat-form-field class="address">
-    <input matInput placeholder="Physical Address" name="address" formControlName="address">
+    <input matInput placeholder="{{'AddParticipant.Address'|translate}}" name="address" formControlName="address">
   </mat-form-field>
 
   <mat-form-field class="social-media">
-    <input matInput placeholder="Social media provider" name="service" formControlName="socialMediaPlatform">
+    <input matInput placeholder="{{'AddParticipant.SocialMedia'|translate}}" name="service" formControlName="socialMediaPlatform">
   </mat-form-field>
 
   <mat-form-field class="social-media">
-    <input matInput placeholder="Social media account" name="username" formControlName="socialMediaUsername">
+    <input matInput placeholder="{{'AddParticipant.SocialMediaAccount'|translate}}" name="username" formControlName="socialMediaUsername">
   </mat-form-field>
 
   <div class="actions">
     <div class="buttons">
-      <button mat-raised-button type="submit" color="primary" [disabled]="participantForm.invalid" (click)="update(participant._id, participant)">Update</button>
-      <button  mat-raised-button type="button" (click)="cancel.emit()">Cancel</button>
+      <button mat-raised-button type="submit" color="primary" [disabled]="participantForm.invalid" (click)="update(participant._id, participant)">"{{'AddParticipant.Update'|translate}}"</button>
+      <button  mat-raised-button type="button" (click)="cancel.emit()">"{{'AddParticipant.Cancel'|translate}}"</button>
     </div>
     <button class="delete-btn" mat-icon-button type="button" (click)="delete(participant._id)">
         <mat-icon color="warn">delete</mat-icon>

@@ -5,40 +5,40 @@
     <mat-form-field class="name-input">
       <input placeholder="Name" matInput formControlName="name">
       <mat-hint align="start">
-        Do not use participant's legal name
+        {{"AddParticipant.Legal"|translate}}
       </mat-hint>
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput placeholder="Pronouns" formControlName="pronouns">
+      <input matInput placeholder="{{'AddParticipant.Pronouns'|translate}}" formControlName="pronouns">
     </mat-form-field>
 
     <mat-form-field>
       <span matPrefix>+1 &nbsp;</span>
-      <input  type="tel" matInput placeholder="Telephone" formControlName="telephone">
+      <input  type="tel" matInput placeholder="{{'AddParticipant.Telephone'|translate}}" formControlName="telephone">
     </mat-form-field>
 
     <div  class="well well-lg">
     <mat-form-field>
-      <input matInput placeholder="Social media provider (Twitter, Facebook)" formControlName="service">
+      <input matInput placeholder="{{'AddParticipant.SocialMedia'|translate}}" formControlName="service">
     </mat-form-field>
     <mat-form-field >
-      <input matInput placeholder="Social media account (@username)" formControlName="username">
+      <input matInput placeholder="{{'AddParticipant.SocialMediaAccount'|translate}}" formControlName="username">
     </mat-form-field>
     </div>
 
     <mat-form-field>
-      <input  matInput (keyup.enter)="onKey('email', email.value)" (blur)="onKey('email', email.value)" #email placeholder="Email address" formControlName="email">
+      <input  matInput (keyup.enter)="onKey('email', email.value)" (blur)="onKey('email', email.value)" #email placeholder="{{'AddParticipant.EmailAddress'|translate}}" formControlName="email">
     </mat-form-field>
 
-    <div *ngIf="isAlreadyAParticipantEmail" style="color:red">This is already associated to a participant!</div>
+    <div *ngIf="isAlreadyAParticipantEmail" style="color:red">{{'AddParticipant.Warning'|translate}}</div>
     <mat-form-field>
-      <input matInput placeholder="Physical Address" formControlName="address">
+      <input matInput placeholder="{{'AddParticipant.Address'|translate}}" formControlName="address">
       <mat-hint align="start">
-        This is strictly optional
+        {{'AddParticipant.Optional'|translate}}
       </mat-hint>
     </mat-form-field>
-    <button mat-raised-button type="submit" color="primary" [disabled]="form.invalid">Submit</button>
+    <button mat-raised-button type="submit" color="primary" [disabled]="form.invalid">{{'AddParticipant.Submit'|translate}}</button>
   </form>
 </mat-card>
 </div>

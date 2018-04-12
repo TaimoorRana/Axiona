@@ -85,6 +85,7 @@
       "NoteModal": {
         "Create": "Create a Note",
         "Upload": "Upload File",
+        "Submit":"Submit",
         "Cancel": "Cancel"
     },
       "Participants": {
@@ -96,7 +97,7 @@
         "Telephone": "Telephone",
         "SocialMedia": "Social media provider (Twitter, Facebook)",
         "SocialMediaAccount": "Social media account (@username)",
-        "Email address": "Email address",
+        "EmailAddress": "Email address",
         "Warning": "This is already associated to a participant!",
         "Address": "Physical Address",
         "Optional": "This is strictly optional",
@@ -109,7 +110,7 @@
         "Telephone": "Telephone",
         "SocialMedia": "Social media provider",
         "SocialMediaAccount": "Social media account",
-        "Email address": "Email address",
+        "EmailAddress": "Email address",
         "Address": "Physical Address",
         "Update": "Update",
         "Cancel": "Update"
@@ -145,6 +146,7 @@
         "TranslationSections": ""
     },
       "AddPhoneLog": {
+        "PhoneCall":"Phone Call",
         "Name": "Name of caller",
         "Pronouns": "Pronouns",
         "Type":"Type of caller",

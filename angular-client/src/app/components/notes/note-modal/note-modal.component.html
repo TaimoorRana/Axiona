@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Create a Note</h1>
+<h1 mat-dialog-title>{{"NoteModal.Create"|translate}}</h1>
 <mat-dialog-content>
   <form #noteForm="ngForm">
     <mat-form-field>
@@ -6,13 +6,13 @@
         [(ngModel)]="note.text"></textarea>
     </mat-form-field>
     <div class="fileupload">
-      <h4>Upload File</h4>
+      <h4>{{"NoteModal.Upload"|translate}}</h4>
       <input type="file" class="fileupoad-input" #upload (change)="handleFileInput(upload.files)" accept="image/*" [disabled]="isLoading">
       <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
     </div>
   </form>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-raised-button color="primary" (click)="submit()" [disabled]="(!file && note.text.length==0) || isLoading">Submit</button>
-  <button mat-raised-button (click)="cancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="submit()" [disabled]="(!file && note.text.length==0) || isLoading">{{"NoteModal.Submit"|translate}}</button>
+  <button mat-raised-button (click)="cancel()">{{"NoteModal.Cancel"|translate}}</button>
 </mat-dialog-actions>

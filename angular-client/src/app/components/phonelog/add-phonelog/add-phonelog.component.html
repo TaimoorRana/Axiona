@@ -1,21 +1,21 @@
 <mat-card class="phonecall-card">
   <mat-card-title>
-    Phone Call
+    {{"AddPhoneLog.PhoneCall"|translate}}
   </mat-card-title>
   <form [formGroup]="phonelog" #f="ngForm">
 
     <div class="caller-name">
       <mat-form-field>
-        <input matInput placeholder="Name of caller" name="name" formControlName="name">
+        <input matInput placeholder="{{'AddPhoneLog.Name'|translate}}" name="name" formControlName="name">
       </mat-form-field>
 
       <mat-form-field class="pronouns">
-        <input matInput placeholder="Pronouns" name="pronouns" formControlName="pronouns">
+        <input matInput placeholder="{{'AddPhoneLog.Pronouns'|translate}}" name="pronouns" formControlName="pronouns">
       </mat-form-field>
     </div>
 
     <mat-form-field>
-      <mat-select placeholder="Type of caller" name="callertype" formControlName="callertype">
+      <mat-select placeholder="{{'AddPhoneLog.Type'|translate}}" name="callertype" formControlName="callertype">
         <mat-option *ngFor="let caller of callertype" [value]="caller">
           {{caller}}
         </mat-option>
@@ -23,25 +23,25 @@
     </mat-form-field>
 
     <mat-form-field class="phonenumber">
-      <input matInput placeholder="Phone number" name="phonenumber" formControlName="phonenumber">
+      <input matInput placeholder="{{'AddPhoneLog.Phone'|translate}}" name="phonenumber" formControlName="phonenumber">
     </mat-form-field>
 
     <div class="message-header">
       <mat-form-field>
-        <input matInput placeholder="Reason for call" name="subject" formControlName="subject">
+        <input matInput placeholder="{{'AddPhoneLog.Reason'|translate}}" name="subject" formControlName="subject">
       </mat-form-field>
 
       <mat-slide-toggle name="urgent" formControlName="urgent" [checked]="urgent">
-        Urgent
+        {{'AddPhoneLog.Urgent'|translate}}
       </mat-slide-toggle>
     </div>
 
     <mat-form-field class="message">
-      <textarea matInput placeholder="Message" matTextareaAutosize matAutosizeMinRows="5" name="message" formControlName="message"></textarea>
-      <mat-hint align="start">Their message, when to call, extension number...</mat-hint>
+      <textarea matInput placeholder="{{'AddPhoneLog.Message'|translate}}" matTextareaAutosize matAutosizeMinRows="5" name="message" formControlName="message"></textarea>
+      <mat-hint align="start">{{'AddPhoneLog.Hint'|translate}}</mat-hint>
     </mat-form-field>
 
-    <button mat-raised-button type="submit" color="primary" [disabled]="phonelog.invalid" (click)="submit()">Log this call</button>
+    <button mat-raised-button type="submit" color="primary" [disabled]="phonelog.invalid" (click)="submit()">{{'AddPhoneLog.Log'|translate}}</button>
   </form>
 
 </mat-card>

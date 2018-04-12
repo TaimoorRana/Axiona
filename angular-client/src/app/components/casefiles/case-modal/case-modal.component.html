@@ -1,12 +1,12 @@
 <h1 mat-dialog-title>{{"CaseModal.New"|translate}}</h1>
-<h5>{{"CaseModal.Participant"|translate} {{data.participant.name}}</h5>
+<h5>{{"CaseModal.Participant"|translate}} {{data.participant.name}}</h5>
 <form #caseForm="ngForm">
   <mat-form-field>
     <mat-select required placeholder="Case Type" name="caseType" [(ngModel)]="mycase.type">
       <mat-option *ngFor="let type of resourceTypes" [value]="type">{{type}}</mat-option>
     </mat-select>
   </mat-form-field>
-  <p class="hint">{{"CaseModal.Urgency"|translate}</p>
+  <p class="hint">{{"CaseModal.Urgency"|translate}}</p>
   <mat-radio-group required [(ngModel)]="mycase.urgency" name="urgency" ng-checked="urgency[0]">
     <mat-radio-button *ngFor="let urgency of urgencies" [value]="urgency">{{urgency}}&nbsp;&nbsp;</mat-radio-button>
   </mat-radio-group>

@@ -2,16 +2,16 @@
 
     <div class="caller-name">
         <mat-form-field>
-            <input matInput required placeholder="Name" name="name" formControlName="name">
+            <input matInput required placeholder="{{'EditPhoneLog.Name'|translate}}" name="name" formControlName="name">
         </mat-form-field>
 
         <mat-form-field class="pronouns">
-            <input matInput placeholder="Pronouns" name="pronouns" formControlName="pronouns">
+            <input matInput placeholder="{{'EditPhoneLog.Pronouns'|translate}}" name="pronouns" formControlName="pronouns">
         </mat-form-field>
     </div>
 
     <mat-form-field>
-        <mat-select placeholder="Type of caller" name="callertype" formControlName="callertype">
+        <mat-select placeholder="{{'EditPhoneLog.Type'|translate}}" name="callertype" formControlName="callertype">
             <mat-option *ngFor="let caller of callertype" [value]="caller">
                 {{ caller}}
             </mat-option>
@@ -19,11 +19,11 @@
     </mat-form-field>
 
     <mat-form-field>
-            <input matInput placeholder="Language" name="language" formControlName="language">
+            <input matInput placeholder="{{'EditPhoneLog.Language'|translate}}" name="language" formControlName="language">
     </mat-form-field>
 
     <mat-form-field>
-        <input matInput placeholder="Phonenumber" name="phonenumber" formControlName="phonenumber">
+        <input matInput placeholder="{{'EditPhoneLog.Phone'|translate}}" name="phonenumber" formControlName="phonenumber">
     </mat-form-field>
 
     <mat-form-field>
@@ -34,20 +34,20 @@
 
     <div class="message-header">
         <mat-form-field>
-            <input matInput placeholder="Reason for call" name="subject" formControlName="subject">
+            <input matInput placeholder="{{'EditPhoneLog.Reason'|translate}}" name="subject" formControlName="subject">
         </mat-form-field>
 
         <mat-slide-toggle name="urgent" formControlName="urgent" [checked]="urgent">
-            Urgent
+            {{'EditPhoneLog.Urgent'|translate}}
         </mat-slide-toggle>
     </div>
 
     <mat-form-field class="message">
-            <textarea matInput placeholder="Message" matTextareaAutosize matAutosizeMinRows="5" name="message" formControlName="message"></textarea>
-            <mat-hint align="start">Their message, when to call, extension number...</mat-hint>
+            <textarea matInput placeholder="{{'EditPhoneLog.Message'|translate}}" matTextareaAutosize matAutosizeMinRows="5" name="message" formControlName="message"></textarea>
+            <mat-hint align="start">{{'EditPhoneLog.Hint'|translate}}</mat-hint>
     </mat-form-field>
 
-    <button mat-raised-button type="submit" color="primary" [disabled]="editphonelog.invalid" (click)="update(log._id,log)">Update</button>
-    <button mat-raised-button type="button" (click)="cancel.emit()">Cancel</button>
+    <button mat-raised-button type="submit" color="primary" [disabled]="editphonelog.invalid" (click)="update(log._id,log)">{{'EditPhoneLog.Update'|translate}}</button>
+    <button mat-raised-button type="button" (click)="cancel.emit()">{{'EditPhoneLog.Cancel'|translate}}</button>
 
 </form>

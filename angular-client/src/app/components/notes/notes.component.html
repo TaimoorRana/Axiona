@@ -1,7 +1,7 @@
 <div class="white-container container">
-  <h3 class="history-header">Notes</h3>
+  <h3 class="history-header">{{"Notes.Notes"|translate}}</h3>
   <mat-card *ngIf="orderedNotes == null || orderedNotes.length == 0">
-    No notes to display.
+    {{"Notes.No"|translate}}
   </mat-card>
   <mat-accordion *ngIf="orderedNotes.length > 0">
     <mat-expansion-panel *ngFor="let note of orderedNotes" class="note-panel">
@@ -17,12 +17,12 @@
       <div class="note-container">
         <div class="note-content">
           <div class="text">
-            <h4>Note:</h4>
+            <h4>{{"Notes.Note"|translate}}</h4>
             {{note.text}}
           </div>
           <div class="attachment" *ngIf="note.attachment">
             <div class="attachment-link">
-              <h4>Attachment:</h4>
+              <h4>{{"Notes.Attachment"|translate}}</h4>
               <p>
                 <a href={{getImageURL(note._id,note.attachment)}} target="_blank">{{note.attachment}}</a>
               </p>

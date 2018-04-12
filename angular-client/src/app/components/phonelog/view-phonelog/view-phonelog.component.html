@@ -1,9 +1,9 @@
 <div class="active-phonecalls">
 
     <!-- Active phone calls -->
-    <h2 class="heading">Pending Phone Calls</h2>
+    <h2 class="heading">{{'ViewPhoneLog.Pending'|translate}}</h2>
     <div *ngIf="(!logs) || (logs.length === 0)">
-        Everything up to date!
+        {{'ViewPhoneLog.Everything'|translate}}
     </div>
     <mat-card *ngFor="let log of ((logs | search:'urgent':query) | orderBy: sortProperty: reverse)">
         <div *ngIf="editingLog != log">
@@ -17,43 +17,43 @@
                     </div>
                 </div>
                 <div *ngIf="log.callertype && log.callertype !== '' " class="caller-type">
-                    <div class="label">Type of caller:</div>{{log.callertype}}
+                    <div class="label">{{'ViewPhoneLog.Type'|translate}}</div>{{log.callertype}}
                 </div>
                 <div *ngIf="log.phonenumber !== '' " class="caller-phone">
-                    <div class="label">Phone number:</div>{{log.phonenumber}}
+                    <div class="label">{{'ViewPhoneLog.Phone'|translate}}</div>{{log.phonenumber}}
                 </div>
                 <div *ngIf="log.date && log.date !== '' " class="caller-date">
-                    <div class="label">Date of the call:</div>{{log.date| date : format : timezone}}
+                    <div class="label">{{'ViewPhoneLog.Date'|translate}}</div>{{log.date| date : format : timezone}}
                 </div>
                 <div class="caller-heading">
                     <div *ngIf="log.subject && log.subject !== '' " class="caller-subject">
-                        <div class="label">Subject:</div>{{log.subject}}
+                        <div class="label">{{'ViewPhoneLog.Subject'|translate}}</div>{{log.subject}}
                     </div>
                     <div *ngIf="log.urgent && log.urgent == true " class="urgency warning-font">
-                        Urgent
+                        {{'ViewPhoneLog.Urgent'|translate}}
                         <mat-icon color="warn">assignment_late</mat-icon>
                     </div>
                 </div>
                 <div *ngIf="log.message && log.message !== '' " class="message">
-                    <div class="label">Message:</div>
+                    <div class="label">{{'ViewPhoneLog.Message'|translate}}</div>
                     <div class="call-text">{{log.message}}</div>
                 </div>
                 <div *ngIf="log.notes[0] && log.notes[0] !== '' " class="note">
-                    <div class="label">Note regarding the call:</div>
+                    <div class="label">{{'ViewPhoneLog.Note'|translate}}</div>
                     <div class="call-text">{{log.notes[0]}}</div>
                 </div>
                 <div *ngIf="log.language && log.language !== '' " class="caller-language">
-                    <div class="label">Language:</div>{{log.language}}
+                    <div class="label">{{'ViewPhoneLog.Language'|translate}}</div>{{log.language}}
                 </div>
                 <div class="logger">
-                    <div class="label">Call logged by:</div> {{log.user.name}}
+                    <div class="label">{{'ViewPhoneLog.LoggedBy'|translate}}</div> {{log.user.name}}
                 </div>
 
             </mat-card-content>
             <mat-card-actions class="phonecall-actions">
                 <button mat-raised-button (click)="resolve(log)" color="primary">
                     <mat-icon>check_circle</mat-icon>
-                    Resolve
+                    {{'ViewPhoneLog.Resolve'|translate}}
                 </button>
                 <button mat-icon-button (click)="edit(log)" color="primary">
                     <mat-icon>edit</mat-icon>
@@ -71,9 +71,9 @@
 
 <!-- History -->
 <div class="past-phonecalls">
-    <h2 class="heading">Completed Phone Calls</h2>
+    <h2 class="heading">{{'ViewPhoneLog.Completed'|translate}}</h2>
     <div *ngIf="(!history) || (history.length === 0)">
-        Nothing to show
+        {{'ViewPhoneLog.Nothing'|translate}}
     </div>
 
     <mat-accordion *ngIf="history && history.length > 0">
@@ -85,7 +85,7 @@
                     {{log.name}}
                 </mat-panel-title>
                 <mat-panel-description>
-                    Date of call: {{log.date| date : format : timezone}}
+                   {{'ViewPhoneLog.Date'|translate}} {{log.date| date : format : timezone}}
                 </mat-panel-description>
             </mat-expansion-panel-header>
 
@@ -93,23 +93,23 @@
             <div class="history-container">
                 <div class="history-content">
                     <div *ngIf="log.name && log.name !== ''">
-                        <b> Name: </b> {{log.name}}
+                        <b> {{'ViewPhoneLog.Name'|translate}} </b> {{log.name}}
                         <br>
                     </div>
                     <div *ngIf="log.pronouns && log.pronouns !== '' ">
-                        <b> Pronoun: </b> {{log.pronouns}}
+                        <b> {{'ViewPhoneLog.Pronouns'|translate}} </b> {{log.pronouns}}
                         <br>
                     </div>
                     <div *ngIf="log.callertype && log.callertype !== '' ">
-                        <b> Type of caller: </b> {{log.callertype}}
+                        <b> {{'ViewPhoneLog.Type'|translate}} </b> {{log.callertype}}
                         <br>
                     </div>
                     <div *ngIf="log.phonenumber && log.phonenumber !== '' ">
-                        <b> Phone number: </b> {{log.phonenumber}}
+                        <b> {{'ViewPhoneLog.Phone'|translate}} </b> {{log.phonenumber}}
                         <br>
                     </div>
                     <div *ngIf="log.subject && log.subject !== '' ">
-                        <b> Subject: </b> {{log.subject}}
+                        <b> {{'ViewPhoneLog.Subject'|translate}} </b> {{log.subject}}
                         <br>
                     </div>
                     <div *ngIf="log.urgent && log.urgent == true ">
@@ -117,35 +117,35 @@
                         <br>
                     </div>
                     <div *ngIf="log.urgent && log.urgent == false ">
-                        <b> Urgent: </b> No
+                        <b> {{'ViewPhoneLog.Urgent'|translate}} </b> No
                         <br>
                     </div>
                     <div *ngIf="log.date && log.date !== '' ">
-                        <b> Date of the call: </b> {{log.date| date : format : timezone}}
+                        <b> {{'ViewPhoneLog.Date'|translate}} </b> {{log.date| date : format : timezone}}
                         <br>
                     </div>
                     <div *ngIf="log.language && log.language !== '' ">
-                        <b> Language: </b>{{log.language}}
+                        <b> {{'ViewPhoneLog.Language'|translate}} </b>{{log.language}}
                         <br>
                     </div>
                     <div *ngIf="log.message && log.message !== '' ">
-                        <b> Message: </b> {{log.message}}
+                        <b> {{'ViewPhoneLog.Message'|translate}} </b> {{log.message}}
                         <br>
                     </div>
                     <div *ngIf="log.notes[0] && log.notes[0] !=='' ">
-                        <b> Note regarding the call: </b> {{log.notes[0]}}
+                        <b> {{'ViewPhoneLog.Note'|translate}} </b> {{log.notes[0]}}
                         <br>
                     </div>
                     <div>
-                        <b> Call logged by: </b> {{log.user.name}}
+                        <b> {{'ViewPhoneLog.LoggedBy'|translate}} </b> {{log.user.name}}
                         <br>
                     </div>
                     <div>
-                        <b> Called back by: </b> {{log.resolvedBy.name}}
+                        <b> {{'ViewPhoneLog.CalledBy'|translate}} </b> {{log.resolvedBy.name}}
                         <br>
                     </div>
                     <div>
-                        <b> Date called back: </b> {{log.dateResolved | date : format : timezone}}
+                        <b> {{'ViewPhoneLog.DateCalledBy'|translate}} </b> {{log.dateResolved | date : format : timezone}}
                         <br>
                     </div>
                 </div>
