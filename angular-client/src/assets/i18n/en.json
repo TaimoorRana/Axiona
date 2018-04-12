@@ -93,6 +93,8 @@
       "AddParticipant": {
         "Legal": "Do not use participant's legal name",
         "Name": "Name",
+        "NewParticipant":"New participant successfully added.",
+        "CouldNot":"Could not add new participant.",
         "Pronouns": "Pronouns",
         "Telephone": "Telephone",
         "SocialMedia": "Social media provider (Twitter, Facebook)",
@@ -101,7 +103,9 @@
         "Warning": "This is already associated to a participant!",
         "Address": "Physical Address",
         "Optional": "This is strictly optional",
-        "Submit": "Submit"
+        "Submit": "Submit",
+        "Cancel": "Cancel",
+        "Update": "Update"
     },
       "EditParticipant": {
         "Username": "Participant username:",
@@ -212,7 +216,9 @@
         "Cost": "Cost",
         "Waitlist": "Waitlist Time",
         "Schedule": "Schedule",
-        "Submit": "Submit"
+        "Submit": "Submit",
+        "CouldNot":"Could not add new resource.",
+        "Added":"New resource successfully added."
     },
       "EditResource": {
         "Name": "Name",
@@ -253,7 +259,9 @@
     },
       "TrashBin": {
         "TrashBin": "Trash Bin",
-        "Nothing": "Nothing in the trash bin"
+        "Nothing": "Nothing in the trash bin",
+        "Sure":"Are you sure you want to restore this record?",
+        "Restore":"Are you sure you want to restore this record?"
     },
       "AssignUsersModal": {
         "Edit": "Edit Assigned Social Workers",
@@ -263,6 +271,8 @@
         "Ok":"Ok"
     },
       "RegisterUser": {
+        "Added":"New user successfully created.",
+        "CouldNot":"Could not add new user.",
         "Regiser": "Register a User",
         "Name": "Name",
         "Pronouns": "Pronouns",

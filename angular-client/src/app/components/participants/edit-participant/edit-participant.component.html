@@ -36,8 +36,8 @@
 
   <div class="actions">
     <div class="buttons">
-      <button mat-raised-button type="submit" color="primary" [disabled]="participantForm.invalid" (click)="update(participant._id, participant)">"{{'AddParticipant.Update'|translate}}"</button>
-      <button  mat-raised-button type="button" (click)="cancel.emit()">"{{'AddParticipant.Cancel'|translate}}"</button>
+      <button mat-raised-button type="submit" color="primary" [disabled]="participantForm.invalid" (click)="update(participant._id, participant)">{{'AddParticipant.Update'|translate}}</button>
+      <button  mat-raised-button type="button" (click)="cancel.emit()">{{'AddParticipant.Cancel'|translate}}</button>
     </div>
     <button class="delete-btn" mat-icon-button type="button" (click)="delete(participant._id)">
         <mat-icon color="warn">delete</mat-icon>

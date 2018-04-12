@@ -5,6 +5,7 @@ import { User } from '../../../classes/user';
 import { Observable } from 'rxjs/Observable';
 import { MatDialog } from '@angular/material';
 import { AlertModalComponent } from '../../modals/alert-modal/alert-modal.component';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-register-user',
@@ -28,7 +29,8 @@ export class RegisterUserComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     private authenticationService: AuthenticationService,
-    private router: Router
+    private router: Router,
+    private translate: TranslateService,
   ) { }
 
   ngOnInit() {

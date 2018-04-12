@@ -6,6 +6,7 @@ import { Housing } from '../../../classes/housing';
 import { FormGroup, FormControl, Validators, ValidatorFn, FormBuilder, ValidationErrors } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-add-resource',
@@ -23,7 +24,7 @@ export class AddResourceComponent implements OnInit {
   emailregex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
 
-  constructor(private fb: FormBuilder, private resourceService: ResourceService, public dialog: MatDialog, private router: Router
+  constructor(private fb: FormBuilder,  private translate: TranslateService, private resourceService: ResourceService, public dialog: MatDialog, private router: Router
   ) {
     this.createForm();
   }
@@ -72,9 +73,9 @@ export class AddResourceComponent implements OnInit {
     this.resourceService.save(this.form.value['kind'].toLowerCase(), this.form.value)
       .subscribe(data => {
         if (data.hasOwnProperty('errors')) {
-          this.alertModal('Could not add new resource.').subscribe();
+          this.alertModal(this.translate.instant('AddResource.CouldNot')).subscribe();
         } else {
-          this.alertModal('New resource successfully added.').subscribe( () => {
+          this.alertModal(this.translate.instant('AddResource.Added')).subscribe( () => {
             this.myNgForm.resetForm();
             this.router.navigateByUrl('/resources');
           });

@@ -7,6 +7,8 @@ import { AuthenticationService } from '../../../services/authentication.service'
 import { RouterModule, Router } from '@angular/router';
 import { FormGroup, FormControl, Validators, ValidatorFn, FormBuilder, ValidationErrors } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
+import {TranslateService} from '@ngx-translate/core';
+
 
 @Component({
   selector: 'app-add-participant',
@@ -28,6 +30,7 @@ export class AddParticipantComponent implements OnInit {
     private participantService: ParticipantService,
     public dialog: MatDialog,
     public authService: AuthenticationService,
+    private translate: TranslateService,
     public router: Router) {
     this.createForm();
   }
@@ -99,9 +102,9 @@ export class AddParticipantComponent implements OnInit {
     this.participantService.save(this.form.value)
       .subscribe(data => {
         if (data.hasOwnProperty('errors')) {
-          this.alertModal('Could not add new participant.').subscribe();
+          this.alertModal(this.translate.instant('AddParticipant.CouldNot')).subscribe();
         } else {
-          this.alertModal('New participant successfully added.').subscribe( () => {
+          this.alertModal(this.translate.instant('AddParticipant.NewParticipant')).subscribe( () => {
             this.myNgForm.resetForm();
             this.router.navigateByUrl('/participants');
           });

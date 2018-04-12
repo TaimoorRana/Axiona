@@ -4,6 +4,7 @@ import { AuthenticationService } from '../../services/authentication.service';
 import { MatDialog } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
 import { ConfirmModalComponent } from '../modals/confirm-modal/confirm-modal.component';
+import {TranslateService} from '@ngx-translate/core';
 
 
 @Component({
@@ -16,6 +17,7 @@ export class TrashbinComponent implements OnInit {
   items: Object[];
 
   constructor(public authService: AuthenticationService,
+    private translate: TranslateService,
     private trashService: TrashService,
     public dialog: MatDialog) { }
 
@@ -24,7 +26,7 @@ export class TrashbinComponent implements OnInit {
   }
 
   delete(itemModel: String, itemID: String) {
-    this.confirmModal('Are you sure you want to permanently delete this record?').subscribe(result => {
+    this.confirmModal(this.translate.instant('TrashBin.Sure')).subscribe(result => {
       if (result) {
         this.trashService.deletePermanently(itemModel, itemID)
           .subscribe(data => {
@@ -35,7 +37,7 @@ export class TrashbinComponent implements OnInit {
   }
 
   restore(itemModel: String, itemID: String) {
-    this.confirmModal('Are you sure you want to restore this record?').subscribe(result => {
+    this.confirmModal(this.translate.instant('TrashBin.Restore')).subscribe(result => {
       if (result) {
         this.trashService.restore(itemModel, itemID)
           .subscribe(data => {
