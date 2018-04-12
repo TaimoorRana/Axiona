@@ -6,7 +6,7 @@ const ObjectId = require('mongoose').Types.ObjectId;
 /**
  * Generate report for urgency in phonelogs
  */
-router.get('/urgent', (req, res) => {
+router.get('/urgentyes', (req, res) => {
     Phonelog.count({ "urgent": { "$in": ["true", true] }})
         .then(count => {
             res.send({"count": count});
@@ -14,5 +14,14 @@ router.get('/urgent', (req, res) => {
             res.send(err);
         })
 });
+router.get('/urgentno', (req, res) => {
+    Phonelog.count({ "urgent": { "$in": ["false", false] }})
+        .then(count => {
+            res.send({"count": count});
+        }, err => {
+            res.send(err);
+        })
+});
+
 
 module.exports = router;

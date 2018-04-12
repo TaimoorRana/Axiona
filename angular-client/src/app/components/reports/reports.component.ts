@@ -17,9 +17,13 @@ export class ReportsComponent implements OnInit {
 
   generateUrgentReport() {
     this.urgency = new Map();
-    this.reportPhonelogService.reportUrgent().subscribe(x => {
+    this.reportPhonelogService.reportUrgentYes().subscribe(x => {
       this.urgency.set('urgencyYES', x['count']);
       console.log(this.urgency.get('urgencyYES'));
+    });
+    this.reportPhonelogService.reportUrgentNo().subscribe(x => {
+      this.urgency.set('urgencyNO', x['count']);
+      console.log(this.urgency.get('urgencyNO'));
     });
   }
 }

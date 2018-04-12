@@ -19,8 +19,16 @@ export class ReportPhonelogService {
 
 /** Reports-related calls */
 
-reportUrgent(): Observable<Object> {
-  return this.http.get(`${this.url}/urgent`)
+reportUrgentYes(): Observable<Object> {
+  return this.http.get(`${this.url}/urgentyes`)
+    .pipe(
+      tap(participants => this.log('fecthed urgent logs')),
+      catchError(this.handleError<Object>('reportUrgent()'))
+    );
+}
+
+reportUrgentNo(): Observable<Object> {
+  return this.http.get(`${this.url}/urgentno`)
     .pipe(
       tap(participants => this.log('fecthed urgent logs')),
       catchError(this.handleError<Object>('reportUrgent()'))
