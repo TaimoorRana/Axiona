@@ -33,9 +33,6 @@ describe('Phonelog Tests', () => {
 
         let phonelog1 = new Phonelog({
                 '_id' : id1,
-                'notes' : [
-                    ''
-                ],
                 'date' : '2018-02-19T00:48:27.827Z',
                 'deleted' : false,
                 'name' : 'Adrianna',
@@ -52,9 +49,6 @@ describe('Phonelog Tests', () => {
 
         let phonelog2 = new Phonelog({
             '_id' : id2,
-            'notes' : [
-                'I am testing something'
-            ],
             'date' : '2018-02-19T22:30:01.016Z',
             'deleted' : false,
             'name' : 'Adrianna',
@@ -70,9 +64,6 @@ describe('Phonelog Tests', () => {
 
         let phonelog3 = new Phonelog({
             '_id' : id3,
-            'notes' : [
-                'I am testing something again'
-            ],
             'date' : '2018-03-19T22:30:01.016Z',
             'deleted' : false,
             'name' : 'Adrianna',
@@ -161,7 +152,6 @@ describe('Phonelog Tests', () => {
             let pronouns = "he";
             let phonenumber = "5146195888";
             let subject = "Testing123";
-            let notes= ["hello"];
             let urgent = true ;
             let callertype = "social worker"
             let message = "call back"
@@ -170,14 +160,13 @@ describe('Phonelog Tests', () => {
             chai.request(server)
                 .put('/api/phonelog/'+id1)
                 .set('Cookie', cookie)
-                .send({ name: name, pronouns: pronouns, phonenumber:phonenumber, subject:subject, notes:notes, urgent:urgent,callertype:callertype,message:message,date:date,language:language })
+                .send({ name: name, pronouns: pronouns, phonenumber:phonenumber, subject:subject, urgent:urgent,callertype:callertype,message:message,date:date,language:language })
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.have.property('name').eql(name);
                     res.body.should.have.property('pronouns').eql(pronouns);
                     res.body.should.have.property('phonenumber').eql(phonenumber);
                     res.body.should.have.property('subject').eql(subject);
-                    res.body.should.have.property('notes').eql(notes);
                     res.body.should.have.property('urgent').eql(urgent);
                     res.body.should.have.property('callertype').eql(callertype);
                     res.body.should.have.property('message').eql(message);
@@ -228,7 +217,7 @@ describe('Phonelog Tests', () => {
         it('should POST a phonelog', (done) => {
             let phonelog = {
                 user: id2,
-                note: 'testing phonelog'
+                message: 'testing phonelog'
             }
             chai.request(server)
                 .post('/api/phonelog')
@@ -239,7 +228,6 @@ describe('Phonelog Tests', () => {
                     res.body.should.be.a('object');
                     res.body.should.have.property('_id');
                     res.body.should.have.property('user');
-                    res.body.should.have.property('notes');
                     id4 = res.body._id;
                     done();
                 });

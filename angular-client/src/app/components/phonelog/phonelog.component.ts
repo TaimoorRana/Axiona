@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
 import { AuthenticationService } from '../../services/authentication.service';
 
@@ -9,6 +9,7 @@ import { AuthenticationService } from '../../services/authentication.service';
 })
 export class PhonelogComponent implements OnInit {
 
+  @Input() isLoggingCall;
   navLinks = [
     {
       label: 'View Phone Log',
@@ -16,7 +17,7 @@ export class PhonelogComponent implements OnInit {
     },
     {
       label: 'Log a phone call',
-      path: './add-phonelog'
+      path: './phonelog-tab'
     }
   ];
 
@@ -28,6 +29,7 @@ export class PhonelogComponent implements OnInit {
     if (!this.authService.loggedIn) {
     this.router.navigateByUrl('login');
     }
+    console.log(this.isLoggingCall);
   }
 
 }
