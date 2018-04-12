@@ -1,13 +1,13 @@
 <div class="sortNSearchToolbar">
   <mat-form-field>
-    <mat-select placeholder="Sort by" [(value)]="sortProperty">
-      <mat-option value="name">Name</mat-option>
-      <mat-option value="updatedAt">Updated</mat-option>
+    <mat-select placeholder="{{'ViewUsers.Sort'|translate}}" [(value)]="sortProperty">
+      <mat-option value="name">{{'ViewUsers.Name'|translate}}</mat-option>
+      <mat-option value="updatedAt">{{'ViewUsers.Updated'|translate}}</mat-option>
     </mat-select>
   </mat-form-field>
   <button mat-raised-button (click)="reverse=!reverse" class="reverseBtn">{{reverse? 'Descending': 'Ascending'}}</button>
   <mat-form-field class="searchBox">
-    <input matInput placeholder="Search" [(ngModel)]="query">
+    <input matInput placeholder="{{'ViewUsers.Search'|translate}}" [(ngModel)]="query">
   </mat-form-field>
 </div>
 
@@ -17,12 +17,12 @@
       <div class="info">
         <div class="user-name naming">{{user.name}}</div>
         <div *ngIf="user.email && user.email !== ''">
-          <b>Email: </b> {{user.email}}
+          <b>{{'ViewUsers.Email'|translate}} </b> {{user.email}}
         </div>
         <div *ngIf="user.role && user.role !== ''">
-          <b>Role: </b> {{user.role}}</div>
+          <b>{{'ViewUsers.Role'|translate}} </b> {{user.role}}</div>
         <div *ngIf="user.pronouns && user.pronouns !== ''">
-          <b>Pronouns: </b> {{user.pronouns}}</div>
+          <b>{{'ViewUsers.Pronouns'|translate}} </b> {{user.pronouns}}</div>
       </div>
       <div class="actions">
         <button mat-button mat-icon-button (click)="delete(user._id)">

@@ -232,16 +232,19 @@
         "Cancel": "Cancel"
     },
       "ViewResource": {
-        "Location": "Location",
-        "Telephone": "Telephone",
-        "Email": "Email",
-        "Term": "Term",
-        "Gender": "Gender",
-        "Constraints": "Constraints",
-        "Free": "Free",
+        "Sort":"Sort by",
+        "Name":"Name",
+        "Updated":"Updated",
+        "Location": "Location:",
+        "Telephone": "Telephone:",
+        "Email": "Email:",
+        "Term": "Term:",
+        "Gender": "Gender:",
+        "Constraints": "Constraints:",
+        "Free": "Free:",
         "Approx":"Approximate Waitlist:",
-        "Schedule": "Schedule",
-        "Notes": "Notes"
+        "Schedule": "Schedule:",
+        "Notes": "Notes:"
     },
       "Tasks": {
         "Tasks": "Tasks",
@@ -274,6 +277,7 @@
     },
       "ViewUsers": {
         "Sort": "Sort by",
+        "Search":"Search",
         "Name": "Name",
         "Updated": "Updated",
         "Email": "Email",

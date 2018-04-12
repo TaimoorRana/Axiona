@@ -4,62 +4,62 @@
 
     <div class="resource-type">
       <div class="label primary-font">
-        Type
+        {{'AddResource.Type'|translate}}
       </div>
-      <mat-select placeholder="Resource Type" formControlName="kind" #selectedResource>
+      <mat-select placeholder="{{'AddResource.Rtype'|translate}}" formControlName="kind" #selectedResource>
         <mat-option *ngFor="let type of resourceTypes" [value]="type">{{type}}</mat-option>
       </mat-select>
     </div>
 
     <mat-form-field>
-      <input matInput placeholder="Name" formControlName="name">
+      <input matInput placeholder="{{'AddResource.Name'|translate}}" formControlName="name">
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput placeholder="Email" formControlName="email">
+      <input matInput placeholder="{{'AddResource.Email'|translate}}" formControlName="email">
     </mat-form-field>
 
     <mat-form-field>
       <span matPrefix>+1 &nbsp;</span>
-      <input matInput placeholder="Telephone" formControlName="telephone">
+      <input matInput placeholder="{{'AddResource.Telephone'|translate}}" formControlName="telephone">
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput placeholder="Location" formControlName="location">
+      <input matInput placeholder="{{'AddResource.Location'|translate}}" formControlName="location">
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput placeholder="Notes" formControlName="notes">
+      <input matInput placeholder="{{'AddResource.Notes'|translate}}" formControlName="notes">
     </mat-form-field>
 
     <div *ngIf="selectedResource.selected">
       <div [ngSwitch]="selectedResource.selected.value">
         <ng-container *ngSwitchCase="'Housing'">
           <mat-form-field>
-            <input matInput placeholder="Term" formControlName="term">
+            <input matInput placeholder="{{'AddResource.Term'|translate}}" formControlName="term">
           </mat-form-field>
           <mat-form-field>
-            <input matInput placeholder="Gender" formControlName="gender">
+            <input matInput placeholder="{{'AddResource.Gender'|translate}}" formControlName="gender">
           </mat-form-field>
           <mat-form-field>
-            <input matInput placeholder="Constraints" formControlName="constraints">
+            <input matInput placeholder="{{'AddResource.Constraints'|translate}}" formControlName="constraints">
           </mat-form-field>
         </ng-container>
         <ng-container *ngSwitchCase="'Medical'">
           <mat-form-field>
-            <input matInput placeholder="Cost" formControlName="without_cost">
+            <input matInput placeholder="{{'AddResource.Cost'|translate}}" formControlName="without_cost">
           </mat-form-field>
           <mat-form-field>
-            <input matInput placeholder="Waitlist Time" formControlName="waitlist_time">
+            <input matInput placeholder="{{'AddResource.Waitlist'|translate}}" formControlName="waitlist_time">
           </mat-form-field>
           <mat-form-field>
-            <input matInput placeholder="Schedule" formControlName="schedule_availability">
+            <input matInput placeholder="{{'AddResource.Schedule'|translate}}" formControlName="schedule_availability">
           </mat-form-field>
         </ng-container>
       </div>
     </div>
 
-    <button mat-raised-button color="primary" [disabled]="form.invalid">Submit</button>
+    <button mat-raised-button color="primary" [disabled]="form.invalid">{{'AddResource.Submit'|translate}}</button>
   </form>
 
 </mat-card>

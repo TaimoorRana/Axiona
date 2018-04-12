@@ -1,5 +1,5 @@
 <mat-card>
-    <mat-card-title>Tasks</mat-card-title>
+    <mat-card-title>{{'Tasks.Tasks'|translate}}</mat-card-title>
     <mat-card-content>
         <mat-selection-list *ngIf="tasks">
             <mat-list-option #taskItem *ngFor="let task of tasks" (click)="deleteTask(task._id)" [disabled]="taskItem.selected">
@@ -7,11 +7,11 @@
             </mat-list-option>
         </mat-selection-list>
         <div *ngIf="!tasks">
-            You've completed all your tasks!
+            {{'Tasks.Completed'|translate}}
         </div>
         <form [formGroup]="form"  #f="ngForm" (ngSubmit)="saveTask()" class="addTask">
             <mat-form-field>
-                <input matInput type="text" placeholder="Add task" formControlName="description"/>
+                <input matInput type="text" placeholder="{{'Tasks.Add'|translate}}" formControlName="description"/>
             </mat-form-field>
             <button [disabled]="form.invalid" type="submit" mat-button matSuffix mat-icon-button aria-label="Add">
                 <mat-icon color="primary" class="addIcon">add_box</mat-icon>

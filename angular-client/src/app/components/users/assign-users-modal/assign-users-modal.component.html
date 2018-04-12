@@ -1,21 +1,21 @@
-<h1 mat-dialog-title>Edit Assigned Social Workers</h1>
+<h1 mat-dialog-title>{{'AssignUsersModal.Edit'|translate}}</h1>
 <mat-dialog-content>
     <div class="alignedList" *ngFor="let worker of participant.workers">
       <p>{{ worker.name }} ({{ worker.email }})</p>
-      <button mat-raised-button (click)="removeWorker(worker._id)">Remove</button>
+      <button mat-raised-button (click)="removeWorker(worker._id)">{{'AssignUsersModal.Remove'|translate}}</button>
     </div>
   <br>
   <div class="alignedList">
     <mat-form-field>
-      <mat-select placeholder="Add Social Worker" [(value)]="selectedWorkerId">
+      <mat-select placeholder="{{'AssignUsersModal.AddSW'|translate}}" [(value)]="selectedWorkerId">
         <mat-option *ngFor="let worker of allWorkers" [disabled]="isDisabled(worker._id)" [value]="worker._id">
           {{ worker.name }} ({{ worker.email }})
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <button mat-raised-button [disabled]="!selectedWorkerId" (click)="addWorker()">Add</button>
+    <button mat-raised-button [disabled]="!selectedWorkerId" (click)="addWorker()">{{'AssignUsersModal.Add'|translate}}</button>
   </div>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-raised-button (click)="close()">OK</button>
+  <button mat-raised-button (click)="close()">{{'AssignUsersModal.Ok'|translate}}</button>
 </mat-dialog-actions>
