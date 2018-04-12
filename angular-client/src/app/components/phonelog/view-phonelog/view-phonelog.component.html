@@ -3,7 +3,7 @@
     <!-- Active phone calls -->
     <h2 class="heading">Pending Phone Calls</h2>
     <div *ngIf="(!logs) || (logs.length === 0)">
-        Everything up to date!
+        Everything up to date
     </div>
     <mat-card *ngFor="let log of ((logs | search:'urgent':query) | orderBy: sortProperty: reverse)">
         <div *ngIf="editingLog != log">
@@ -13,11 +13,14 @@
                         {{log.name}}
                     </div>
                     <div *ngIf="log.pronouns && log.pronouns !== '' " class="caller-pronouns">
-                        ( {{log.pronouns}} )
+                        ( pronouns: {{log.pronouns}} )
                     </div>
                 </div>
                 <div *ngIf="log.callertype && log.callertype !== '' " class="caller-type">
                     <div class="label">Type of caller:</div>{{log.callertype}}
+                </div>
+                <div *ngIf="log.language && log.language !== '' " class="caller-language">
+                    <div class="label">Language:</div>{{log.language}}
                 </div>
                 <div *ngIf="log.phonenumber !== '' " class="caller-phone">
                     <div class="label">Phone number:</div>{{log.phonenumber}}
@@ -37,13 +40,6 @@
                 <div *ngIf="log.message && log.message !== '' " class="message">
                     <div class="label">Message:</div>
                     <div class="call-text">{{log.message}}</div>
-                </div>
-                <div *ngIf="log.notes[0] && log.notes[0] !== '' " class="note">
-                    <div class="label">Note regarding the call:</div>
-                    <div class="call-text">{{log.notes[0]}}</div>
-                </div>
-                <div *ngIf="log.language && log.language !== '' " class="caller-language">
-                    <div class="label">Language:</div>{{log.language}}
                 </div>
                 <div class="logger">
                     <div class="label">Call logged by:</div> {{log.user.name}}
@@ -130,10 +126,6 @@
                     </div>
                     <div *ngIf="log.message && log.message !== '' ">
                         <b> Message: </b> {{log.message}}
-                        <br>
-                    </div>
-                    <div *ngIf="log.notes[0] && log.notes[0] !=='' ">
-                        <b> Note regarding the call: </b> {{log.notes[0]}}
                         <br>
                     </div>
                     <div>
