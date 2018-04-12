@@ -1,11 +1,14 @@
 ![https://travis-ci.org/adriannadiaz/Axiona](https://travis-ci.org/adriannadiaz/Axiona.svg?branch=master) 
 
-
-
 Axiona
 ============
 
 A free, open-source application to strengthen the workflow process of social workers in our local community.
+
+
+![Capstone Poster](documentation/Axiona-poster.png)
+
+
 
 Capabilities:
 -------------
