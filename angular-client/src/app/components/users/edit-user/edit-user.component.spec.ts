@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EditUserComponent } from './edit-user.component';
+import { MaterialsModule } from '../../../modules/materials.module';
+import { UserService } from '../../../services/user.service';
+import { MockUserService } from '../../../services/mocks/MockUserService';
 
 describe('EditUserComponent', () => {
   let component: EditUserComponent;
@@ -8,7 +11,9 @@ describe('EditUserComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EditUserComponent ]
+      declarations: [ EditUserComponent ],
+      imports: [ MaterialsModule ],
+      providers: [ { provide: UserService, useClass: MockUserService } ]
     })
     .compileComponents();
   }));
@@ -16,6 +21,13 @@ describe('EditUserComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(EditUserComponent);
     component = fixture.componentInstance;
+    component.user = {
+      'role': 'admin',
+      '_id': '5a7b95c49a80678d70defa7e',
+      'email': 'test@test.com',
+      'name': 'Test',
+      'pronouns': 'they'
+    };
     fixture.detectChanges();
   });
 
