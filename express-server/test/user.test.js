@@ -115,7 +115,7 @@ describe('User Tests', () => {
             chai.request(server)
                 .put('/user/' + id1)
                 .set('Cookie', adminCookie)
-                .send({ name: email, email: email, role: role })
+                .send({ name: name, email: email, role: role })
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.have.property('name').eql(name);
