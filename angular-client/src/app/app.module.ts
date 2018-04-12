@@ -24,6 +24,7 @@ import { DocumentsComponent } from './components/documents/documents.component';
 import { EditParticipantComponent } from './components/participants/edit-participant/edit-participant.component';
 import { EditPhonelogComponent } from './components/phonelog/edit-phonelog/edit-phonelog.component';
 import { EditResourceComponent } from './components/resources/edit-resource/edit-resource.component';
+import { ErrorsModalComponent } from './components/modals/errors-modal/errors-modal.component';
 import { LoginComponent } from './components/login/login.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { NoteModalComponent } from './components/notes/note-modal/note-modal.component';
@@ -44,6 +45,7 @@ import { ViewUsersComponent } from './components/users/view-users/view-users.com
 
 import { AuthenticationService } from './services/authentication.service';
 import { CasefileService } from './services/casefile.service';
+import { ErrorsService } from './services/errors.service';
 import { MessageService } from './services/message.service';
 import { ParticipantService } from './services/participant.service';
 import { PhonelogService } from './services/phonelog.service';
@@ -54,7 +56,6 @@ import { TaskService } from './services/task.service';
 
 import { OrderByPipe } from './pipes/orderBy.pipe';
 import { SearchPipe } from './pipes/search.pipe';
-import { ErrorsModalComponent } from './components/modals/errors-modal/errors-modal.component';
 
 import { ErrorsHandler } from './errors/errors-handler';
 
@@ -239,15 +240,16 @@ const routes: Routes = [
     NoteModalComponent
   ],
   providers: [
-    ParticipantService,
-    MessageService,
-    ResourceService,
-    CasefileService,
-    UserService,
     AuthenticationService,
+    CasefileService,
+    ErrorsService,
+    MessageService,
+    ParticipantService,
     PhonelogService,
+    ResourceService,
     TaskService,
     TrashService,
+    UserService,
     {
       provide: ErrorHandler,
       useClass: ErrorsHandler,

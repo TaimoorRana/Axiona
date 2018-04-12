@@ -1,6 +1,7 @@
 import { ErrorHandler, Injectable, Injector } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { MessageService } from '../services/message.service';
+import { ErrorsService } from '../services/errors.service';
 
 @Injectable()
 export class ErrorsHandler implements ErrorHandler {
@@ -10,7 +11,7 @@ export class ErrorsHandler implements ErrorHandler {
     handleError(error: Error | HttpErrorResponse) {
 
         const messageService = this.injector.get(MessageService);
-
+        const errorsService = this.injector.get(ErrorsService);
 
         if (error instanceof HttpErrorResponse) {
             // Error: server or connection
@@ -24,7 +25,9 @@ export class ErrorsHandler implements ErrorHandler {
 
         } else {
             // Error: Client
-            return messageService.add(`${error}`);
+            errorsService.log(error).subscribe( err => {
+                // TODO: navigate to error page
+            });
         }
 
     }

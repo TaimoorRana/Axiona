@@ -24,6 +24,7 @@ const casefile = require('./routes/casefile.route');
 const phonelog = require('./routes/phonelog.route');
 const task = require('./routes/task.route');
 const trash = require('./routes/trash.route');
+const loggedError = require('./routes/error.route');
 
 const resource = require('./routes/resource.route');
 const housing = require('./routes/resources/housing.route');
@@ -96,6 +97,7 @@ app.use('/api/casefile', casefile);
 app.use('/api/phonelog', phonelog);
 app.use('/api/task', task);
 app.use('/api/trash', trash);
+app.use('/api/loggederror', loggedError);
 
 app.use('/api/resource', resource);
 app.use('/api/resource/housing', housing);
