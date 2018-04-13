@@ -1,11 +1,12 @@
 {
     "ActiveCaseFile": {
         "Active": "Active Case Files",
-        "Not Active":  "No active case files to display",
+        "NotActive":  "No active case files to display",
         "Last": "Last update:",
         "Priority": "Priority:",
         "Created": "Created by:",
-        "LastUpdated": "Last updated by:"
+        "LastUpdated": "Last updated by:",
+        "ViewProfile":"View Profile"
     },
      "CaseModal": {
         "New": "New Case",
@@ -20,6 +21,7 @@
         "NoCases":"No cases to display.",
         "Status":"Status:",
         "Urgency":"Urgency:",
+        "Resources":"Resources:",
         "Type":"Type:",
         "Notes":"Notes:",
         "Name":"Name:",
@@ -57,7 +59,7 @@
         "Delete": "Delete"
     },
       "Login": {
-        "Login": "testing",
+        "Login": "Login",
         "Email": "Email",
         "Password": "Password",
         "Submit": "Submit"
@@ -83,6 +85,7 @@
       "NoteModal": {
         "Create": "Create a Note",
         "Upload": "Upload File",
+        "Submit":"Submit",
         "Cancel": "Cancel"
     },
       "Participants": {
@@ -90,15 +93,19 @@
       "AddParticipant": {
         "Legal": "Do not use participant's legal name",
         "Name": "Name",
+        "NewParticipant":"New participant successfully added.",
+        "CouldNot":"Could not add new participant.",
         "Pronouns": "Pronouns",
         "Telephone": "Telephone",
         "SocialMedia": "Social media provider (Twitter, Facebook)",
         "SocialMediaAccount": "Social media account (@username)",
-        "Email address": "Email address",
+        "EmailAddress": "Email address",
         "Warning": "This is already associated to a participant!",
         "Address": "Physical Address",
         "Optional": "This is strictly optional",
-        "Submit": "Submit"
+        "Submit": "Submit",
+        "Cancel": "Cancel",
+        "Update": "Update"
     },
       "EditParticipant": {
         "Username": "Participant username:",
@@ -107,7 +114,7 @@
         "Telephone": "Telephone",
         "SocialMedia": "Social media provider",
         "SocialMediaAccount": "Social media account",
-        "Email address": "Email address",
+        "EmailAddress": "Email address",
         "Address": "Physical Address",
         "Update": "Update",
         "Cancel": "Update"
@@ -143,6 +150,7 @@
         "TranslationSections": ""
     },
       "AddPhoneLog": {
+        "PhoneCall":"Phone Call",
         "Name": "Name of caller",
         "Pronouns": "Pronouns",
         "Type":"Type of caller",
@@ -208,7 +216,9 @@
         "Cost": "Cost",
         "Waitlist": "Waitlist Time",
         "Schedule": "Schedule",
-        "Submit": "Submit"
+        "Submit": "Submit",
+        "CouldNot":"Could not add new resource.",
+        "Added":"New resource successfully added."
     },
       "EditResource": {
         "Name": "Name",
@@ -228,16 +238,19 @@
         "Cancel": "Cancel"
     },
       "ViewResource": {
-        "Location": "Location",
-        "Telephone": "Telephone",
-        "Email": "Email",
-        "Term": "Term",
-        "Gender": "Gender",
-        "Constraints": "Constraints",
-        "Free": "Free",
+        "Sort":"Sort by",
+        "Name":"Name",
+        "Updated":"Updated",
+        "Location": "Location:",
+        "Telephone": "Telephone:",
+        "Email": "Email:",
+        "Term": "Term:",
+        "Gender": "Gender:",
+        "Constraints": "Constraints:",
+        "Free": "Free:",
         "Approx":"Approximate Waitlist:",
-        "Schedule": "Schedule",
-        "Notes": "Notes"
+        "Schedule": "Schedule:",
+        "Notes": "Notes:"
     },
       "Tasks": {
         "Tasks": "Tasks",
@@ -246,7 +259,9 @@
     },
       "TrashBin": {
         "TrashBin": "Trash Bin",
-        "Nothing": "Nothing in the trash bin"
+        "Nothing": "Nothing in the trash bin",
+        "Sure":"Are you sure you want to restore this record?",
+        "Restore":"Are you sure you want to restore this record?"
     },
       "AssignUsersModal": {
         "Edit": "Edit Assigned Social Workers",
@@ -256,6 +271,8 @@
         "Ok":"Ok"
     },
       "RegisterUser": {
+        "Added":"New user successfully created.",
+        "CouldNot":"Could not add new user.",
         "Regiser": "Register a User",
         "Name": "Name",
         "Pronouns": "Pronouns",
@@ -270,6 +287,7 @@
     },
       "ViewUsers": {
         "Sort": "Sort by",
+        "Search":"Search",
         "Name": "Name",
         "Updated": "Updated",
         "Email": "Email",
