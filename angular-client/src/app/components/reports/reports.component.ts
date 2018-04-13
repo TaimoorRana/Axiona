@@ -7,10 +7,10 @@ import { ReportPhonelogService } from '../../services/reports-phonelog.service';
   styleUrls: ['./reports.component.css']
 })
 export class ReportsComponent implements OnInit {
-  public urgency;
-  public isUrgencyDataReady;
-  public callertype;
-  public isCallerTypeDataReady;
+  public urgency = new Map();
+  public isUrgencyDataReady =  [false, false];
+  public callertype = new Map();
+  public isCallerTypeDataReady = [false, false, false, false];
 
   urgencyLabels = ['Yes', 'No'];
 
@@ -29,8 +29,6 @@ export class ReportsComponent implements OnInit {
   }
 
   fetchUrgencyStatistics() {
-    this.urgency = new Map();
-    this.isUrgencyDataReady = [false, false];
     this.reportPhonelogService.reportUrgentYes().subscribe(x => {
       this.urgency.set('urgencyYES', x['count']);
       this.isUrgencyDataReady[0] = true;
@@ -53,8 +51,6 @@ export class ReportsComponent implements OnInit {
   }
 
   fetchCallerTypeStatistics() {
-    this.callertype = new Map();
-    this.isCallerTypeDataReady = [false, false, false, false];
     this.reportPhonelogService.reportCallerTypeTrans().subscribe(x => {
       this.callertype.set('callerTypeTRANS', x['count']);
       this.isCallerTypeDataReady[0] = true;

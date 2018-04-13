@@ -1,7 +1,7 @@
-<mat-card>
+<mat-card *ngIf="this.isUrgencyDataReady.every(fieldTrue)">
     <mat-card-title>Calls by urgency</mat-card-title>
     <mat-card-content>
-        <div style="width: 50%;" *ngIf="this.isUrgencyDataReady.every(fieldTrue)">
+        <div style="width: 50%;" >
             <canvas baseChart [chartType]="'pie'" [datasets]="generateUrgencyChartData()" [labels]="urgencyLabels" [legend]="true" (chartClick)="onChartClick($event)">
             </canvas>
         </div>
@@ -12,10 +12,10 @@
         </div>
     </mat-card-content>
 </mat-card>
-<mat-card>
+<mat-card *ngIf="this.isCallerTypeDataReady.every(fieldTrue)">
     <mat-card-title>Calls by caller type</mat-card-title>
     <mat-card-content>
-        <div style="width: 50%;" *ngIf="this.isCallerTypeDataReady.every(fieldTrue)">
+        <div style="width: 50%;">
             <canvas baseChart [chartType]="'pie'" [datasets]="generateCallerTypeChartData()" [labels]="callerTypeLabels" [legend]="true"
                 (chartClick)="onChartClick($event)">
             </canvas>
