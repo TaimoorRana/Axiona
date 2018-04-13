@@ -67,7 +67,7 @@ reportUrgentNo(): Observable<Object> {
 reportCallerTypeTrans(): Observable<Object> {
   return this.http.get(`${this.url}/callertrans`)
     .pipe(
-      tap(participants => this.log('fetched urgent logs')),
+      tap(participants => this.log('fetched number of calls made by trans persons')),
       catchError(this.handleError<Object>('reportCallerTypeTrans()'))
     );
 }
@@ -75,7 +75,7 @@ reportCallerTypeTrans(): Observable<Object> {
 reportCallerTypeOrganization(): Observable<Object> {
   return this.http.get(`${this.url}/callerorganization`)
     .pipe(
-      tap(participants => this.log('fetched urgent logs')),
+      tap(participants => this.log('fetched number of calls made by organizations')),
       catchError(this.handleError<Object>('reportCallerTypeOrganization()'))
     );
 }
@@ -83,7 +83,7 @@ reportCallerTypeOrganization(): Observable<Object> {
 reportCallerTypeSocialWorker(): Observable<Object> {
   return this.http.get(`${this.url}/callersocialworker`)
     .pipe(
-      tap(participants => this.log('fetched urgent logs')),
+      tap(participants => this.log('fetched number of calls made by social workers')),
       catchError(this.handleError<Object>('reportCallerTypeSocialWorker()'))
     );
 }
@@ -91,11 +91,42 @@ reportCallerTypeSocialWorker(): Observable<Object> {
 reportCallerTypeOther(): Observable<Object> {
   return this.http.get(`${this.url}/callerother`)
     .pipe(
-      tap(participants => this.log('fetched urgent logs')),
+      tap(participants => this.log('fetched number of calls made by other persons')),
       catchError(this.handleError<Object>('reportCallerTypeOther()'))
     );
 }
 
+reportCallerPronounUND(): Observable<Object> {
+  return this.http.get(`${this.url}/callerpronounundisclosed`)
+    .pipe(
+      tap(participants => this.log('fetched number of calls made by pronoun undisclosed')),
+      catchError(this.handleError<Object>('callerPronounUND()'))
+    );
+}
+
+reportCallerPronounSHE(): Observable<Object> {
+  return this.http.get(`${this.url}/callerpronounshe`)
+    .pipe(
+      tap(participants => this.log('fetched number of calls made by pronoun she')),
+      catchError(this.handleError<Object>('callerPronounSHE()'))
+    );
+}
+
+reportCallerPronounTHEY(): Observable<Object> {
+  return this.http.get(`${this.url}/callerpronounthey`)
+    .pipe(
+      tap(participants => this.log('fetched number of calls made by pronoun they')),
+      catchError(this.handleError<Object>('callerPronounTHEY()'))
+    );
+}
+
+reportCallerPronounHIM(): Observable<Object> {
+  return this.http.get(`${this.url}/callerpronounhim`)
+    .pipe(
+      tap(participants => this.log('fetched number of calls made by pronoun him')),
+      catchError(this.handleError<Object>('reportCallerPronounHIM()'))
+    );
+}
 
 
 }

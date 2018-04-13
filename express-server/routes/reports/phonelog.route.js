@@ -54,6 +54,38 @@ router.get('/callerother', (req, res) => {
             res.send(err);
         })
 });
+router.get('/callerpronounundisclosed', (req, res) => {
+    Phonelog.count({ "pronouns": { "$in": ["undisclosed", "undisclosed"] }})
+        .then(count => {
+            res.send({"count": count});
+        }, err => {
+            res.send(err);
+        })
+});
+router.get('/callerpronounshe', (req, res) => {
+    Phonelog.count({ "pronouns": { "$in": ["she/her", "she/her"] }})
+        .then(count => {
+            res.send({"count": count});
+        }, err => {
+            res.send(err);
+        })
+});
+router.get('/callerpronounthey', (req, res) => {
+    Phonelog.count({ "pronouns": { "$in": ["they/them", "they/them"] }})
+        .then(count => {
+            res.send({"count": count});
+        }, err => {
+            res.send(err);
+        })
+});
+router.get('/callerpronounhim', (req, res) => {
+    Phonelog.count({ "pronouns": { "$in": ["he/him", "he/him"] }})
+        .then(count => {
+            res.send({"count": count});
+        }, err => {
+            res.send(err);
+        })
+});
 
 
 

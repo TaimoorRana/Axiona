@@ -1,31 +1,47 @@
 <mat-card *ngIf="this.isUrgencyDataReady.every(fieldTrue)">
-    <mat-card-title>Calls by urgency</mat-card-title>
-    <mat-card-content>
-        <div style="width: 50%;" >
-            <canvas baseChart [chartType]="'pie'" [datasets]="generateUrgencyChartData()" [labels]="urgencyLabels" [legend]="true" (chartClick)="onChartClick($event)">
-            </canvas>
-        </div>
-        <div>
-            <p>YES: {{this.urgency.get("urgencyYES")}} </p>
-            <p>NO : {{this.urgency.get("urgencyNO")}} </p>
-            <p><b>TOTAL: {{this.urgency.get("urgencyNO")+this.urgency.get("urgencyYES")}} </b></p>
-        </div>
-    </mat-card-content>
-</mat-card>
-<mat-card *ngIf="this.isCallerTypeDataReady.every(fieldTrue)">
-    <mat-card-title>Calls by caller type</mat-card-title>
+        <mat-card-title>Calls by urgency</mat-card-title>
+        <mat-card-content>
+            <div style="width: 50%;" >
+                <canvas baseChart [chartType]="'pie'" [datasets]="generateCallerUrgencyChartData()" [labels]="callerUrgencyLabels" [legend]="true">
+                </canvas>
+            </div>
+            <div>
+                <p>YES: {{this.urgency.get("urgencyYES")}} </p>
+                <p>NO : {{this.urgency.get("urgencyNO")}} </p>
+                <p><b>TOTAL: {{this.urgency.get("urgencyNO")+this.urgency.get("urgencyYES")}} </b></p>
+            </div>
+        </mat-card-content>
+    </mat-card>
+    <mat-card *ngIf="this.isCallerTypeDataReady.every(fieldTrue)">
+        <mat-card-title>Calls by caller type</mat-card-title>
+        <mat-card-content>
+            <div style="width: 50%;">
+                <canvas baseChart [chartType]="'pie'" [datasets]="generateCallerTypeChartData()" [labels]="callerTypeLabels" [legend]="true">
+                </canvas>
+            </div>
+            <div>
+                <p>TRANS PERSON : {{this.callerType.get("callerTypeTRANS")}} </p>
+                <p>ORGANIZATION : {{this.callerType.get("callerTypeORG")}} </p>
+                <p>SOCIAL WORKER : {{this.callerType.get("callerTypeSOCW")}} </p>
+                <p>OTHER PERSON : {{this.callerType.get("callerTypeOTHER")}} </p>
+                <p><b>TOTAL: {{this.callerType.get("callerTypeTRANS")+this.callerType.get("callerTypeORG")+this.callerType.get("callerTypeSOCW")+this.callerType.get("callerTypeOTHER")}}
+                    </b>  </p>
+            </div>
+        </mat-card-content>
+    </mat-card>
+<mat-card *ngIf="this.isCallerPronounsDataReady.every(fieldTrue)">
+    <mat-card-title>Calls by caller pronoun</mat-card-title>
     <mat-card-content>
         <div style="width: 50%;">
-            <canvas baseChart [chartType]="'pie'" [datasets]="generateCallerTypeChartData()" [labels]="callerTypeLabels" [legend]="true"
-                (chartClick)="onChartClick($event)">
+            <canvas baseChart [chartType]="'pie'" [datasets]="generateCallerPronounsChartData()" [labels]="callerPronounsLabels" [legend]="true">
             </canvas>
         </div>
         <div>
-            <p>TRANS PERSON : {{this.callertype.get("callerTypeTRANS")}} </p>
-            <p>ORGANIZATION : {{this.callertype.get("callerTypeORG")}} </p>
-            <p>SOCIAL WORKER : {{this.callertype.get("callerTypeSOCW")}} </p>
-            <p>OTHER PERSON : {{this.callertype.get("callerTypeOTHER")}} </p>
-            <p><b>TOTAL: {{this.callertype.get("callerTypeTRANS")+this.callertype.get("callerTypeORG")+this.callertype.get("callerTypeSOCW")+this.callertype.get("callerTypeOTHER")}}
+            <p>UNDISCLOSED : {{this.callerPronouns.get("callerPronounUND")}} </p>
+            <p>SHE/HER     : {{this.callerPronouns.get("callerPronounSHE")}} </p>
+            <p>THEY/THEM   : {{this.callerPronouns.get("callerPronounTHEY")}} </p>
+            <p>HE/HIM      : {{this.callerPronouns.get("callerPronounHIM")}} </p>
+            <p><b>TOTAL: {{this.callerPronouns.get("callerPronounUND")+this.callerPronouns.get("callerPronounSHE")+this.callerPronouns.get("callerPronounTHEY")+this.callerPronouns.get("callerPronounHIM")}}
                 </b>  </p>
         </div>
     </mat-card-content>
