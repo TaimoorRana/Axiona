@@ -16,10 +16,10 @@ export class EditPhonelogComponent implements OnInit {
   editingLog = Phonelog;
   date;
   callertype = [
-    'trans person',
-    'organization',
-    'social worker',
-    'other person',
+    'Trans person',
+    'Organization',
+    'Social worker',
+    'Other person',
   ];
   phoneregex = /^(?:\+?1[-. ]?)?(\(([0-9]{3})\)|([0-9]{3}))[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
 
