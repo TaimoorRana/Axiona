@@ -3,6 +3,14 @@
     <mat-card-content>
         <h2>Calls by urgency</h2>
         <p>YES: {{this.urgency.get("urgencyYES")}} </p>
-        <p>NO : {{this.urgency.get("urgencyNO")}}  </p>
+        <p>NO : {{this.urgency.get("urgencyNO")}} </p>
+        <p>TOTAL: {{this.urgency.get("urgencyNO")+this.urgency.get("urgencyYES")}} </p>
     </mat-card-content>
+</mat-card>
+<mat-card>
+    <div style="width: 40%;" *ngIf="this.isDataAvailable.every(fieldTrue)">
+        <canvas baseChart [chartType]="'pie'" [datasets]="generateUrgencyChartData()" [labels]="chartLabels" [options]="chartOptions" [legend]="true"
+            (chartClick)="onChartClick($event)">
+        </canvas>
+    </div>
 </mat-card>

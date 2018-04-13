@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterContentInit } from '@angular/core';
 import { ReportPhonelogService } from '../../services/reports-phonelog.service';
 
 @Component({
@@ -8,22 +8,50 @@ import { ReportPhonelogService } from '../../services/reports-phonelog.service';
 })
 export class ReportsComponent implements OnInit {
   public urgency;
+  public chartData;
+  public isDataAvailable;
+
+  chartOptions = {
+    responsive: true
+  };
+
+
+  chartLabels = ['Yes', 'No'];
+
+  onChartClick(event) {
+    console.log(event);
+  }
 
   constructor(private reportPhonelogService: ReportPhonelogService) { }
 
-  ngOnInit() {
-    this.generateUrgentReport();
+  fieldTrue(value) {
+    return true && value;
   }
 
-  generateUrgentReport() {
+  ngOnInit() {
+    this.fetchUrgencyStatistics();
+  }
+
+  fetchUrgencyStatistics() {
     this.urgency = new Map();
+    this.isDataAvailable = [false, false];
     this.reportPhonelogService.reportUrgentYes().subscribe(x => {
       this.urgency.set('urgencyYES', x['count']);
-      console.log(this.urgency.get('urgencyYES'));
+      this.isDataAvailable[0] = true;
     });
     this.reportPhonelogService.reportUrgentNo().subscribe(x => {
       this.urgency.set('urgencyNO', x['count']);
-      console.log(this.urgency.get('urgencyNO'));
+      this.isDataAvailable[1] = true;
     });
   }
+
+  generateUrgencyChartData() {
+    return [
+      {
+        data: [this.urgency.get('urgencyYES'),
+          this.urgency.get('urgencyNO')], label: 'Urgency'
+      },
+    ];
+  }
+
 }
