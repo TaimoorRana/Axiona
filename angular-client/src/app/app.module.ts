@@ -32,6 +32,8 @@ import { NotesComponent } from './components/notes/notes.component';
 import { ParticipantsComponent } from './components/participants/participants.component';
 import { ParticipantProfileComponent } from './components/participants/participant-profile/participant-profile.component';
 import { PhonelogComponent } from './components/phonelog/phonelog.component';
+import { PhonelogModalComponent } from './components/phonelog/phonelog-modal/phonelog-modal.component';
+import { PhonelogTabComponent } from './components/phonelog/phonelog-tab/phonelog-tab.component';
 import { RegisterUserComponent } from './components/users/register-user/register-user.component';
 import { ReportsComponent } from './components/reports/reports.component';
 import { ResourcesComponent } from './components/resources/resources.component';
@@ -94,8 +96,8 @@ const routes: Routes = [
             pathMatch: 'full'
           },
           {
-            path: 'add-phonelog',
-            component: AddPhonelogComponent
+            path: 'phonelog-tab',
+            component: PhonelogTabComponent
           },
           {
             path: 'view-phonelog',
@@ -206,6 +208,8 @@ const routes: Routes = [
     ParticipantProfileComponent,
     ParticipantsComponent,
     PhonelogComponent,
+    PhonelogModalComponent,
+    PhonelogTabComponent,
     RegisterUserComponent,
     ReportsComponent,
     ResourcesComponent,
@@ -235,7 +239,8 @@ const routes: Routes = [
     CaseModalComponent,
     ConfirmModalComponent,
     DocumentModalComponent,
-    NoteModalComponent
+    NoteModalComponent,
+    PhonelogModalComponent
   ],
   providers: [
     ParticipantService,

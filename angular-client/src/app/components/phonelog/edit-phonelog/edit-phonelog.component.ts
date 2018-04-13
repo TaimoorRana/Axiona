@@ -21,6 +21,26 @@ export class EditPhonelogComponent implements OnInit {
     'Social worker',
     'Other person',
   ];
+  pronouns = [
+    'undisclosed',
+    'she/her',
+    'they/them',
+    'he/him'
+  ];
+  subjects = [
+    'Housing',
+    'Medical',
+    'Legal',
+    'Accompaniment',
+    'Financial',
+    'Name Change',
+    'Food Security',
+    'Job Finding',
+    'Immigration',
+    'Victims of Violence',
+    'Sexual Health',
+    'Information '
+  ];
   phoneregex = /^(?:\+?1[-. ]?)?(\(([0-9]{3})\)|([0-9]{3}))[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
 
   constructor(private form: FormBuilder,
@@ -33,13 +53,12 @@ export class EditPhonelogComponent implements OnInit {
   createForm() {
     this.editphonelog = this.form.group({
       name: [this.log.name, Validators.required],
-      pronouns: this.log.pronouns || '',
+      pronouns: this.log.pronouns || this.pronouns[0],
       language: this.log.language || '',
       urgent: this.log.urgent,
       phonenumber: [this.log.phonenumber || '', Validators.pattern(this.phoneregex)],
-      subject: this.log.subject || '',
+      subject: this.log.subject || this.subjects[0],
       message: this.log.message || '',
-      notes: this.log.notes || '',
       callertype: this.log.callertype,
       date: this.log.date
     }, { validator: this.dateLessThan('date') });

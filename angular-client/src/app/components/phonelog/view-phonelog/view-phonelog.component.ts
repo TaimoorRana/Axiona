@@ -3,7 +3,6 @@ import { AuthenticationService } from '../../../services/authentication.service'
 import { RouterModule, Router } from '@angular/router';
 import { Phonelog } from '../../../classes/phonelog';
 import { PhonelogService } from '../../../services/phonelog.service';
-import { ChangeDetectorRef } from '@angular/core';
 import { MatRadioModule } from '@angular/material/radio';
 
 @Component({
@@ -24,10 +23,13 @@ export class ViewPhonelogComponent implements OnInit, OnChanges {
   public query: string;
 
   constructor(
-    private chRef: ChangeDetectorRef,
     private phonelogService: PhonelogService,
     public authService: AuthenticationService,
-    public router: Router) { }
+    public router: Router) {
+      this.phonelogService.phoneLogged.subscribe(_ => {
+        this.loadLogs();
+      });
+    }
 
 
   ngOnInit() {
@@ -52,12 +54,10 @@ export class ViewPhonelogComponent implements OnInit, OnChanges {
    * @memberof ViewPhonelogComponent
    */
   loadLogs() {
-    if (this.authService.role === 'admin') {
-      this.phonelogService.getActive()
-        .subscribe(data => {
-          this.logs = data;
-        });
-    }
+    this.phonelogService.getActive()
+      .subscribe(data => {
+        this.logs = data;
+      });
   }
 
   /**
@@ -69,7 +69,6 @@ export class ViewPhonelogComponent implements OnInit, OnChanges {
     this.phonelogService.getByResolved()
       .subscribe(data => {
         this.history = data;
-        console.log(data);
       });
   }
 

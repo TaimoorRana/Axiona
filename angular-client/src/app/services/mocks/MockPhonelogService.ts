@@ -1,7 +1,11 @@
+import { EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
 export class MockPhonelogService {
+
+    phoneLogged = new EventEmitter();
+
     testPhonelog = {
         '_id': '5a8a1edbf8bc217df1f5228b',
         'notes': [
@@ -132,7 +136,40 @@ export class MockPhonelogService {
                 "_id": "5a6ca05f54297a0c500cbd41",
                 "name": "James",
                 "email": "james@astteq.org",
-                "password": "$2a$10$jnu1d5jGRaMXNXtt6l/eW.xW/XpyoZd4sdibumj8yvihTsvYH16mC",
+                "createdAt": "2018-01-27T15:53:03.674Z",
+                "updatedAt": "2018-01-27T15:53:03.674Z",
+                "__v": 0
+              },
+              "urgent": false,
+              "phonenumber": "",
+              "subject": "",
+              "callertype": "Trans person",
+              "createdAt": "2018-03-18T21:30:14.136Z",
+              "updatedAt": "2018-03-18T21:30:14.136Z",
+              "__v": 0
+            }
+          ]);
+    }
+
+    getActive() {
+        return Observable.of([
+            {
+              "resolved": false,
+              "notes": [
+                ""
+              ],
+              "date": "2018-03-18T21:30:14.131Z",
+              "deleted": false,
+              "_id": "5aaeda66066604d8ce2b8b18",
+              "name": "Sandy",
+              "pronouns": "them",
+              "user": {
+                "tokens": [],
+                "role": "admin",
+                "deleted": false,
+                "_id": "5a6ca05f54297a0c500cbd41",
+                "name": "James",
+                "email": "james@astteq.org",
                 "createdAt": "2018-01-27T15:53:03.674Z",
                 "updatedAt": "2018-01-27T15:53:03.674Z",
                 "__v": 0

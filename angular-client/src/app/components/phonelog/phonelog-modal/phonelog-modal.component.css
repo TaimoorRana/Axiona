@@ -1,0 +1,9 @@
+.close-btn {
+    right: 1rem;
+    position: absolute;
+    z-index: 1;
+}
+
+.container {
+    position: relative;
+}

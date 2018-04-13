@@ -88,7 +88,6 @@ router.post('/', (req, res) => {
         urgent: req.body.urgent,
         phonenumber: req.body.phonenumber,
         subject: req.body.subject,
-        notes: [req.body.notes],
         message: req.body.message,
         callertype: req.body.callertype,
     });
@@ -108,7 +107,6 @@ router.put('/:lid', (req, res) => {
         log.pronouns = req.body.pronouns || log.pronouns;
         log.phonenumber = req.body.phonenumber || log.phonenumber;
         log.subject = req.body.subject || log.subject;
-        log.notes = [req.body.notes] || log.notes;
         log.urgent = req.body.urgent;
         log.callertype = req.body.callertype || log.callertype;
         log.message = req.body.message || log.message;

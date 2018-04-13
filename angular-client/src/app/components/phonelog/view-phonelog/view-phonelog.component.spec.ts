@@ -11,6 +11,7 @@ import { EditPhonelogComponent } from '../edit-phonelog/edit-phonelog.component'
 import { RouterTestingModule } from '@angular/router/testing';
 import { SearchPipe } from '../../../pipes/search.pipe';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { EventEmitter } from '@angular/core';
 
 
 describe('ViewPhonelogComponent', () => {
@@ -22,9 +23,9 @@ describe('ViewPhonelogComponent', () => {
       declarations: [ ViewPhonelogComponent, OrderByPipe, SearchPipe, EditPhonelogComponent],
       imports: [ MaterialsModule, RouterTestingModule ],
       providers:  [
-        { provide: AuthenticationService, useClass: MockAuthenticationService},
+        { provide: AuthenticationService, useClass: MockAuthenticationService },
         { provide: PhonelogService, useClass: MockPhonelogService },
-        {provide: Router, useValue: { navigateByUrl: jasmine.createSpy('navigateByUrl')}},
+        { provide: Router, useValue: { navigateByUrl: jasmine.createSpy('navigateByUrl')}},
       ]
     })
     .compileComponents();
