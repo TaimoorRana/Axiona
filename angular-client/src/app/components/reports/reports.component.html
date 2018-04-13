@@ -1,16 +1,32 @@
 <mat-card>
-    <mat-card-title>Reports</mat-card-title>
+    <mat-card-title>Calls by urgency</mat-card-title>
     <mat-card-content>
-        <h2>Calls by urgency</h2>
-        <p>YES: {{this.urgency.get("urgencyYES")}} </p>
-        <p>NO : {{this.urgency.get("urgencyNO")}} </p>
-        <p>TOTAL: {{this.urgency.get("urgencyNO")+this.urgency.get("urgencyYES")}} </p>
+        <div style="width: 50%;" *ngIf="this.isUrgencyDataReady.every(fieldTrue)">
+            <canvas baseChart [chartType]="'pie'" [datasets]="generateUrgencyChartData()" [labels]="urgencyLabels" [legend]="true" (chartClick)="onChartClick($event)">
+            </canvas>
+        </div>
+        <div>
+            <p>YES: {{this.urgency.get("urgencyYES")}} </p>
+            <p>NO : {{this.urgency.get("urgencyNO")}} </p>
+            <p><b>TOTAL: {{this.urgency.get("urgencyNO")+this.urgency.get("urgencyYES")}} </b></p>
+        </div>
     </mat-card-content>
 </mat-card>
 <mat-card>
-    <div style="width: 40%;" *ngIf="this.isDataAvailable.every(fieldTrue)">
-        <canvas baseChart [chartType]="'pie'" [datasets]="generateUrgencyChartData()" [labels]="chartLabels" [options]="chartOptions" [legend]="true"
-            (chartClick)="onChartClick($event)">
-        </canvas>
-    </div>
+    <mat-card-title>Calls by caller type</mat-card-title>
+    <mat-card-content>
+        <div style="width: 50%;" *ngIf="this.isCallerTypeDataReady.every(fieldTrue)">
+            <canvas baseChart [chartType]="'pie'" [datasets]="generateCallerTypeChartData()" [labels]="callerTypeLabels" [legend]="true"
+                (chartClick)="onChartClick($event)">
+            </canvas>
+        </div>
+        <div>
+            <p>TRANS PERSON : {{this.callertype.get("callerTypeTRANS")}} </p>
+            <p>ORGANIZATION : {{this.callertype.get("callerTypeORG")}} </p>
+            <p>SOCIAL WORKER : {{this.callertype.get("callerTypeSOCW")}} </p>
+            <p>OTHER PERSON : {{this.callertype.get("callerTypeOTHER")}} </p>
+            <p><b>TOTAL: {{this.callertype.get("callerTypeTRANS")+this.callertype.get("callerTypeORG")+this.callertype.get("callerTypeSOCW")+this.callertype.get("callerTypeOTHER")}}
+                </b>  </p>
+        </div>
+    </mat-card-content>
 </mat-card>

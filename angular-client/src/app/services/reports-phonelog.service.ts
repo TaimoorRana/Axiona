@@ -17,24 +17,6 @@ export class ReportPhonelogService {
 
   }
 
-/** Reports-related calls */
-
-reportUrgentYes(): Observable<Object> {
-  return this.http.get(`${this.url}/urgentyes`)
-    .pipe(
-      tap(participants => this.log('fecthed urgent logs')),
-      catchError(this.handleError<Object>('reportUrgent()'))
-    );
-}
-
-reportUrgentNo(): Observable<Object> {
-  return this.http.get(`${this.url}/urgentno`)
-    .pipe(
-      tap(participants => this.log('fecthed urgent logs')),
-      catchError(this.handleError<Object>('reportUrgent()'))
-    );
-}
-
   /**
    * Log messages by sending them to message service
    *
@@ -63,6 +45,56 @@ reportUrgentNo(): Observable<Object> {
       return of(result as T);
     };
   }
+
+/** Reports-related calls */
+
+reportUrgentYes(): Observable<Object> {
+  return this.http.get(`${this.url}/urgentyes`)
+    .pipe(
+      tap(participants => this.log('fetched number of all urgent calls')),
+      catchError(this.handleError<Object>('reportUrgentYes()'))
+    );
+}
+
+reportUrgentNo(): Observable<Object> {
+  return this.http.get(`${this.url}/urgentno`)
+    .pipe(
+      tap(participants => this.log('fetched number of all non-urgent calls')),
+      catchError(this.handleError<Object>('reportUrgentNo()'))
+    );
+}
+
+reportCallerTypeTrans(): Observable<Object> {
+  return this.http.get(`${this.url}/callertrans`)
+    .pipe(
+      tap(participants => this.log('fetched urgent logs')),
+      catchError(this.handleError<Object>('reportCallerTypeTrans()'))
+    );
+}
+
+reportCallerTypeOrganization(): Observable<Object> {
+  return this.http.get(`${this.url}/callerorganization`)
+    .pipe(
+      tap(participants => this.log('fetched urgent logs')),
+      catchError(this.handleError<Object>('reportCallerTypeOrganization()'))
+    );
+}
+
+reportCallerTypeSocialWorker(): Observable<Object> {
+  return this.http.get(`${this.url}/callersocialworker`)
+    .pipe(
+      tap(participants => this.log('fetched urgent logs')),
+      catchError(this.handleError<Object>('reportCallerTypeSocialWorker()'))
+    );
+}
+
+reportCallerTypeOther(): Observable<Object> {
+  return this.http.get(`${this.url}/callerother`)
+    .pipe(
+      tap(participants => this.log('fetched urgent logs')),
+      catchError(this.handleError<Object>('reportCallerTypeOther()'))
+    );
+}
 
 
 
