@@ -3,6 +3,24 @@ const router = express.Router();
 const Phonelog = require('../../models/Phonelog');
 const ObjectId = require('mongoose').Types.ObjectId;
 
+/** 
+ * GET urgency count 
+ */
+router.get('/urgency', (req, res) => {
+    
+    Phonelog.aggregate([{
+        $group: {
+            _id: { "field": '$urgent' },
+            count: { $sum: 1 }
+        }    
+    }]).then(data => {
+        res.send(data);
+    }, err => {
+        res.send(err);
+    })
+});
+
+
 /**
  * Generate report for urgency in phonelogs
  */

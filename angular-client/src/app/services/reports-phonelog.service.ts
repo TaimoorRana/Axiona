@@ -46,6 +46,13 @@ export class ReportPhonelogService {
     };
   }
 
+reportUrgency(): Observable<Object[]> {
+  return this.http.get<Object[]>(`${this.url}/urgency`)
+  .pipe(
+    catchError(this.handleError<Object[]>('reportUrgency()'))
+  );
+}
+
 /** Reports-related calls */
 
 reportUrgentYes(): Observable<Object> {

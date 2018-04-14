@@ -7,6 +7,10 @@ import { ReportPhonelogService } from '../../services/reports-phonelog.service';
   styleUrls: ['./reports.component.css']
 })
 export class ReportsComponent implements OnInit {
+
+  public urgencyStats = [];
+  public isUrgencyStatsReady = false;
+
   public urgency = new Map();
   public isUrgencyDataReady =  [false, false];
   public callerType = new Map();
@@ -27,18 +31,24 @@ export class ReportsComponent implements OnInit {
 
   ngOnInit() {
     this.fetchCallerUrgencyStatistics();
-    this.fetchCallerTypeStatistics();
-    this.fetchCallerPronounsStatistics();
+    // this.fetchCallerTypeStatistics();
+    // this.fetchCallerPronounsStatistics();
   }
 
   fetchCallerUrgencyStatistics() {
-    this.reportPhonelogService.reportUrgentYes().subscribe(x => {
-      this.urgency.set('urgencyYES', x['count']);
-      this.isUrgencyDataReady[0] = true;
-    });
-    this.reportPhonelogService.reportUrgentNo().subscribe(x => {
-      this.urgency.set('urgencyNO', x['count']);
-      this.isUrgencyDataReady[1] = true;
+
+    this.reportPhonelogService.reportUrgency().subscribe(data => {
+
+      this.urgencyStats = data;
+      if (this.urgencyStats[0]._id.field) {
+        this.urgency.set('urgencyYES', this.urgencyStats[0].count);
+        this.urgency.set('urgencyNO', this.urgencyStats[1].count);
+      } else {
+        this.urgency.set('urgencyYES', this.urgencyStats[1].count);
+        this.urgency.set('urgencyNO', this.urgencyStats[0].count);
+      }
+
+      this.isUrgencyStatsReady = true;
     });
   }
 
@@ -51,63 +61,63 @@ export class ReportsComponent implements OnInit {
     ];
   }
 
-  fetchCallerTypeStatistics() {
-    this.reportPhonelogService.reportCallerTypeTrans().subscribe(x => {
-      this.callerType.set('callerTypeTRANS', x['count']);
-      this.isCallerTypeDataReady[0] = true;
-    });
-    this.reportPhonelogService.reportCallerTypeOrganization().subscribe(x => {
-      this.callerType.set('callerTypeORG', x['count']);
-      this.isCallerTypeDataReady[1] = true;
-    });
-    this.reportPhonelogService.reportCallerTypeSocialWorker().subscribe(x => {
-      this.callerType.set('callerTypeSOCW', x['count']);
-      this.isCallerTypeDataReady[2] = true;
-    });
-    this.reportPhonelogService.reportCallerTypeOther().subscribe(x => {
-      this.callerType.set('callerTypeOTHER', x['count']);
-      this.isCallerTypeDataReady[3] = true;
-    });
-  }
+  // fetchCallerTypeStatistics() {
+  //   this.reportPhonelogService.reportCallerTypeTrans().subscribe(x => {
+  //     this.callerType.set('callerTypeTRANS', x['count']);
+  //     this.isCallerTypeDataReady[0] = true;
+  //   });
+  //   this.reportPhonelogService.reportCallerTypeOrganization().subscribe(x => {
+  //     this.callerType.set('callerTypeORG', x['count']);
+  //     this.isCallerTypeDataReady[1] = true;
+  //   });
+  //   this.reportPhonelogService.reportCallerTypeSocialWorker().subscribe(x => {
+  //     this.callerType.set('callerTypeSOCW', x['count']);
+  //     this.isCallerTypeDataReady[2] = true;
+  //   });
+  //   this.reportPhonelogService.reportCallerTypeOther().subscribe(x => {
+  //     this.callerType.set('callerTypeOTHER', x['count']);
+  //     this.isCallerTypeDataReady[3] = true;
+  //   });
+  // }
 
-  generateCallerTypeChartData() {
-    return [
-      {
-        data: [this.callerType.get('callerTypeTRANS'),
-          this.callerType.get('callerTypeORG'),
-          this.callerType.get('callerTypeSOCW'),
-          this.callerType.get('callerTypeOTHER')]
-      },
-    ];
-  }
+  // generateCallerTypeChartData() {
+  //   return [
+  //     {
+  //       data: [this.callerType.get('callerTypeTRANS'),
+  //         this.callerType.get('callerTypeORG'),
+  //         this.callerType.get('callerTypeSOCW'),
+  //         this.callerType.get('callerTypeOTHER')]
+  //     },
+  //   ];
+  // }
 
-  fetchCallerPronounsStatistics() {
-    this.reportPhonelogService.reportCallerPronounUND().subscribe(x => {
-      this.callerPronouns.set('callerPronounUND', x['count']);
-      this.isCallerPronounsDataReady[0] = true;
-    });
-    this.reportPhonelogService.reportCallerPronounSHE().subscribe(x => {
-      this.callerPronouns.set('callerPronounSHE', x['count']);
-      this.isCallerPronounsDataReady[1] = true;
-    });
-    this.reportPhonelogService.reportCallerPronounTHEY().subscribe(x => {
-      this.callerPronouns.set('callerPronounTHEY', x['count']);
-      this.isCallerPronounsDataReady[2] = true;
-    });
-    this.reportPhonelogService.reportCallerPronounHIM().subscribe(x => {
-      this.callerPronouns.set('callerPronounHIM', x['count']);
-      this.isCallerPronounsDataReady[3] = true;
-    });
-  }
+  // fetchCallerPronounsStatistics() {
+  //   this.reportPhonelogService.reportCallerPronounUND().subscribe(x => {
+  //     this.callerPronouns.set('callerPronounUND', x['count']);
+  //     this.isCallerPronounsDataReady[0] = true;
+  //   });
+  //   this.reportPhonelogService.reportCallerPronounSHE().subscribe(x => {
+  //     this.callerPronouns.set('callerPronounSHE', x['count']);
+  //     this.isCallerPronounsDataReady[1] = true;
+  //   });
+  //   this.reportPhonelogService.reportCallerPronounTHEY().subscribe(x => {
+  //     this.callerPronouns.set('callerPronounTHEY', x['count']);
+  //     this.isCallerPronounsDataReady[2] = true;
+  //   });
+  //   this.reportPhonelogService.reportCallerPronounHIM().subscribe(x => {
+  //     this.callerPronouns.set('callerPronounHIM', x['count']);
+  //     this.isCallerPronounsDataReady[3] = true;
+  //   });
+  // }
 
-  generateCallerPronounsChartData() {
-    return [
-      {
-        data: [this.callerPronouns.get('callerPronounUND'),
-          this.callerPronouns.get('callerPronounSHE'),
-          this.callerPronouns.get('callerPronounTHEY'),
-          this.callerPronouns.get('callerPronounHIM')]
-      },
-    ];
-  }
+  // generateCallerPronounsChartData() {
+  //   return [
+  //     {
+  //       data: [this.callerPronouns.get('callerPronounUND'),
+  //         this.callerPronouns.get('callerPronounSHE'),
+  //         this.callerPronouns.get('callerPronounTHEY'),
+  //         this.callerPronouns.get('callerPronounHIM')]
+  //     },
+  //   ];
+  // }
 }
