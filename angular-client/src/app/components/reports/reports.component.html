@@ -1,15 +1,15 @@
 <div class="Axiona-gridlist">
-    <div class="Axiona-gridlist-tile" *ngIf="this.isUrgencyDataReady.every(fieldTrue)">
+    <div class="Axiona-gridlist-tile" *ngIf="isPhonelogUrgenciesReady">
         <mat-card>
             <mat-card-title>Calls by urgency</mat-card-title>
             <mat-card-content>
                     <canvas baseChart [chartType]="'pie'" [datasets]="generateCallerUrgencyChartData()" [labels]="callerUrgencyLabels" [legend]="true">
                     </canvas>
                 <div>
-                    <p>YES: {{this.urgency.get("urgencyYES")}} </p>
-                    <p>NO : {{this.urgency.get("urgencyNO")}} </p>
+                    <p>YES : {{phonelogUrgencies["YES"]}} </p>
+                    <p>NO  : {{phonelogUrgencies["NO"]}} </p>
                     <p>
-                        <b>TOTAL: {{this.urgency.get("urgencyNO")+this.urgency.get("urgencyYES")}} </b>
+                        <b>TOTAL: {{phonelogUrgencies["YES"]+phonelogUrgencies["NO"]}} </b>
                     </p>
                 </div>
             </mat-card-content>

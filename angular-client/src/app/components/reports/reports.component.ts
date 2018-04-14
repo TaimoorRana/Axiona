@@ -7,8 +7,8 @@ import { ReportPhonelogService } from '../../services/reports-phonelog.service';
   styleUrls: ['./reports.component.css']
 })
 export class ReportsComponent implements OnInit {
-  public urgency = new Map();
-  public isUrgencyDataReady =  [false, false];
+  public isPhonelogUrgenciesReady = false;
+  public phonelogUrgencies;
   public callerType = new Map();
   public isCallerTypeDataReady = [false, false, false, false];
   public callerPronouns = new Map();
@@ -32,21 +32,17 @@ export class ReportsComponent implements OnInit {
   }
 
   fetchCallerUrgencyStatistics() {
-    this.reportPhonelogService.reportUrgentYes().subscribe(x => {
-      this.urgency.set('urgencyYES', x['count']);
-      this.isUrgencyDataReady[0] = true;
-    });
-    this.reportPhonelogService.reportUrgentNo().subscribe(x => {
-      this.urgency.set('urgencyNO', x['count']);
-      this.isUrgencyDataReady[1] = true;
+    this.reportPhonelogService.reportUrgent().subscribe(x => {
+      this.phonelogUrgencies = x;
+      this.isPhonelogUrgenciesReady = true;
     });
   }
 
   generateCallerUrgencyChartData() {
     return [
       {
-        data: [this.urgency.get('urgencyYES'),
-          this.urgency.get('urgencyNO')]
+        data: [this.phonelogUrgencies['YES'],
+          this.phonelogUrgencies['NO']]
       },
     ];
   }

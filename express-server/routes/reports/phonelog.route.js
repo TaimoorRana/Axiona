@@ -6,18 +6,27 @@ const ObjectId = require('mongoose').Types.ObjectId;
 /**
  * Generate report for urgency in phonelogs
  */
-router.get('/urgentyes', (req, res) => {
-    Phonelog.count({ "urgent": { "$in": ["true", true] }})
-        .then(count => {
-            res.send({"count": count});
-        }, err => {
-            res.send(err);
-        })
-});
-router.get('/urgentno', (req, res) => {
-    Phonelog.count({ "urgent": { "$in": ["false", false] }})
-        .then(count => {
-            res.send({"count": count});
+router.get('/urgentall', (req, res) => {
+    Phonelog.aggregate(
+        [
+            {
+                $group: {
+                    _id: { "field": '$urgent' },
+                    count: { $sum: 1 }
+                }
+            },
+            {
+                $project: {
+                    _id: 2, count: 2
+                }
+            }
+        ]
+    )
+        .then(c => {
+            result = new Map();
+            result["YES"] = c[0]["count"];
+            result["NO"] = c[1]["count"];
+            res.send(result);
         }, err => {
             res.send(err);
         })
