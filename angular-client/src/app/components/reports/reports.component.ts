@@ -9,8 +9,8 @@ import { ReportPhonelogService } from '../../services/reports-phonelog.service';
 export class ReportsComponent implements OnInit {
   public isPhonelogUrgenciesReady = false;
   public phonelogUrgencies;
-  public callerType = new Map();
-  public isCallerTypeDataReady = [false, false, false, false];
+  public isCallerTypeDataReady = false;
+  public phonelogCallerTypes;
   public callerPronouns = new Map();
   public isCallerPronounsDataReady = [false, false, false, false];
 
@@ -48,32 +48,20 @@ export class ReportsComponent implements OnInit {
   }
 
   fetchCallerTypeStatistics() {
-    this.reportPhonelogService.reportCallerTypeTrans().subscribe(x => {
-      this.callerType.set('callerTypeTRANS', x['count']);
-      this.isCallerTypeDataReady[0] = true;
-    });
-    this.reportPhonelogService.reportCallerTypeOrganization().subscribe(x => {
-      this.callerType.set('callerTypeORG', x['count']);
-      this.isCallerTypeDataReady[1] = true;
-    });
-    this.reportPhonelogService.reportCallerTypeSocialWorker().subscribe(x => {
-      this.callerType.set('callerTypeSOCW', x['count']);
-      this.isCallerTypeDataReady[2] = true;
-    });
-    this.reportPhonelogService.reportCallerTypeOther().subscribe(x => {
-      this.callerType.set('callerTypeOTHER', x['count']);
-      this.isCallerTypeDataReady[3] = true;
+    this.reportPhonelogService.reportCallerType().subscribe(x => {
+      this.phonelogCallerTypes = x;
+      this.isCallerTypeDataReady = true;
     });
   }
 
   generateCallerTypeChartData() {
     return [
       {
-        data: [this.callerType.get('callerTypeTRANS'),
-          this.callerType.get('callerTypeORG'),
-          this.callerType.get('callerTypeSOCW'),
-          this.callerType.get('callerTypeOTHER')]
-      },
+        data: [this.phonelogCallerTypes['Trans person'],
+          this.phonelogCallerTypes['Organization'],
+          this.phonelogCallerTypes['Social worker'],
+          this.phonelogCallerTypes['Other person']]
+      }
     ];
   }
 

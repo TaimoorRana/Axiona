@@ -56,35 +56,11 @@ reportUrgent(): Observable<Object> {
     );
 }
 
-reportCallerTypeTrans(): Observable<Object> {
-  return this.http.get(`${this.url}/callertrans`)
+reportCallerType(): Observable<Object> {
+  return this.http.get(`${this.url}/callerall`)
     .pipe(
-      tap(participants => this.log('fetched number of calls made by trans persons')),
-      catchError(this.handleError<Object>('reportCallerTypeTrans()'))
-    );
-}
-
-reportCallerTypeOrganization(): Observable<Object> {
-  return this.http.get(`${this.url}/callerorganization`)
-    .pipe(
-      tap(participants => this.log('fetched number of calls made by organizations')),
-      catchError(this.handleError<Object>('reportCallerTypeOrganization()'))
-    );
-}
-
-reportCallerTypeSocialWorker(): Observable<Object> {
-  return this.http.get(`${this.url}/callersocialworker`)
-    .pipe(
-      tap(participants => this.log('fetched number of calls made by social workers')),
-      catchError(this.handleError<Object>('reportCallerTypeSocialWorker()'))
-    );
-}
-
-reportCallerTypeOther(): Observable<Object> {
-  return this.http.get(`${this.url}/callerother`)
-    .pipe(
-      tap(participants => this.log('fetched number of calls made by other persons')),
-      catchError(this.handleError<Object>('reportCallerTypeOther()'))
+      tap(participants => this.log('fetched number of calls made by type of person')),
+      catchError(this.handleError<Object>('reportCallerType()'))
     );
 }
 

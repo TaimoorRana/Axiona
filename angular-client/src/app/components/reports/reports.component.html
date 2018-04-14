@@ -6,30 +6,25 @@
                     <canvas baseChart [chartType]="'pie'" [datasets]="generateCallerUrgencyChartData()" [labels]="callerUrgencyLabels" [legend]="true">
                     </canvas>
                 <div>
-                    <p>YES : {{phonelogUrgencies["YES"]}} </p>
-                    <p>NO  : {{phonelogUrgencies["NO"]}} </p>
-                    <p>
-                        <b>TOTAL: {{phonelogUrgencies["YES"]+phonelogUrgencies["NO"]}} </b>
-                    </p>
+                    <p>Yes : {{phonelogUrgencies["YES"]}} </p>
+                    <p>No  : {{phonelogUrgencies["NO"]}} </p>
+                    <p>TOTAL : {{phonelogUrgencies["YES"]+phonelogUrgencies["NO"]}}</p>
                 </div>
             </mat-card-content>
         </mat-card>
     </div>
-    <div class="Axiona-gridlist-tile" *ngIf="this.isCallerTypeDataReady.every(fieldTrue)">
+    <div class="Axiona-gridlist-tile" *ngIf="isCallerTypeDataReady">
         <mat-card>
             <mat-card-title>Calls by caller type</mat-card-title>
             <mat-card-content>
                     <canvas baseChart [chartType]="'pie'" [datasets]="generateCallerTypeChartData()" [labels]="callerTypeLabels" [legend]="true">
                     </canvas>
                 <div>
-                    <p>TRANS PERSON : {{this.callerType.get("callerTypeTRANS")}} </p>
-                    <p>ORGANIZATION : {{this.callerType.get("callerTypeORG")}} </p>
-                    <p>SOCIAL WORKER : {{this.callerType.get("callerTypeSOCW")}} </p>
-                    <p>OTHER PERSON : {{this.callerType.get("callerTypeOTHER")}} </p>
-                    <p>
-                        <b>TOTAL: {{this.callerType.get("callerTypeTRANS")+this.callerType.get("callerTypeORG")+this.callerType.get("callerTypeSOCW")+this.callerType.get("callerTypeOTHER")}}
-                        </b>
-                    </p>
+                    <p>Trans person : {{phonelogCallerTypes["Trans person"]}} </p>
+                    <p>Organization : {{phonelogCallerTypes["Organization"]}} </p>
+                    <p>Social worker: {{phonelogCallerTypes["Social worker"]}} </p>
+                    <p>Other person : {{phonelogCallerTypes["Other person"]}} </p>
+                    <p>TOTAL: {{phonelogCallerTypes["Trans person"]+phonelogCallerTypes["Organization"]+phonelogCallerTypes["Social worker"]+phonelogCallerTypes["Other person"]}}</p>
                 </div>
             </mat-card-content>
         </mat-card>
@@ -41,14 +36,11 @@
                     <canvas baseChart [chartType]="'pie'" [datasets]="generateCallerPronounsChartData()" [labels]="callerPronounsLabels" [legend]="true">
                     </canvas>
                 <div>
-                    <p>UNDISCLOSED : {{this.callerPronouns.get("callerPronounUND")}} </p>
-                    <p>SHE/HER : {{this.callerPronouns.get("callerPronounSHE")}} </p>
-                    <p>THEY/THEM : {{this.callerPronouns.get("callerPronounTHEY")}} </p>
-                    <p>HE/HIM : {{this.callerPronouns.get("callerPronounHIM")}} </p>
-                    <p>
-                        <b>TOTAL: {{this.callerPronouns.get("callerPronounUND")+this.callerPronouns.get("callerPronounSHE")+this.callerPronouns.get("callerPronounTHEY")+this.callerPronouns.get("callerPronounHIM")}}
-                        </b>
-                    </p>
+                    <p>Undisclosed: {{this.callerPronouns.get("callerPronounUND")}} </p>
+                    <p>She/her    : {{this.callerPronouns.get("callerPronounSHE")}} </p>
+                    <p>They/them  : {{this.callerPronouns.get("callerPronounTHEY")}} </p>
+                    <p>He/him     : {{this.callerPronouns.get("callerPronounHIM")}} </p>
+                    <p>TOTAL: {{this.callerPronouns.get("callerPronounUND")+this.callerPronouns.get("callerPronounSHE")+this.callerPronouns.get("callerPronounTHEY")+this.callerPronouns.get("callerPronounHIM")}}</p>
                 </div>
             </mat-card-content>
         </mat-card>
