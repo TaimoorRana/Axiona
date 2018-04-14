@@ -1,16 +1,15 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 import { MessageService } from './message.service';
-
-
 @Injectable()
 export class PhonelogService {
 
   private url = '/api/phonelog';
+  public phoneLogged = new EventEmitter();
 
   constructor(private http: HttpClient,
     private messageService: MessageService) {
@@ -136,6 +135,10 @@ export class PhonelogService {
       }),
       catchError(this.handleError<Object>('resolved(LogID, LogData)'))
       );
+  }
+
+  emitPhoneLogging(): void {
+    this.phoneLogged.emit();
   }
 
 

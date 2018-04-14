@@ -25,6 +25,26 @@ export class AddPhonelogComponent implements OnInit {
     'Social worker',
     'Other person',
   ];
+  pronouns = [
+    'undisclosed',
+    'she/her',
+    'they/them',
+    'he/him'
+  ];
+  subjects = [
+    'Housing',
+    'Medical',
+    'Legal',
+    'Accompaniment',
+    'Financial',
+    'Name Change',
+    'Food Security',
+    'Job Finding',
+    'Immigration',
+    'Victims of Violence',
+    'Sexual Health',
+    'Information '
+  ];
   phoneregex = /^(?:\+?1[-. ]?)?(\(([0-9]{3})\)|([0-9]{3}))[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
 
   constructor(
@@ -50,13 +70,12 @@ export class AddPhonelogComponent implements OnInit {
   createForm() {
     this.phonelog = this.form.group({
       name: ['', Validators.required],
-      pronouns: '',
-      user: '', // TODO: ask anna how to get user info (id and name) at this moment
+      pronouns: this.pronouns[0],
+      user: '',
       urgent: false,
       phonenumber: ['', Validators.pattern(this.phoneregex)],
-      subject: '',
+      subject: this.subjects[0],
       message: '',
-      notes: '',
       callertype: this.callertype[0],
     });
   }
@@ -93,7 +112,8 @@ export class AddPhonelogComponent implements OnInit {
         } else {
           this.alertModal('Phonelog entry successfully added.').subscribe( () => {
             this.myNgForm.resetForm();
-            this.router.navigateByUrl('/dashboard/phonelog');
+            this.loggedPhonecall.emit();
+            this.phonelogService.emitPhoneLogging();
           });
         }
       });

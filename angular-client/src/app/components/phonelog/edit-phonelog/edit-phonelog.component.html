@@ -6,11 +6,15 @@
         </mat-form-field>
 
         <mat-form-field class="pronouns">
-            <input matInput placeholder="Pronouns" name="pronouns" formControlName="pronouns">
+            <mat-select placeholder="Pronoun" name="pronouns" formControlName="pronouns">
+                <mat-option *ngFor="let pronoun of pronouns" [value]="pronoun">
+                    {{pronoun}}
+                </mat-option>
+            </mat-select>
         </mat-form-field>
     </div>
 
-    <mat-form-field>
+    <mat-form-field class="caller-type">
         <mat-select placeholder="Type of caller" name="callertype" formControlName="callertype">
             <mat-option *ngFor="let caller of callertype" [value]="caller">
                 {{ caller}}
@@ -18,23 +22,28 @@
         </mat-select>
     </mat-form-field>
 
-    <mat-form-field>
-            <input matInput placeholder="Language" name="language" formControlName="language">
+    <mat-form-field class="language">
+        <input matInput placeholder="Language" name="language" formControlName="language">
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field class="call-phone">
         <input matInput placeholder="Phonenumber" name="phonenumber" formControlName="phonenumber">
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field class="call-date">
         <input matInput [matDatepicker]="picker3" name="date" formControlName="date">
         <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
         <mat-datepicker #picker3></mat-datepicker>
     </mat-form-field>
 
     <div class="message-header">
-        <mat-form-field>
-            <input matInput placeholder="Reason for call" name="subject" formControlName="subject">
+
+        <mat-form-field class="call-subject">
+            <mat-select placeholder="Reason for call" name="subject" formControlName="subject">
+                <mat-option *ngFor="let subject of subjects" [value]="subject">
+                    {{subject}}
+                </mat-option>
+            </mat-select>
         </mat-form-field>
 
         <mat-slide-toggle name="urgent" formControlName="urgent" [checked]="urgent">
@@ -43,8 +52,8 @@
     </div>
 
     <mat-form-field class="message">
-            <textarea matInput placeholder="Message" matTextareaAutosize matAutosizeMinRows="5" name="message" formControlName="message"></textarea>
-            <mat-hint align="start">Their message, when to call, extension number...</mat-hint>
+        <textarea matInput placeholder="Message" matTextareaAutosize matAutosizeMinRows="5" name="message" formControlName="message"></textarea>
+        <mat-hint align="start">Their message, when to call, extension number...</mat-hint>
     </mat-form-field>
 
     <button mat-raised-button type="submit" color="primary" [disabled]="editphonelog.invalid" (click)="update(log._id,log)">Update</button>
