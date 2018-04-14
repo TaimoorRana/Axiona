@@ -92,7 +92,7 @@
     },
       "AddParticipant": {
         "Legal": "Do not use participant's legal name",
-        "Name": "Name",
+        "Name": "First Name",
         "NewParticipant":"New participant successfully added.",
         "CouldNot":"Could not add new participant.",
         "Pronouns": "Pronouns",
@@ -109,7 +109,7 @@
     },
       "EditParticipant": {
         "Username": "Participant username:",
-        "Name": "Name",
+        "Name": "First Name",
         "Pronouns": "Pronouns",
         "Telephone": "Telephone",
         "SocialMedia": "Social media provider",
@@ -117,7 +117,7 @@
         "EmailAddress": "Email address",
         "Address": "Physical Address",
         "Update": "Update",
-        "Cancel": "Update"
+        "Cancel": "Cancel"
     },
       "ParticipantProfile": {
         "Pronouns": "Pronouns:",
@@ -141,7 +141,7 @@
         "Email":"Email:",
         "Phone":"Phone number:",
         "SocialMedia":"Social media:",
-        "Address:":"Address:",
+        "Address":"Address:",
         "SocialWorkers":"Social workers assigned:",
         "View":"View",
         "Edit":"Edit"
@@ -171,8 +171,8 @@
         "Urgent": "Urgent",
         "Message": "Message",
         "Hint": "Their message, when to call, extension number...",
-        "Update": "Message",
-        "Cancel": "Message"
+        "Update": "Update",
+        "Cancel": "Cancel"
     },
       "ViewPhoneLog": {
         "Pending": "Pending Phone Calls",
@@ -187,7 +187,7 @@
         "Language":"Language:",
         "LoggedBy":"Call logged by:",
         "Resolve":"Resolve",
-        "Edit":"edit",
+        "Edit":"Edit",
         "Completed":"Completed Phone Calls",
         "Nothing":"Nothing to show",
         "Name": "Name",
@@ -247,7 +247,7 @@
         "Term": "Term:",
         "Gender": "Gender:",
         "Constraints": "Constraints:",
-        "Free": "Free:",
+        "Free": "Cost:",
         "Approx":"Approximate Waitlist:",
         "Schedule": "Schedule:",
         "Notes": "Notes:"
@@ -274,7 +274,7 @@
         "Added":"New user successfully created.",
         "CouldNot":"Could not add new user.",
         "Regiser": "Register a User",
-        "Name": "Name",
+        "Name": "First Name",
         "Pronouns": "Pronouns",
         "Email": "Email",
         "Password": "Password",

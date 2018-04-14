@@ -3,7 +3,7 @@
   <form [formGroup]="form"  #f="ngForm" (ngSubmit)="onSubmit() && form.reset()" novalidate>
 
     <mat-form-field class="name-input">
-      <input placeholder="Name" matInput formControlName="name">
+      <input placeholder="{{'AddParticipant.Name'|translate}}" matInput formControlName="name">
       <mat-hint align="start">
         {{"AddParticipant.Legal"|translate}}
       </mat-hint>
