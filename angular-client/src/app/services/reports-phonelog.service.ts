@@ -64,37 +64,12 @@ reportCallerType(): Observable<Object> {
     );
 }
 
-reportCallerPronounUND(): Observable<Object> {
-  return this.http.get(`${this.url}/callerpronounundisclosed`)
+reportCallerPronoun(): Observable<Object> {
+  return this.http.get(`${this.url}/pronounall`)
     .pipe(
       tap(participants => this.log('fetched number of calls made by pronoun undisclosed')),
       catchError(this.handleError<Object>('callerPronounUND()'))
     );
 }
-
-reportCallerPronounSHE(): Observable<Object> {
-  return this.http.get(`${this.url}/callerpronounshe`)
-    .pipe(
-      tap(participants => this.log('fetched number of calls made by pronoun she')),
-      catchError(this.handleError<Object>('callerPronounSHE()'))
-    );
-}
-
-reportCallerPronounTHEY(): Observable<Object> {
-  return this.http.get(`${this.url}/callerpronounthey`)
-    .pipe(
-      tap(participants => this.log('fetched number of calls made by pronoun they')),
-      catchError(this.handleError<Object>('callerPronounTHEY()'))
-    );
-}
-
-reportCallerPronounHIM(): Observable<Object> {
-  return this.http.get(`${this.url}/callerpronounhim`)
-    .pipe(
-      tap(participants => this.log('fetched number of calls made by pronoun him')),
-      catchError(this.handleError<Object>('reportCallerPronounHIM()'))
-    );
-}
-
 
 }

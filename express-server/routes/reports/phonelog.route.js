@@ -59,40 +59,31 @@ router.get('/callerall', (req, res) => {
             res.send(err);
         })
 });
-
-router.get('/callerpronounundisclosed', (req, res) => {
-    Phonelog.count({ "pronouns": { "$in": ["undisclosed", "undisclosed"] }})
-        .then(count => {
-            res.send({"count": count});
+router.get('/pronounall', (req, res) => {
+    Phonelog.aggregate(
+        [
+            {
+                $group: {
+                    _id: { "field": '$pronouns' },
+                    count: { $sum: 1 }
+                }
+            },
+            {
+                $project: {
+                    _id: 4, count: 4
+                }
+            }
+        ]
+    )
+        .then(c => {
+            result = new Map();
+            c.forEach(function (e) {
+                result[e["_id"]["field"]] = e["count"];
+            });
+            res.send(result);
         }, err => {
             res.send(err);
         })
 });
-router.get('/callerpronounshe', (req, res) => {
-    Phonelog.count({ "pronouns": { "$in": ["she/her", "she/her"] }})
-        .then(count => {
-            res.send({"count": count});
-        }, err => {
-            res.send(err);
-        })
-});
-router.get('/callerpronounthey', (req, res) => {
-    Phonelog.count({ "pronouns": { "$in": ["they/them", "they/them"] }})
-        .then(count => {
-            res.send({"count": count});
-        }, err => {
-            res.send(err);
-        })
-});
-router.get('/callerpronounhim', (req, res) => {
-    Phonelog.count({ "pronouns": { "$in": ["he/him", "he/him"] }})
-        .then(count => {
-            res.send({"count": count});
-        }, err => {
-            res.send(err);
-        })
-});
-
-
 
 module.exports = router;

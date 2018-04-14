@@ -29,18 +29,18 @@
             </mat-card-content>
         </mat-card>
     </div>
-    <div class="Axiona-gridlist-tile" *ngIf="this.isCallerPronounsDataReady.every(fieldTrue)">
+    <div class="Axiona-gridlist-tile" *ngIf="isCallerPronounsDataReady">
         <mat-card>
             <mat-card-title>Calls by caller pronoun</mat-card-title>
             <mat-card-content>
                     <canvas baseChart [chartType]="'pie'" [datasets]="generateCallerPronounsChartData()" [labels]="callerPronounsLabels" [legend]="true">
                     </canvas>
                 <div>
-                    <p>Undisclosed: {{this.callerPronouns.get("callerPronounUND")}} </p>
-                    <p>She/her    : {{this.callerPronouns.get("callerPronounSHE")}} </p>
-                    <p>They/them  : {{this.callerPronouns.get("callerPronounTHEY")}} </p>
-                    <p>He/him     : {{this.callerPronouns.get("callerPronounHIM")}} </p>
-                    <p>TOTAL: {{this.callerPronouns.get("callerPronounUND")+this.callerPronouns.get("callerPronounSHE")+this.callerPronouns.get("callerPronounTHEY")+this.callerPronouns.get("callerPronounHIM")}}</p>
+                    <p>Undisclosed: {{phonelogCallerPronouns["undisclosed"]}} </p>
+                    <p>She/her    : {{phonelogCallerPronouns["she/her"]}} </p>
+                    <p>They/them  : {{phonelogCallerPronouns["they/them"]}} </p>
+                    <p>He/him     : {{phonelogCallerPronouns["he/him"]}} </p>
+                    <p>TOTAL: {{phonelogCallerPronouns["undisclosed"]+phonelogCallerPronouns["she/her"]+phonelogCallerPronouns["they/them"]+phonelogCallerPronouns["he/him"]}}</p>
                 </div>
             </mat-card-content>
         </mat-card>

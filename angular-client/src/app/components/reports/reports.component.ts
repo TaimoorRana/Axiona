@@ -11,19 +11,15 @@ export class ReportsComponent implements OnInit {
   public phonelogUrgencies;
   public isCallerTypeDataReady = false;
   public phonelogCallerTypes;
-  public callerPronouns = new Map();
-  public isCallerPronounsDataReady = [false, false, false, false];
+  public isCallerPronounsDataReady = false;
+  public phonelogCallerPronouns;
 
   callerUrgencyLabels = ['Yes', 'No'];
   callerTypeLabels = ['Trans person', 'Organization', 'Social worker', 'Other person'];
-  callerPronounsLabels = ['undisclosed', 'she/her', 'they/them', 'he/him'];
-
+  callerPronounsLabels = ['Undisclosed', 'She/her', 'They/them', 'He/him'];
 
   constructor(private reportPhonelogService: ReportPhonelogService) { }
 
-  fieldTrue(value) {
-    return true && value;
-  }
 
   ngOnInit() {
     this.fetchCallerUrgencyStatistics();
@@ -66,32 +62,20 @@ export class ReportsComponent implements OnInit {
   }
 
   fetchCallerPronounsStatistics() {
-    this.reportPhonelogService.reportCallerPronounUND().subscribe(x => {
-      this.callerPronouns.set('callerPronounUND', x['count']);
-      this.isCallerPronounsDataReady[0] = true;
-    });
-    this.reportPhonelogService.reportCallerPronounSHE().subscribe(x => {
-      this.callerPronouns.set('callerPronounSHE', x['count']);
-      this.isCallerPronounsDataReady[1] = true;
-    });
-    this.reportPhonelogService.reportCallerPronounTHEY().subscribe(x => {
-      this.callerPronouns.set('callerPronounTHEY', x['count']);
-      this.isCallerPronounsDataReady[2] = true;
-    });
-    this.reportPhonelogService.reportCallerPronounHIM().subscribe(x => {
-      this.callerPronouns.set('callerPronounHIM', x['count']);
-      this.isCallerPronounsDataReady[3] = true;
+    this.reportPhonelogService.reportCallerPronoun().subscribe(x => {
+      this.phonelogCallerPronouns = x;
+      this.isCallerPronounsDataReady = true;
     });
   }
 
   generateCallerPronounsChartData() {
     return [
       {
-        data: [this.callerPronouns.get('callerPronounUND'),
-          this.callerPronouns.get('callerPronounSHE'),
-          this.callerPronouns.get('callerPronounTHEY'),
-          this.callerPronouns.get('callerPronounHIM')]
-      },
+        data: [this.phonelogCallerPronouns['undisclosed'],
+          this.phonelogCallerPronouns['she/her'],
+          this.phonelogCallerPronouns['they/them'],
+          this.phonelogCallerPronouns['he/him']]
+      }
     ];
   }
 }
