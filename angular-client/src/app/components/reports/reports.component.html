@@ -1,10 +1,8 @@
 <mat-grid-list cols="2" rowHeight="2:1">
 
     <mat-grid-tile *ngIf="isUrgencyStatsReady">
-        <div class="report-container">
-        <!-- <mat-card> -->
-            <div>Calls by urgency</div>
-            <!-- <mat-card-content> -->
+        <mat-card>
+            <mat-card-content>
                 <div style="width: 50%;">
                     <canvas baseChart [chartType]="'pie'" [datasets]="generateCallerUrgencyChartData()" [labels]="callerUrgencyLabels" [legend]="true">
                     </canvas>
@@ -16,9 +14,8 @@
                         <b>TOTAL: {{urgency.get("urgencyNO")+urgency.get("urgencyYES")}} </b>
                     </p>
                 </div>
-            <!-- </mat-card-content> -->
-        <!-- </mat-card> -->
-    </div>
+            </mat-card-content>
+        </mat-card>
     </mat-grid-tile>
     <mat-grid-tile>
         <mat-grid-tile-header>Calls 2</mat-grid-tile-header>

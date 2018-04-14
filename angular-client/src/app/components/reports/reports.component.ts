@@ -13,6 +13,7 @@ export class ReportsComponent implements OnInit {
 
   public urgency = new Map();
   public isUrgencyDataReady =  [false, false];
+  
   public callerType = new Map();
   public isCallerTypeDataReady = [false, false, false, false];
   public callerPronouns = new Map();
@@ -47,6 +48,8 @@ export class ReportsComponent implements OnInit {
         this.urgency.set('urgencyYES', this.urgencyStats[1].count);
         this.urgency.set('urgencyNO', this.urgencyStats[0].count);
       }
+
+
 
       this.isUrgencyStatsReady = true;
     });
