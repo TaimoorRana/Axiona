@@ -8,6 +8,13 @@ export class ErrorsHandler implements ErrorHandler {
 
     constructor(private injector: Injector) { }
 
+    /**
+     * Intercepts application errors
+     *
+     * @param {(Error | HttpErrorResponse)} error
+     * @returns
+     * @memberof ErrorsHandler
+     */
     handleError(error: Error | HttpErrorResponse) {
 
         const messageService = this.injector.get(MessageService);
@@ -17,7 +24,7 @@ export class ErrorsHandler implements ErrorHandler {
             // Error: server or connection
             if (!navigator.onLine) {
                 // Error: application offline
-                return messageService.add('No Internet Connection');
+                return messageService.notify('No Internet Connection');
             }
 
             // Error: Http
@@ -25,7 +32,7 @@ export class ErrorsHandler implements ErrorHandler {
 
         } else {
             // Error: Client
-            errorsService.log(error).subscribe( err => {
+            errorsService.log(error).subscribe(err => {
                 // TODO: navigate to error page
             });
         }
