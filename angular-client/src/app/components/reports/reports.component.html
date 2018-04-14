@@ -1,13 +1,10 @@
-<mat-grid-list cols="2" rowHeight="2:1">
-
-    <mat-grid-tile *ngIf="this.isUrgencyDataReady.every(fieldTrue)">
+<div class="Axiona-gridlist">
+    <div class="Axiona-gridlist-tile" *ngIf="this.isUrgencyDataReady.every(fieldTrue)">
         <mat-card>
             <mat-card-title>Calls by urgency</mat-card-title>
             <mat-card-content>
-                <div style="width: 50%;">
                     <canvas baseChart [chartType]="'pie'" [datasets]="generateCallerUrgencyChartData()" [labels]="callerUrgencyLabels" [legend]="true">
                     </canvas>
-                </div>
                 <div>
                     <p>YES: {{this.urgency.get("urgencyYES")}} </p>
                     <p>NO : {{this.urgency.get("urgencyNO")}} </p>
@@ -17,15 +14,13 @@
                 </div>
             </mat-card-content>
         </mat-card>
-    </mat-grid-tile>
-    <mat-grid-tile *ngIf="this.isCallerTypeDataReady.every(fieldTrue)">
+    </div>
+    <div class="Axiona-gridlist-tile" *ngIf="this.isCallerTypeDataReady.every(fieldTrue)">
         <mat-card>
             <mat-card-title>Calls by caller type</mat-card-title>
             <mat-card-content>
-                <div style="width: 50%;">
                     <canvas baseChart [chartType]="'pie'" [datasets]="generateCallerTypeChartData()" [labels]="callerTypeLabels" [legend]="true">
                     </canvas>
-                </div>
                 <div>
                     <p>TRANS PERSON : {{this.callerType.get("callerTypeTRANS")}} </p>
                     <p>ORGANIZATION : {{this.callerType.get("callerTypeORG")}} </p>
@@ -38,15 +33,13 @@
                 </div>
             </mat-card-content>
         </mat-card>
-    </mat-grid-tile>
-    <mat-grid-tile *ngIf="this.isCallerPronounsDataReady.every(fieldTrue)">
+    </div>
+    <div class="Axiona-gridlist-tile" *ngIf="this.isCallerPronounsDataReady.every(fieldTrue)">
         <mat-card>
             <mat-card-title>Calls by caller pronoun</mat-card-title>
             <mat-card-content>
-                <div style="width: 50%;">
                     <canvas baseChart [chartType]="'pie'" [datasets]="generateCallerPronounsChartData()" [labels]="callerPronounsLabels" [legend]="true">
                     </canvas>
-                </div>
                 <div>
                     <p>UNDISCLOSED : {{this.callerPronouns.get("callerPronounUND")}} </p>
                     <p>SHE/HER : {{this.callerPronouns.get("callerPronounSHE")}} </p>
@@ -59,5 +52,5 @@
                 </div>
             </mat-card-content>
         </mat-card>
-    </mat-grid-tile>
-</mat-grid-list>
+    </div>
+</div>

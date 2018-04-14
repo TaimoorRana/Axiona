@@ -1,3 +1,7 @@
-.mat-card{
-    width: 100%;
+.Axiona-gridlist-tile{
+   margin: 20px auto;
+}
+.chartjs-render-monitor{
+    float: right;
+    max-height: 500px;
 }
