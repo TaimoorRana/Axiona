@@ -36,14 +36,12 @@
       <div class="edit-actions">
         <button mat-raised-button color="primary" (click)="update()" [disabled]="userForm.invalid">Update</button>
         <button mat-raised-button (click)="cancelEdit()">Cancel</button>
+        <button class="delete-btn" mat-icon-button (click)="delete()">
+          <mat-icon color="warn">delete</mat-icon>
+        </button>
       </div>
 
     </form>
-  </div>
 
-  <div>
-    <button mat-icon-button (click)="delete()">
-      <mat-icon color="warn">delete</mat-icon>
-    </button>
   </div>
 </div>

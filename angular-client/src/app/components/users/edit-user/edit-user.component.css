@@ -2,10 +2,6 @@
     display: flex;
 }
 
-.form {
-    width: 90%;
-}
-
 .form-container {
     flex: 1;
 }
@@ -17,4 +13,8 @@ mat-form-field {
 .updateErr {
     display: flex;
     margin-bottom: 1rem;
+}
+
+.delete-btn {
+    float: right;
 }
