@@ -296,5 +296,10 @@
     },
       "Users": {
         "TranslationSections": ""
-    }
+    },
+      "TopMenu": {
+        "Participants":"Participants",
+        "Resources":"Resources",
+        "Phone Log":"Phone Log"
+      }
 }
