@@ -34,7 +34,10 @@
         "Nothing":"Aucune sélection",
         "Clear":"initialiser",
         "Save":"sauvegarder",
-        "Delete":"effacer"
+        "Delete":"effacer",
+        "CommentsHint": "Commentaires en lien avec cette ressource",
+        "DateFormat":"m/jj/aaaa",
+        "CaseFiles.Resource": "Ressource"
     },
       "Activity": {
         "Recent": "Activité récente sur des cas",

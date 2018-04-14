@@ -38,7 +38,7 @@
                     <div class="label">{{'ViewPhoneLog.Message'|translate}}</div>
                     <div class="call-text">{{log.message}}</div>
                 </div>
-                <div *ngIf="log.notes[0] && log.notes[0] !== '' " class="note">
+                <div *ngIf="log.notes && log.notes[0] && log.notes[0] !== '' " class="note">
                     <div class="label">{{'ViewPhoneLog.Note'|translate}}</div>
                     <div class="call-text">{{log.notes[0]}}</div>
                 </div>

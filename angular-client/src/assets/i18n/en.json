@@ -34,7 +34,10 @@
         "Nothing":"Nothing selected",
         "Clear":"clear",
         "Save":"save",
-        "Delete":"delete"
+        "Delete":"delete",
+        "CommentsHint": "Comments related to this resource",
+        "DateFormat":"m/dd/yyyy",
+        "CaseFiles.Resource": "Resource"
     },
       "Activity": {
         "Recent": "Recent Case File Activity",

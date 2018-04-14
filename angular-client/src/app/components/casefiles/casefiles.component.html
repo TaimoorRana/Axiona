@@ -110,7 +110,7 @@
                 </mat-slide-toggle>
 
                 <mat-form-field class="datePicker" *ngIf="caseResource.value.dateContacted == null">
-                  <input matInput #dateinput name="date" [matDatepicker]="picker" placeholder="m/dd/yyyy" formControlName="dateContacted" (dateChange)="updateCaseResourceDate(true, resourceIndex)">
+                  <input matInput #dateinput name="date" [matDatepicker]="picker" placeholder="{{'CaseFiles.DateFormat'|translate}}" formControlName="dateContacted" (dateChange)="updateCaseResourceDate(true, resourceIndex)">
                   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                   <mat-datepicker #picker startView="month" [startAt]="startDate"></mat-datepicker>
                 </mat-form-field>
@@ -131,7 +131,7 @@
 
                 <div class="caseNotes" *ngIf="editedCasefile.contactedResources[resourceIndex].note == null">
                   <mat-form-field>
-                    <input matInput #resourceNote formControlName="note" placeholder="Comments related to this resource" (keyup.enter)="updateCaseResourceNote(false, resourceIndex)"
+                    <input matInput #resourceNote formControlName="note" placeholder="{{'CaseFiles.CommentsHint'|translate}}" (keyup.enter)="updateCaseResourceNote(false, resourceIndex)"
                       (blur)="updateCaseResourceNote(false, resourceIndex)">
                   </mat-form-field>
                 </div>
@@ -143,7 +143,7 @@
         <!-- End of resource form -->
 
         <!-- Selected Resource -->
-        <h4>{{"CaseFiles.SelectedResource"|translate}</h4>
+        <h4>{{"CaseFiles.SelectedResource"|translate}}</h4>
 
         <div *ngIf="casefile.status == 'In progress' && casefile==editedCasefile && (!casefile.selectedResource || isEditingSelectedResource)">
           <form class="selectedResource" [formGroup]="casefileFormSelectedResource">
@@ -151,7 +151,7 @@
             <!-- Selected resource name -->
             <div>
               <mat-form-field>
-                <mat-select placeholder="Resource" formControlName="resource">
+                <mat-select placeholder="{{'CaseFiles.Resource'|translate}}" formControlName="resource">
                   <mat-option *ngFor="let selectedResource of editedCasefile.contactedResources" [value]="selectedResource">
                     {{selectedResource.resource.name}}
                   </mat-option>
