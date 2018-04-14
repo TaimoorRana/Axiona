@@ -85,5 +85,31 @@ router.get('/pronounall', (req, res) => {
             res.send(err);
         })
 });
+router.get('/needall', (req, res) => {
+    Phonelog.aggregate(
+        [
+            {
+                $group: {
+                    _id: { "field": '$subject' },
+                    count: { $sum: 1 }
+                }
+            },
+            {
+                $project: {
+                    _id: 4, count: 4
+                }
+            }
+        ]
+    )
+        .then(c => {
+            result = new Map();
+            c.forEach(function (e) {
+                result[e["_id"]["field"]] = e["count"];
+            });
+            res.send(result);
+        }, err => {
+            res.send(err);
+        })
+});
 
 module.exports = router;

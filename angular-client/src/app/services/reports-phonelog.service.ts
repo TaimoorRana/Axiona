@@ -67,9 +67,18 @@ reportCallerType(): Observable<Object> {
 reportCallerPronoun(): Observable<Object> {
   return this.http.get(`${this.url}/pronounall`)
     .pipe(
-      tap(participants => this.log('fetched number of calls made by pronoun undisclosed')),
-      catchError(this.handleError<Object>('callerPronounUND()'))
+      tap(participants => this.log('fetched number of calls made by pronoun')),
+      catchError(this.handleError<Object>('reportCallerPronoun()'))
     );
 }
+
+reportCallerNeed(): Observable<Object> {
+  return this.http.get(`${this.url}/needall`)
+    .pipe(
+      tap(participants => this.log('fetched number of calls made by need')),
+      catchError(this.handleError<Object>('reportCallerNeed()'))
+    );
+}
+
 
 }
