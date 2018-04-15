@@ -8,8 +8,7 @@ import { MatRadioModule } from '@angular/material/radio';
 @Component({
   selector: 'app-view-phonelog',
   templateUrl: './view-phonelog.component.html',
-  styleUrls: ['./view-phonelog.component.css'],
-
+  styleUrls: ['./view-phonelog.component.css']
 })
 
 export class ViewPhonelogComponent implements OnInit, OnChanges {

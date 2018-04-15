@@ -17,6 +17,9 @@
     <a class="nav-link" routerLink="resources">
       <button mat-button>Resources</button>
     </a>
+    <a class="nav-link">
+        <button mat-button (click)="openErrorModal('testing')">Test modal</button>
+      </a>
   </span>
   <span class="fill-remaining-space"></span>
   <span *ngIf="this.authenticationService.loggedIn">

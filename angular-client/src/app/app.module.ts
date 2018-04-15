@@ -24,6 +24,7 @@ import { DocumentsComponent } from './components/documents/documents.component';
 import { EditParticipantComponent } from './components/participants/edit-participant/edit-participant.component';
 import { EditPhonelogComponent } from './components/phonelog/edit-phonelog/edit-phonelog.component';
 import { EditResourceComponent } from './components/resources/edit-resource/edit-resource.component';
+import { ErrorsComponent } from './errors/components/errors/errors.component';
 import { ErrorsModalComponent } from './components/modals/errors-modal/errors-modal.component';
 import { LoginComponent } from './components/login/login.component';
 import { MessagesComponent } from './components/messages/messages.component';
@@ -181,6 +182,11 @@ const routes: Routes = [
   {
     path: 'participant-profile/:_id',
     component: ParticipantProfileComponent
+  },
+  {
+    path: 'error',
+    component: ErrorsComponent,
+    runGuardsAndResolvers: 'always'
   }
 ];
 
@@ -203,6 +209,7 @@ const routes: Routes = [
     EditParticipantComponent,
     EditPhonelogComponent,
     EditResourceComponent,
+    ErrorsComponent,
     LoginComponent,
     MessagesComponent,
     NoteModalComponent,
@@ -233,7 +240,7 @@ const routes: Routes = [
     FormsModule,
     MaterialsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'}),
   ],
   entryComponents: [
     AlertModalComponent,
@@ -241,6 +248,7 @@ const routes: Routes = [
     CaseModalComponent,
     ConfirmModalComponent,
     DocumentModalComponent,
+    ErrorsModalComponent,
     NoteModalComponent,
     PhonelogModalComponent
   ],

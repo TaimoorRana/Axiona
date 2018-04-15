@@ -1,5 +1,6 @@
 import { ErrorHandler, Injectable, Injector } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { MessageService } from '../services/message.service';
 import { ErrorsService } from '../services/errors.service';
 
@@ -19,23 +20,20 @@ export class ErrorsHandler implements ErrorHandler {
 
         const messageService = this.injector.get(MessageService);
         const errorsService = this.injector.get(ErrorsService);
+        const router = this.injector.get(Router);
 
         if (error instanceof HttpErrorResponse) {
-            // Error: server or connection
             if (!navigator.onLine) {
                 // Error: application offline
-                return messageService.notify('No Internet Connection');
+                return messageService.setErrorMessage('No Internet Connection');
             }
-
             // Error: Http
-            return messageService.add(`${error.status} - ${error.message}`);
-
+            return messageService.setErrorMessage(`${error.status} - ${error.message}`);
         } else {
             // Error: Client
-            errorsService.log(error).subscribe(err => {
-                // TODO: navigate to error page
-            });
+            errorsService.log(error).subscribe(errorInfo => {
+                router.navigate(['/error'], { queryParams: errorInfo });
+              });
         }
-
     }
 }

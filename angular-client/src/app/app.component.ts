@@ -6,6 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { PhonelogModalComponent } from '../app/components/phonelog/phonelog-modal/phonelog-modal.component';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

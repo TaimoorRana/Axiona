@@ -18,7 +18,7 @@ export class TaskService {
    * @memberof TaskService
    */
   getByUser(): Observable<Object[]> {
-    return this.http.get<Object[]>(`${this.url}/user`)
+    return this.http.get<Object[]>(`${this.url}/users`)
       .pipe(
         tap(_ => this.log('fetching tasks')),
         catchError(this.handleError<Object[]>('getByUser()'))
