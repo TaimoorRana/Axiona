@@ -44,6 +44,10 @@ export class ReportsComponent implements OnInit {
     this.fetchCallerNeedsStatistics();
   }
 
+  validateOrReturn0(val) {
+    return (val ? val : 0);
+  }
+
   fetchCallerUrgencyStatistics() {
     this.reportPhonelogService.reportUrgent().subscribe(x => {
       this.phonelogUrgencies = x;
@@ -54,8 +58,10 @@ export class ReportsComponent implements OnInit {
   generateCallerUrgencyChartData() {
     return [
       {
-        data: [this.phonelogUrgencies['YES'],
-          this.phonelogUrgencies['NO']]
+        data: [
+          this.validateOrReturn0(this.phonelogUrgencies['YES']),
+          this.validateOrReturn0(this.phonelogUrgencies['NO'])
+        ]
       },
     ];
   }
@@ -70,10 +76,12 @@ export class ReportsComponent implements OnInit {
   generateCallerTypeChartData() {
     return [
       {
-        data: [this.phonelogCallerTypes['Trans person'],
-          this.phonelogCallerTypes['Organization'],
-          this.phonelogCallerTypes['Social worker'],
-          this.phonelogCallerTypes['Other person']]
+        data: [
+          this.validateOrReturn0(this.phonelogCallerTypes['Trans person']),
+          this.validateOrReturn0(this.phonelogCallerTypes['Organization']),
+          this.validateOrReturn0(this.phonelogCallerTypes['Social worker']),
+          this.validateOrReturn0(this.phonelogCallerTypes['Other person'])
+        ]
       }
     ];
   }
@@ -88,10 +96,12 @@ export class ReportsComponent implements OnInit {
   generateCallerPronounsChartData() {
     return [
       {
-        data: [this.phonelogCallerPronouns['undisclosed'],
-          this.phonelogCallerPronouns['she/her'],
-          this.phonelogCallerPronouns['they/them'],
-          this.phonelogCallerPronouns['he/him']]
+        data: [
+          this.validateOrReturn0(this.phonelogCallerPronouns['undisclosed']),
+          this.validateOrReturn0(this.phonelogCallerPronouns['she/her']),
+          this.validateOrReturn0(this.phonelogCallerPronouns['they/them']),
+          this.validateOrReturn0(this.phonelogCallerPronouns['he/him'])
+        ]
       }
     ];
   }
@@ -106,18 +116,19 @@ export class ReportsComponent implements OnInit {
   generateCallerNeedsChartData() {
     return [
       {
-        data: [this.phonelogCallerNeeds['Housing'],
-          (this.phonelogCallerNeeds['Medical'] ? this.phonelogCallerNeeds['Medical'] : 0),
-          (this.phonelogCallerNeeds['Legal'] ? this.phonelogCallerNeeds['Legal'] : 0),
-          this.phonelogCallerNeeds['Accompaniment'],
-          this.phonelogCallerNeeds['Financial'],
-          this.phonelogCallerNeeds['Name Change'],
-          this.phonelogCallerNeeds['Food Security'],
-          this.phonelogCallerNeeds['Job Finding'],
-          this.phonelogCallerNeeds['Immigration'],
-          this.phonelogCallerNeeds['Victims of Violence'],
-          this.phonelogCallerNeeds['Sexual Health'],
-          this.phonelogCallerNeeds['Information']]
+        data: [
+          this.validateOrReturn0(this.phonelogCallerNeeds['Housing']),
+          this.validateOrReturn0(this.phonelogCallerNeeds['Medical']),
+          this.validateOrReturn0(this.phonelogCallerNeeds['Legal']),
+          this.validateOrReturn0(this.phonelogCallerNeeds['Accompaniment']),
+          this.validateOrReturn0(this.phonelogCallerNeeds['Financial']),
+          this.validateOrReturn0(this.phonelogCallerNeeds['Name Change']),
+          this.validateOrReturn0(this.phonelogCallerNeeds['Food Security']),
+          this.validateOrReturn0(this.phonelogCallerNeeds['Job Finding']),
+          this.validateOrReturn0(this.phonelogCallerNeeds['Immigration']),
+          this.validateOrReturn0(this.phonelogCallerNeeds['Victims of Violence']),
+          this.validateOrReturn0(this.phonelogCallerNeeds['Sexual Health']),
+          this.validateOrReturn0(this.phonelogCallerNeeds['Information'])]
       }
     ];
   }

@@ -6,9 +6,9 @@
                     <canvas baseChart [chartType]="'pie'" [datasets]="generateCallerUrgencyChartData()" [labels]="callerUrgencyLabels" [legend]="true">
                     </canvas>
                 <div>
-                    <p>Yes : {{phonelogUrgencies["YES"]}} </p>
-                    <p>No  : {{phonelogUrgencies["NO"]}} </p>
-                    <p>TOTAL : {{phonelogUrgencies["YES"]+phonelogUrgencies["NO"]}}</p>
+                    <p>Yes : {{validateOrReturn0(phonelogUrgencies["YES"])}} </p>
+                    <p>No  : {{validateOrReturn0(phonelogUrgencies["NO"])}} </p>
+                    <p>TOTAL : {{validateOrReturn0(phonelogUrgencies["YES"])+validateOrReturn0(phonelogUrgencies["NO"])}}</p>
                 </div>
             </mat-card-content>
         </mat-card>
@@ -20,11 +20,12 @@
                     <canvas baseChart [chartType]="'pie'" [datasets]="generateCallerTypeChartData()" [labels]="callerTypeLabels" [legend]="true">
                     </canvas>
                 <div>
-                    <p>Trans person : {{phonelogCallerTypes["Trans person"]}} </p>
-                    <p>Organization : {{phonelogCallerTypes["Organization"]}} </p>
-                    <p>Social worker: {{phonelogCallerTypes["Social worker"]}} </p>
-                    <p>Other person : {{phonelogCallerTypes["Other person"]}} </p>
-                    <p>TOTAL: {{phonelogCallerTypes["Trans person"]+phonelogCallerTypes["Organization"]+phonelogCallerTypes["Social worker"]+phonelogCallerTypes["Other person"]}}</p>
+                    <p>Trans person : {{validateOrReturn0(phonelogCallerTypes["Trans person"])}} </p>
+                    <p>Organization : {{validateOrReturn0(phonelogCallerTypes["Organization"])}} </p>
+                    <p>Social worker: {{validateOrReturn0(phonelogCallerTypes["Social worker"])}} </p>
+                    <p>Other person : {{validateOrReturn0(phonelogCallerTypes["Other person"])}} </p>
+                    <p>TOTAL: {{validateOrReturn0(phonelogCallerTypes["Trans person"]) + validateOrReturn0(phonelogCallerTypes["Organization"])
+                        +validateOrReturn0(phonelogCallerTypes["Social worker"])+validateOrReturn0(phonelogCallerTypes["Other person"])}}</p>
                 </div>
             </mat-card-content>
         </mat-card>
@@ -36,11 +37,12 @@
                     <canvas baseChart [chartType]="'pie'" [datasets]="generateCallerPronounsChartData()" [labels]="callerPronounsLabels" [legend]="true">
                     </canvas>
                 <div>
-                    <p>Undisclosed: {{phonelogCallerPronouns["undisclosed"]}} </p>
-                    <p>She/her    : {{phonelogCallerPronouns["she/her"]}} </p>
-                    <p>They/them  : {{phonelogCallerPronouns["they/them"]}} </p>
-                    <p>He/him     : {{phonelogCallerPronouns["he/him"]}} </p>
-                    <p>TOTAL: {{phonelogCallerPronouns["undisclosed"]+phonelogCallerPronouns["she/her"]+phonelogCallerPronouns["they/them"]+phonelogCallerPronouns["he/him"]}}</p>
+                    <p>Undisclosed: {{validateOrReturn0(phonelogCallerPronouns["undisclosed"])}} </p>
+                    <p>She/her    : {{validateOrReturn0(phonelogCallerPronouns["she/her"])}} </p>
+                    <p>They/them  : {{validateOrReturn0(phonelogCallerPronouns["they/them"])}} </p>
+                    <p>He/him     : {{validateOrReturn0(phonelogCallerPronouns["he/him"])}} </p>
+                    <p>TOTAL: {{validateOrReturn0(phonelogCallerPronouns["undisclosed"])+validateOrReturn0(phonelogCallerPronouns["she/her"])+
+                            validateOrReturn0(phonelogCallerPronouns["they/them"])+validateOrReturn0(phonelogCallerPronouns["he/him"])}}</p>
                 </div>
             </mat-card-content>
         </mat-card>
@@ -52,21 +54,24 @@
                     <canvas baseChart [chartType]="'pie'" [datasets]="generateCallerNeedsChartData()" [labels]="callerNeedsLabels" [legend]="true">
                     </canvas>
                 <div>
-                    <p>Housing : {{phonelogCallerNeeds["Housing"]}} </p>
-                    <p>Medical : {{phonelogCallerNeeds["Medical"]}} </p>
-                    <p>Legal : {{phonelogCallerNeeds["Legal"]}} </p>
-                    <p>Accompaniment : {{phonelogCallerNeeds["Accompaniment"]}} </p>
-                    <p>Financial : {{phonelogCallerNeeds["Financial"]}} </p>
-                    <p>Name Change : {{phonelogCallerNeeds["Name Change"]}} </p>
-                    <p>Food Security : {{phonelogCallerNeeds["Food Security"]}} </p>
-                    <p>Job Finding  : {{phonelogCallerNeeds["Job Finding"]}} </p>
-                    <p>Immigration : {{phonelogCallerNeeds["Immigration"]}} </p>
-                    <p>Victims of Violence : {{phonelogCallerNeeds["Victims of Violence"]}} </p>
-                    <p>Sexual Health : {{phonelogCallerNeeds["Sexual Health"]}} </p>
-                    <p>Information : {{phonelogCallerNeeds["Information"]}} </p>
-                    <p>TOTAL: {{phonelogCallerNeeds["Housing"]+phonelogCallerNeeds["Medical"]+phonelogCallerNeeds["Legal"]+phonelogCallerNeeds["Accompaniment"]
-                        +phonelogCallerNeeds["Financial"]+phonelogCallerNeeds["Name Change"]+phonelogCallerNeeds["Food Security"]+phonelogCallerNeeds["Job Finding"]
-                    +phonelogCallerNeeds["Immigration"]+phonelogCallerNeeds["Victims of Violence"]+phonelogCallerNeeds["Sexual Health"]+phonelogCallerNeeds["Information"]}}</p>
+                    <p>Housing : {{validateOrReturn0(phonelogCallerNeeds["Housing"])}} </p>
+                    <p>Medical : {{validateOrReturn0(phonelogCallerNeeds["Medical"])}} </p>
+                    <p>Legal : {{validateOrReturn0(phonelogCallerNeeds["Legal"])}} </p>
+                    <p>Accompaniment : {{validateOrReturn0(phonelogCallerNeeds["Accompaniment"])}} </p>
+                    <p>Financial : {{validateOrReturn0(phonelogCallerNeeds["Financial"])}} </p>
+                    <p>Name Change : {{validateOrReturn0(phonelogCallerNeeds["Name Change"])}} </p>
+                    <p>Food Security : {{validateOrReturn0(phonelogCallerNeeds["Food Security"])}} </p>
+                    <p>Job Finding  : {{validateOrReturn0(phonelogCallerNeeds["Job Finding"])}} </p>
+                    <p>Immigration : {{validateOrReturn0(phonelogCallerNeeds["Immigration"])}} </p>
+                    <p>Victims of Violence : {{validateOrReturn0(phonelogCallerNeeds["Victims of Violence"])}} </p>
+                    <p>Sexual Health : {{validateOrReturn0(phonelogCallerNeeds["Sexual Health"])}} </p>
+                    <p>Information : {{validateOrReturn0(phonelogCallerNeeds["Information"])}} </p>
+                    <p>TOTAL: {{validateOrReturn0(phonelogCallerNeeds["Housing"])+validateOrReturn0(phonelogCallerNeeds["Medical"])+
+                        validateOrReturn0(phonelogCallerNeeds["Legal"])+validateOrReturn0(phonelogCallerNeeds["Accompaniment"])+
+                        validateOrReturn0(phonelogCallerNeeds["Financial"])+validateOrReturn0(phonelogCallerNeeds["Name Change"])+
+                        validateOrReturn0(phonelogCallerNeeds["Food Security"])+validateOrReturn0(phonelogCallerNeeds["Job Finding"])+
+                    validateOrReturn0(phonelogCallerNeeds["Immigration"])+validateOrReturn0(phonelogCallerNeeds["Victims of Violence"])+
+                    validateOrReturn0(phonelogCallerNeeds["Sexual Health"])+validateOrReturn0(phonelogCallerNeeds["Information"])}}</p>
                 </div>
             </mat-card-content>
         </mat-card>
