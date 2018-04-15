@@ -18,10 +18,10 @@ export class AppComponent implements OnInit {
     private authenticationService: AuthenticationService,
     private router: Router,
     private translate: TranslateService,
-    private UserService :UserService,
+    private userService: UserService,
     private cookieService: CookieService
   ) {
-    translate.addLangs(['en', 'fr','sp']);
+    translate.addLangs(['en', 'fr', 'es']);
     translate.setDefaultLang('en');
   }
   public heartbeat = false;
@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
   switchLanguage(language: string) {
     this.translate.use(language);
     this.userId = this.cookieService.get('UserId');
-    this.UserService.changeLanguage(this.userId,language);
+    this.userService.changeLanguage(this.userId,language);
 }
   ngOnInit() {
     this.authenticationService.heartbeat().subscribe(data => {
