@@ -118,4 +118,40 @@ router.get('/all', (req, res) => {
   })
 });
 
+/**
+ * Update user by ID
+ */
+router.put('/:id', (req, res) => {
+  User.findById(req.params.id).then(user => {
+    user.name = req.body.name;
+    user.pronouns = req.body.pronouns;
+    user.role = req.body.role;
+    user.password = req.body.password || user.password;
+
+    if (req.body.email != user.email) {
+      User.count({ email: req.body.email }, (err, emailCount) => {
+        if (err) { return next(err); }
+        if (emailCount > 0) {
+          return res.status(400).send({ msg: 'Account with that email address already exists.' });
+        } else {
+          user.email = req.body.email;
+          saveUser(user, res);
+        }
+      });
+    } else {
+      saveUser(user, res);
+    }
+  }, err => {
+      res.send(err);
+  })
+});
+
+function saveUser (user, res) {
+  user.save().then(data => {
+    res.send(data);
+  }, err => {
+    res.send(err);
+  });
+}
+
 module.exports = router;

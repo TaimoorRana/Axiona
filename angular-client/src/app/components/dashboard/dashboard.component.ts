@@ -14,7 +14,6 @@ export class DashboardComponent implements OnInit {
     {label: 'Tasks', icon: 'assignment', path: 'tasks'},
     {label: 'Active Case Files', icon: 'folder', path: 'active-casefiles'},
     {label: 'Phone Log', icon: 'phone', path: 'phonelog'},
-    {label: 'Manage Users', icon: 'supervisor_account', path: 'users'},
     {label: 'Reports', icon: 'assessment', path: 'reports'},
     {label: 'Trash Bin', icon: 'delete', path: 'trashbin'}
   ];
@@ -23,6 +22,11 @@ export class DashboardComponent implements OnInit {
    }
 
   ngOnInit() {
+    if (this.authenticationService.role == 'admin') {
+      this.dashboardLinks.splice(4, 0,
+        {label: 'Manage Users', icon: 'supervisor_account', path: 'users'},
+      );
+    }
   }
 
 }

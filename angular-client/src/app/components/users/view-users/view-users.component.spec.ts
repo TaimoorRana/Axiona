@@ -8,6 +8,7 @@ import { SearchPipe } from '../../../pipes/search.pipe';
 import { UserService } from '../../../services/user.service';
 import { MockUserService } from '../../../services/mocks/MockUserService';
 import { Router } from '@angular/router';
+import { EditUserComponent } from '../edit-user/edit-user.component';
 
 describe('ViewUsersComponent', () => {
   let component: ViewUsersComponent;
@@ -15,7 +16,7 @@ describe('ViewUsersComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ViewUsersComponent, OrderByPipe, SearchPipe ],
+      declarations: [ ViewUsersComponent, EditUserComponent, OrderByPipe, SearchPipe ],
       imports: [ MaterialsModule ],
       providers: [
         { provide: AuthenticationService, useClass: MockAuthenticationService },

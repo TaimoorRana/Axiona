@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="form-container">
+    <form class="form" [formGroup]="userForm">
+      <mat-form-field>
+        <input matInput placeholder="Name" formControlName="name">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Pronouns" formControlName="pronouns">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput type="email" placeholder="Email" formControlName="email">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select formControlName="role">
+          <mat-option value="admin">Administrator</mat-option>
+          <mat-option value="user">Regular User</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput type="password" placeholder="New Password" formControlName="password">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput type="password" placeholder="Confirm Password" formControlName="confirmPassword" />
+      </mat-form-field>
+
+      <div *ngIf="errorMsg" class="updateErr">
+        <mat-icon class="warning-font">error</mat-icon>
+        <h4>{{errorMsg}}</h4>
+      </div>
+
+      <div class="edit-actions">
+        <button mat-raised-button color="primary" (click)="update()" [disabled]="userForm.invalid">Update</button>
+        <button mat-raised-button (click)="cancelEdit()">Cancel</button>
+        <button class="delete-btn" mat-icon-button (click)="delete()">
+          <mat-icon color="warn">delete</mat-icon>
+        </button>
+      </div>
+
+    </form>
+
+  </div>
+</div>

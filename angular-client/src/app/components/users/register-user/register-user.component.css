@@ -1,5 +1,16 @@
 .register-card {
     margin: 2rem;
+    width: 66%;
+}
+
+mat-form-field {
+    display: block;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .loading {
