@@ -29,6 +29,7 @@ router.post('/login', (req, res, next) => {
           profile:{
             role: user.role,
             name: user.name,
+            language: user.language,
             _id: user._id
           }
         });
@@ -71,7 +72,7 @@ router.post('/signup', (req, res, next) => {
   });
 });
 
-router.put('/:id/update', (req, res) => {
+router.put('/:id/language', (req, res) => {
     User.update({ '_id': req.params.id }, { '$set': { language: req.body.language } })
         .then(data => {
             res.send(data);

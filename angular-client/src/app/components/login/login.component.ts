@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../services/authentication.service';
 import { RouterModule, Router } from '@angular/router';
+import {TranslateService} from '@ngx-translate/core';
+
 
 @Component({
   selector: 'app-login',
@@ -16,6 +18,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authenticationService: AuthenticationService,
+    private translate: TranslateService,
     private router: Router
   ) { }
 
@@ -34,8 +37,11 @@ export class LoginComponent implements OnInit {
     this.error = false;
     this.authenticationService.login(this.user.email, this.user.password).subscribe(data => {
       this.loading = false;
+      let language=data.profile.language;
+      this.translate.use(language);
       if (!data.error) {
         this.authenticationService.loggedIn = true;
+
         this.router.navigateByUrl('/dashboard/activity');
       } else {
         this.authenticationService.loggedIn = false;
