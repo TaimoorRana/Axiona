@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
     private UserService :UserService,
     private cookieService: CookieService
   ) {
-    translate.addLangs(['en', 'fr']);
+    translate.addLangs(['en', 'fr','sp']);
     translate.setDefaultLang('en');
   }
   public heartbeat = false;
