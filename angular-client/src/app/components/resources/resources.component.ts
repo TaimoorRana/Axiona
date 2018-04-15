@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ResourceService } from '../../services/resource.service';
 import { RouterModule, Router } from '@angular/router';
 import { AuthenticationService } from '../../services/authentication.service';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-resources',
@@ -12,17 +13,17 @@ export class ResourcesComponent implements OnInit {
 
   navLinks = [
     {
-      label: 'Resources',
+      label: this.translateService.instant('navLinks.Resources'),
       path: './view-resources'
     },
     {
-      label: 'Add Resource',
+      label: this.translateService.instant('navLinks.AddResource'),
       path: './add-resource'
     }
   ];
 
 
-  constructor(private resourceService: ResourceService, public authService: AuthenticationService, public router: Router) { }
+  constructor(private resourceService: ResourceService, public authService: AuthenticationService, public router: Router,private translateService:TranslateService) { }
 
   ngOnInit() {
     if (!this.authService.loggedIn) {

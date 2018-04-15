@@ -304,5 +304,11 @@
         "Participants": "Participants",
         "Resources": "Ressources",
         "Phone Log": "Registre d'appels"
+      },
+      "navLinks":{
+        "Resources":"Resources",
+        "AddResource":"Add Resource",
+        "Participants":"Participants",
+        "AddParticipant":"Add Participant"
       }
 }

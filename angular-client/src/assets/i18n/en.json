@@ -253,7 +253,9 @@
         "Free": "Cost:",
         "Approx":"Approximate Waitlist:",
         "Schedule": "Schedule:",
-        "Notes": "Notes:"
+        "Notes": "Notes:",
+        "Descending":"Descending",
+        "Ascending":"Ascending"
     },
       "Tasks": {
         "Tasks": "Tasks",
@@ -304,5 +306,11 @@
         "Participants":"Participants",
         "Resources":"Resources",
         "Phone Log":"Phone Log"
+      },
+      "navLinks":{
+        "Resources":"Resources",
+        "AddResource":"Add Resource",
+        "Participants":"Participants",
+        "AddParticipant":"Add Participant"
       }
 }

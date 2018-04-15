@@ -3,6 +3,8 @@ import { AuthenticationService } from './services/authentication.service';
 import { RouterModule, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import {TranslateService} from '@ngx-translate/core';
+import { UserService } from './services/user.service';
+import { CookieService } from '../../node_modules/ngx-cookie-service/cookie-service/cookie.service';
 
 @Component({
   selector: 'app-root',
@@ -11,10 +13,13 @@ import {TranslateService} from '@ngx-translate/core';
 })
 export class AppComponent implements OnInit {
   title = 'Axiona';
+  userId;
   constructor(
     private authenticationService: AuthenticationService,
     private router: Router,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private UserService :UserService,
+    private cookieService: CookieService
   ) {
     translate.addLangs(['en', 'fr']);
     translate.setDefaultLang('en');
@@ -24,6 +29,8 @@ export class AppComponent implements OnInit {
 
   switchLanguage(language: string) {
     this.translate.use(language);
+    this.userId = this.cookieService.get('UserId');
+    this.UserService.changeLanguage(this.userId,language);
 }
   ngOnInit() {
     this.authenticationService.heartbeat().subscribe(data => {
@@ -39,6 +46,7 @@ export class AppComponent implements OnInit {
       this.heartbeat = true;
     });
   }
+
   public logout() {
     this.authenticationService.logout().subscribe(data => {
       this.router.navigateByUrl('/login');

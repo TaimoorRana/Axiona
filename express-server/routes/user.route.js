@@ -71,6 +71,15 @@ router.post('/signup', (req, res, next) => {
   });
 });
 
+router.put('/:id/update', (req, res) => {
+    User.update({ '_id': req.params.id }, { '$set': { language: req.body.language } })
+        .then(data => {
+            res.send(data);
+        }, err => {
+            res.send(err);
+        })
+});
+
 /**
  * Delete a user
  * 

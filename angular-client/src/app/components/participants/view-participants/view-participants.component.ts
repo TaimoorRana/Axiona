@@ -42,6 +42,7 @@ export class ViewParticipantsComponent implements OnInit {
       this.participantService.getAll()
         .subscribe(data => {
           this.profiles = data;
+          console.log(data);
         });
     } else {
       this.participantService.getBySocialWorker()

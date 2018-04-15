@@ -15,7 +15,7 @@
   </span>
   <span class="example-fill-remaining-space"></span>
   <span>
-  <mat-select #langSelect (change)="translate.use(langSelect.value)">
+  <mat-select #langSelect (change)="switchLanguage(langSelect.value)">
           <mat-option *ngFor="let lang of translate.getLangs()" placeholder="Choose Language" [value]="lang" selected="lang === translate.currentLang">{{ lang }}</mat-option>
         </mat-select>
   </span>

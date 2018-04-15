@@ -6,16 +6,19 @@ import 'rxjs/add/operator/map';
 import { of } from 'rxjs/observable/of';
 import { MessageService } from './message.service';
 import { User } from '../classes/user';
+import { CookieService } from '../../../node_modules/ngx-cookie-service/cookie-service/cookie.service';
 
 @Injectable()
 export class AuthenticationService {
   public loggedIn: boolean;
   public role: String;
   public profile: any;
+  cookieValue = 'UNKNOWN';
 
   constructor(
     private http: HttpClient,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private cookieService: CookieService
 
   ) {
 
@@ -37,6 +40,8 @@ export class AuthenticationService {
         } else {
           this.role = p.profile.role;
           this.profile = p.profile;
+          console.log(this.profile);
+          this.cookieService.set( 'UserId', this.profile._id );
           this.log('Successful login.');
         }
       }),

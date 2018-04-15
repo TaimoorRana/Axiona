@@ -6,7 +6,9 @@ import { HttpClientModule,HttpClient } from '@angular/common/http';
 import { Http, HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialsModule } from './modules/materials.module';
-import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+
+import {TranslateModule,TranslateLoader} from '@ngx-translate/core';
+import { CookieService } from '../../node_modules/ngx-cookie-service/cookie-service/cookie.service';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 import { AppComponent } from './app.component';
@@ -56,6 +58,7 @@ import { TaskService } from './services/task.service';
 
 import { OrderByPipe } from './pipes/orderBy.pipe';
 import { SearchPipe } from './pipes/search.pipe';
+
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -256,6 +259,7 @@ const routes: Routes = [
     AuthenticationService,
     PhonelogService,
     TaskService,
+    CookieService,
     TrashService
   ],
   bootstrap: [AppComponent]

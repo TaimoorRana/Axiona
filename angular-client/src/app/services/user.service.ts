@@ -27,6 +27,28 @@ export class UserService {
       );
   }
 
+  /**
+   * Update language
+   *
+   * @param {any} id
+   * @param {any} LanguageData
+   * @returns {Observable<Object>}
+   * @memberof UserService
+   */
+   changeLanguage(id, LanguageData): Observable<Object> {
+    return this.http.put<Object>(`${this.url}/${id}/update`, LanguageData)
+      .pipe(
+      tap(c => {
+        if (c.hasOwnProperty('errmsg')) {
+          console.log('has err msg');
+          this.log('did not update status');
+        } else {
+          this.log('updated status');
+        }
+      }),
+      catchError(this.handleError<Object>('changeLanguage(id, LanguageData)'))
+      );
+  }
   delete(id: String): Observable<Object> {
     return this.http.delete(`${this.url}/${id}`)
       .pipe(
