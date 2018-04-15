@@ -5,6 +5,8 @@ import { User } from '../../../classes/user';
 import { Observable } from 'rxjs/Observable';
 import { MatDialog } from '@angular/material';
 import { AlertModalComponent } from '../../modals/alert-modal/alert-modal.component';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { PasswordValidator } from '../../../validators/password-validator';
 
 @Component({
   selector: 'app-register-user',
@@ -21,15 +23,33 @@ export class RegisterUserComponent implements OnInit {
     confirmPassword: '',
     role: 'user' // selected role is 'user' by default
   };
+  form: FormGroup;
+  emailregex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  passwordregex = /^\w{4,12}/;
+
   loading = false;
   error = false;
   msg = '';
 
   constructor(
     public dialog: MatDialog,
+    private fb: FormBuilder, 
     private authenticationService: AuthenticationService,
     private router: Router
-  ) { }
+  ) {
+    this.createForm();
+   }
+
+  createForm() {
+    this.form = this.fb.group({
+      name: ['', Validators.required],
+      pronouns: [''],
+      email: ['', Validators.compose([Validators.required, Validators.pattern(this.emailregex)])],
+      password: ['', Validators.compose([Validators.required, Validators.pattern(this.passwordregex)])],
+      confirmPassword: ['', Validators.required],
+      role: 'user'
+    }, {validator: PasswordValidator.passwordsMatch});
+  }
 
   ngOnInit() {
   }
@@ -42,7 +62,7 @@ export class RegisterUserComponent implements OnInit {
   public signUp() {
     this.loading = true;
     this.error = false;
-    this.authenticationService.signUp(this.user).subscribe(data => {
+    this.authenticationService.signUp(this.form.value).subscribe(data => {
       this.loading = false;
 
       if (!data.error) {
