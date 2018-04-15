@@ -1,7 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ReportsComponent } from './reports.component';
 import { MaterialsModule } from '../../modules/materials.module';
+import { ReportPhonelogService } from '../../services/reports-phonelog.service';
+import { HttpClientModule } from '@angular/common/http';
+import { MessageService } from '../../services/message.service';
+
 
 describe('ReportsComponent', () => {
   let component: ReportsComponent;
@@ -10,7 +14,9 @@ describe('ReportsComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ReportsComponent ],
-      imports: [ MaterialsModule ],
+      schemas: [ NO_ERRORS_SCHEMA ],
+      imports: [ MaterialsModule, HttpClientModule ],
+      providers: [ReportPhonelogService, MessageService]
     })
     .compileComponents();
   }));

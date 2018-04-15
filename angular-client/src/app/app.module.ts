@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { Http, HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialsModule } from './modules/materials.module';
+import { ChartsModule } from 'ng2-charts';
 
 import { AppComponent } from './app.component';
 import { ActiveCasefilesComponent } from './components/casefiles/active-casefiles/active-casefiles.component';
@@ -53,6 +54,7 @@ import { ResourceService } from './services/resource.service';
 import { UserService } from './services/user.service';
 import { TrashService } from './services/trash.service';
 import { TaskService } from './services/task.service';
+import { ReportPhonelogService } from './services/reports-phonelog.service';
 
 import { OrderByPipe } from './pipes/orderBy.pipe';
 import { SearchPipe } from './pipes/search.pipe';
@@ -225,6 +227,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    ChartsModule,
     HttpClientModule,
     HttpModule,
     FormsModule,
@@ -250,7 +253,8 @@ const routes: Routes = [
     AuthenticationService,
     PhonelogService,
     TaskService,
-    TrashService
+    TrashService,
+    ReportPhonelogService
   ],
   bootstrap: [AppComponent]
 })

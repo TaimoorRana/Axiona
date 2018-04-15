@@ -16,10 +16,10 @@ export class EditPhonelogComponent implements OnInit {
   editingLog = Phonelog;
   date;
   callertype = [
-    'trans person',
-    'organization',
-    'social worker',
-    'other person',
+    'Trans person',
+    'Organization',
+    'Social worker',
+    'Other person',
   ];
   pronouns = [
     'undisclosed',

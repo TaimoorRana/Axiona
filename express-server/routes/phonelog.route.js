@@ -17,7 +17,9 @@ router.get('/', (req, res) => {
         })
 });
 
-
+/**
+ * Get all active phonelogs
+ */
 router.get('/active', (req, res) => {
     Phonelog.find({ "resolved": { "$in": ["false", false] }, "deleted": { "$in": ["false", false] } })
         .populate('user')
@@ -28,6 +30,7 @@ router.get('/active', (req, res) => {
             res.send(err);
         })
 });
+
 
 /**
  * Get recently updated phone logs
