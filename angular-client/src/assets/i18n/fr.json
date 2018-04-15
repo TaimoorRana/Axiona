@@ -95,7 +95,7 @@
     },
       "AddParticipant": {
         "Legal": "N'utilise pas de nom légal",
-        "Name": "Prénom",
+        "Name": "Prénom préferée",
         "NewParticipant":"Nouveau participant ajouté avec succès.",
         "CouldNot":"On n'a pas pu ajouter un nouveau participant.",
         "Pronouns": "Pronoms",
@@ -156,6 +156,7 @@
         "PhoneCall":"Appel téléphonique",
         "Name": "Prénom de la personne qui appelle",
         "Pronouns": "Pronoms",
+        "Language": "Langue",
         "Type":"Catégorie de personne",
         "Phone": "Numéro de téléphone",
         "Reason": "Raison de l'appel",

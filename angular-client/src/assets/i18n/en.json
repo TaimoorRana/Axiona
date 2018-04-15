@@ -95,7 +95,7 @@
     },
       "AddParticipant": {
         "Legal": "Do not use participant's legal name",
-        "Name": "First Name",
+        "Name": "Preferred Name",
         "NewParticipant":"New participant successfully added.",
         "CouldNot":"Could not add new participant.",
         "Pronouns": "Pronouns",
@@ -156,6 +156,7 @@
         "PhoneCall":"Phone Call",
         "Name": "Name of caller",
         "Pronouns": "Pronouns",
+        "Language": "Language",
         "Type":"Type of caller",
         "Phone": "Phone number",
         "Reason": "Reason for call",
