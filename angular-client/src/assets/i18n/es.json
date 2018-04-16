@@ -315,12 +315,12 @@
         "AddParticipant":"Añadir participante"
       },
       "dashboardLinks":{
-        "Dashboard":"Dashboard",
-        "Tasks":"Tasks",
-        "Active":"Active Case Files",
-        "Phone":"Phone Log",
-        "Manage":"Manage Users",
-        "Reports":"Reports",
-        "Bin":"Trash Bin"
+        "Dashboard":"Tablero",
+        "Tasks":"Tareas",
+        "Active":"Archivos de caso activos",
+        "Phone":"Registro de llamadas",
+        "Manage":"Gestionar usuarios",
+        "Reports":"Reportes",
+        "Bin":"Cesta de reciclaje"
       }
 }

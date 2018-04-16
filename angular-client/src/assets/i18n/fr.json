@@ -313,12 +313,12 @@
         "AddParticipant":"Add Participant"
       },
       "dashboardLinks":{
-        "Dashboard":"Dashboard",
-        "Tasks":"Tasks",
-        "Active":"Active Case Files",
-        "Phone":"Phone Log",
-        "Manage":"Manage Users",
-        "Reports":"Reports",
-        "Bin":"Trash Bin"
+        "Dashboard":"Tableau de bord",
+        "Tasks":"Tâches",
+        "Active":"Fichiers de cas actifs",
+        "Phone":"Registre d'appels",
+        "Manage":"Gérér utilisateurs",
+        "Reports":"Rapports",
+        "Bin":"Bac de récyclage"
       }
 }
