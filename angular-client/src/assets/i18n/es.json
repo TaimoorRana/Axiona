@@ -313,5 +313,14 @@
         "AddResource":"Añadir recursos",
         "Participants":"Participantes",
         "AddParticipant":"Añadir participante"
+      },
+      "dashboardLinks":{
+        "Dashboard":"Dashboard",
+        "Tasks":"Tasks",
+        "Active":"Active Case Files",
+        "Phone":"Phone Log",
+        "Manage":"Manage Users",
+        "Reports":"Reports",
+        "Bin":"Trash Bin"
       }
 }

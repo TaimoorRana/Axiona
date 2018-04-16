@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../services/authentication.service';
 import { Router } from '@angular/router';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,16 +11,16 @@ import { Router } from '@angular/router';
 export class DashboardComponent implements OnInit {
 
   dashboardLinks = [
-    {label: 'Dashboard', icon: 'home', path: 'activity'},
-    {label: 'Tasks', icon: 'assignment', path: 'tasks'},
-    {label: 'Active Case Files', icon: 'folder', path: 'active-casefiles'},
-    {label: 'Phone Log', icon: 'phone', path: 'phonelog'},
-    {label: 'Manage Users', icon: 'supervisor_account', path: 'users'},
-    {label: 'Reports', icon: 'assessment', path: 'reports'},
-    {label: 'Trash Bin', icon: 'delete', path: 'trashbin'}
+    {label: this.translate.instant('dashboardLinks.Dashboard'), icon: 'home', path: 'activity'},
+    {label: this.translate.instant('dashboardLinks.Tasks'), icon: 'assignment', path: 'tasks'},
+    {label: this.translate.instant('dashboardLinks.Active'), icon: 'folder', path: 'active-casefiles'},
+    {label: this.translate.instant('dashboardLinks.Phone'), icon: 'phone', path: 'phonelog'},
+    {label: this.translate.instant('dashboardLinks.Manage'), icon: 'supervisor_account', path: 'users'},
+    {label: this.translate.instant('dashboardLinks.Reports'), icon: 'assessment', path: 'reports'},
+    {label: this.translate.instant('dashboardLinks.Bin'), icon: 'delete', path: 'trashbin'}
   ];
 
-  constructor(private authenticationService: AuthenticationService) {
+  constructor(private authenticationService: AuthenticationService, private translate: TranslateService) {
    }
 
   ngOnInit() {
