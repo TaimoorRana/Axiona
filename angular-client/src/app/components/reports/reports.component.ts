@@ -62,8 +62,16 @@ export class ReportsComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     if (this.reloadPhonelogs) {
+      this.unsetAllReady();
       this.fetchAllStatistics();
     }
+  }
+
+  unsetAllReady() {
+    this.isPhonelogUrgenciesDataReady = false;
+    this.isCallerPronounsDataReady = false;
+    this.isCallerTypeDataReady = false;
+    this.isCallerTypeDataReady = false;
   }
 
   fetchAllStatistics() {
