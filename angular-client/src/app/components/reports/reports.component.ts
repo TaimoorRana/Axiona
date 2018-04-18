@@ -1,12 +1,18 @@
-import { Component, OnInit, AfterContentInit } from '@angular/core';
+import { Component, OnInit, Input, AfterContentInit, OnChanges } from '@angular/core';
 import { ReportPhonelogService } from '../../services/reports-phonelog.service';
+import { PhonelogService } from '../../services/phonelog.service';
+import { AuthenticationService } from '../../services/authentication.service';
+import { RouterModule, Router } from '@angular/router';
 
 @Component({
   selector: 'app-reports',
   templateUrl: './reports.component.html',
   styleUrls: ['./reports.component.css']
 })
-export class ReportsComponent implements OnInit {
+export class ReportsComponent implements OnInit, OnChanges {
+  
+  @Input() reloadPhonelogs: boolean;
+
   public isPhonelogUrgenciesDataReady = false;
   public phonelogUrgencies;
   public isCallerTypeDataReady = false;
@@ -34,10 +40,33 @@ export class ReportsComponent implements OnInit {
     'Sexual Health',
     'Information '
   ];
-  constructor(private reportPhonelogService: ReportPhonelogService) { }
+  constructor(
+    private reportPhonelogService: ReportPhonelogService,
+    private phonelogService: PhonelogService,
+    public authService: AuthenticationService,
+    public router: Router
+  ) {
+    this.phonelogService.phoneLogged.subscribe(_ => {
+      this.fetchAllStatistics();
+    });
+   }
 
 
   ngOnInit() {
+    if (!this.authService.loggedIn) {
+      this.router.navigateByUrl('login');
+    } else {
+      this.fetchAllStatistics();
+    }
+  }
+
+  ngOnChanges() {
+    if (this.reloadPhonelogs) {
+      this.fetchAllStatistics();
+    }
+  }
+
+  fetchAllStatistics() {
     this.fetchCallerUrgencyStatistics();
     this.fetchCallerTypeStatistics();
     this.fetchCallerPronounsStatistics();
