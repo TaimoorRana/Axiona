@@ -25,6 +25,12 @@ export class AddPhonelogComponent implements OnInit {
     'Social worker',
     'Other person',
   ];
+  language = [
+    'Français',
+    'English',
+    'Español',
+    'Other',
+  ];
   pronouns = [
     'undisclosed',
     'she/her',
@@ -72,6 +78,7 @@ export class AddPhonelogComponent implements OnInit {
       name: ['', Validators.required],
       pronouns: this.pronouns[0],
       user: '',
+      language: this.language[0],
       urgent: false,
       phonenumber: ['', Validators.pattern(this.phoneregex)],
       subject: this.subjects[0],

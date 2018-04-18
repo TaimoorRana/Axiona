@@ -21,6 +21,12 @@ export class EditPhonelogComponent implements OnInit {
     'Social worker',
     'Other person',
   ];
+  language = [
+    'Français',
+    'English',
+    'Español',
+    'Other',
+  ];
   pronouns = [
     'undisclosed',
     'she/her',
@@ -54,7 +60,7 @@ export class EditPhonelogComponent implements OnInit {
     this.editphonelog = this.form.group({
       name: [this.log.name, Validators.required],
       pronouns: this.log.pronouns || this.pronouns[0],
-      language: this.log.language || '',
+      language: this.log.language || this.language[0],
       urgent: this.log.urgent,
       phonenumber: [this.log.phonenumber || '', Validators.pattern(this.phoneregex)],
       subject: this.log.subject || this.subjects[0],
