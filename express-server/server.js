@@ -28,6 +28,7 @@ const trash = require('./routes/trash.route');
 const resource = require('./routes/resource.route');
 const housing = require('./routes/resources/housing.route');
 const medical = require('./routes/resources/medical.route');
+const legal = require('./routes/resources/legal.route');
 
 const reportsPhonelog = require('./routes/reports/phonelog.route');
 
