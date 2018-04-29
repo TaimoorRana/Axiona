@@ -26,7 +26,7 @@ router.post('/', (req, res) => {
         location: req.body.location,
         notes: req.body.notes,
         fee_structure: req.body.fee_structure,
-        speciality: req.body.speciality,
+        area_expertise: req.body.area_expertise,
         schedule_availability: req.body.schedule_availability,
         language: req.body.language,
         accept_legal_aid: req.body.accept_legal_aid,
@@ -51,9 +51,9 @@ router.put('/:id', (req, res) => {
         legal.location = req.body.location || legal.location;
         legal.notes = req.body.notes || legal.notes;
         legal.fee_structure = req.body.fee_structure || legal.fee_structure,
-        legal.speciality = req.body.speciality || legal.speciality,
+        legal.area_expertise = req.body.area_expertise || legal.area_expertise,
         legal.schedule_availability = req.body.schedule_availability || legal.schedule_availability,
-        language = req.body.language || legal.language,
+        legal.language = req.body.language || legal.language,
         legal.accept_legal_aid = req.body.accept_legal_aid || legal.accept_legal_aid,
         legal.region = req.body.region || legal.region,
         legal.name_of_firm = req.body.name_of_firm || legal.name_of_firm

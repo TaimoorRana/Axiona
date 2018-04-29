@@ -56,6 +56,29 @@
             <input matInput placeholder="Schedule" formControlName="schedule_availability">
           </mat-form-field>
         </ng-container>
+        <ng-container *ngSwitchCase="'Legal'">
+          <mat-form-field>
+            <input matInput placeholder="Fee Structure" formControlName="fee_structure">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Expertise" formControlName="area_expertise">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Schedule" formControlName="schedule_availability">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Language" formControlName="language">
+          </mat-form-field>         
+          <mat-form-field>
+            <input matInput placeholder="Accepts Legal Aid" formControlName="accept_legal_aid">
+          </mat-form-field>          
+          <mat-form-field>
+            <input matInput placeholder="Region Served" formControlName="region">
+          </mat-form-field>          
+          <mat-form-field>
+            <input matInput placeholder="Name of Firm" formControlName="name_of_firm">
+          </mat-form-field>
+        </ng-container>
       </div>
     </div>
 

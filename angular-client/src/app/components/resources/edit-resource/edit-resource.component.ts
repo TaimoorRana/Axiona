@@ -39,7 +39,13 @@ export class EditResourceComponent implements OnInit, OnChanges {
       constraints: this.resource.constraints,
       without_cost: this.resource.without_cost,
       waitlist_time: this.resource.waitlist_time,
-      schedule_availability: this.resource.schedule_availability
+      schedule_availability: this.resource.schedule_availability,
+      fee_structure: this.resource.fee_structure,
+      area_expertise: this.resource.area_expertise,
+      accept_legal_aid: this.resource.accept_legal_aid,
+      region: this.resource.region,
+      language: this.resource.language,
+      name_of_firm: this.resource.name_of_firm,
     });
   }
 
@@ -56,7 +62,13 @@ export class EditResourceComponent implements OnInit, OnChanges {
       constraints: [''],
       without_cost: [''],
       waitlist_time: [''],
-      schedule_availability: ['']
+      schedule_availability: [''],
+      fee_structure: [''],
+      area_expertise: [''],
+      accept_legal_aid: [''],
+      region: [''],
+      language: [''],
+      name_of_firm:[''],
     });
   }
 

@@ -4,7 +4,7 @@ const Resource = require('../../models/Resource');
 
 const legalSchema = new Schema({
     fee_structure: { type: String},
-    speciality: { type: String},
+    area_expertise: { type: String},
     schedule_availability: { type: String},
     language: { type: String},
     accept_legal_aid: {type: String},

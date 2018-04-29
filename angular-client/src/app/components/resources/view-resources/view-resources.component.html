@@ -31,6 +31,15 @@
               <p *ngIf="resource.waitlist_time && resource.waitlist_time !== ''">Approximate Waitlist: {{resource.waitlist_time}}</p>
               <p *ngIf="resource.schedule_availability && resource.schedule_availability !== ''">Schedule: {{resource.schedule_availability}}</p>
             </ng-container>
+            <ng-container *ngSwitchCase="'Legal'">
+              <p *ngIf="resource.schedule_availability  && resource.schedule_availability !== ''">Schedule: {{resource.schedule_availability}}</p>
+              <p *ngIf="resource.fee_structure && resource.fee_structure !== ''">Fee Structure: {{resource.fee_structure}}</p>
+              <p *ngIf="resource.area_expertise && resource.area_expertise !== ''">Schedule: {{resource.area_expertise}}</p>
+              <p *ngIf="resource.language  && resource.language !== ''">Schedule: {{resource.language}}</p>
+              <p *ngIf="resource.accept_legal_aid  && resource.accept_legal_aid !== ''">Schedule: {{resource.accept_legal_aid}}</p>
+              <p *ngIf="resource.region && resource.region !== ''">Fee Structure: {{resource.region}}</p>
+              <p *ngIf="resource.name_of_firm && resource.name_of_firm !== ''">Schedule: {{resource.name_of_firm}}</p>
+            </ng-container>
           </div>
           <p *ngIf="resource.notes && resource.notes !== ''"> Notes: {{resource.notes}}</p>
         </div>

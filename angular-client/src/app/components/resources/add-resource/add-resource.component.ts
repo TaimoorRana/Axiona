@@ -16,7 +16,7 @@ import { Observable } from 'rxjs/Observable';
 export class AddResourceComponent implements OnInit {
 
   @ViewChild('f') myNgForm;
-  resourceTypes = [ 'Housing', 'Medical' ];
+  resourceTypes = [ 'Housing', 'Medical', 'Legal' ];
   @Output() addedResource = new EventEmitter();
   form: FormGroup;
   phoneregex = /^(?:\+?1[-. ]?)?(\(([0-9]{3})\)|([0-9]{3}))[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
@@ -45,7 +45,13 @@ export class AddResourceComponent implements OnInit {
       constraints: [''],
       without_cost: [''],
       waitlist_time: [''],
-      schedule_availability: ['']
+      schedule_availability: [''],
+      fee_structure: [''],
+      area_expertise: [''],
+      accept_legal_aid: [''],
+      region: [''],
+      language: [''],
+      name_of_firm:[''],
     });
   }
 
