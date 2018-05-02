@@ -17,13 +17,6 @@ Capabilities:
 - Manage participants' records
 
 
-Developed by:
--------------
-- Adrianna Diaz
-- Anna Rogozin
-- Liuai Hatter
-- Wahab Ahmed
-
 Domain Model:
 -------------
 
