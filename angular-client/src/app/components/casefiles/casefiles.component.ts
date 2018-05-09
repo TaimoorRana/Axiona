@@ -15,7 +15,7 @@ export class CasefilesComponent implements OnInit {
   @Input() participant: any;
   @Output() loadParticipant = new EventEmitter();
   editedCasefile: any;
-  casefileFormNote: FormGroup;
+  casefileFormNote: FormGroup; //DLT
   casefileFormSelectedResource: FormGroup;
   casefileFormContactedResources: FormGroup;
   isDateRange = true;

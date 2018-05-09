@@ -60,6 +60,7 @@ import { OrderByPipe } from './pipes/orderBy.pipe';
 import { SearchPipe } from './pipes/search.pipe';
 import { EditUserComponent } from './components/users/edit-user/edit-user.component';
 import { CaseImmigrationComponent } from './components/casefiles/case-immigration/case-immigration.component';
+import { CaseGeneralComponent } from './components/casefiles/case-general/case-general.component';
 
 const routes: Routes = [
   {
@@ -225,7 +226,8 @@ const routes: Routes = [
     OrderByPipe,
     SearchPipe,
     EditUserComponent,
-    CaseImmigrationComponent
+    CaseImmigrationComponent,
+    CaseGeneralComponent
   ],
   imports: [
     BrowserModule,
