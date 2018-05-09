@@ -59,6 +59,7 @@ import { ReportPhonelogService } from './services/reports-phonelog.service';
 import { OrderByPipe } from './pipes/orderBy.pipe';
 import { SearchPipe } from './pipes/search.pipe';
 import { EditUserComponent } from './components/users/edit-user/edit-user.component';
+import { CaseImmigrationComponent } from './components/casefiles/case-immigration/case-immigration.component';
 
 const routes: Routes = [
   {
@@ -223,7 +224,8 @@ const routes: Routes = [
     ViewUsersComponent,
     OrderByPipe,
     SearchPipe,
-    EditUserComponent
+    EditUserComponent,
+    CaseImmigrationComponent
   ],
   imports: [
     BrowserModule,
