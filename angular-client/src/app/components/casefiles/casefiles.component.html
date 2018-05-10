@@ -6,8 +6,7 @@
   </mat-card>
 
   <mat-accordion *ngIf="orderedCases.length > 0">
-    <mat-expansion-panel *ngFor="let casefile of orderedCases; let caseIndex = index" (opened)="setEditedCasefile(casefile)"
-      (closed)="resetDateSwitcher()">
+    <mat-expansion-panel *ngFor="let casefile of orderedCases; let caseIndex = index">
 
       <!-- Panel Header -->
       <mat-expansion-panel-header>

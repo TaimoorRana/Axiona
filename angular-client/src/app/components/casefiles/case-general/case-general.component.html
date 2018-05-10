@@ -21,17 +21,16 @@
 
 <!-- Casefile resources to contact -->
 <h4>Resources:</h4>
+<!-- Resource Headers -->
+<div class="resource headerResources" *ngIf="casefile.contactedResources[0]">
+  <span class="name primary-font">Name</span>
+  <span class="contacted primary-font">Contacted</span>
+  <span class="datePicker primary-font datePicker">Date</span>
+  <span class="caseNotes primary-font">Comment</span>
+</div>
 
 <!-- Casefile completed: resources as text -->
-<!-- <div *ngIf="casefile.status == 'Completed'"> -->
-
-  <!-- Resource Headers -->
-  <!-- <div class="resource headerResources" *ngIf="casefile.contactedResources[0]">
-    <span class="name primary-font">Name</span>
-    <span class="contacted primary-font">Contacted</span>
-    <span class="datePicker primary-font datePicker">Date</span>
-    <span class="caseNotes primary-font">Comment</span>
-  </div> -->
+<div *ngIf="casefile.status == 'Completed'">
 
   <!-- Resource Information -->
   <!-- <div class="resource" *ngFor="let caseResource of casefile.contactedResources; let resourceIndex = index">
@@ -63,23 +62,14 @@
     <p>{{casefile.selectedResource.resource.name}}</p>
     <p *ngIf="casefile.selectedResource.startDate">Date: {{casefile.selectedResource.startDate | date:'M/d/yyyy'}}</p>
     <p *ngIf="casefile.selectedResource.endDate">- {{casefile.selectedResource.endDate | date:'M/d/yyyy'}}</p>
-  </div>
-</div> -->
+  </div> -->
+</div>
 
 <!-- Casefile in progress: resources as form -->
-<!-- <div *ngIf="casefile.status == 'In progress'"> -->
-
-  <!-- Resource Headers -->
-  <!-- <div class="resource headerResources" *ngIf="casefile.contactedResources[0]">
-    <span class="name primary-font">Name</span>
-    <span class="contacted primary-font">Contacted</span>
-    <span class="datePicker primary-font datePicker">Date</span>
-    <span class="caseNotes primary-font">Comment</span>
-  </div> -->
+<div *ngIf="casefile.status == 'In progress'">
 
   <!-- Resource information as form -->
-  <!-- <div *ngIf="casefile.status == 'In progress' && casefile==editedCasefile">
-
+  <div *ngIf="casefile.status == 'In progress'">
     <form [formGroup]="casefileFormContactedResources">
       <div formArrayName="resources">
         <div class="resource" *ngFor="let caseResource of resources.controls; let resourceIndex = index" [formGroupName]="resourceIndex">
@@ -103,14 +93,14 @@
             </button>
           </div>
 
-          <div class="caseNotes" *ngIf="editedCasefile.contactedResources[resourceIndex].note != null">
+          <div class="caseNotes" *ngIf="casefile.contactedResources[resourceIndex].note != null">
             <p>{{caseResource.value.note}}</p>
             <button mat-icon-button color="primary" type="button" (click)="updateCaseResourceNote(true, resourceIndex)">
               <mat-icon matSuffix>clear</mat-icon>
             </button>
           </div>
 
-          <div class="caseNotes" *ngIf="editedCasefile.contactedResources[resourceIndex].note == null">
+          <div class="caseNotes" *ngIf="casefile.contactedResources[resourceIndex].note == null">
             <mat-form-field>
               <input matInput #resourceNote formControlName="note" placeholder="Comments related to this resource" (keyup.enter)="updateCaseResourceNote(false, resourceIndex)"
                 (blur)="updateCaseResourceNote(false, resourceIndex)">
@@ -120,38 +110,38 @@
         </div>
       </div>
     </form>
-  </div> -->
+  </div>
   <!-- End of resource form -->
 
   <!-- Selected Resource -->
-  <!-- <h4>Selected Resource:</h4>
+  <h4>Selected Resource:</h4>
 
-  <div *ngIf="casefile.status == 'In progress' && casefile==editedCasefile && (!casefile.selectedResource || isEditingSelectedResource)">
-    <form class="selectedResource" [formGroup]="casefileFormSelectedResource"> -->
+  <div *ngIf="casefile.status == 'In progress' && (!casefile.selectedResource || isEditingSelectedResource)">
+    <form class="selectedResource" [formGroup]="casefileFormSelectedResource">
 
       <!-- Selected resource name -->
-      <!-- <div>
+      <div>
         <mat-form-field>
           <mat-select placeholder="Resource" formControlName="resource">
-            <mat-option *ngFor="let selectedResource of editedCasefile.contactedResources" [value]="selectedResource">
+            <mat-option *ngFor="let selectedResource of casefile.contactedResources" [value]="selectedResource">
               {{selectedResource.resource.name}}
             </mat-option>
           </mat-select>
         </mat-form-field>
-      </div> -->
+      </div>
 
       <!-- Selected resource with single date-->
-      <!-- <div>
+      <div>
         <mat-form-field>
           <input matInput name="startDate" formControlName="startDate" [matDatepicker]="startDatePicker" placeholder="{{(isDateRange) ? 'Start date' : 'Date'}}">
           <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
           <mat-datepicker #startDatePicker startView="month" [startAt]="startDate"></mat-datepicker>
         </mat-form-field>
         <button class="dateSwitcher" (click)="switchDateRange()">{{dateRangeText}}</button>
-      </div> -->
+      </div>
 
       <!-- Selected resource with date range-->
-      <!-- <div *ngIf="isDateRange">
+      <div *ngIf="isDateRange">
         <mat-form-field>
           <input matInput name="endDate" formControlName="endDate" [matDatepicker]="endDatePicker" placeholder="End date">
           <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
@@ -167,10 +157,10 @@
       </button>
 
     </form>
-  </div> -->
+  </div>
 
   <!-- Selected resource editable info-->
-  <!-- <div *ngIf="casefile.selectedResource && !isEditingSelectedResource" class="selectedResource">
+  <div *ngIf="casefile.selectedResource && !isEditingSelectedResource" class="selectedResource">
     <p>{{casefile.selectedResource.resource.name}}</p>
     <p *ngIf="casefile.selectedResource.startDate">Date: {{casefile.selectedResource.startDate | date:'M/d/yyyy'}}</p>
     <p *ngIf="casefile.selectedResource.endDate">- {{casefile.selectedResource.endDate | date:'M/d/yyyy'}}</p>
@@ -178,13 +168,13 @@
       <mat-icon matSuffix>mode_edit</mat-icon>
     </button>
   </div>
-</div> -->
+</div>
 
 <!-- Casefile Action Buttons -->
-<!-- <div class="bottomMenu">
+<div class="bottomMenu">
   <button type="button" *ngIf="casefile.status == 'In progress' " mat-raised-button color="primary" (click)="completeCasefile(casefile, caseIndex)">Finalize Casefile</button>
   <button type="button" *ngIf="casefile.status == 'Completed' " mat-raised-button (click)="reopenCasefile(casefile, caseIndex)">Reopen Casefile</button>
   <button type="button" id="deleteCaseBtn" mat-icon-button (click)="deleteCasefile(casefile._id)">
     <mat-icon color="warn">delete</mat-icon>
   </button>
-</div> -->
+</div>
