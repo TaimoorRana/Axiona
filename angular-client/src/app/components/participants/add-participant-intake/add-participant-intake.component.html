@@ -1,0 +1,98 @@
+<div class="container">
+  <mat-card>
+
+    <mat-horizontal-stepper [linear]="isLinear">
+      <mat-step [stepControl]="referralForm">
+        <form [formGroup]="referralForm">
+          ...
+          <div>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="contactForm">
+        <form [formGroup]="contactForm">
+          ...
+          <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button>Reset</button>
+            </div>
+        </form>
+      </mat-step>
+      <!-- <mat-step [stepControl]="requestForm">
+        <form [formGroup]="requestForm">
+          ...
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="generalForm">
+        <form [formGroup]="generalForm">
+          ...
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="dailyLifeForm">
+        <form [formGroup]="dailyLifeForm">
+          ...
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="servicesForm">
+        <form [formGroup]="servicesForm">
+          ...
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="accessibilityForm">
+        <form [formGroup]="accessibilityForm">
+          ...
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="otherInfoForm">
+        <form [formGroup]="otherInfoForm">
+          ...
+        </form>
+      </mat-step> -->
+    </mat-horizontal-stepper>
+
+    <form [formGroup]="form" #f="ngForm" (ngSubmit)="onSubmit() && form.reset()" novalidate>
+
+      <mat-form-field>
+        <input placeholder="Referred by" matInput formControlName="referral">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input placeholder="How they contacted {{organizationName}}" matInput formControlName="contactMethod">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Intake done by" formControlName="intakeDoneBy">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="Intake via" name="intakeMethod" formControlName="intakeMethod">
+          <mat-option *ngFor="let method of intakeMethods" [value]="method">
+            {{ method }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <span matPrefix>+1 &nbsp;</span>
+        <input type="tel" matInput placeholder="Telephone" formControlName="telephone">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput (keyup.enter)="onKey('email', email.value)" (blur)="onKey('email', email.value)" #email placeholder="Email address"
+          formControlName="email">
+      </mat-form-field>
+      <div *ngIf="isAlreadyAParticipantEmail" style="color:red">This is already associated to a participant!</div>
+
+      <mat-form-field>
+        <input matInput placeholder="Physical Address" formControlName="address">
+        <mat-hint align="start">
+          This is strictly optional
+        </mat-hint>
+      </mat-form-field>
+
+      <button mat-raised-button type="submit" color="primary" [disabled]="form.invalid">Submit</button>
+
+    </form>
+  </mat-card>
+</div>
