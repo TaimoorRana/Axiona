@@ -2,27 +2,147 @@
   <mat-card>
 
     <mat-horizontal-stepper [linear]="isLinear">
+
+      <!-- Referral Step -->
       <mat-step [stepControl]="referralForm">
+        <div class="step-header">Referral Information</div>
         <form [formGroup]="referralForm">
-          ...
+
+          <mat-form-field>
+            <input placeholder="Referred by" matInput formControlName="referral">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input placeholder="How they contacted {{organizationName}}" matInput formControlName="contactMethod">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="Intake done by" formControlName="intakeDoneBy">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-select placeholder="Intake via" name="intakeMethod" formControlName="intakeMethod">
+              <mat-option *ngFor="let method of intakeMethods" [value]="method">
+                {{ method }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-radio-group class="question-group" formControlName="criteriaProcess">
+            <p>In (or considering) the refugee claimant process or an immigration process? In a precarious situation related
+              to immigration process?</p>
+            <mat-radio-button value="yes">Yes</mat-radio-button>
+            <mat-radio-button value="no">No</mat-radio-button>
+          </mat-radio-group>
+
+          <mat-radio-group class="question-group" formControlName="criteriaIdentity">
+            <p>Self-identify as a sexual and/or gender minority (or making a refugee claim based on SOGIE-related ground)?</p>
+            <mat-radio-button value="yes">Yes</mat-radio-button>
+            <mat-radio-button value="no">No</mat-radio-button>
+          </mat-radio-group>
+
           <div>
-              <button mat-button matStepperNext>Next</button>
-            </div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
         </form>
       </mat-step>
+
+      <!-- Contact Information Step -->
       <mat-step [stepControl]="contactForm">
+        <div class="step-header">Contact Information</div>
         <form [formGroup]="contactForm">
-          ...
+
+          <mat-form-field>
+            <input placeholder="Name" matInput formControlName="name">
+          </mat-form-field>
+
+          <mat-form-field>
+            <span matPrefix>+1 &nbsp;</span>
+            <input type="tel" matInput placeholder="Telephone" formControlName="telephone">
+          </mat-form-field>
+
+          <mat-radio-group class="question-group" formControlName="telephonePrivate">
+            <p>Private number that only this person answers?</p>
+            <mat-radio-button value="yes">Yes</mat-radio-button>
+            <mat-radio-button value="no">No</mat-radio-button>
+          </mat-radio-group>
+
+          <mat-radio-group class="question-group" formControlName="telephoneVoicemail">
+            <p>Can leave voice messages?</p>
+            <mat-radio-button value="yes">Yes</mat-radio-button>
+            <mat-radio-button value="no">No</mat-radio-button>
+          </mat-radio-group>
+
+          <mat-radio-group class="question-group" formControlName="telephoneVoicemailName">
+            <p>Can leave voice messages stating caller's name?</p>
+            <mat-radio-button value="yes">Yes</mat-radio-button>
+            <mat-radio-button value="no">No</mat-radio-button>
+          </mat-radio-group>
+
+          <mat-radio-group class="question-group" formControlName="telephoneVoicemailAgir">
+            <p>Can leave voice messages stating AGIR?</p>
+            <mat-radio-button value="yes">Yes</mat-radio-button>
+            <mat-radio-button value="no">No</mat-radio-button>
+          </mat-radio-group>
+
+          <mat-radio-group class="question-group" formControlName="telephoneText">
+            <p>Can send text messages?</p>
+            <mat-radio-button value="yes">Yes</mat-radio-button>
+            <mat-radio-button value="no">No</mat-radio-button>
+          </mat-radio-group>
+
+          <mat-radio-group class="question-group" formControlName="telephoneTextName">
+            <p>Can send text messages and stating sender's name?</p>
+            <mat-radio-button value="yes">Yes</mat-radio-button>
+            <mat-radio-button value="no">No</mat-radio-button>
+          </mat-radio-group>
+
+          <mat-radio-group class="question-group" formControlName="telephoneTextAgir">
+            <p>Can send text messages and stating AGIR?</p>
+            <mat-radio-button value="yes">Yes</mat-radio-button>
+            <mat-radio-button value="no">No</mat-radio-button>
+          </mat-radio-group>
+
+          <mat-form-field>
+            <input matInput #email placeholder="Email address" formControlName="email">
+          </mat-form-field>
+          <!-- <div *ngIf="isAlreadyAParticipantEmail" style="color:red">This is already associated to a participant!</div> -->
+
+          <mat-radio-group class="question-group" formControlName="emailPrivate">
+            <p>Private email that only this person accesses?</p>
+            <mat-radio-button value="yes">Yes</mat-radio-button>
+            <mat-radio-button value="no">No</mat-radio-button>
+          </mat-radio-group>
+
+          <mat-radio-group class="question-group" formControlName="notifications">
+              <p>Wants to receive announcements of AGIR group activities and events?</p>
+              <mat-radio-button value="yes">Yes</mat-radio-button>
+              <mat-radio-button value="no">No</mat-radio-button>
+            </mat-radio-group>
+
+            <section class="question-group">
+                <p>Wants to receive announcements via:</p>
+                <mat-checkbox formControlName="isNotifiedViaEmail">Email</mat-checkbox>
+                <mat-checkbox formControlName="isNotifiedViaText">Text Message</mat-checkbox>
+                <mat-checkbox formControlName="isNotifiedViaFacebook">Facebook</mat-checkbox>
+            </section>
+
+
+
           <div>
-              <button mat-button matStepperPrevious>Back</button>
-              <button mat-button>Reset</button>
-            </div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
         </form>
       </mat-step>
       <!-- <mat-step [stepControl]="requestForm">
         <form [formGroup]="requestForm">
           ...
         </form>
+        <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button>Reset</button>
+          </div>
       </mat-step>
       <mat-step [stepControl]="generalForm">
         <form [formGroup]="generalForm">
@@ -51,38 +171,8 @@
       </mat-step> -->
     </mat-horizontal-stepper>
 
-    <form [formGroup]="form" #f="ngForm" (ngSubmit)="onSubmit() && form.reset()" novalidate>
+    <!-- <form [formGroup]="form" #f="ngForm" (ngSubmit)="onSubmit() && form.reset()" novalidate>
 
-      <mat-form-field>
-        <input placeholder="Referred by" matInput formControlName="referral">
-      </mat-form-field>
-
-      <mat-form-field>
-        <input placeholder="How they contacted {{organizationName}}" matInput formControlName="contactMethod">
-      </mat-form-field>
-
-      <mat-form-field>
-        <input matInput placeholder="Intake done by" formControlName="intakeDoneBy">
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-select placeholder="Intake via" name="intakeMethod" formControlName="intakeMethod">
-          <mat-option *ngFor="let method of intakeMethods" [value]="method">
-            {{ method }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field>
-        <span matPrefix>+1 &nbsp;</span>
-        <input type="tel" matInput placeholder="Telephone" formControlName="telephone">
-      </mat-form-field>
-
-      <mat-form-field>
-        <input matInput (keyup.enter)="onKey('email', email.value)" (blur)="onKey('email', email.value)" #email placeholder="Email address"
-          formControlName="email">
-      </mat-form-field>
-      <div *ngIf="isAlreadyAParticipantEmail" style="color:red">This is already associated to a participant!</div>
 
       <mat-form-field>
         <input matInput placeholder="Physical Address" formControlName="address">
@@ -93,6 +183,6 @@
 
       <button mat-raised-button type="submit" color="primary" [disabled]="form.invalid">Submit</button>
 
-    </form>
+    </form> -->
   </mat-card>
 </div>

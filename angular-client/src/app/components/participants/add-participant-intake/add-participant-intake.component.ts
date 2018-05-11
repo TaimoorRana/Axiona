@@ -15,7 +15,7 @@ export class AddParticipantIntakeComponent implements OnInit {
   isAlreadyAParticipantEmail = false;
   intakeMethods = [ 'in person', 'over the phone', 'other'];
 
-  isLinear = true;
+  isLinear = false;
   referralForm: FormGroup;
   contactForm: FormGroup;
   requestForm: FormGroup;
@@ -36,23 +36,37 @@ export class AddParticipantIntakeComponent implements OnInit {
 
   createForm() {
     this.form = this.fb.group({
-      referral: ['', Validators.required],
-      contactMethod: [''],
-      intakeDoneBy: [''],
-      intakeMethod: this.intakeMethods[0],
       name: ['', Validators.required],
-      pronouns: [''],
-      telephone: [''],
-      service: [''],
-      username: [''],
-      email: [''],
-      address: ['']
+      pronouns: '',
+      service: '',
+      username: '',
+      email: '',
+      address: ''
     });
     this.referralForm = this.fb.group({
-      name: ['']
+      referral: ['', Validators.required],
+      contactMethod: '',
+      intakeDoneBy: '',
+      intakeMethod: this.intakeMethods[0],
+      criteriaProcess: '',
+      criteriaIdentity: ''
     });
     this.contactForm = this.fb.group({
-      name: ['']
+      name: '',
+      telephone: '',
+      telephonePrivate: '',
+      telephoneVoicemail: '',
+      telephoneVoicemailName: '',
+      telephoneVoicemailAgir: '',
+      telephoneText: '',
+      telephoneTextName: '',
+      telephoneTextAgir: '',
+      email: ['', Validators.email],
+      emailPrivate: '',
+      notifications: '',
+      isNotifiedViaEmail: '',
+      isNotifiedViaText: '',
+      isNotifiedViaFacebook: ''
     });
   }
 
