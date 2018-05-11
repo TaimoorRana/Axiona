@@ -115,19 +115,17 @@
           </mat-radio-group>
 
           <mat-radio-group class="question-group" formControlName="notifications">
-              <p>Wants to receive announcements of AGIR group activities and events?</p>
-              <mat-radio-button value="yes">Yes</mat-radio-button>
-              <mat-radio-button value="no">No</mat-radio-button>
-            </mat-radio-group>
+            <p>Wants to receive announcements of AGIR group activities and events?</p>
+            <mat-radio-button value="yes">Yes</mat-radio-button>
+            <mat-radio-button value="no">No</mat-radio-button>
+          </mat-radio-group>
 
-            <section class="question-group">
-                <p>Wants to receive announcements via:</p>
-                <mat-checkbox formControlName="isNotifiedViaEmail">Email</mat-checkbox>
-                <mat-checkbox formControlName="isNotifiedViaText">Text Message</mat-checkbox>
-                <mat-checkbox formControlName="isNotifiedViaFacebook">Facebook</mat-checkbox>
-            </section>
-
-
+          <section class="question-group">
+            <p>Wants to receive announcements via:</p>
+            <mat-checkbox formControlName="isNotifiedViaEmail">Email</mat-checkbox>
+            <mat-checkbox formControlName="isNotifiedViaText">Text Message</mat-checkbox>
+            <mat-checkbox formControlName="isNotifiedViaFacebook">Facebook</mat-checkbox>
+          </section>
 
           <div>
             <button mat-button matStepperPrevious>Back</button>
@@ -135,25 +133,73 @@
           </div>
         </form>
       </mat-step>
-      <!-- <mat-step [stepControl]="requestForm">
+
+      <!-- Request Form Step -->
+      <mat-step [stepControl]="requestForm">
+        <div class="step-header">Immigration Process</div>
         <form [formGroup]="requestForm">
-          ...
-        </form>
-        <div>
+
+          <mat-form-field>
+            <input placeholder="What are you hoping to get help with?" matInput formControlName="goal">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input placeholder="What type of request? (Refugee claim, immigration, other)" matInput formControlName="type">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input placeholder="Is/was in immigration detention (duration):" matInput formControlName="detentionDuration">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input placeholder="When submitted(ing) application(s):" matInput formControlName="submissionDate">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input placeholder="Important upcoming dates:" matInput formControlName="upcomingDates">
+          </mat-form-field>
+
+          <mat-radio-group class="question-group" formControlName="hasLawyer">
+            <p>Has lawyer?</p>
+            <mat-radio-button value="yes">Yes</mat-radio-button>
+            <mat-radio-button value="no">No</mat-radio-button>
+          </mat-radio-group>
+
+          <mat-radio-group class="question-group" formControlName="isSearchingLawyer">
+            <p>Wants to change lawyer?</p>
+            <mat-radio-button value="yes">Yes</mat-radio-button>
+            <mat-radio-button value="no">No</mat-radio-button>
+          </mat-radio-group>
+
+          <mat-form-field>
+            <input placeholder="Other:" matInput formControlName="otherInfo">
+          </mat-form-field>
+
+          <div>
             <button mat-button matStepperPrevious>Back</button>
             <button mat-button>Reset</button>
           </div>
-      </mat-step>
-      <mat-step [stepControl]="generalForm">
-        <form [formGroup]="generalForm">
-          ...
         </form>
       </mat-step>
+
+      <!-- General Form Step -->
+      <mat-step [stepControl]="generalForm">
+        <div class="step-header">General Information</div>
+        <form [formGroup]="generalForm">
+            <mat-form-field>
+                <input placeholder="Languages spoken:" matInput formControlName="languages">
+              </mat-form-field>
+        </form>
+      </mat-step>
+
+      <!-- 
+      
       <mat-step [stepControl]="dailyLifeForm">
         <form [formGroup]="dailyLifeForm">
           ...
         </form>
       </mat-step>
+
       <mat-step [stepControl]="servicesForm">
         <form [formGroup]="servicesForm">
           ...

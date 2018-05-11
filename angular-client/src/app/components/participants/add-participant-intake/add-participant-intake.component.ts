@@ -68,6 +68,19 @@ export class AddParticipantIntakeComponent implements OnInit {
       isNotifiedViaText: '',
       isNotifiedViaFacebook: ''
     });
+    this.requestForm = this.fb.group({
+      goal: '',
+      type: '',
+      detentionDuration: '',
+      submissionDate: '',
+      upcomingDates: '',
+      hasLawyer: '',
+      isSearchingLawyer: '',
+      otherInfo: ''
+    });
+    this.generalForm = this.fb.group({
+      languages: '',
+    };)
   }
 
   onKey(attribute: String, value: String) {
