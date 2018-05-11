@@ -29,7 +29,6 @@ export class AddPhonelogComponent implements OnInit {
     'Français',
     'English',
     'Español',
-    'Other',
   ];
   pronouns = [
     'undisclosed',
