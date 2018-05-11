@@ -25,7 +25,6 @@ export class EditPhonelogComponent implements OnInit {
     'Français',
     'English',
     'Español',
-    'Other',
   ];
   pronouns = [
     'undisclosed',
