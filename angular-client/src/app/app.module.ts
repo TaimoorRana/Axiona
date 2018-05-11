@@ -18,6 +18,8 @@ import { AlertModalComponent } from './components/modals/alert-modal/alert-modal
 import { AssignUsersModalComponent } from './components/users/assign-users-modal/assign-users-modal.component';
 import { CasefilesComponent } from './components/casefiles/casefiles.component';
 import { CaseModalComponent } from './components/casefiles/case-modal/case-modal.component';
+import { CaseGenericComponent } from './components/casefiles/case-generic/case-generic.component';
+import { CaseImmigrationComponent } from './components/casefiles/case-immigration/case-immigration.component';
 import { ConfirmModalComponent } from './components/modals/confirm-modal/confirm-modal.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DocumentModalComponent } from './components/documents/document-modal/document-modal.component';
@@ -59,7 +61,6 @@ import { ReportPhonelogService } from './services/reports-phonelog.service';
 import { OrderByPipe } from './pipes/orderBy.pipe';
 import { SearchPipe } from './pipes/search.pipe';
 import { EditUserComponent } from './components/users/edit-user/edit-user.component';
-import { CaseImmigrationComponent } from './components/casefiles/case-immigration/case-immigration.component';
 
 const routes: Routes = [
   {
@@ -196,6 +197,8 @@ const routes: Routes = [
     AssignUsersModalComponent,
     CasefilesComponent,
     CaseModalComponent,
+    CaseGenericComponent,
+    CaseImmigrationComponent,
     ConfirmModalComponent,
     DashboardComponent,
     DocumentModalComponent,
@@ -225,7 +228,6 @@ const routes: Routes = [
     OrderByPipe,
     SearchPipe,
     EditUserComponent,
-    CaseImmigrationComponent
   ],
   imports: [
     BrowserModule,
@@ -241,6 +243,8 @@ const routes: Routes = [
     AlertModalComponent,
     AssignUsersModalComponent,
     CaseModalComponent,
+    CaseGenericComponent,
+    CaseImmigrationComponent,
     ConfirmModalComponent,
     DocumentModalComponent,
     NoteModalComponent,
