@@ -6,6 +6,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { CdkTableModule} from '@angular/cdk/table';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import {MatStepperModule } from '@angular/material/stepper';
 import {
   MatButtonModule,
   MatCardModule,
@@ -47,6 +48,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatProgressSpinnerModule,
     MatRadioModule,
     MatSelectModule,
+    MatStepperModule,
     MatSlideToggleModule,
     MatTabsModule,
     MatToolbarModule,

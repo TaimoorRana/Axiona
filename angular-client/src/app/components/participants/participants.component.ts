@@ -17,7 +17,7 @@ export class ParticipantsComponent implements OnInit {
     },
     {
       label: 'Add Participant',
-      path: './add-participant'
+      path: './add-participant-intake'
     }
   ];
 

@@ -24,7 +24,7 @@
     </mat-card-actions>
   </mat-card>
 
-  <app-casefiles [orderedCases]="orderedCases" [participant]="participantSelected" (loadParticipant)="loadParticipant()"></app-casefiles>
+  <app-casefiles [orderedCases]="orderedCases" (loadParticipant)="loadParticipant()"></app-casefiles>
   <app-notes [orderedNotes]="orderedNotes" [participant]="participantSelected" (loadParticipant)="loadParticipant()"></app-notes>
   <app-documents [orderedDocuments]="orderedDocuments" [participant]="participantSelected" (loadParticipant)="loadParticipant()"></app-documents>
 </div>

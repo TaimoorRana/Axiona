@@ -12,11 +12,13 @@ import { AppComponent } from './app.component';
 import { ActiveCasefilesComponent } from './components/casefiles/active-casefiles/active-casefiles.component';
 import { ActivityComponent } from './components/dashboard/activity/activity.component';
 import { AddParticipantComponent } from './components/participants/add-participant/add-participant.component';
+import { AddParticipantIntakeComponent } from './components/participants/add-participant-intake/add-participant-intake.component';
 import { AddPhonelogComponent } from './components/phonelog/add-phonelog/add-phonelog.component';
 import { AddResourceComponent } from './components/resources/add-resource/add-resource.component';
 import { AlertModalComponent } from './components/modals/alert-modal/alert-modal.component';
 import { AssignUsersModalComponent } from './components/users/assign-users-modal/assign-users-modal.component';
 import { CasefilesComponent } from './components/casefiles/casefiles.component';
+import { CaseGeneralComponent } from './components/casefiles/case-general/case-general.component';
 import { CaseModalComponent } from './components/casefiles/case-modal/case-modal.component';
 import { CaseGenericComponent } from './components/casefiles/case-generic/case-generic.component';
 import { CaseImmigrationComponent } from './components/casefiles/case-immigration/case-immigration.component';
@@ -27,6 +29,7 @@ import { DocumentsComponent } from './components/documents/documents.component';
 import { EditParticipantComponent } from './components/participants/edit-participant/edit-participant.component';
 import { EditPhonelogComponent } from './components/phonelog/edit-phonelog/edit-phonelog.component';
 import { EditResourceComponent } from './components/resources/edit-resource/edit-resource.component';
+import { EditUserComponent } from './components/users/edit-user/edit-user.component';
 import { LoginComponent } from './components/login/login.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { NoteModalComponent } from './components/notes/note-modal/note-modal.component';
@@ -60,7 +63,6 @@ import { ReportPhonelogService } from './services/reports-phonelog.service';
 
 import { OrderByPipe } from './pipes/orderBy.pipe';
 import { SearchPipe } from './pipes/search.pipe';
-import { EditUserComponent } from './components/users/edit-user/edit-user.component';
 
 const routes: Routes = [
   {
@@ -147,8 +149,8 @@ const routes: Routes = [
         pathMatch: 'full'
       },
       {
-        path: 'add-participant',
-        component: AddParticipantComponent
+        path: 'add-participant-intake',
+        component: AddParticipantIntakeComponent
       },
       {
         path: 'view-participants',
@@ -228,6 +230,9 @@ const routes: Routes = [
     OrderByPipe,
     SearchPipe,
     EditUserComponent,
+    CaseImmigrationComponent,
+    CaseGeneralComponent,
+    AddParticipantIntakeComponent
   ],
   imports: [
     BrowserModule,
