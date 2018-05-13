@@ -264,7 +264,7 @@
             <mat-radio-button value="notapplicable">N/A</mat-radio-button>
           </mat-radio-group>
           <mat-form-field>
-            <input placeholder="PRAIDA - brief details:" matInput formControlName="praidaInfo">
+            <input placeholder="PRAIDA brief details:" matInput formControlName="praidaInfo">
           </mat-form-field>
           <mat-radio-group class="question-group" formControlName="ymca">
             <p>YMCA?</p>
@@ -273,43 +273,56 @@
             <mat-radio-button value="notapplicable">N/A</mat-radio-button>
           </mat-radio-group>
           <mat-form-field>
-            <input placeholder="YMCA - brief details:" matInput formControlName="ymcaInfo">
+            <input placeholder="YMCA brief details:" matInput formControlName="ymcaInfo">
+          </mat-form-field>
+          <mat-form-field>
+            <input placeholder="LGBTQ organizations:" matInput formControlName="lgbtq">
+          </mat-form-field>
+          <mat-form-field>
+            <input placeholder="Migrant organizations:" matInput formControlName="migrant">
+          </mat-form-field>
+          <mat-form-field>
+            <input placeholder="Other organizations and/or professionals:" matInput formControlName="other">
           </mat-form-field>
           <div>
             <button mat-button matStepperPrevious>Back</button>
             <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+
+      <!-- Accessibility Form -->
+      <mat-step [stepControl]="accessibilityForm">
+        <form [formGroup]="accessibilityForm">
+          <div class="step-header">Access Needs</div>
+          <mat-form-field>
+            <input placeholder="Physical mobility, vision, hearing, etc" matInput formControlName="accessNeeds">
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+
+      <!-- Other Information Form -->
+      <mat-step [stepControl]="otherInfoForm">
+        <form [formGroup]="otherInfoForm">
+          <div class="step-header">Additional Information</div>
+          <mat-form-field>
+            <input placeholder="Any other infomation" matInput formControlName="otherInfo">
+          </mat-form-field>
+          <mat-form-field>
+            <input placeholder="Given information for the following resources" matInput formControlName="providedInfo">
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button>Finalize</button>
             <button mat-button>Reset</button>
           </div>
         </form>
       </mat-step>
 
-      <!-- 
-      
-      <mat-step [stepControl]="accessibilityForm">
-        <form [formGroup]="accessibilityForm">
-          ...
-        </form>
-      </mat-step>
-      
-      <mat-step [stepControl]="otherInfoForm">
-        <form [formGroup]="otherInfoForm">
-          ...
-        </form>
-      </mat-step> -->
     </mat-horizontal-stepper>
-
-    <!-- <form [formGroup]="form" #f="ngForm" (ngSubmit)="onSubmit() && form.reset()" novalidate>
-
-
-      <mat-form-field>
-        <input matInput placeholder="Physical Address" formControlName="address">
-        <mat-hint align="start">
-          This is strictly optional
-        </mat-hint>
-      </mat-form-field>
-
-      <button mat-raised-button type="submit" color="primary" [disabled]="form.invalid">Submit</button>
-
-    </form> -->
   </mat-card>
 </div>

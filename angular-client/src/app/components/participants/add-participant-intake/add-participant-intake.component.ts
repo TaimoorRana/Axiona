@@ -99,7 +99,17 @@ export class AddParticipantIntakeComponent implements OnInit {
       praida: '',
       praidaInfo: '',
       ymca: '',
-      ymcaInfo: ''
+      ymcaInfo: '',
+      lgbtq: '',
+      migrant: '',
+      other: ''
+    });
+    this.accessibilityForm = this.fb.group({
+      accessNeeds: ''
+    });
+    this.otherInfoForm = this.fb.group({
+      otherInfo: '',
+      providedInfo: ''
     });
   }
 
