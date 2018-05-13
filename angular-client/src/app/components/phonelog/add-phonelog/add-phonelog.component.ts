@@ -6,6 +6,8 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Phonelog } from '../../../classes/phonelog';
 import { PhonelogService } from '../../../services/phonelog.service';
+import { TaskService } from '../../../services/task.service';
+import { Task } from '../../../classes/task';
 import { AfterContentInit } from '@angular/core/src/metadata/lifecycle_hooks';
 import { Observable } from 'rxjs/Observable';
 
@@ -19,6 +21,7 @@ export class AddPhonelogComponent implements OnInit {
   @ViewChild('f') myNgForm;
   @Output() loggedPhonecall = new EventEmitter();
   phonelog: FormGroup;
+  phonelogtask: Task;
   callertype = [
     'Trans person',
     'Organization',
@@ -54,6 +57,7 @@ export class AddPhonelogComponent implements OnInit {
 
   constructor(
     private phonelogService: PhonelogService,
+    private taskService: TaskService,
     private form: FormBuilder,
     public dialog: MatDialog,
     public router: Router,
@@ -80,10 +84,12 @@ export class AddPhonelogComponent implements OnInit {
       language: this.language[0],
       urgent: false,
       phonenumber: ['', Validators.pattern(this.phoneregex)],
+      assignedTo: '',
       subject: this.subjects[0],
       message: '',
       callertype: this.callertype[0],
     });
+
   }
 
   /**
@@ -109,9 +115,15 @@ export class AddPhonelogComponent implements OnInit {
    * @memberof AddPhonelogComponent
    */
   submit() {
-    const formModel = this.phonelog.value;
-
-    this.phonelogService.save(formModel)
+    this.taskService.save(this.phonelogtask.value)
+      .subscribe(data => {
+        if (data.hasOwnProperty('errors')) {
+          this.alertModal('Could not add new task.').subscribe();
+        } else {
+          this.alertModal('Task successfully added.').subscribe();
+        }
+      });
+    this.phonelogService.save(this.phonelog.value)
       .subscribe(data => {
         if (data.hasOwnProperty('errors')) {
           this.alertModal('Could not add new phonelog entry.').subscribe();

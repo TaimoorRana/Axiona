@@ -85,6 +85,8 @@ router.post('/', (req, res) => {
         name: req.body.name,
         pronouns: req.body.pronouns,
         user: req.user._id,
+        assignedTo: req.body.assignedTo,
+        dateToCallback: req.body.dateToCallback,
         language: req.body.language,
         urgent: req.body.urgent,
         phonenumber: req.body.phonenumber,
@@ -110,6 +112,8 @@ router.put('/:lid', (req, res) => {
         log.subject = req.body.subject || log.subject;
         log.urgent = req.body.urgent;
         log.callertype = req.body.callertype || log.callertype;
+        log.assignedTo = req.body.assignedTo || log.assignedTo;
+        log.dateToCallback = req.body.dateToCallback || log.dateToCallback;
         log.message = req.body.message || log.message;
         log.date = req.body.date || log.date
         log.language = req.body.language || log.language;
