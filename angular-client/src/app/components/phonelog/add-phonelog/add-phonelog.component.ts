@@ -6,6 +6,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Phonelog } from '../../../classes/phonelog';
 import { PhonelogService } from '../../../services/phonelog.service';
+import { UserService } from '../../../services/user.service';
 import { TaskService } from '../../../services/task.service';
 import { Task } from '../../../classes/task';
 import { AfterContentInit } from '@angular/core/src/metadata/lifecycle_hooks';
@@ -17,7 +18,7 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./add-phonelog.component.css']
 })
 export class AddPhonelogComponent implements OnInit {
-
+  allWorkers: [any];
   @ViewChild('f') myNgForm;
   @Output() loggedPhonecall = new EventEmitter();
   phonelog: FormGroup;
@@ -57,6 +58,7 @@ export class AddPhonelogComponent implements OnInit {
 
   constructor(
     private phonelogService: PhonelogService,
+    private userService: UserService,
     private taskService: TaskService,
     private form: FormBuilder,
     public dialog: MatDialog,
@@ -69,6 +71,7 @@ export class AddPhonelogComponent implements OnInit {
       this.router.navigateByUrl('login');
     }
     this.createForm();
+    this.loadAllWorkers();
   }
 
   /**
@@ -108,6 +111,20 @@ export class AddPhonelogComponent implements OnInit {
 
   }
 
+  loadAllWorkers() {
+    this.userService.getAll()
+      .subscribe( (data: [any]) => {
+        this.allWorkers = data;
+      });
+  }
+
+  assignFieldsToTask(): void {
+    this.phonelogtask = new Task();
+    this.phonelogtask.description = this.phonelog.value.name +
+     '(' + this.phonelog.value.pronouns + ')' + 
+     this.phonelog.value.phonenumber;
+     this.phonelogtask.user = this.phonelog.value.assignedTo;
+  }
 
   /**
    * Submit new phonelog entry.
@@ -115,14 +132,19 @@ export class AddPhonelogComponent implements OnInit {
    * @memberof AddPhonelogComponent
    */
   submit() {
-    this.taskService.save(this.phonelogtask.value)
-      .subscribe(data => {
-        if (data.hasOwnProperty('errors')) {
-          this.alertModal('Could not add new task.').subscribe();
-        } else {
-          this.alertModal('Task successfully added.').subscribe();
-        }
-      });
+    if (this.phonelog.value.assignedTo !== '') {
+      
+      this.assignFieldsToTask();
+
+      this.taskService.save(this.phonelogtask)
+        .subscribe(data => {
+          if (data.hasOwnProperty('errors')) {
+            this.alertModal('Could not add new task.').subscribe();
+          } else {
+            this.alertModal('Task successfully added.').subscribe();
+          }
+        });
+    }
     this.phonelogService.save(this.phonelog.value)
       .subscribe(data => {
         if (data.hasOwnProperty('errors')) {

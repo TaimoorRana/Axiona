@@ -35,7 +35,7 @@ router.post('/', (req, res) => {
     let task = new Task({
         description: req.body.description,
         deadline: req.body.deadline,
-        user: req.user._id,
+        user: req.body.user || req.user._id,
         participant: req.body.participant
     });
     task.save().then(data => {

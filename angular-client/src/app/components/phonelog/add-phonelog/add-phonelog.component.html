@@ -53,7 +53,7 @@
 
   <mat-form-field class="assignedTo">
     <mat-select placeholder="Assign to:" [(value)]="assignedTo" formControlName="assignedTo">
-      <mat-option *ngFor="let worker of allWorkers" [disabled]="isDisabled(worker._id)" [value]="worker._id">
+      <mat-option *ngFor="let worker of allWorkers" [value]="worker._id">
         {{ worker.name }} ({{ worker.email }})
       </mat-option>
     </mat-select>
