@@ -9,12 +9,10 @@ import { ParticipantService } from '../../../services/participant.service';
 })
 export class AddParticipantIntakeComponent implements OnInit {
 
-  form: FormGroup;
+  // For use for forms as prototypes
   organizationName = 'AGIR';
-  // phoneregex = /^(?:\+?1[-. ]?)?(\(([0-9]{3})\)|([0-9]{3}))[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
   isAlreadyAParticipantEmail = false;
   intakeMethods = [ 'in person', 'over the phone', 'other'];
-
   isLinear = false;
   referralForm: FormGroup;
   contactForm: FormGroup;
@@ -28,13 +26,13 @@ export class AddParticipantIntakeComponent implements OnInit {
   constructor(
     private fb: FormBuilder
   ) {
-    this.createForm();
+    this.createForms();
    }
 
   ngOnInit() {
   }
 
-  createForm() {
+  createForms() {
     this.form = this.fb.group({
       name: ['', Validators.required],
       pronouns: '',
