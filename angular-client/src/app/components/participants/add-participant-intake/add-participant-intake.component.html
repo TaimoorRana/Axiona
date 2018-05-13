@@ -177,7 +177,7 @@
 
           <div>
             <button mat-button matStepperPrevious>Back</button>
-            <button mat-button>Reset</button>
+            <button mat-button matStepperNext>Next</button>
           </div>
         </form>
       </mat-step>
@@ -186,30 +186,111 @@
       <mat-step [stepControl]="generalForm">
         <div class="step-header">General Information</div>
         <form [formGroup]="generalForm">
-            <mat-form-field>
-                <input placeholder="Languages spoken:" matInput formControlName="languages">
-              </mat-form-field>
+          <mat-form-field>
+            <input placeholder="Languages spoken:" matInput formControlName="languages">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input placeholder="Countries of origin:" matInput formControlName="countries">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input placeholder="Arrival date in Canada:" matInput formControlName="canadianArrivalDate">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input placeholder="Arrival date in Montreal:" matInput formControlName="montrealArrivalDate">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input placeholder="Neighbourhood living in:" matInput formControlName="neighbourhood">
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+
+      <!-- Daily Life Step -->
+      <mat-step [stepControl]="dailyLifeForm">
+        <div class="step-header">Daily Life Information</div>
+        <form [formGroup]="dailyLifeForm">
+          <mat-form-field>
+            <input placeholder="Accomodation situation:" matInput formControlName="accomodation">
+          </mat-form-field>
+          <mat-form-field>
+            <input placeholder="Economic situation:" matInput formControlName="economic">
+          </mat-form-field>
+          <mat-form-field>
+            <input placeholder="Access to healthcare:" matInput formControlName="healthcare">
+          </mat-form-field>
+          <mat-form-field>
+            <input placeholder="How have you been feeling these days? (physical, emotional etc):" matInput formControlName="wellbeing">
+          </mat-form-field>
+          <mat-form-field>
+            <input placeholder="How do you spend your day?" matInput formControlName="activities">
+          </mat-form-field>
+          <mat-radio-group class="question-group" formControlName="hasActivitiesWithRelatives">
+            <p>Do you spend time with relatives in Montreal?</p>
+            <mat-radio-button value="yes">Yes</mat-radio-button>
+            <mat-radio-button value="no">No</mat-radio-button>
+          </mat-radio-group>
+          <mat-radio-group class="question-group" formControlName="hasActivitiesWithFriends">
+            <p>Do you spend time with friends and/or people to hang out with?</p>
+            <mat-radio-button value="yes">Yes</mat-radio-button>
+            <mat-radio-button value="no">No</mat-radio-button>
+          </mat-radio-group>
+          <mat-radio-group class="question-group" formControlName="hasActivitiesWithFaithGroups">
+            <p>Do you spend time with faith groups or practices?</p>
+            <mat-radio-button value="yes">Yes</mat-radio-button>
+            <mat-radio-button value="no">No</mat-radio-button>
+          </mat-radio-group>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+
+      <!-- Services Accessing -->
+      <mat-step [stepControl]="servicesForm">
+        <div class="step-header">Services Already Accessing</div>
+        <form [formGroup]="servicesForm">
+          <mat-radio-group class="question-group" formControlName="praida">
+            <p>PRAIDA?</p>
+            <mat-radio-button value="yes">Yes</mat-radio-button>
+            <mat-radio-button value="no">No</mat-radio-button>
+            <mat-radio-button value="notapplicable">N/A</mat-radio-button>
+          </mat-radio-group>
+          <mat-form-field>
+            <input placeholder="PRAIDA - brief details:" matInput formControlName="praidaInfo">
+          </mat-form-field>
+          <mat-radio-group class="question-group" formControlName="ymca">
+            <p>YMCA?</p>
+            <mat-radio-button value="yes">Yes</mat-radio-button>
+            <mat-radio-button value="no">No</mat-radio-button>
+            <mat-radio-button value="notapplicable">N/A</mat-radio-button>
+          </mat-radio-group>
+          <mat-form-field>
+            <input placeholder="YMCA - brief details:" matInput formControlName="ymcaInfo">
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+            <button mat-button>Reset</button>
+          </div>
         </form>
       </mat-step>
 
       <!-- 
       
-      <mat-step [stepControl]="dailyLifeForm">
-        <form [formGroup]="dailyLifeForm">
-          ...
-        </form>
-      </mat-step>
-
-      <mat-step [stepControl]="servicesForm">
-        <form [formGroup]="servicesForm">
-          ...
-        </form>
-      </mat-step>
       <mat-step [stepControl]="accessibilityForm">
         <form [formGroup]="accessibilityForm">
           ...
         </form>
       </mat-step>
+      
       <mat-step [stepControl]="otherInfoForm">
         <form [formGroup]="otherInfoForm">
           ...

@@ -80,7 +80,27 @@ export class AddParticipantIntakeComponent implements OnInit {
     });
     this.generalForm = this.fb.group({
       languages: '',
-    };)
+      countries: '',
+      canadianArrivalDate: '',
+      montrealArrivalDate: '',
+      neighbourhood: ''
+    });
+    this.dailyLifeForm = this.fb.group({
+      accomodation: '',
+      economic: '',
+      healthcare: '',
+      wellbeing: '',
+      activities: '',
+      hasActivitiesWithRelatives: '',
+      hasActivitiesWithFriends: '',
+      hasActivitiesWithFaithGroups: ''
+    });
+    this.servicesForm = this.fb.group({
+      praida: '',
+      praidaInfo: '',
+      ymca: '',
+      ymcaInfo: ''
+    });
   }
 
   onKey(attribute: String, value: String) {
