@@ -124,6 +124,7 @@ export class AddPhonelogComponent implements OnInit {
      '(' + this.phonelog.value.pronouns + ')' + 
      this.phonelog.value.phonenumber;
      this.phonelogtask.user = this.phonelog.value.assignedTo;
+     this.phonelogtask.kind = 'phonelog';
   }
 
   /**
@@ -133,7 +134,6 @@ export class AddPhonelogComponent implements OnInit {
    */
   submit() {
     if (this.phonelog.value.assignedTo !== '') {
-      
       this.assignFieldsToTask();
 
       this.taskService.save(this.phonelogtask)

@@ -85,7 +85,6 @@ router.post('/', (req, res) => {
         name: req.body.name,
         pronouns: req.body.pronouns,
         user: req.user._id,
-        assignedTo: req.body.assignedTo,
         dateToCallback: req.body.dateToCallback,
         language: req.body.language,
         urgent: req.body.urgent,
@@ -94,6 +93,11 @@ router.post('/', (req, res) => {
         message: req.body.message,
         callertype: req.body.callertype,
     });
+
+    if (req.body.assignedTo !== '') {
+        phonelog.assignedTo = req.body.assignedTo;
+    }
+
     phonelog.save().then(data => {
         res.send(data);
     }, err => {
