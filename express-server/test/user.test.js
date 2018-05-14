@@ -86,6 +86,8 @@ describe('User Tests', () => {
     });
 
     describe('GET/all', () => {
+        /* Will get put back once we can split the GET/all into admin and user methods... 
+        * for now GET/all will remain open
         it('should not get all users since user is not admin', (done) => {
             chai.request(server)
                 .get('/user/all')
@@ -94,7 +96,7 @@ describe('User Tests', () => {
                     res.should.have.status(403);
                     done();
                 });
-        });
+        });*/
         it('should get all users for an admin', (done) => {
             chai.request(server)
                 .get('/user/all')
