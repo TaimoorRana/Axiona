@@ -22,9 +22,11 @@ import { ConfirmModalComponent } from './components/modals/confirm-modal/confirm
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DocumentModalComponent } from './components/documents/document-modal/document-modal.component';
 import { DocumentsComponent } from './components/documents/documents.component';
+import { EditUserComponent } from './components/users/edit-user/edit-user.component';
 import { EditParticipantComponent } from './components/participants/edit-participant/edit-participant.component';
 import { EditPhonelogComponent } from './components/phonelog/edit-phonelog/edit-phonelog.component';
 import { EditResourceComponent } from './components/resources/edit-resource/edit-resource.component';
+import { EventsComponent } from './components/events/events.component';
 import { LoginComponent } from './components/login/login.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { NoteModalComponent } from './components/notes/note-modal/note-modal.component';
@@ -58,7 +60,6 @@ import { ReportPhonelogService } from './services/reports-phonelog.service';
 
 import { OrderByPipe } from './pipes/orderBy.pipe';
 import { SearchPipe } from './pipes/search.pipe';
-import { EditUserComponent } from './components/users/edit-user/edit-user.component';
 
 const routes: Routes = [
   {
@@ -223,7 +224,8 @@ const routes: Routes = [
     ViewUsersComponent,
     OrderByPipe,
     SearchPipe,
-    EditUserComponent
+    EditUserComponent,
+    EventsComponent
   ],
   imports: [
     BrowserModule,
