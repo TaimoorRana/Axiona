@@ -81,6 +81,10 @@ const routes: Routes = [
         component: ActivityComponent
       },
       {
+        path: 'events',
+        component: EventsComponent
+      },
+      {
         path: 'tasks',
         component: TasksComponent
       },

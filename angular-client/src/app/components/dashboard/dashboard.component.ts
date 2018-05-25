@@ -11,6 +11,7 @@ export class DashboardComponent implements OnInit {
 
   dashboardLinks = [
     {label: 'Dashboard', icon: 'home', path: 'activity'},
+    {label: 'Events', icon: 'date_range', path: 'events'},
     {label: 'Tasks', icon: 'assignment', path: 'tasks'},
     {label: 'Active Case Files', icon: 'folder', path: 'active-casefiles'},
     {label: 'Phone Log', icon: 'phone', path: 'phonelog'},
