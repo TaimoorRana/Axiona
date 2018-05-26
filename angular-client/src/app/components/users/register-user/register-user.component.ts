@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../../services/authentication.service';
 import { Router } from '@angular/router';
 import { User } from '../../../classes/user';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { MatDialog } from '@angular/material';
 import { AlertModalComponent } from '../../modals/alert-modal/alert-modal.component';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';

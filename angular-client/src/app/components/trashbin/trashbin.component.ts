@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TrashService } from '../../services/trash.service';
 import { AuthenticationService } from '../../services/authentication.service';
 import { MatDialog } from '@angular/material';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { ConfirmModalComponent } from '../modals/confirm-modal/confirm-modal.component';
 
 

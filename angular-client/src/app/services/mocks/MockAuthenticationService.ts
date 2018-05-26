@@ -1,8 +1,9 @@
-import { Observable } from 'rxjs/Observable';
+
+import {of as observableOf,  Observable } from 'rxjs';
 
 export class MockAuthenticationService {
     public loggedIn = true;
     heartbeat (): Observable<any>  {
-        return Observable.of({ loggedIn: this.loggedIn });
+        return observableOf({ loggedIn: this.loggedIn });
       }
 }

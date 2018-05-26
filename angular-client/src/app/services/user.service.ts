@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MessageService } from './message.service';
-import { Observable } from 'rxjs/Observable';
+import { Observable ,  of } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
-import { of } from 'rxjs/observable/of';
 import { User } from '../classes/user';
 
 @Injectable()

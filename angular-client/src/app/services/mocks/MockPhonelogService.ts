@@ -1,6 +1,7 @@
+
+import {of as observableOf,  Observable } from 'rxjs';
 import { EventEmitter } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
+
 
 export class MockPhonelogService {
 
@@ -26,7 +27,7 @@ export class MockPhonelogService {
     };
 
     getAll() {
-        return Observable.of([
+        return observableOf([
             {
                 '_id': '5a8a1edbf8bc217df1f5228b',
                 'notes': [
@@ -118,7 +119,7 @@ export class MockPhonelogService {
     }
 
     getRecentlyUpdated() {
-        return Observable.of([
+        return observableOf([
             {
               "resolved": false,
               "notes": [
@@ -152,7 +153,7 @@ export class MockPhonelogService {
     }
 
     getActive() {
-        return Observable.of([
+        return observableOf([
             {
               "resolved": false,
               "notes": [
@@ -186,11 +187,11 @@ export class MockPhonelogService {
     }
 
     get(id) {
-        return Observable.of(this.testPhonelog);
+        return observableOf(this.testPhonelog);
     }
 
     getByResolved() {
-        return Observable.of([
+        return observableOf([
             {
                 '_id': '5a8a1edbf8bc217df1f5228b',
                 'notes': [
@@ -214,7 +215,7 @@ export class MockPhonelogService {
     }
 
     getByDeleted() {
-        return Observable.of([
+        return observableOf([
             {
                 '_id': '5a8a1edbf8bc217df1f5228b',
                 'notes': [

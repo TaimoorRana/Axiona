@@ -1,5 +1,6 @@
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
+
+import {of as observableOf,  Observable } from 'rxjs';
+
 
 export class MockUserService {
     testUser = {
@@ -14,7 +15,7 @@ export class MockUserService {
       };
 
     getAll() {
-        return Observable.of([
+        return observableOf([
             {
               'tokens': [],
               'role': 'admin',
@@ -119,11 +120,11 @@ export class MockUserService {
     }
 
     get(id) {
-        return Observable.of(this.testUser);
+        return observableOf(this.testUser);
     }
 
     getByParticipant(pid) {
-        return Observable.of(this.testUser);
+        return observableOf(this.testUser);
     }
 
 }

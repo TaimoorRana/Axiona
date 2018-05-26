@@ -6,7 +6,7 @@ import { AlertModalComponent } from '../../modals/alert-modal/alert-modal.compon
 import { AuthenticationService } from '../../../services/authentication.service';
 import { RouterModule, Router } from '@angular/router';
 import { FormGroup, FormControl, Validators, ValidatorFn, FormBuilder, ValidationErrors } from '@angular/forms';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-add-participant',
