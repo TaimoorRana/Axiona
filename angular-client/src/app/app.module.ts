@@ -228,7 +228,6 @@ const routes: Routes = [
     BrowserModule,
     ChartsModule,
     HttpClientModule,
-    HttpModule,
     FormsModule,
     MaterialsModule,
     ReactiveFormsModule,
