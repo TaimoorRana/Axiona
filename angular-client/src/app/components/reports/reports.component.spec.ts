@@ -5,6 +5,12 @@ import { MaterialsModule } from '../../modules/materials.module';
 import { ReportPhonelogService } from '../../services/reports-phonelog.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MessageService } from '../../services/message.service';
+import { PhonelogService } from '../../services/phonelog.service';
+import { MockPhonelogService } from '../../services/mocks/MockPhonelogService';
+import { AuthenticationService } from '../../services/authentication.service';
+import { MockAuthenticationService } from '../../services/mocks/MockAuthenticationService';
+import { EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 describe('ReportsComponent', () => {
@@ -16,7 +22,11 @@ describe('ReportsComponent', () => {
       declarations: [ ReportsComponent ],
       schemas: [ NO_ERRORS_SCHEMA ],
       imports: [ MaterialsModule, HttpClientModule ],
-      providers: [ReportPhonelogService, MessageService]
+      providers: [ReportPhonelogService, MessageService,
+        { provide: AuthenticationService, useClass: MockAuthenticationService },
+        { provide: PhonelogService, useClass: MockPhonelogService },
+        { provide: Router, useValue: { navigateByUrl: jasmine.createSpy('navigateByUrl')}},
+      ]
     })
     .compileComponents();
   }));

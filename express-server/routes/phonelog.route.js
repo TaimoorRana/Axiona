@@ -85,6 +85,7 @@ router.post('/', (req, res) => {
         name: req.body.name,
         pronouns: req.body.pronouns,
         user: req.user._id,
+        language: req.body.language,
         urgent: req.body.urgent,
         phonenumber: req.body.phonenumber,
         subject: req.body.subject,

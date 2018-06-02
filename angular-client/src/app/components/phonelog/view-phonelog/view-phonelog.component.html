@@ -42,7 +42,7 @@
                     <div class="call-text">{{log.message}}</div>
                 </div>
                 <div class="logger">
-                    <div class="label">Call logged by:</div> {{log.user.name}}
+                    <div class="label">Call logged by:</div> {{log.user ? log.user.name : "A user that has since been deleted."}}
                 </div>
 
             </mat-card-content>
@@ -129,11 +129,11 @@
                         <br>
                     </div>
                     <div>
-                        <b> Call logged by: </b> {{log.user.name}}
+                        <b> Call logged by: </b> {{log.user ? log.user.name : "A user that has since been deleted."}}
                         <br>
                     </div>
                     <div>
-                        <b> Called back by: </b> {{log.resolvedBy.name}}
+                        <b> Called back by: </b> {{log.resolvedBy ? log.resolvedBy.name : "A user that has since been deleted."}}
                         <br>
                     </div>
                     <div>
