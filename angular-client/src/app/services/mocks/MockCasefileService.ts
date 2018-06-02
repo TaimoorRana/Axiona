@@ -1,5 +1,6 @@
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
+
+import {of as observableOf,  Observable } from 'rxjs';
+
 
 export class MockCasefileService {
     testCasefile = [{
@@ -40,7 +41,7 @@ export class MockCasefileService {
   }];
 
     getAll() {
-        return Observable.of([
+        return observableOf([
           {
             '_id' : '5a5ad8aaa87da4076691d0ce',
             'contactedResources' : [],
@@ -120,7 +121,7 @@ export class MockCasefileService {
     }
 
     getAllActive() {
-        return Observable.of([
+        return observableOf([
             {
               "contactedResources": [
                 {
@@ -332,7 +333,7 @@ export class MockCasefileService {
     }
 
     getRecentlyUpdated() {
-        return Observable.of([
+        return observableOf([
             {
               "contactedResources": [
                 {
@@ -431,18 +432,18 @@ export class MockCasefileService {
     }
 
     get(id) {
-        return Observable.of(this.testCasefile);
+        return observableOf(this.testCasefile);
     }
 
     getByParticipant(pid) {
-        return Observable.of(this.testCasefile);
+        return observableOf(this.testCasefile);
     }
 
     delete(casefileID) {
 
         this.testCasefile = [];
 
-        return Observable.of({
+        return observableOf({
             'n': 1,
             'nModified': 1,
             'opTime': {

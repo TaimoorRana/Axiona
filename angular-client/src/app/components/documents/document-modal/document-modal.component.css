@@ -10,6 +10,10 @@ img {
     font-size: 2rem;
 }
 
+.mat-form-field {
+    width: 66%;
+}
+
 mat-progress-bar {
     margin: 2rem 0;
 }

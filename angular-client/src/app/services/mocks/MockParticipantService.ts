@@ -1,5 +1,6 @@
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
+
+import {of as observableOf,  Observable } from 'rxjs';
+
 
 export class MockParticipantService {
     testParticipant = {
@@ -152,15 +153,15 @@ export class MockParticipantService {
     ];
 
     getAll() {
-        return Observable.of(this.allParticipants);
+        return observableOf(this.allParticipants);
     }
 
     getBySocialWorker() {
-        return Observable.of(this.allParticipants);
+        return observableOf(this.allParticipants);
     }
 
     get(id) {
-        return Observable.of(this.testParticipant);
+        return observableOf(this.testParticipant);
     }
 
     deleteNote(participantID, noteID) {
@@ -209,7 +210,7 @@ export class MockParticipantService {
             },
             '__v': 0
         };
-        return Observable.of({
+        return observableOf({
             'n': 1,
             'nModified': 1,
             'opTime': {

@@ -2,7 +2,7 @@
 <mat-dialog-content>
   <form #noteForm="ngForm">
     <mat-form-field>
-      <textarea matInput placeholder="Note description" name="text" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5"
+      <textarea matInput placeholder="Note description" name="text" cdkTextareaAutosize="true" matAutosizeMinRows="2" matAutosizeMaxRows="5"
         [(ngModel)]="note.text"></textarea>
     </mat-form-field>
     <div class="fileupload">

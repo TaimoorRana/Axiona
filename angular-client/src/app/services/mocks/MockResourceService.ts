@@ -1,5 +1,6 @@
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
+
+import {of as observableOf,  Observable } from 'rxjs';
+
 
 export class MockResourceService {
     testResource = {
@@ -15,7 +16,7 @@ export class MockResourceService {
       };
 
     getAll() {
-        return Observable.of([
+        return observableOf([
             {
               'constraints': [
                 'No drinking'
@@ -120,6 +121,6 @@ export class MockResourceService {
     }
 
     get(id) {
-        return Observable.of(this.testResource);
+        return observableOf(this.testResource);
     }
 }

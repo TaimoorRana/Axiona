@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
-import 'rxjs/add/operator/map';
-import { of } from 'rxjs/observable/of';
+import { Observable, of } from 'rxjs';
+import { catchError, map, flatMap, tap, startWith } from 'rxjs/operators';
+import 'rxjs/add/observable/interval';
 import { MessageService } from './message.service';
 import { User } from '../classes/user';
 
@@ -93,16 +92,17 @@ export class AuthenticationService {
     const minutes = 1;
     return Observable
       .interval(1000 * 60 * minutes)
-      .startWith(0)
-      .flatMap((i) => this.http.post<any>('/user/heartbeat', {}))
       .pipe(
-      tap(p => {
-        if (!this.role) {
-          this.role = p.role;
-        }
-        this.log('Hearbeat success.');
-      }),
-      catchError(this.handleError<any>('heartbeat()'))
+        startWith(0),
+        flatMap((i) => this.http.post<any>('/user/heartbeat', {})),
+        tap(user => {
+
+          if (!this.role) {
+            this.role = user.role;
+          }
+          this.log('Hearbeat success.');
+        }),
+        catchError(this.handleError<any>('heartbeat()'))
       );
   }
 

@@ -2,8 +2,7 @@ import { platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule  } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
-import { Http, HttpModule } from '@angular/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialsModule } from './modules/materials.module';
 import { ChartsModule } from 'ng2-charts';
@@ -229,7 +228,6 @@ const routes: Routes = [
     BrowserModule,
     ChartsModule,
     HttpClientModule,
-    HttpModule,
     FormsModule,
     MaterialsModule,
     ReactiveFormsModule,
