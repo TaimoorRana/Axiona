@@ -1,10 +1,11 @@
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
+
+import {of as observableOf,  Observable } from 'rxjs';
+
 
 export class MockTaskService {
 
     getByUser() {
-        return Observable.of([
+        return observableOf([
         {
             '_id' : '5aaed8e0b707b21a78994020',
             'description' : 'add',

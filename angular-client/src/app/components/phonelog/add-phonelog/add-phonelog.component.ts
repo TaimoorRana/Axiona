@@ -10,7 +10,7 @@ import { UserService } from '../../../services/user.service';
 import { TaskService } from '../../../services/task.service';
 import { Task } from '../../../classes/task';
 import { AfterContentInit } from '@angular/core/src/metadata/lifecycle_hooks';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-add-phonelog',

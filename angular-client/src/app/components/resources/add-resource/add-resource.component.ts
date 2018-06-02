@@ -5,7 +5,7 @@ import { AlertModalComponent } from '../../modals/alert-modal/alert-modal.compon
 import { Housing } from '../../../classes/housing';
 import { FormGroup, FormControl, Validators, ValidatorFn, FormBuilder, ValidationErrors } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-add-resource',
