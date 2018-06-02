@@ -24,7 +24,7 @@ export class PhonelogService {
   getAll(): Observable<Object> {
     return this.http.get(this.url)
       .pipe(
-      tap(cases => this.log('fecthed all cases')),
+      tap(cases => this.log('fetched all cases')),
       catchError(this.handleError<Object>('getAll()'))
       );
   }
@@ -32,7 +32,7 @@ export class PhonelogService {
   getActive(): Observable<Object> {
     return this.http.get(`${this.url}/active`)
       .pipe(
-        tap(participants => this.log('fecthed logs')),
+        tap(participants => this.log('fetched logs')),
         catchError(this.handleError<Object>('getActive()'))
       );
   }
@@ -40,7 +40,7 @@ export class PhonelogService {
   getByResolved(): Observable<Object> {
     return this.http.get(`${this.url}/resolved`)
       .pipe(
-        tap(participants => this.log('fecthed logs')),
+        tap(participants => this.log('fetched logs')),
         catchError(this.handleError<Object>('getActive()'))
       );
   }
@@ -48,7 +48,7 @@ export class PhonelogService {
   getRecentlyUpdated(): Observable<Object> {
     return this.http.get(`${this.url}/recent`)
     .pipe(
-      tap(participants => this.log('fecthed recently updated logs')),
+      tap(participants => this.log('fetched recently updated logs')),
       catchError(this.handleError<Object>('getRecentlyUpdated()'))
     );
   }
@@ -56,7 +56,7 @@ export class PhonelogService {
   getByDeleted(): Observable<Object> {
     return this.http.get(`${this.url}/deleted`)
       .pipe(
-        tap(participants => this.log('fecthed logs')),
+        tap(participants => this.log('fetched logs')),
         catchError(this.handleError<Object>('getByDeleted()'))
       );
   }
@@ -136,7 +136,7 @@ export class PhonelogService {
       );
   }
 
-  emitPhoneLogging(): void {
+  public emitPhoneLogging(): void {
     this.phoneLogged.emit();
   }
 

@@ -22,8 +22,12 @@
         </mat-select>
     </mat-form-field>
 
-    <mat-form-field class="language">
-        <input matInput placeholder="Language" name="language" formControlName="language">
+    <mat-form-field>
+        <mat-select placeholder="Language" name="language" formControlName="language">
+            <mat-option *ngFor="let lang of language" [value]="lang">
+                {{lang}}
+            </mat-option>
+        </mat-select>
     </mat-form-field>
 
     <mat-form-field class="call-phone">

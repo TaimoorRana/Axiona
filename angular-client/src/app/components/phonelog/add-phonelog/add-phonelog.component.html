@@ -18,6 +18,14 @@
   </div>
 
   <mat-form-field>
+    <mat-select placeholder="Language" name="language" formControlName="language">
+      <mat-option *ngFor="let lang of language" [value]="lang">
+        {{lang}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
     <mat-select placeholder="Type of caller" name="callertype" formControlName="callertype">
       <mat-option *ngFor="let caller of callertype" [value]="caller">
         {{caller}}
@@ -25,12 +33,7 @@
     </mat-select>
   </mat-form-field>
 
-  <mat-form-field class="phonenumber">
-    <input matInput placeholder="Phone number" name="phonenumber" formControlName="phonenumber">
-  </mat-form-field>
-
   <div class="message-header">
-    
     <mat-form-field>
       <mat-select placeholder="Reason for call" name="subject" formControlName="subject">
         <mat-option *ngFor="let subject of subjects" [value]="subject">
@@ -43,6 +46,10 @@
       Urgent
     </mat-slide-toggle>
   </div>
+
+  <mat-form-field class="phonenumber">
+    <input matInput placeholder="Phone number" name="phonenumber" formControlName="phonenumber">
+  </mat-form-field>
 
   <mat-form-field class="message">
     <textarea matInput placeholder="Message" cdkTextareaAutosize="true" matAutosizeMinRows="5" name="message" formControlName="message"></textarea>
