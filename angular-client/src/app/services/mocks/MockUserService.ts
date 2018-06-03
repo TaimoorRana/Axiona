@@ -119,6 +119,43 @@ export class MockUserService {
           ]);
     }
 
+    getAllNames() {
+      return observableOf([
+          {
+            '_id': '5a6ff023a176b395fd54b228',
+            'name': 'Alyx',
+          },
+          {
+            '_id': '5a75f5b77da64bb8cc645348',
+            'name': 'Liuai',
+          },
+          {
+            '_id': '5a789409cc891a1c7cecaf6a',
+            'name': 'Wahab',
+          },
+          {
+            '_id': '5a7b95c49a80678d70defa7e',
+            'name': 'Test',
+          },
+          {
+            '_id': '5a7f87c0e146e233d707518b',
+            'name': 'Test',
+          },
+          {
+            '_id': '5a7f87db2970548423dfb007',
+            'name': 'Cody',
+          },
+          {
+            '_id': '5a8346f67a1e5425d7742c47',
+            'name': 'leah',
+          },
+          {
+            '_id': '5a8cdf57cd2f8c17e0b22cfd',
+            'name': 'Adrianna',
+          }
+        ]);
+  }
+
     get(id) {
         return observableOf(this.testUser);
     }
