@@ -9,6 +9,10 @@ import { AuthenticationService } from '../../../services/authentication.service'
 import { MockAuthenticationService } from '../../../services/mocks/MockAuthenticationService';
 import { PhonelogService } from '../../../services/phonelog.service';
 import { MockPhonelogService } from '../../../services/mocks/MockPhonelogService';
+import { TaskService } from '../../../services/task.service';
+import { MockTaskService } from '../../../services/mocks/MockTaskService';
+import { UserService } from '../../../services/user.service';
+import { MockUserService } from '../../../services/mocks/MockUserService';
 import { Router } from '@angular/router';
 
 describe('PhonelogTabComponent', () => {
@@ -22,6 +26,8 @@ describe('PhonelogTabComponent', () => {
       providers: [
         { provide: AuthenticationService, useClass: MockAuthenticationService},
         { provide: PhonelogService, useClass: MockPhonelogService },
+        { provide: TaskService, useClass: MockTaskService },
+        { provide: UserService, useClass: MockUserService },
         { provide: Router, useValue: { navigateByUrl: jasmine.createSpy('navigateByUrl')}},
         { provide: MatDialog, useValue: {}},
         { provide: MatDialogRef, useValue: {}},

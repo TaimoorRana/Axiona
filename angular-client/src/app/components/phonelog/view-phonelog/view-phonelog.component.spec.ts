@@ -12,6 +12,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { SearchPipe } from '../../../pipes/search.pipe';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { EventEmitter } from '@angular/core';
+import { UserService } from '../../../services/user.service';
+import { MockUserService } from '../../../services/mocks/MockUserService';
 
 
 describe('ViewPhonelogComponent', () => {
@@ -25,6 +27,7 @@ describe('ViewPhonelogComponent', () => {
       providers:  [
         { provide: AuthenticationService, useClass: MockAuthenticationService },
         { provide: PhonelogService, useClass: MockPhonelogService },
+        { provide: UserService, useClass: MockUserService },
         { provide: Router, useValue: { navigateByUrl: jasmine.createSpy('navigateByUrl')}},
       ]
     })
