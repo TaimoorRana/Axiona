@@ -42,7 +42,7 @@
                     <div class="call-text">{{log.message}}</div>
                 </div>
                 <div *ngIf="log.assignedTo && log.assignedTo !== '' " class="assignedTo">
-                    <div class="label">Assigned to:</div>{{log.assignedTo ? log.assignedTo : "A user that has since been deleted."}}
+                    <div class="label">Assigned to:</div>{{log.assignedTo ? this.getName(log.assignedTo) : "A user that has since been deleted."}}
                 </div>
                 <div class="logger">
                     <div class="label">Call logged by:</div> {{log.user ? log.user.name : "A user that has since been deleted."}}

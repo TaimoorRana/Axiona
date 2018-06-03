@@ -15,6 +15,8 @@ export class UserService {
 
   /**
    * Get all users
+   * This is contains all the user's information
+   * RESERVED FOR ADMIN USERS ONLY
    *
    * @returns {Observable<Object>}
    * @memberof UserService
@@ -26,6 +28,22 @@ export class UserService {
         catchError(this.handleError<Object>('getAll()'))
       );
   }
+
+  /**
+   * Get all names of users
+   * One should try to use this service instead of get/all 
+   *
+   * @returns {Observable<Object>}
+   * @memberof UserService
+   */
+  getAllNames(): Observable<Object> {
+    return this.http.get(`${this.url}/allnames`)
+      .pipe(
+        tap(users => this.log('fetched all names of users')),
+        catchError(this.handleError<Object>('getAllNames()'))
+      );
+  }
+
 
   /**
    * Update a user by ID

@@ -33,7 +33,8 @@ describe('EditPhonelogComponent', () => {
     'language': 'english',
     'subject': 'test',
     'callertype': 'test',
-    'date': '2018-01-27T15:53:03.674Z'};
+    'date': '2018-01-27T15:53:03.674Z',
+    'assignedTo': '1456789100099'};
     fixture.detectChanges();
   });
 

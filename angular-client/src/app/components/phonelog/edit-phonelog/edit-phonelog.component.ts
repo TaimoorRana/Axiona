@@ -62,7 +62,7 @@ export class EditPhonelogComponent implements OnInit {
   }
 
   loadAllWorkers() {
-    this.userService.getAll()
+    this.userService.getAllNames()
       .subscribe( (data: [any]) => {
         this.allWorkers = data;
       });

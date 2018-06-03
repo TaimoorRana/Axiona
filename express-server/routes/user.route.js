@@ -118,6 +118,34 @@ router.get('/all', (req, res) => {
   })
 });
 
+/*
+* Get all users ID and names
+*/
+router.get('/allnames', (req, res) => {
+  User.aggregate(
+    [
+      {
+        $project:
+          {
+            name: 1
+          }
+      },
+      {
+        $sort:
+          {
+            name: 1
+          }
+      }
+    ]
+  )
+    .then(names_ids => {
+      res.send(names_ids);
+    }, err => {
+      res.send(err);
+    })
+});
+
+
 /**
  * Update user by ID
  */
