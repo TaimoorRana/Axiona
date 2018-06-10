@@ -38,8 +38,14 @@ const dotenv = require('dotenv').config();
 const app = express();
 
 //Connect to mongo
-const mongoUrl = process.env.MONGOLAB_URL;
+if (process.env.TRAVIS || (process.argv.length > 2 && process.argv[2] == 'test')) {
+  url = process.env.MONGOLAB_URL_TEST;
+}
+else {
+  url = process.env.MONGOLAB_URL;
+} 
 
+const mongoUrl = url;
 
 app.use(fileUpload());
 
