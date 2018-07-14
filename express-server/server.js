@@ -69,11 +69,11 @@ app.use(flash());
 
 //Enable CORS for opening URLs for PDFs (between Front-end and Back-end)
 /* https://enable-cors.org/server_expressjs.html */
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+// app.use(function(req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//   next();
+// });
 
 //Allow documents, notes folder to be accessible 
 //Usage http://localhost:3000/userIDhash/full_filename_with.extension
