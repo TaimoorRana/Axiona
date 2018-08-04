@@ -18,6 +18,7 @@
 .caller-heading,
 .caller-subject,
 .caller-language,
+.assignedTo,
 .urgency,
 .logger {
     display: flex;

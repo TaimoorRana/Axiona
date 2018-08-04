@@ -50,13 +50,22 @@
             </mat-select>
         </mat-form-field>
 
-        <mat-slide-toggle name="urgent" formControlName="urgent" [checked]="urgent">
-            Urgent
-        </mat-slide-toggle>
+        <mat-form-field class="assignedTo">
+            <mat-select placeholder="Assign to:" [(value)]="assignedTo" formControlName="assignedTo">
+                <mat-option *ngFor="let worker of allWorkers" [value]="worker._id">
+                    {{ worker.name }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
     </div>
 
+    <mat-slide-toggle name="urgent" formControlName="urgent" [checked]="urgent">
+        Urgent
+    </mat-slide-toggle>
+
     <mat-form-field class="message">
-        <textarea matInput placeholder="Message" matTextareaAutosize matAutosizeMinRows="5" name="message" formControlName="message"></textarea>
+        <textarea matInput placeholder="Message" matAutosizeMinRows="5" name="message" formControlName="message"></textarea>
         <mat-hint align="start">Their message, when to call, extension number...</mat-hint>
     </mat-form-field>
 

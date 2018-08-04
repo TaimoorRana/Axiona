@@ -58,7 +58,7 @@ describe('User Tests', () => {
         it('should login a user', (done) => {
             chai.request(server)
                 .post('/user/login')
-                .send({
+                .send({ 
                     'email': 'testing@test.com',
                     'password': 'hunter1'
                 })
@@ -73,7 +73,7 @@ describe('User Tests', () => {
 
     describe('Delete Account', () => {
         it('should delete a user\'s account', (done) => {
-            User.findOne({ email: 'testing@test.com' }).then(user => {
+            User.findOne({ email: 'testing@user.com' }).then(user => {
                 chai.request(server)
                     .delete('/user/' + user._id)
                     .set('Cookie', cookie)

@@ -111,9 +111,11 @@ describe('Tasks Tests', () => {
                 });
         });
         it('should POST a new task', (done) => {
-            let task = {
-                description: 'Another task to do'
-            }
+            let task = new Task({
+                _id: id3,
+                description: 'Testing task 116 to do',
+                user: 'test2'
+            });
             chai.request(server)
                 .post('/api/task')
                 .set('Cookie', cookie)

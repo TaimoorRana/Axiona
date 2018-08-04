@@ -3,6 +3,7 @@ import { AuthenticationService } from '../../../services/authentication.service'
 import { RouterModule, Router } from '@angular/router';
 import { Phonelog } from '../../../classes/phonelog';
 import { PhonelogService } from '../../../services/phonelog.service';
+import { UserService } from '../../../services/user.service';
 import { MatRadioModule } from '@angular/material/radio';
 
 @Component({
@@ -21,9 +22,11 @@ export class ViewPhonelogComponent implements OnInit, OnChanges {
   public sortProperty = 'urgent';
   public reverse = false;
   public query: string;
+  public namesSocialWorkers;
 
   constructor(
     private phonelogService: PhonelogService,
+    private userService: UserService,
     public authService: AuthenticationService,
     public router: Router) {
       this.phonelogService.phoneLogged.subscribe(_ => {
@@ -38,6 +41,7 @@ export class ViewPhonelogComponent implements OnInit, OnChanges {
     } else {
       this.loadLogs();
       this.loadHistory();
+      this.loadNames();
     }
   }
 
@@ -58,6 +62,28 @@ export class ViewPhonelogComponent implements OnInit, OnChanges {
       .subscribe(data => {
         this.logs = data;
       });
+  }
+
+  /**
+   * Load names of social workers
+   *
+   * @memberof ViewPhonelogComponent
+   */
+  loadNames() {
+    this.userService.getAllNames()
+      .subscribe(data => {
+        this.namesSocialWorkers = data;
+      });
+  }
+
+  /**
+   * Looks up the name of the socialworker
+   * from a user ID
+   *
+   * @memberof ViewPhonelogComponent
+   */
+  getName(id) {
+    return this.namesSocialWorkers.filter(sw => sw._id == id)[0]["name"];
   }
 
   /**

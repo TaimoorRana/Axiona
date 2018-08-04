@@ -3,6 +3,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Phonelog } from '../../../classes/phonelog';
 import { PhonelogService } from '../../../services/phonelog.service';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-edit-phonelog',
@@ -10,6 +11,7 @@ import { PhonelogService } from '../../../services/phonelog.service';
   styleUrls: ['./edit-phonelog.component.css']
 })
 export class EditPhonelogComponent implements OnInit {
+  allWorkers: [any];
   @Input() log: Phonelog;
   @Output() cancel = new EventEmitter();
   editphonelog: FormGroup;
@@ -48,11 +50,22 @@ export class EditPhonelogComponent implements OnInit {
   ];
   phoneregex = /^(?:\+?1[-. ]?)?(\(([0-9]{3})\)|([0-9]{3}))[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
 
-  constructor(private form: FormBuilder,
-    private phonelogService: PhonelogService) { this.date = new Date(); }
+  constructor(
+    private form: FormBuilder,
+    private phonelogService: PhonelogService,
+    private userService: UserService,
+  ) { this.date = new Date(); }
 
   ngOnInit() {
     this.createForm();
+    this.loadAllWorkers();
+  }
+
+  loadAllWorkers() {
+    this.userService.getAllNames()
+      .subscribe( (data: [any]) => {
+        this.allWorkers = data;
+      });
   }
 
   createForm() {
@@ -63,6 +76,7 @@ export class EditPhonelogComponent implements OnInit {
       urgent: this.log.urgent,
       phonenumber: [this.log.phonenumber || '', Validators.pattern(this.phoneregex)],
       subject: this.log.subject || this.subjects[0],
+      assignedTo: this.log.assignedTo,
       message: this.log.message || '',
       callertype: this.log.callertype,
       date: this.log.date

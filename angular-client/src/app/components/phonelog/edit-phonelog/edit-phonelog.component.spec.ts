@@ -5,6 +5,8 @@ import { MockPhonelogService } from '../../../services/mocks/MockPhonelogService
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SearchPipe } from '../../../pipes/search.pipe';
 import { MaterialsModule } from '../../../modules/materials.module';
+import { UserService } from '../../../services/user.service';
+import { MockUserService } from '../../../services/mocks/MockUserService';
 
 
 describe('EditPhonelogComponent', () => {
@@ -15,7 +17,10 @@ describe('EditPhonelogComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ EditPhonelogComponent ],
       imports: [MaterialsModule],
-      providers: [{provide: PhonelogService, useClass: MockPhonelogService}]
+      providers: [
+        { provide: PhonelogService, useClass: MockPhonelogService },
+        { provide: UserService, useClass: MockUserService }
+      ]
     })
     .compileComponents();
   }));
@@ -33,7 +38,8 @@ describe('EditPhonelogComponent', () => {
     'language': 'english',
     'subject': 'test',
     'callertype': 'test',
-    'date': '2018-01-27T15:53:03.674Z'};
+    'date': '2018-01-27T15:53:03.674Z',
+    'assignedTo': '1456789100099'};
     fixture.detectChanges();
   });
 

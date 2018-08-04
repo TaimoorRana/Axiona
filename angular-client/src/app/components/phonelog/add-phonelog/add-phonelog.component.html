@@ -51,6 +51,14 @@
     <input matInput placeholder="Phone number" name="phonenumber" formControlName="phonenumber">
   </mat-form-field>
 
+  <mat-form-field class="assignedTo">
+    <mat-select placeholder="Assign to:" [(value)]="assignedTo" formControlName="assignedTo">
+      <mat-option *ngFor="let worker of allWorkers" [value]="worker._id">
+        {{ worker.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
   <mat-form-field class="message">
     <textarea matInput placeholder="Message" cdkTextareaAutosize="true" matAutosizeMinRows="5" name="message" formControlName="message"></textarea>
     <mat-hint align="start">Their message, when to call, extension number...</mat-hint>
