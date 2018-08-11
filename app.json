@@ -1,0 +1,20 @@
+{
+    "name": "Axiona",
+    "description": "A free, open-source application to strengthen the workflow process of social workers in our local community.",
+    "repository": "https://github.com/adriannadiaz/Axiona",
+    "stack": "heroku-18",
+    "buildpacks": [
+        {
+            "url": "heroku/nodejs"
+        }
+    ],
+    "env": {
+        "SESSION_SECRET": {
+            "description": "Session encryption key for user data",
+            "generator": "secret"
+        }
+    },
+    "addons": ["mongolab"],
+
+    "success_url": "/"
+}
