@@ -141,7 +141,7 @@ export class AddPhonelogComponent implements OnInit {
           if (data.hasOwnProperty('errors')) {
             this.alertModal('Could not add new task.').subscribe();
           } else {
-            this.alertModal('Task successfully added.').subscribe();
+            this.taskService.emitTaskLogging();
           }
         });
     }
@@ -150,7 +150,7 @@ export class AddPhonelogComponent implements OnInit {
         if (data.hasOwnProperty('errors')) {
           this.alertModal('Could not add new phonelog entry.').subscribe();
         } else {
-          this.alertModal('Phonelog entry successfully added.').subscribe( () => {
+          this.alertModal('Entry successfully added.').subscribe( () => {
             this.myNgForm.resetForm();
             this.loggedPhonecall.emit();
             this.phonelogService.emitPhoneLogging();
