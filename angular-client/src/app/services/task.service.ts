@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MessageService } from './message.service';
 import { Observable ,  of } from 'rxjs';
@@ -7,6 +7,7 @@ import { tap, catchError } from 'rxjs/operators';
 @Injectable()
 export class TaskService {
   private url = '/api/task';
+  public taskEmitter = new EventEmitter();
 
   constructor(private http: HttpClient, private messageService: MessageService) { }
 
@@ -45,6 +46,10 @@ export class TaskService {
         tap(_ => this.log('deleting a task')),
         catchError(this.handleError<Object>('delete(taskID: String)'))
       );
+  }
+
+  public emitTaskLogging(): void {
+    this.taskEmitter.emit();
   }
 
   /**
