@@ -13,6 +13,13 @@ npm run start:db
 npm run start:watch
 ```
 
+Before using the web app, you'll need to create a user.
+It's best to create an admin user locally so you can test things out properly.
+
+```
+./tasks/create-user.js
+```
+
 This application also hosts the static files from the Angular Client app.
 
 The Angular Client app needs to be built at least once before you'll be able to visit
