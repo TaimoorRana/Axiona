@@ -12,9 +12,21 @@
         "SESSION_SECRET": {
             "description": "Session encryption key for user data",
             "generator": "secret"
+        },
+        "INITIAL_EMAIL": {
+            "description": "Email for the administrative user"
+        },
+        "INITIAL_NAME": {
+            "description": "Name for the administrative user"
+        },
+        "INITIAL_PASS": {
+            "description": "Password for the administrative user"
         }
     },
     "addons": ["mongolab"],
+    "scripts": {
+        "postdeploy": "./express-server/tasks/create-user.js --name $INITIAL_NAME --email $INITIAL_EMAIL --password $INITIAL_PASS --role admin"
+    },
 
     "success_url": "/"
 }

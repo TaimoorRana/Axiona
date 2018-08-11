@@ -2,6 +2,7 @@
 
 
 ![https://heroku.com/deploy?template=https://github.com/adriannadiaz/Axiona/tree/master](https://www.herokucdn.com/deploy/button.svg)
+https://heroku.com/deploy?template=https://github.com/adriannadiaz/Axiona/tree/master
 
 Axiona
 ============
