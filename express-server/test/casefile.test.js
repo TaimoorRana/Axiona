@@ -6,6 +6,7 @@ const server = require('../server');
 const Participant = require('../models/Participant');
 const Housing = require('../models/resources/Housing');
 const CaseFile = require('../models/Casefile');
+const fixture = require('./fixture');
 
 let participantId1 = new mongoose.Types.ObjectId();
 let participantId2 = new mongoose.Types.ObjectId();
@@ -27,7 +28,7 @@ describe('Casefile Tests', () => {
         chai.request(server)
             .post('/user/login')
             .send({
-                'email': 'test1@test.com',
+                'email': 'test1@axiona.ca',
                 'password': 'test'
             })
             .end((err, res) => {

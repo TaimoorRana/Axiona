@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EditUserComponent } from './edit-user.component';
+import { EditUserComponent } from './edit-axiona.caponent';
 import { MaterialsModule } from '../../../modules/materials.module';
 import { UserService } from '../../../services/user.service';
 import { MockUserService } from '../../../services/mocks/MockUserService';
@@ -24,7 +24,7 @@ describe('EditUserComponent', () => {
     component.user = {
       'role': 'admin',
       '_id': '5a7b95c49a80678d70defa7e',
-      'email': 'test@test.com',
+      'email': 'test@axiona.ca',
       'name': 'Test',
       'pronouns': 'they'
     };

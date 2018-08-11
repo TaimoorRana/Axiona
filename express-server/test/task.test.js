@@ -4,6 +4,7 @@ const should = chai.should();
 const mongoose = require('mongoose');
 const server = require('../server');
 const Task = require('../models/Task');
+const fixture = require('./fixture');
 
 let id1 = new mongoose.Types.ObjectId();
 let id2 = new mongoose.Types.ObjectId();
@@ -19,7 +20,7 @@ describe('Tasks Tests', () => {
         chai.request(server)
             .post('/user/login')
             .send({
-                'email': 'test1@test.com',
+                'email': 'test1@axiona.ca',
                 'password': 'test'
             })
             .end((err, res) => {

@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const server = require('../server');
 const Phonelog = require('../models/Phonelog');
 const expect = chai.expect;
+const fixture = require('./fixture');
 
 let id1 = new mongoose.Types.ObjectId();
 let id2 = new mongoose.Types.ObjectId();
@@ -23,7 +24,7 @@ describe('Phonelog Tests', () => {
         chai.request(server)
             .post('/user/login')
             .send({
-                'email': 'test1@test.com',
+                'email': 'test1@axiona.ca',
                 'password': 'test'
             })
             .end((err, res) => {

@@ -4,6 +4,7 @@ const should = chai.should();
 const mongoose = require('mongoose');
 const server = require('../server');
 const User = require('../models/User');
+const fixture = require('./fixture');
 
 let id1 = new mongoose.Types.ObjectId();
 
@@ -13,26 +14,17 @@ let cookie;
 let adminCookie;
 
 before((finished) => {
+    fixture.createUser('testing@axiona.ca','test','user','Testing Name');
     chai.request(server)
         .post('/user/login')
         .send({
-            'email': 'test2@test.com',
+            'email': 'test2@axiona.ca',
             'password': 'test123'
         })
         .end((err, res) => {
             adminCookie = res.headers['set-cookie'].pop().split(';')[0];
             finished();
         });
-    let user = new User({
-        _id: id1,
-        name: 'Testing Name',
-        email: 'testing@user.com',
-        password: 'test',
-        role: 'user'
-    });
-    user.save().then(data => { }, err => {
-        console.log(err);
-    });
 });
 
 describe('User Tests', () => {
@@ -43,7 +35,7 @@ describe('User Tests', () => {
                 .set('Cookie', adminCookie)
                 .send({
                     'name': 'Test',
-                    'email': 'testing@test.com',
+                    'email': 'testing@axiona.ca',
                     'password': 'hunter1',
                     'confirmPassword': 'hunter1'
                 })
@@ -59,7 +51,7 @@ describe('User Tests', () => {
             chai.request(server)
                 .post('/user/login')
                 .send({ 
-                    'email': 'testing@test.com',
+                    'email': 'testing@axiona.ca',
                     'password': 'hunter1'
                 })
                 .end((err, res) => {
@@ -73,7 +65,7 @@ describe('User Tests', () => {
 
     describe('Delete Account', () => {
         it('should delete a user\'s account', (done) => {
-            User.findOne({ email: 'testing@user.com' }).then(user => {
+            User.findOne({ email: 'testing@axiona.ca' }).then(user => {
                 chai.request(server)
                     .delete('/user/' + user._id)
                     .set('Cookie', cookie)
@@ -110,7 +102,7 @@ describe('User Tests', () => {
     describe('/PUT/:id', () => {
         it('should update the user with the given ID', (done) => {
             let name = 'Another Name';
-            let email = 'testing2@user.com'
+            let email = 'testing2@axiona.ca'
             let role = 'admin';
             chai.request(server)
                 .put('/user/' + id1)
@@ -127,7 +119,8 @@ describe('User Tests', () => {
     });
 
     after(() => {
-        User.find({ email: 'testing@test.com' }).remove().then(data => {
+        fixture.deleteOneUser('testing@axiona.ca')
+        User.find({ email: 'testing@axiona.ca' }).remove().then(data => {
             console.log('CLEANUP:');
             console.log('Test user1 successfully removed');
         }, err => {

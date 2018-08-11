@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { RegisterUserComponent } from './register-user.component';
+import { RegisterUserComponent } from './register-axiona.caponent';
 import { MaterialsModule } from '../../../modules/materials.module';
 import { AuthenticationService } from '../../../services/authentication.service';
 import { MockAuthenticationService } from '../../../services/mocks/MockAuthenticationService';

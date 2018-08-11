@@ -6,6 +6,7 @@ const server = require('../server');
 const Participant = require('../models/Participant');
 const Housing = require('../models/resources/Housing');
 const Casefile = require('../models/Casefile');
+const fixture = require('./fixture');
 
 let id1 = new mongoose.Types.ObjectId();
 let id2 = new mongoose.Types.ObjectId();
@@ -56,7 +57,7 @@ describe('Trash Tests', () => {
         chai.request(server)
             .post('/user/login')
             .send({
-                'email': 'test1@test.com',
+                'email': 'test1@axiona.ca',
                 'password': 'test'
             })
             .end((err, res) => {
@@ -69,7 +70,7 @@ describe('Trash Tests', () => {
         chai.request(server)
             .post('/user/login')
             .send({
-                'email': 'test2@test.com',
+                'email': 'test2@axiona.ca',
                 'password': 'test123'
             })
             .end((err, res) => {
