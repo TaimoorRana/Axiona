@@ -94,7 +94,7 @@ router.post('/', (req, res) => {
         callertype: req.body.callertype,
     });
 
-    if (req.body.assignedTo !== '') {
+    if (req.body.assignedTo) {
         phonelog.assignedTo = req.body.assignedTo;
     }
 
