@@ -37,13 +37,12 @@ const MongoStore = mongo(session);
 const dotenv = require('dotenv').config();
 const app = express();
 
-//Connect to mongo
-const mongoUrl = process.env.MONGOLAB_URL;
-
+const MONGO_URL = process.env.MONGO_URL || process.env.MONGOLAB_URL || 'mongodb://localhost/axiona';
+const SESSION_SECRET = process.env.SESSION_SECRET || 'super local secret';
 
 app.use(fileUpload());
 
-mongoose.connect(mongoUrl, {}).then(
+mongoose.connect(MONGO_URL, {}).then(
   () => { /** ready to use. The `mongoose.connect()` promise resolves to undefined. */ },
 ).catch(err => {
   console.log("MongoDB connection error. Please make sure MongoDB is running. " + err);
@@ -57,9 +56,9 @@ app.use(expressValidator());
 app.use(session({
   resave: true,
   saveUninitialized: true,
-  secret: process.env.SESSION_SECRET,
+  secret: SESSION_SECRET,
   store: new MongoStore({
-    url: mongoUrl,
+    url: MONGO_URL,
     autoReconnect: true
   })
 }));
@@ -80,6 +79,9 @@ app.use(function(req, res, next) {
 app.use(express.static('documents'));
 app.use(express.static('notes'));
 
+app.use('/health', function (req, res) {
+  res.status(200).send('🤖💜\n').end();
+});
 
 //all urls with /api must be authenticated
 app.use('/api', passportConfig.isAuthenticated);
