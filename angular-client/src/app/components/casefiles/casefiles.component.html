@@ -31,7 +31,7 @@
       <div *ngIf="casefile.status == 'In progress' && casefile==editedCasefile">
         <form [formGroup]="casefileFormNote">
           <mat-form-field>
-            <textarea #casefileNote matInput placeholder="Any relevant notes" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5"
+            <textarea #casefileNote matInput placeholder="Any relevant notes"  cdkTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5"
               formControlName="notes" (keyup.enter)="updateCaseNote(casefile)" (blur)="updateCaseNote(casefile)">
             </textarea>
           </mat-form-field>
