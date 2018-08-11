@@ -180,6 +180,9 @@ router.post('/:pid/doc', (req, res) => {
         attachment: req.query.attachment
     });
 
+    // TODO no longer saving files to this server
+    // TODO make sure to check for directory: documents 
+
     // Check if documents/participantUUID exists
     fs.exists(path.join(__dirname, "../documents", req.params.pid), pDirExists => {
         if (!pDirExists) {
@@ -303,6 +306,9 @@ router.post('/:pid/note', (req, res) => {
         date: req.query.date,
         attachment: (req.files) ? req.files.attachment.name : null
     });
+
+    // TODO no longer saving files to this server
+    // TODO make sure to check for directory: notes 
 
     if (req.files) {
         // Check if notes/participantUUID exists
