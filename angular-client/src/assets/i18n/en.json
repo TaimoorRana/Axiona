@@ -1,0 +1,326 @@
+{
+    "ActiveCaseFile": {
+        "Active": "Active Case Files",
+        "NotActive":  "No active case files to display",
+        "Last": "Last update:",
+        "Priority": "Priority:",
+        "Created": "Created by:",
+        "LastUpdated": "Last updated by:",
+        "ViewProfile":"View Profile"
+    },
+     "CaseModal": {
+        "New": "New Case",
+        "Participant":"Participant:",
+        "Urgency":"Select urgency of request",
+        "Resources":"Select the resources for this case",
+        "Submit":"Submit",
+        "Cancel":"Cancel"
+    },
+      "CaseFiles": {
+        "Cases": "Cases",
+        "NoCases":"No cases to display.",
+        "Status":"Status:",
+        "Urgency":"Urgency:",
+        "Resources":"Resources:",
+        "Type":"Type:",
+        "Notes":"Notes:",
+        "Name":"Name:",
+        "Contacted":"Contacted:",
+        "Date":"Date:",
+        "Comment":"Comment:",
+        "Yes":"Yes:",
+        "No":"No:",
+        "SelectedResource":"Selected Resource:",
+        "Nothing":"Nothing selected",
+        "Clear":"clear",
+        "Save":"save",
+        "Delete":"delete",
+        "CommentsHint": "Comments related to this resource",
+        "DateFormat":"m/dd/yyyy",
+        "CaseFiles.Resource": "Resource"
+    },
+      "Activity": {
+        "Recent": "Recent Case File Activity",
+        "Participant": "Participant:",
+        "Last": "Last update:",
+        "NoRecent":"No recent activity",
+        "RecentPhone":"Recent Phone Log Activity"
+    },
+      "DashBoard": {
+        "TranslationSections": ""
+    },
+      "DocumentModal": {
+        "AddDocument": "Add a Document",
+        "Upload": "Upload Document",
+        "Submit": "Submit",
+        "Close": "Close"
+    },
+      "Documents": {
+        "Documents": "Documents",
+        "NoDocs": "No documents to display.",
+        "Attachments": "Attachments:",
+        "Delete": "Delete"
+    },
+      "Login": {
+        "Login": "Login",
+        "Email": "Email",
+        "Password": "Password",
+        "Submit": "Submit"
+    },
+      "Messages": {
+        "Messages": "Messages:",
+        "Clear":"Clear"
+    },
+      "AlertModal": {
+        "Ok": "OK"
+    },
+      "ConfirmModal": {
+        "Confirmation": "Confirmation",
+        "Ok":"Ok",
+        "Cancel":"Cancel"
+    },
+      "Notes": {
+        "Notes": "Notes",
+        "No": "No notes to display.",
+        "Note":"Note:",
+        "Attachment":"Attachment:"
+    },
+      "NoteModal": {
+        "Create": "Create a Note",
+        "Upload": "Upload File",
+        "Submit":"Submit",
+        "Cancel": "Cancel"
+    },
+      "Participants": {
+    },
+      "AddParticipant": {
+        "Legal": "Do not use participant's legal name",
+        "Name": "Preferred Name",
+        "NewParticipant":"New participant successfully added.",
+        "CouldNot":"Could not add new participant.",
+        "Pronouns": "Pronouns",
+        "Telephone": "Telephone",
+        "SocialMedia": "Social media provider (Twitter, Facebook)",
+        "SocialMediaAccount": "Social media account (@username)",
+        "EmailAddress": "Email address",
+        "Warning": "This is already associated to a participant!",
+        "Address": "Physical Address",
+        "Optional": "This is strictly optional",
+        "Submit": "Submit",
+        "Cancel": "Cancel",
+        "Update": "Update"
+    },
+      "EditParticipant": {
+        "Username": "Participant username:",
+        "Name": "First Name",
+        "Pronouns": "Pronouns",
+        "Telephone": "Telephone",
+        "SocialMedia": "Social media provider",
+        "SocialMediaAccount": "Social media account",
+        "EmailAddress": "Email address",
+        "Address": "Physical Address",
+        "Update": "Update",
+        "Cancel": "Cancel"
+    },
+      "ParticipantProfile": {
+        "Pronouns": "Pronouns:",
+        "Email":"Email:",
+        "Phone":"Phone number:",
+        "SocialMedia":"Social media:",
+        "Address:":"Address:",
+        "SocialWorkers":"Social workers assigned:",
+        "New":"New case",
+        "AddNote":"Add Note",
+        "AddDocument":"Add Document",
+        "EditSocialWorkers":"Edit Social Workers"
+    },
+      "ViewParticipants": {
+        "Sort": "Sort by",
+        "Name": "Name",
+        "Updated": "Updated",
+        "Search": "Search",
+        "Username": "Username",
+        "Pronouns": "Pronouns:",
+        "Email":"Email:",
+        "Phone":"Phone number:",
+        "SocialMedia":"Social media:",
+        "Address":"Address:",
+        "SocialWorkers":"Social workers assigned:",
+        "View":"View",
+        "Edit":"Edit"
+    },
+      "PhoneLog": {
+        "TranslationSections": ""
+    },
+      "AddPhoneLog": {
+        "PhoneCall":"Phone Call",
+        "Name": "Name of caller",
+        "Pronouns": "Pronouns",
+        "Language": "Language",
+        "Type":"Type of caller",
+        "Phone": "Phone number",
+        "Reason": "Reason for call",
+        "Urgent": "Urgent",
+        "Message": "Message",
+        "Hint": "Their message, when to call, extension number...",
+        "Log": "Log this call"
+    },
+      "EditPhoneLog": {
+        "Name": "Name",
+        "Pronouns": "Pronouns",
+        "Type":"Type of caller",
+        "Phone": "Phone number",
+        "Language": "Language",
+        "Reason": "Reason for call",
+        "Urgent": "Urgent",
+        "Message": "Message",
+        "Hint": "Their message, when to call, extension number...",
+        "Update": "Update",
+        "Cancel": "Cancel"
+    },
+      "ViewPhoneLog": {
+        "Pending": "Pending Phone Calls",
+        "Everything": "Everything up to date!",
+        "Type":"Type of caller:",
+        "Phone": "Phone number:",
+        "Date": "Date of the call:",
+        "Subject": "Subject",
+        "Urgent": "Urgent",
+        "Message": "Message:",
+        "Note": "Note regarding the call:",
+        "Language":"Language:",
+        "LoggedBy":"Call logged by:",
+        "Resolve":"Resolve",
+        "Edit":"Edit",
+        "Completed":"Completed Phone Calls",
+        "Nothing":"Nothing to show",
+        "Name": "Name",
+        "Pronouns": "Pronouns",
+        "CalledBy": "Called back by:",
+        "DateCalledBack":"Date called back:"
+    },
+      "Reports": {
+        "Reports": "Reports",
+        "Nothing": "Nothing to show"
+    },"Resources": {
+    },
+      "AddResource": {
+        "Type": "Type",
+        "Rtype": "Resource Type",
+        "Name": "Name",
+        "Email": "Email",
+        "Telephone": "Telephone",
+        "Location": "Location",
+        "Notes": "Notes",
+        "Housing": "Housing",
+        "Term": "Term",
+        "Gender": "Gender",
+        "Constraints": "Constraints",
+        "Medical": "Medical",
+        "Cost": "Cost",
+        "Waitlist": "Waitlist Time",
+        "Schedule": "Schedule",
+        "Submit": "Submit",
+        "CouldNot":"Could not add new resource.",
+        "Added":"New resource successfully added."
+    },
+      "EditResource": {
+        "Name": "Name",
+        "Email": "Email",
+        "Telephone": "Telephone",
+        "Term": "Term",
+        "Location": "Location",
+        "Notes": "Notes",
+        "Housing": "Housing",
+        "Gender": "Gender",
+        "Constraints": "Constraints",
+        "Medical": "Medical",
+        "Cost": "Cost",
+        "Waitlist": "Waitlist Time",
+        "Schedule": "Schedule",
+        "Update": "Update",
+        "Cancel": "Cancel"
+    },
+      "ViewResource": {
+        "Sort":"Sort by",
+        "Name":"Name",
+        "Updated":"Updated",
+        "Location": "Location:",
+        "Telephone": "Telephone:",
+        "Email": "Email:",
+        "Term": "Term:",
+        "Gender": "Gender:",
+        "Constraints": "Constraints:",
+        "Free": "Cost:",
+        "Approx":"Approximate Waitlist:",
+        "Schedule": "Schedule:",
+        "Notes": "Notes:",
+        "Descending":"Descending",
+        "Ascending":"Ascending"
+    },
+      "Tasks": {
+        "Tasks": "Tasks",
+        "Completed":"Completed",
+        "Add":"Add task"
+    },
+      "TrashBin": {
+        "TrashBin": "Trash Bin",
+        "Nothing": "Nothing in the trash bin",
+        "Sure":"Are you sure you want to restore this record?",
+        "Restore":"Are you sure you want to restore this record?"
+    },
+      "AssignUsersModal": {
+        "Edit": "Edit Assigned Social Workers",
+        "Remove":"Remove",
+        "AddSW":"Add Social Worker",
+        "Add":"Add",
+        "Ok":"Ok"
+    },
+      "RegisterUser": {
+        "Added":"New user successfully created.",
+        "CouldNot":"Could not add new user.",
+        "Regiser": "Register a User",
+        "Name": "First Name",
+        "Pronouns": "Pronouns",
+        "Email": "Email",
+        "Password": "Password",
+        "Confirm": "Confirm password",
+        "Fail": "Passwords do not match",
+        "Admin": "Administrator",
+        "Regular": "Regular User",
+        "Submit":"Submit"
+
+    },
+      "ViewUsers": {
+        "Sort": "Sort by",
+        "Search":"Search",
+        "Name": "Name",
+        "Updated": "Updated",
+        "Email": "Email",
+        "Role": "Role:",
+        "Pronouns": "Pronouns"
+    },
+      "Users": {
+        "TranslationSections": ""
+    },
+      "TopMenu": {
+        "Participants":"Participants",
+        "Resources":"Resources",
+        "Phone Log":"Phone Log"
+      },
+      "navLinks":{
+        "Resources":"Resources",
+        "AddResource":"Add Resource",
+        "Participants":"Participants",
+        "AddParticipant":"Add Participant"
+      },
+      "dashboardLinks":{
+        "Dashboard":"Dashboard",
+        "Tasks":"Tasks",
+        "Active":"Active Case Files",
+        "Phone":"Phone Log",
+        "Manage":"Manage Users",
+        "Reports":"Reports",
+        "Bin":"Trash Bin"
+      }
+}

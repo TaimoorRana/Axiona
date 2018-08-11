@@ -6,6 +6,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialsModule } from './modules/materials.module';
 import { ChartsModule } from 'ng2-charts';
+import { TranslateModule,TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppComponent } from './app.component';
 import { ActiveCasefilesComponent } from './components/casefiles/active-casefiles/active-casefiles.component';
@@ -182,6 +184,10 @@ const routes: Routes = [
   }
 ];
 
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -232,6 +238,13 @@ const routes: Routes = [
     MaterialsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+    }
+    })
   ],
   entryComponents: [
     AlertModalComponent,

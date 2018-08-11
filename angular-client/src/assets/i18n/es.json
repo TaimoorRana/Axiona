@@ -1,0 +1,326 @@
+{
+    "ActiveCaseFile": {
+        "Active": "Archivos de caso activos",
+        "NotActive":  "No hay archivos de caso a mostrar",
+        "Last": "Última actualización:",
+        "Priority": "Prioridad:",
+        "Created": "Creado por:",
+        "LastUpdated": "Última vez actualizado por:",
+        "ViewProfile":"Ver el perfil"
+    },
+     "CaseModal": {
+        "New": "Nuevo caso",
+        "Participant":"Participante:",
+        "Urgency":"Seleccionar la urgencia del caso",
+        "Resources":"Selecciona los recursos para este caso",
+        "Submit":"Someter",
+        "Cancel":"Anular"
+    },
+      "CaseFiles": {
+        "Cases": "Casos",
+        "NoCases":"No hay casos a mostrar.",
+        "Status":"Estatus:",
+        "Urgency":"Urgencia:",
+        "Resources":"Recursos:",
+        "Type":"Tipo:",
+        "Notes":"Notas:",
+        "Name":"Nombre:",
+        "Contacted":"Contactado:",
+        "Date":"Fecha:",
+        "Comment":"Comentario:",
+        "Yes":"Sí:",
+        "No":"No:",
+        "SelectedResource":"Recursos seleccionados:",
+        "Nothing":"Nada seleccionado",
+        "Clear":"reinicializar",
+        "Save":"salvaguardar",
+        "Delete":"borrar",
+        "CommentsHint": "Comentarios en relación con este recurso",
+        "DateFormat":"m/dd/aaaa",
+        "CaseFiles.Resource": "Recurso"
+    },
+      "Activity": {
+        "Recent": "Actividad reciente",
+        "Participant": "Participante:",
+        "Last": "Última actualización:",
+        "NoRecent":"No hay actividad reciente",
+        "RecentPhone":"Reciente actividad de las llamadas"
+    },
+      "DashBoard": {
+        "TranslationSections": ""
+    },
+      "DocumentModal": {
+        "AddDocument": "Añadir un documento",
+        "Upload": "Descargar en subida un documento",
+        "Submit": "Someter",
+        "Close": "Cerrar"
+    },
+      "Documents": {
+        "Documents": "Documentos",
+        "NoDocs": "No hay documentos a mostrar.",
+        "Attachments": "Piezas adjuntas:",
+        "Delete": "Borrar"
+    },
+      "Login": {
+        "Login": "Identificarse",
+        "Email": "Correo electrónico",
+        "Password": "Contraseña",
+        "Submit": "Someter"
+    },
+      "Messages": {
+        "Messages": "Mensajes:",
+        "Clear":"Reinicializar"
+    },
+      "AlertModal": {
+        "Ok": "De acuerdo"
+    },
+      "ConfirmModal": {
+        "Confirmation": "Confirmación",
+        "Ok":"De acuerdo",
+        "Cancel":"Anular"
+    },
+      "Notes": {
+        "Notes": "Notas",
+        "No": "No hay notas a mostrar.",
+        "Note":"Nota:",
+        "Attachment":"Pieza adjunta:"
+    },
+      "NoteModal": {
+        "Create": "Crear una nota",
+        "Upload": "Descargar en subida una imagen",
+        "Submit":"Someter",
+        "Cancel": "Anular"
+    },
+      "Participants": {
+    },
+      "AddParticipant": {
+        "Legal": "No utilizar el nombre legal del participante",
+        "Name": "Nombre preferido",
+        "NewParticipant":"Nuevo participante agregado con éxito.",
+        "CouldNot":"No pudo añadir nuevo participante.",
+        "Pronouns": "Pronombres",
+        "Telephone": "Téléfono",
+        "SocialMedia": "Proveedor de medio social (Twitter, Facebook)",
+        "SocialMediaAccount": "Cuenta de medio social (@nombre_usuario)",
+        "EmailAddress": "Correo electrónico",
+        "Warning": "¡Correo existente para otra participante!",
+        "Address": "Domicilio",
+        "Optional": "Esto es estrictamente opcional",
+        "Submit": "Someter",
+        "Cancel": "Anular",
+        "Update": "Actualización"
+    },
+      "EditParticipant": {
+        "Username": "Nombre de usuario del participante:",
+        "Name": "Nombre preferido",
+        "Pronouns": "Pronombres",
+        "Telephone": "Teléfono",
+        "SocialMedia": "Proveedor de medio social",
+        "SocialMediaAccount": "Cuenta de medio social",
+        "EmailAddress": "Correo electrónico",
+        "Address": "Domicilio",
+        "Update": "Actualizar",
+        "Cancel": "Anular"
+    },
+      "ParticipantProfile": {
+        "Pronouns": "Pronombres:",
+        "Email":"Correo electrónico",
+        "Phone":"Numéro teléfonico:",
+        "SocialMedia":"Medio social:",
+        "Address:":"Domicilio:",
+        "SocialWorkers":"Trabajador@s sociales asignad@s:",
+        "New":"Nuevo caso",
+        "AddNote":"Añadir nota",
+        "AddDocument":"Añadir documento",
+        "EditSocialWorkers":"Editar l@s trabajador@s sociales"
+    },
+      "ViewParticipants": {
+        "Sort": "Ordenar por",
+        "Name": "Nombre",
+        "Updated": "Actualización",
+        "Search": "Búsqueda",
+        "Username": "Nombre de usuario",
+        "Pronouns": "Pronombres:",
+        "Email":"Correo electrónico:",
+        "Phone":"Número telefónico:",
+        "SocialMedia":"Medio social:",
+        "Address":"Domicilio:",
+        "SocialWorkers":"Trabajador@s sociales asignad@s:",
+        "View":"Ver",
+        "Edit":"Editar"
+    },
+      "PhoneLog": {
+        "TranslationSections": ""
+    },
+      "AddPhoneLog": {
+        "PhoneCall":"Llamada telefónica",
+        "Name": "Nombre de la persona que llama",
+        "Pronouns": "Pronombres",
+        "Language": "Idioma",
+        "Type":"Tipo de persona que llama",
+        "Phone": "Número telefónico",
+        "Reason": "Razón de la llamada",
+        "Urgent": "Urgente",
+        "Message": "Mensaje",
+        "Hint": "Su mensaje, cuándo llamar, número de extensión...",
+        "Log": "Añadir esta llamada al registro"
+    },
+      "EditPhoneLog": {
+        "Name": "Nombre",
+        "Pronouns": "Pronombres",
+        "Type":"Tipo de persona que llamó",
+        "Phone": "Número telefónico",
+        "Language": "Idioma",
+        "Reason": "Reason for call",
+        "Urgent": "Urgente",
+        "Message": "Mensaje",
+        "Hint": "Su mensaje, cuándo llamar, número de extensión...",
+        "Update": "Actualización",
+        "Cancel": "Anular"
+    },
+      "ViewPhoneLog": {
+        "Pending": "Llamadas pendientes",
+        "Everything": "Todo está actualizado!",
+        "Type":"Tipo de persona que llamó:",
+        "Phone": "Número telefónico:",
+        "Date": "Fecha de la llamada:",
+        "Subject": "Tema",
+        "Urgent": "Urgente",
+        "Message": "Mensaje:",
+        "Note": "Nota relacionada con la llamada:",
+        "Language":"Idioma:",
+        "LoggedBy":"Llamada añadida por:",
+        "Resolve":"Resolver",
+        "Edit":"Editar",
+        "Completed":"Llamadas completadas",
+        "Nothing":"Nada que mostrar",
+        "Name": "Nombre",
+        "Pronouns": "Pronombres",
+        "CalledBy": "Llamado por:",
+        "DateCalledBack":"Fecha de la llamada:"
+    },
+      "Reports": {
+        "Reports": "Reportes",
+        "Nothing": "Nada que mostrar"
+    },"Resources": {
+    },
+      "AddResource": {
+        "Type": "Tipo",
+        "Rtype": "Tipo de recurso",
+        "Name": "Nombre",
+        "Email": "Correo electrónico",
+        "Telephone": "Teléfono",
+        "Location": "Emplazamiento",
+        "Notes": "Notas",
+        "Housing": "Albergue",
+        "Term": "Plazo",
+        "Gender": "Género",
+        "Constraints": "Restricciones",
+        "Medical": "Medical",
+        "Cost": "Costo",
+        "Waitlist": "Tiempo estimado de espera",
+        "Schedule": "Horario",
+        "Submit": "Someter",
+        "CouldNot":"No pudo añadir recurso.",
+        "Added":"Nuevo recurso añadido con éxito."
+    },
+      "EditResource": {
+        "Name": "Name",
+        "Email": "Correo electrónico",
+        "Telephone": "Teléfono",
+        "Term": "Término",
+        "Location": "Emplazamiento",
+        "Notes": "Notas",
+        "Housing": "Albergue",
+        "Gender": "Género",
+        "Constraints": "Restricciones",
+        "Medical": "Medical",
+        "Cost": "Costo",
+        "Waitlist": "Tiempo de espera",
+        "Schedule": "Horario",
+        "Update": "Actualizar",
+        "Cancel": "Anular"
+    },
+      "ViewResource": {
+        "Sort":"Ordenar por",
+        "Name":"Nombre",
+        "Updated":"Actualizado",
+        "Location": "Emplazamiento:",
+        "Telephone": "Teléfono:",
+        "Email": "Correo electrónico:",
+        "Term": "Término:",
+        "Gender": "Género:",
+        "Constraints": "Restricciones:",
+        "Free": "Costo:",
+        "Approx":"Tiempo estimado de espera:",
+        "Schedule": "Horario:",
+        "Notes": "Notas:",
+        "Descending":"Descendiente",
+        "Ascending":"Ascendiente"
+    },
+      "Tasks": {
+        "Tasks": "Tareas",
+        "Completed":"Completedas",
+        "Add":"Añadir tarea"
+    },
+      "TrashBin": {
+        "TrashBin": "Cesta de reciclaje",
+        "Nothing": "Nada en la cesta de reciclaje",
+        "Sure":"¿De verdad borrar este registro?",
+        "Restore":"¿De verdad restaurar este registro?"
+    },
+      "AssignUsersModal": {
+        "Edit": "Editar l@s trabajador@s asignad@s",
+        "Remove":"Remover",
+        "AddSW":"Añadir trabajador@ social",
+        "Add":"Añadir",
+        "Ok":"De acuerdo"
+    },
+      "RegisterUser": {
+        "Added":"Nuev@ usuari@ agregad@.",
+        "CouldNot":"No pude añadir nuev@ usuari@.",
+        "Regiser": "Register a User",
+        "Name": "Nombre",
+        "Pronouns": "Pronombres",
+        "Email": "Correo electrónico",
+        "Password": "Contraseña",
+        "Confirm": "Confirmar contraseña",
+        "Fail": "Contraseñas no concuerdar",
+        "Admin": "Administrador@",
+        "Regular": "Usuari@ regular",
+        "Submit":"Someter"
+
+    },
+      "ViewUsers": {
+        "Sort": "Ordenar por",
+        "Search":"Búsqueda",
+        "Name": "Nombre",
+        "Updated": "Actualizado",
+        "Email": "Correo",
+        "Role": "Rol:",
+        "Pronouns": "Pronombres"
+    },
+      "Users": {
+        "TranslationSections": ""
+    },
+      "TopMenu": {
+        "Participants":"Participantes",
+        "Resources":"Recursos",
+        "Phone Log":"Registro de llamadas"
+      },
+      "navLinks":{
+        "Resources":"Recursos",
+        "AddResource":"Añadir recursos",
+        "Participants":"Participantes",
+        "AddParticipant":"Añadir participante"
+      },
+      "dashboardLinks":{
+        "Dashboard":"Tablero",
+        "Tasks":"Tareas",
+        "Active":"Archivos de caso activos",
+        "Phone":"Registro de llamadas",
+        "Manage":"Gestionar usuarios",
+        "Reports":"Reportes",
+        "Bin":"Cesta de reciclaje"
+      }
+}
