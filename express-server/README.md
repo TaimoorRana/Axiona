@@ -10,7 +10,7 @@ To run locally, we'll run MongoDB locally and then start the server
 
 ```
 npm run start:db
-npm run start
+npm run start:watch
 ```
 
 This application also hosts the static files from the Angular Client app.

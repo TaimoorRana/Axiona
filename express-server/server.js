@@ -37,7 +37,10 @@ const MongoStore = mongo(session);
 const dotenv = require('dotenv').config();
 const app = express();
 
-const MONGO_URL = process.env.MONGO_URL || process.env.MONGOLAB_URL || 'mongodb://localhost/axiona';
+const MONGO_URL = process.env.MONGO_URL || 
+                  process.env.MONGOLAB_URI ||
+                  process.env.MONGOLAB_URL ||
+                  'mongodb://localhost/axiona';
 const SESSION_SECRET = process.env.SESSION_SECRET || 'super local secret';
 
 app.use(fileUpload());
