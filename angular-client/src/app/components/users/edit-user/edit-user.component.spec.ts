@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EditUserComponent } from './edit-axiona.caponent';
+import { EditUserComponent } from './edit-user.component';
 import { MaterialsModule } from '../../../modules/materials.module';
 import { UserService } from '../../../services/user.service';
 import { MockUserService } from '../../../services/mocks/MockUserService';

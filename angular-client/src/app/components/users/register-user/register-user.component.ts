@@ -10,8 +10,8 @@ import { PasswordValidator } from '../../../validators/password-validator';
 
 @Component({
   selector: 'app-register-user',
-  templateUrl: './register-axiona.caponent.html',
-  styleUrls: ['./register-axiona.caponent.css']
+  templateUrl: './register-user.component.html',
+  styleUrls: ['./register-user.component.css']
 })
 export class RegisterUserComponent implements OnInit {
 

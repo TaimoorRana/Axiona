@@ -8,7 +8,7 @@ import { SearchPipe } from '../../../pipes/search.pipe';
 import { UserService } from '../../../services/user.service';
 import { MockUserService } from '../../../services/mocks/MockUserService';
 import { Router } from '@angular/router';
-import { EditUserComponent } from '../edit-user/edit-axiona.caponent';
+import { EditUserComponent } from '../edit-user/edit-user.component';
 
 describe('ViewUsersComponent', () => {
   let component: ViewUsersComponent;

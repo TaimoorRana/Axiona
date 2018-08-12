@@ -33,7 +33,7 @@ import { ParticipantProfileComponent } from './components/participants/participa
 import { PhonelogComponent } from './components/phonelog/phonelog.component';
 import { PhonelogModalComponent } from './components/phonelog/phonelog-modal/phonelog-modal.component';
 import { PhonelogTabComponent } from './components/phonelog/phonelog-tab/phonelog-tab.component';
-import { RegisterUserComponent } from './components/users/register-user/register-axiona.caponent';
+import { RegisterUserComponent } from './components/users/register-user/register-user.component';
 import { ReportsComponent } from './components/reports/reports.component';
 import { ResourcesComponent } from './components/resources/resources.component';
 import { TasksComponent } from './components/tasks/tasks.component';
@@ -57,7 +57,7 @@ import { ReportPhonelogService } from './services/reports-phonelog.service';
 
 import { OrderByPipe } from './pipes/orderBy.pipe';
 import { SearchPipe } from './pipes/search.pipe';
-import { EditUserComponent } from './components/users/edit-user/edit-axiona.caponent';
+import { EditUserComponent } from './components/users/edit-user/edit-user.component';
 
 const routes: Routes = [
   {
