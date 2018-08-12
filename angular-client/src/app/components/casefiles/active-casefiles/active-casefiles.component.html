@@ -1,7 +1,7 @@
 <mat-card>
-  <mat-card-title>Active Case Files</mat-card-title>
+  <mat-card-title>{{ 'ActiveCaseFile.Active' | translate }}</mat-card-title>
   <div *ngIf="activeCases.length==0">
-    No active case files to display
+    {{ 'ActiveCaseFile.NotActive' | translate }}
   </div>
   <mat-accordion *ngIf="activeCases.length > 0">
     <mat-expansion-panel *ngFor="let casefile of (activeCases | orderBy: sortProperty: reverse)">
@@ -15,16 +15,16 @@
           </div>
         </mat-panel-title>
         <mat-panel-description>
-          Last update: {{casefile.updatedAt | date: 'short'}}
+          {{ 'ActiveCaseFile.Last' | translate }}: {{casefile.updatedAt | date: 'short'}}
         </mat-panel-description>
       </mat-expansion-panel-header>
 
       <!-- Casefile Information -->
-      <p><b>Priority:</b> {{casefile.urgency}}</p>
-      <p><b>Created by:</b> {{casefile.createdBy.name}}</p>
-      <p><b>Last updated by:</b> {{casefile.updatedBy.name}}</p>
+      <p><b>{{ 'ActiveCaseFile.Priority' | translate }}:</b> {{casefile.urgency}}</p>
+      <p><b>{{ 'ActiveCaseFile.Created' | translate }}:</b> {{casefile.createdBy.name}}</p>
+      <p><b>{{ 'ActiveCaseFile.LastUpdated' | translate }}:</b> {{casefile.updatedBy.name}}</p>
 
-      <button mat-raised-button color="primary" class="viewBtn" (click)="viewParticipant(casefile.participant._id)">View Profile</button>
+      <button mat-raised-button color="primary" class="viewBtn" (click)="viewParticipant(casefile.participant._id)">{{ 'ActiveCaseFile.ViewProfile' | translate }}</button>
 
     </mat-expansion-panel>
   </mat-accordion>

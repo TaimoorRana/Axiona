@@ -18,9 +18,9 @@
   </span>
   <span class="fill-remaining-space"></span>
   <span>
-    <mat-form-field>
+    <mat-form-field class="languageSelect">
       <mat-select #langSelect (selectionChange)="switchLanguage(langSelect.value)">
-        <mat-option *ngFor="let lang of translate.getLangs()" placeholder="Choose Language" [value]="lang" selected="lang === translate.currentLang">{{ lang }}</mat-option>
+        <mat-option *ngFor="let lang of translate.getLangs()" [value]="lang">{{ lang }}</mat-option>
       </mat-select>
     </mat-form-field>
   </span>

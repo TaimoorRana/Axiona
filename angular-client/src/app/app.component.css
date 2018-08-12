@@ -19,3 +19,7 @@
 .mat-toolbar {
     margin-bottom: 2rem;
 }
+
+mat-form-field.languageSelect {
+    width: 4rem;
+}
