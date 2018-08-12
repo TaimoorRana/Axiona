@@ -14,6 +14,9 @@ export class TasksComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private taskService: TaskService) {
     this.createForm();
+    this.taskService.taskEmitter.subscribe(_ => {
+      this.loadTasks();
+    });
   }
 
   ngOnInit() {
