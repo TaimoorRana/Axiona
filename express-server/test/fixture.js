@@ -41,7 +41,7 @@ function deleteOneUser(email) {
 
 function createTestUsers() {
     createUser("test2@axiona.ca", "test123", "admin", "TestUser");
-    createUser("test1@axiona.ca", "test", "admin", "TestUser");
+    createUser("test1@axiona.ca", "test", "user", "TestUser");
 }
 
 function deleteTestUsers() {
