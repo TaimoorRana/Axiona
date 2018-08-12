@@ -9,7 +9,7 @@
         "ViewProfile":"View Profile"
     },
      "CaseModal": {
-        "New": "New Case",
+        "New": "New Cases",
         "Participant":"Participant:",
         "Urgency":"Select urgency of request",
         "Resources":"Select the resources for this case",

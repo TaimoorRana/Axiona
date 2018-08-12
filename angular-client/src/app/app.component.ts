@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from './services/authentication.service';
 import { RouterModule, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
 
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { PhonelogModalComponent } from '../app/components/phonelog/phonelog-modal/phonelog-modal.component';
@@ -20,8 +21,11 @@ export class AppComponent implements OnInit {
   constructor(
     private authenticationService: AuthenticationService,
     private router: Router,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private translate: TranslateService
   ) {
+    translate.addLangs(['en', 'fr', 'es']);
+    translate.setDefaultLang('en');
   }
 
   ngOnInit() {
@@ -52,5 +56,10 @@ export class AppComponent implements OnInit {
     const dialogRef = this.dialog.open(PhonelogModalComponent, {
       width: '66%'
     });
+  }
+
+  public switchLanguage(language: string) {
+    this.translate.use(language);
+    
   }
 }

@@ -10,15 +10,20 @@
       </button>
     </a>
     <a class="nav-link" routerLink="participants">
-      <button mat-button>
-        Participants
-      </button>
+      <button mat-button>{{'TopMenu.Participants'|translate}}</button>
     </a>
     <a class="nav-link" routerLink="resources">
-      <button mat-button>Resources</button>
+      <button mat-button>{{'TopMenu.Resources'|translate}}</button>
     </a>
   </span>
   <span class="fill-remaining-space"></span>
+  <span>
+    <mat-form-field>
+      <mat-select #langSelect (selectionChange)="switchLanguage(langSelect.value)">
+        <mat-option *ngFor="let lang of translate.getLangs()" placeholder="Choose Language" [value]="lang" selected="lang === translate.currentLang">{{ lang }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </span>
   <span *ngIf="this.authenticationService.loggedIn">
     <button mat-icon-button class="nav-phonelog" (click)="addPhonelog()">
       <mat-icon>phone</mat-icon>
