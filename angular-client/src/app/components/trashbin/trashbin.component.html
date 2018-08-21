@@ -1,7 +1,7 @@
 <mat-card>
         <mat-card-title>Trash Bin</mat-card-title>
         <p *ngIf="!items || items.length < 1">Nothing in the trash bin</p>
-        <div class="container">
+        <div class="container" *ngIf="items && items.length > 0">
           <div class="items" *ngFor="let item of (items | orderBy: 'updatedAt')" [ngSwitch]="item.model">
             <div *ngSwitchCase="'Participant'">
               <p><b>{{item.model}}:</b></p>
