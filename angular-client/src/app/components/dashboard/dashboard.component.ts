@@ -10,14 +10,14 @@ import { Router } from '@angular/router';
 export class DashboardComponent implements OnInit {
 
   dashboardLinks = [
-    {label: 'Dashboard', icon: 'home', path: 'activity'},
+    {label: 'Dashboard', icon: 'home', path: '../activity'},
     {label: 'Participants', icon: 'assignment_ind', path: '../participants'},
     {label: 'Resources', icon: 'bookmark', path: '../resources'},
-    {label: 'Tasks', icon: 'assignment', path: 'tasks'},
-    {label: 'Active Case Files', icon: 'folder', path: 'active-casefiles'},
-    {label: 'Phone Log', icon: 'phone', path: 'phonelog'},
-    {label: 'Reports', icon: 'assessment', path: 'reports'},
-    {label: 'Trash Bin', icon: 'delete', path: 'trashbin'}
+    {label: 'Tasks', icon: 'assignment', path: '../tasks'},
+    {label: 'Active Case Files', icon: 'folder', path: '../active-casefiles'},
+    {label: 'Phone Log', icon: 'phone', path: '../phonelog'},
+    {label: 'Reports', icon: 'assessment', path: '../reports'},
+    {label: 'Trash Bin', icon: 'delete', path: '../trashbin'}
   ];
 
   constructor(private authenticationService: AuthenticationService) {
@@ -26,7 +26,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     if (this.authenticationService.role === 'admin') {
       this.dashboardLinks.splice(4, 0,
-        {label: 'Manage Users', icon: 'supervisor_account', path: 'users'},
+        {label: 'Manage Users', icon: 'supervisor_account', path: '../users'},
       );
     }
   }

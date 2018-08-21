@@ -62,77 +62,76 @@ import { EditUserComponent } from './components/users/edit-user/edit-user.compon
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/dashboard/activity',
+    redirectTo: '/activity',
     pathMatch: 'full'
   },
   {
     path: 'dashboard',
     component: DashboardComponent,
+    children: []
+  },
+  {
+    path: '',
+    redirectTo: 'activity',
+    pathMatch: 'full'
+  },
+  {
+    path: 'activity',
+    component: ActivityComponent
+  },
+  {
+    path: 'tasks',
+    component: TasksComponent
+  },
+  {
+    path: 'active-casefiles',
+    component: ActiveCasefilesComponent
+  },
+  {
+    path: 'phonelog',
+    component: PhonelogComponent,
     children: [
       {
         path: '',
-        redirectTo: 'activity',
+        redirectTo: 'view-phonelog',
         pathMatch: 'full'
       },
       {
-        path: 'activity',
-        component: ActivityComponent
+        path: 'phonelog-tab',
+        component: PhonelogTabComponent
       },
       {
-        path: 'tasks',
-        component: TasksComponent
-      },
-      {
-        path: 'active-casefiles',
-        component: ActiveCasefilesComponent
-      },
-      {
-        path: 'phonelog',
-        component: PhonelogComponent,
-        children: [
-          {
-            path: '',
-            redirectTo: 'view-phonelog',
-            pathMatch: 'full'
-          },
-          {
-            path: 'phonelog-tab',
-            component: PhonelogTabComponent
-          },
-          {
-            path: 'view-phonelog',
-            component: ViewPhonelogComponent
-          }
-        ]
-      },
-      {
-        path: 'users',
-        component: UsersComponent,
-        children: [
-          {
-            path: '',
-            redirectTo: 'view-users',
-            pathMatch: 'full'
-          },
-          {
-            path: 'register-user',
-            component: RegisterUserComponent
-          },
-          {
-            path: 'view-users',
-            component: ViewUsersComponent
-          }
-        ]
-      },
-      {
-        path: 'reports',
-        component: ReportsComponent
-      },
-      {
-        path: 'trashbin',
-        component: TrashbinComponent
-      },
+        path: 'view-phonelog',
+        component: ViewPhonelogComponent
+      }
     ]
+  },
+  {
+    path: 'users',
+    component: UsersComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'view-users',
+        pathMatch: 'full'
+      },
+      {
+        path: 'register-user',
+        component: RegisterUserComponent
+      },
+      {
+        path: 'view-users',
+        component: ViewUsersComponent
+      }
+    ]
+  },
+  {
+    path: 'reports',
+    component: ReportsComponent
+  },
+  {
+    path: 'trashbin',
+    component: TrashbinComponent
   },
   {
     path: 'participants',
