@@ -1,8 +1,6 @@
-![https://travis-ci.org/adriannadiaz/Axiona](https://travis-ci.org/adriannadiaz/Axiona.svg?branch=master) 
+[![Travis](https://travis-ci.org/adriannadiaz/Axiona.svg?branch=master)](https://travis-ci.org/adriannadiaz/Axiona)
 
-
-![https://heroku.com/deploy?template=https://github.com/adriannadiaz/Axiona/tree/master](https://www.herokucdn.com/deploy/button.svg)
-https://heroku.com/deploy?template=https://github.com/adriannadiaz/Axiona/tree/master
+[![Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/adriannadiaz/Axiona/tree/master)
 
 Axiona
 ============
