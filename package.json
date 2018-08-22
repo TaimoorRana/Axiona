@@ -66,6 +66,6 @@
     },
     "scripts": {
         "postinstall": "cd angular-client && npm install && ng build && cd ../express-server && npm install",
-        "test": "echo Skipping Tests"
+        "test": "make test"
     }
 }
