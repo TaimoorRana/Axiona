@@ -17,3 +17,13 @@ mat-panel-title {
 mat-panel-description {
     flex: 1;
 }
+
+@media (max-width: 600px) {
+    .mat-card-actions {
+        justify-content: space-between;
+    }
+    button.mat-raised-button {
+        display: inline;
+        margin: 5px;
+    }
+}

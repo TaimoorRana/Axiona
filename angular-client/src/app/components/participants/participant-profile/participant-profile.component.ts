@@ -102,7 +102,7 @@ export class ParticipantProfileComponent implements OnInit {
    */
   newCase(): void {
     const dialogRef = this.dialog.open(CaseModalComponent, {
-      width: '66%',
+      width: '80%',
       data: { participant: this.participantSelected }
     });
     dialogRef.afterClosed().subscribe(result => {
@@ -117,7 +117,7 @@ export class ParticipantProfileComponent implements OnInit {
    */
   addNote(): void {
     const dialogRef = this.dialog.open(NoteModalComponent, {
-      width: '66%',
+      width: '80%',
       data: { id: this.participantSelected._id }
     });
 
@@ -133,7 +133,7 @@ export class ParticipantProfileComponent implements OnInit {
    */
   addDocument(): void {
     const dialogRef = this.dialog.open(DocumentModalComponent, {
-      width: '66%',
+      width: '80%',
       data: { id: this.participantSelected._id }
     });
 
@@ -226,8 +226,9 @@ export class ParticipantProfileComponent implements OnInit {
    */
   editWorkers(): void {
     const dialogRef = this.dialog.open(AssignUsersModalComponent, {
-      width: '33%',
-      data: { id: this.participantSelected._id, workers: this.participantSelected.socialworkers }
+      width: '80%',
+      data: { id: this.participantSelected._id, workers: this.participantSelected.socialworkers },
+      panelClass: 'modal-dialog'
     });
     dialogRef.afterClosed().subscribe(result => {
       this.loadParticipant();

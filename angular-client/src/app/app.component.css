@@ -1,9 +1,8 @@
 .nav-logo {
-   font-size: 2rem;
+    font-size: 2rem;
 }
 
-.nav-home,
-.nav-phonelog {
+.nav-home, .nav-phonelog {
     margin-right: 1rem;
 }
 

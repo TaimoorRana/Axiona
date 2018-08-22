@@ -4,13 +4,13 @@ mat-toolbar-row a.nav-link {
 }
 
 .container {
-    display: flex;
     padding: 0 2rem;
 }
 
 .toolbar {
     flex: 1 20%;
     margin-right: 2rem;
+    width: 100%;
 }
 
 .main {
@@ -23,4 +23,10 @@ mat-icon {
 
 button.mat-button {
     padding: 0 1rem 0 0;
+}
+
+@media (max-width: 599px) {
+    mat-toolbar-row {
+        height: 50px;
+    }
 }

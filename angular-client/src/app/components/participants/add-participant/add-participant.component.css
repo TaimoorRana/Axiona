@@ -6,6 +6,18 @@ mat-card {
     width: 66%;
 }
 
+@media (max-width: 599px) {
+    mat-card {
+        width: 100%;
+    }
+    input.mat-input-element {
+        font-size: 1.4rem;
+    }
+    mat-hint {
+        font-size: 1.3rem;
+    }
+}
+
 button{
     margin-top: 18px;
 }

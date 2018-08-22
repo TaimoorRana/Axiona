@@ -50,7 +50,7 @@ export class AppComponent implements OnInit {
 
   public addPhonelog(): void {
     const dialogRef = this.dialog.open(PhonelogModalComponent, {
-      width: '66%'
+      width: '80%'
     });
   }
 }

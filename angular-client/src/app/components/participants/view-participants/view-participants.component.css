@@ -30,6 +30,12 @@ a {
   flex-direction: column;
 }
 
+@media (max-width: 600px) {
+  .mat-card {
+    width: 100%;
+  }
+}
+
 .participant-header {
   margin-bottom: 1rem;
 }
